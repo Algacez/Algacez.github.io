@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Ame" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      搭建NPM图床 
+      
+      
+      |
+    
+     Ame&#39;s Blog
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.ico">
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Ame</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">搭建NPM图床</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2024-03-24 13:45:07
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
+                    <b>#</b> 教程
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E5%9B%BE%E5%BA%8A/" title="图床">
+                    #图床
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h2><p>先需要在 <a target="_blank" rel="noopener" href="https://github.com/">Github官网</a> 上创建一个<strong>仓库</strong>，这个仓库用于存储本地上传来的图片</p>
+<p>在本地任选一个文件路径，克隆所选仓库的文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BASH</span><br><span class="line">git clone git@github.com:blhorizon/BlogImages.git</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h2><p>现在注册一个 <a target="_blank" rel="noopener" href="https://www.npmjs.com/signup">npm账号</a>。需要注意的是，这里网页加载速度会比较慢。创建完成后会跳转到如下界面</p>
+<p>在 Github 图床所选的路径中打开<strong>命令行窗口</strong>，依次输入如下指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">BASH</span><br><span class="line"># 切换回原生源</span><br><span class="line">npm config set registry https://registry.npmjs.org</span><br><span class="line"></span><br><span class="line"># 仅第一次使用需要添加用户，之后会提示你输入你的npm账号密码以及注册邮箱</span><br><span class="line">npm adduser</span><br><span class="line"></span><br><span class="line"># 非第一次使用直接登录即可，之后会提示你输入你的npm账号密码以及注册邮箱</span><br><span class="line">npm login</span><br></pre></td></tr></table></figure>
+
+<p>运行 <strong>npm初始化指令</strong>，打包整个图床。需要注意的是，事先需要通过搜索确认你的包名是否<strong>唯一</strong>。同时 <strong>git repository</strong> 填写的是仓库的 <strong>HTTPS</strong>，而不是 <strong>SSH</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BASH</span><br><span class="line">npm init</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610205802.png" alt="img"></p>
+<p>初始化后会生成 <strong>package.json</strong> 文件，此时进行发布，也就是把<strong>包</strong>发布到 <strong>npm</strong> 上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BASH</span><br><span class="line">npm publish</span><br></pre></td></tr></table></figure>
+
+<p>打开<strong>命令行窗口</strong>，依次输入如下指令。需要注意的是，这几个命令都<strong>必须</strong>按照顺序执行，<strong>不能省略</strong>某一个步骤</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 将更改提交到暂存区中</span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"># 将暂存区内容添加到本地仓库中</span><br><span class="line">git commit -m &quot;npm publish&quot;</span><br><span class="line"></span><br><span class="line"># 更新package版本号，每次会在末尾版本号 +1。例如 0.0.1 =&gt; 0.0.2</span><br><span class="line"># 大版本需要在 package.json 手动更改 version，即从 1.0.0 =&gt; 2.0.0</span><br><span class="line">npm version patch</span><br><span class="line"></span><br><span class="line"># 推送至Github上</span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line"># 推送到npm上</span><br><span class="line">npm publish</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Github-Action"><a href="#Github-Action" class="headerlink" title="Github Action"></a>Github Action</h2><p>为了节省时间，减少没必要的工作，可以通过 <strong>github action</strong> 进行上传。点击 <strong>你的头像</strong> - 选择 <strong>Access Tokens</strong> - 点击 <strong>Generate New Token</strong> - 选择 <strong>Classic Token</strong>。需要注意的是，选择 <strong>Automation</strong>，并记住出现的 <strong>Token</strong>，它只会出现一次<br><a target="_blank" rel="noopener" href="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610214209.png"><img src="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610214209.png" alt="img"></a></p>
+<p>在 <strong>Github图床</strong> 所在的仓库<strong>设置</strong>中添加一个名为 <strong>NPM_TOKEN</strong> 的私钥。<strong>Secret</strong> 既是所记住的 <strong>Token</strong>。<br><a target="_blank" rel="noopener" href="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610214723.png"><img src="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610214723.png" alt="img"></a></p>
+<p>在图床根目录 上新建 <strong>new_version.py</strong> 文件，并写入如下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># new_version.py</span><br><span class="line">import json;</span><br><span class="line">import time;</span><br><span class="line">with open(&quot;package.json&quot;,&#x27;r&#x27;,encoding=&#x27;utf-8&#x27;) as f:</span><br><span class="line">    jspack = json.load(f)</span><br><span class="line">new_version = &#x27;1.1.&#x27;+str(int(time.time()))[1:11:1]</span><br><span class="line">jspack[&#x27;version&#x27;]=new_version</span><br><span class="line">with open(&quot;package.json&quot;,&#x27;w&#x27;,encoding=&#x27;utf-8&#x27;) as f:</span><br><span class="line">    json.dump(jspack, f,ensure_ascii=False)</span><br></pre></td></tr></table></figure>
+
+<p>在 Github 图床所选的路径中新建 <strong>&#x2F;.github&#x2F;workflows&#x2F;autopublish.yml</strong> 文件，并填写如下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">YAML</span><br><span class="line"></span><br><span class="line">name: Deploy to NPM CDN</span><br><span class="line">&#x27;on&#x27;:</span><br><span class="line">  - workflow_dispatch</span><br><span class="line">  - push</span><br><span class="line">jobs:</span><br><span class="line">  deploy:</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">      - uses: actions/checkout@v2</span><br><span class="line">      - uses: actions/setup-node@v1</span><br><span class="line">        with:</span><br><span class="line">          node-version: 16.x</span><br><span class="line">      - run: python3 new_version.py</span><br><span class="line">      - uses: JS-DevTools/npm-publish@v1</span><br><span class="line">        with:</span><br><span class="line">          token: $&#123;&#123; secrets.NPM_TOKEN &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>$&#123;&#123; secrets.NPM_TOKEN &#125;&#125;</code> 记得要更改在 npm 上生成的 TOKEN</p>
+</blockquote>
+<hr>
+<h2 id="CDN-加速"><a href="#CDN-加速" class="headerlink" title="CDN 加速"></a>CDN 加速</h2><p>在国内访问会比较慢，这时就需要 <strong>CDN</strong> 来进行加速，使你的访问速度显著提高。这里推荐<strong>免费</strong>、<strong>快速且可靠</strong>的 <a target="_blank" rel="noopener" href="https://www.jsdelivr.com/">jsDelivr</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BASH</span><br><span class="line"># jsDelivr + github链接</span><br><span class="line">https://cdn.jsdelivr.net/gh/[Github用户名]/[仓库名]/[图片路径]</span><br><span class="line"></span><br><span class="line"># jsDelivr + npm链接</span><br><span class="line">https://cdn.jsdelivr.net/npm/[npm包名]/[图片路径]</span><br></pre></td></tr></table></figure>
+
+<p>除了 <strong>jsDelivr</strong>，也有其他可用的 <strong>CDN</strong> 源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># jsdelivr：fastly.jsdelivr.net</span><br><span class="line">https://jsd.onmicrosoft.cn/npm/[npm包名]/[图片路径]</span><br><span class="line"></span><br><span class="line"># 饿了么1：github.elemecdn.com</span><br><span class="line">http://github.elemecdn.com/[npm包名]/[图片路径]</span><br><span class="line"></span><br><span class="line"># 饿了么2：npm.elemecdn.com</span><br><span class="line">http://npm.elemecdn.com/[npm包名]/[图片路径]</span><br><span class="line"></span><br><span class="line"># unpkg.zhimg.com</span><br><span class="line">https://unpkg.com/[npm包名]/[图片路径]</span><br><span class="line"></span><br><span class="line"># jsd.onmicrosoft.cn</span><br><span class="line">https://jsd.onmicrosoft.cn/npm/[npm包名]/[图片路径]</span><br><span class="line"></span><br><span class="line"># npm.onmicrosoft.cn</span><br><span class="line">http://npm.onmicrosoft.cn/[npm包名]/[图片路径]</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="PicGO-安装"><a href="#PicGO-安装" class="headerlink" title="PicGO 安装"></a>PicGO 安装</h2><p>下载 <a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases/tag/v2.3.1">PicGO</a> 后，为了使它可以访问 <strong>Github</strong>，需要先获取<strong>私钥</strong>。点击 <strong>你的头像</strong> - 选择 <strong>Settings</strong> - 选择 <strong>Developer settings</strong> ，进入该界面后：<br><a target="_blank" rel="noopener" href="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610234731.png"><img src="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610234731.png" alt="img"></a></p>
+<p>创建私钥，<strong>TOKEN</strong> 只显示一次，记得保存，如果没有保存，后面也可以重新创建一个。<br><a target="_blank" rel="noopener" href="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610235402.png"><img src="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610235402.png" alt="img"></a></p>
+<p>对 <strong>Github图床</strong> 进行配置：<br><a target="_blank" rel="noopener" href="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230611005942.png"><img src="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230611005942.png" alt="img"></a></p>
+<hr>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><blockquote>
+<p><strong>Github图床</strong> 存储的图片总大小不能超过 <strong>1G</strong>，否则会有<strong>人工审核</strong>仓库内容，如果发现<strong>用来做图床</strong>，轻则删库，重则封号。因此为了安全起见，建议在 <strong>1G</strong> 之前就换个仓库，反正可以创建无数个仓库嘛。</p>
+<p><strong>jsDelivr + Npm</strong> 依然有 <strong>100MB</strong> 的包大小限制，但是 NPM 有丰富的国内节点。</p>
+</blockquote>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2023/10/01/%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81%E7%AE%80%E4%BB%8B/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2024-03-24 13:45:07
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
+                        <b>#</b> 教程
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E5%9B%BE%E5%BA%8A/" title="图床">
+                        #图床
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2023/10/03/%E5%88%A9%E7%94%A8Cloudflare-Workers%E6%90%AD%E5%BB%BAGithub%E4%B8%8B%E8%BD%BD%E5%8A%A0%E9%80%9F%E7%AB%99/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GitHub"><span class="toc-text">GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NPM"><span class="toc-text">NPM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-Action"><span class="toc-text">Github Action</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CDN-%E5%8A%A0%E9%80%9F"><span class="toc-text">CDN 加速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PicGO-%E5%AE%89%E8%A3%85"><span class="toc-text">PicGO 安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">注意事项</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+            <a title="email" href="mailto:mailto:blog@282994.xyz">
+              <i class="iconfont icon-envelope"></i>
+            </a>
+            
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2024 Ame</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+
+      </div>
+    </div>
+  </body>
+</html>

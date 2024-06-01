@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Ame" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      Git教程 
+      
+      
+      |
+    
+     Ame&#39;s Blog
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.ico">
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Ame</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">Git教程</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2024-03-23 15:38:37
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
+                    <b>#</b> 教程
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/Git/" title="Git">
+                    #Git
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="Git基础"><a href="#Git基础" class="headerlink" title="Git基础"></a>Git基础</h1><h2 id="工作区、暂存区、本地仓库和远程仓库"><a href="#工作区、暂存区、本地仓库和远程仓库" class="headerlink" title="工作区、暂存区、本地仓库和远程仓库"></a>工作区、暂存区、本地仓库和远程仓库</h2><ul>
+<li><p>工作区：是指开发者本地的工作目录，可以理解为保存源代码的目录，比如我们正在使用VSCode开发，VSCode所操作的文件目录即是工作区。在工作区内修改或添加文件后需要通过Git将其提交到版本控制系统中，这时候文件的修改还不存在于Git repository中。</p>
+</li>
+<li><p>暂存区：也称为Git Index（索引），是在进行commit操作之前使用的一个缓存区域，它存放着即将被提交的代码更改，可以简单理解为在提交代码前的一个临时存储区域。通过使用git add命令可以将修改的文件添加到暂存区中，而使用git reset命令则可以将文件从暂存区移除。</p>
+</li>
+<li><p>本地仓库：也称为Git Repository，是存储代码更改历史记录的地方，以及比保存在工作区中更加安全和稳定的版本库。当从暂存区提交代码后，会生成一个新的提交对象，并被保存在本地Git代码库中。可以通过使用git commit将暂存区的文件添加到本地仓库。本地仓库往往可以使用git init生成。</p>
+</li>
+<li><p>远程仓库：是指代码托管服务提供的服务器端存储库，一般使用GitHub、GitLab等在线平台扮演着远程仓库的角色。当本地仓库需要与其他人协作或备份时，可以将本地仓库中的改动通过git push推送到远程仓库进行分享或备份，也可以通过git pull从远程仓库拉取最新代码到本地进行更新。</p>
+</li>
+</ul>
+<p>对于一个Git项目，一般情况下，工作区是开发者进行开发和修改代码的地方，暂存区是用来暂存即将提交的文件更改，本地仓库则是存储代码版本历史记录和进行分支管理的主要地方。而远程仓库则是为了协同开发、备份和分享代码而产生的一个重要概念。</p>
+<p>总结一下代码提交的过程所经过的位置：工作区—&gt;暂存区—&gt;本地仓库—&gt;远程仓库。</p>
+<p>本地仓库关联远程仓库:<code>git remote add origin 远程仓库url</code></p>
+<hr>
+<h2 id="Git添加用户"><a href="#Git添加用户" class="headerlink" title="Git添加用户"></a>Git添加用户</h2><p><code>git config --global user.name 用户名</code><br><code>git config --global user.email 邮箱</code><br><code>ssh-keygen -t rsa</code><br>这是打开你的电脑的用户文件夹，里面有一个.ssh文件，打开，里面多了两个刚生成的文件，将id_rsa.pub文件里的全部内容复制下来。把密钥添加到github账号</p>
+<h2 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h2><p>git init命令用于在目录中创建新的Git仓库（也就是本地仓库）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+
+<p>例如，我们在桌面创建一个名为demo的文件夹，并创建新的Git仓库。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir demo</span><br><span class="line">$ cd demo/</span><br><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository in C:/Users/22706/Desktop/demo/.git/</span><br><span class="line"># 初始化空Git仓库完毕</span><br></pre></td></tr></table></figure>
+
+
+<p>现在你可以在你的文件夹中会有一个隐藏的.git子目录(文件夹内要设置展示隐藏文件夹才能看到)，这就是你的GIt仓库（此文件夹的本地仓库）了，所有有关你的此项目的快照数据都存放在这里。使用ls -a命令可以在bash面板中查看隐藏文件。</p>
+<h2 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h2><p>git add命令用于将工作区的文件添加到暂存区。</p>
+<p>添加一个或多个文件到暂存区：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add [file1] [file2] ...</span><br></pre></td></tr></table></figure>
+
+<p>添加指定目录到暂存区，包括子目录：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add [dir]</span><br></pre></td></tr></table></figure>
+
+<p>添加当前目录下的所有文件到暂存区：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
+
+<p>现在我们实现demo目录下创建两个文件，并将它们添加至暂存区</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">touch</span> README.md  <span class="comment"># 创建文件</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">touch</span> hello.js  <span class="comment"># 创建文件</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ls</span>  <span class="comment"># 列出此目录下所有文件</span></span></span><br><span class="line">README.md  hello.js</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git add README.md hello.js  <span class="comment"># git add</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git status  <span class="comment"># 用于显示当前git仓库的状态，即哪些文件被修改了、哪些文件已经准备好提交到仓库，以及当前所在分支等信息，后续会详细介绍</span></span></span><br><span class="line">On branch master  # 在master分支</span><br><span class="line"></span><br><span class="line">No commits yet  # 还没有提交</span><br><span class="line"></span><br><span class="line">Changes to be committed:  # 要提交的更改：</span><br><span class="line">  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)</span><br><span class="line">        new file:   README.md</span><br><span class="line">        new file:   hello.js</span><br></pre></td></tr></table></figure>
+
+<p>在项目开发的过程中，添加所有文件使用的很普遍，所以务必记住git add .该命令。</p>
+<h2 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h2><p>git status命令用于显示当前GIt仓库的状态，即哪些文件被修改了、哪些文件已经准备好提交到仓库，以及当前所在的分支等信息。需要注意的是：git status查看的状态显示的是commit之前的状态，看不了commit的状态？？？？？有待考证。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+
+<p>执行git status命令后，Git会返回一个列表，列出已修改但未添加至暂存区（索引区）的文件列表、已添加至暂存区（索引区）但未提交的文件列表和尚未追踪（untracked）的文件列表。同时还会显示当前所在的分支名称、是否是干净工作区（没有任何被修改的文件）等信息。</p>
+<p>另外使用-s(short)参数可以获取简短的仓库状态输出结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status -s</span><br></pre></td></tr></table></figure>
+
+<p>我们在上一小节的基础上修改README.md文件，并查看仓库状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ echo &quot;Hello World&quot; &gt; README.md  # 写入内容到指定文件</span><br><span class="line">$ git status</span><br><span class="line">On branch master  # 在master上</span><br><span class="line"></span><br><span class="line">No commits yet  # 还没有任何提交</span><br><span class="line"> </span><br><span class="line">Changes to be committed:  # 要提交的更改：（指的就是已经在暂存区的更改）</span><br><span class="line">  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)</span><br><span class="line">        new file:   README.md</span><br><span class="line">        new file:   hello.js</span><br><span class="line"></span><br><span class="line">Changes not staged for commit:  # 未暂存以提交的更改：（指的就是在工作区修改后还没add到暂存区的更改）</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">        modified:   README.md</span><br><span class="line">$ git status -s  # 简短输出</span><br><span class="line">AM README.md  # A表示新增文件，M表示被修改过，绿色表示已add到暂存区，红色表示还在工作区</span><br><span class="line">A hello.js</span><br></pre></td></tr></table></figure>
+
+<p><strong>A表示*已在暂存区*的新增文件(add)，M表示被修改过(modified)，绿色表示已add到暂存区，红色表示还在工作区未add到暂存区。</strong></p>
+<p>现在我们提交暂存区的更改再查看状态试试：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;首次提交&quot;  # 提交指令，后续会详细介绍</span><br><span class="line">[master (root-commit) 33b65a6] 首次提交</span><br><span class="line"> 2 files changed, 0 insertions(+), 0 deletions(-)</span><br><span class="line"> create mode 100644 README.md</span><br><span class="line"> create mode 100644 hello.js</span><br><span class="line">$ git status  # 看状态</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged for commit:  # 未暂存以提交的更改：（指的就是在工作区修改后还没add到暂存区的更改）</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">        modified:   README.md</span><br><span class="line"></span><br><span class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)  # 没有被add(在暂存区)的更改以提交</span><br><span class="line">$ git status -s  # 简短输出状态</span><br><span class="line"> M README.md  # 红色的M</span><br></pre></td></tr></table></figure>
+
+<p>如上图，通过简短输出状态，看到只剩下红色的M的README.md，表示此更改还在工作区，已经提交的更改是没有状态可看的。</p>
+<p>还需要提醒的是，在工作区新增的文件，如未add至暂存区前，使用git status -s查看到的状态是??，其表示的意思也是新增(add)，只不过还在工作区中，并未作出修改。如下，新增文件html.js后简短输出状态：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ touch html.js  # 新增文件</span><br><span class="line">$ git status -s  # 简短输出状态</span><br><span class="line"> M README.md</span><br><span class="line">?? html.js</span><br><span class="line">$ git add .  # add暂存</span><br><span class="line">warning: in the working copy of &#x27;README.md&#x27;, LF will be replaced by CRLF the next time Git touches it  # 这个警告提示是由于在不同的操作系统中换行符的表示方式不同所导致的，CRLF表示windows的换行，LF表示linux的换行，这里不细说。</span><br><span class="line">$ git status -s  # add暂存</span><br><span class="line">M  README.md</span><br><span class="line">A  html.js</span><br></pre></td></tr></table></figure>
+
+<p>可以看到提交前的新建并不修改的文件状态是红色问号，add暂存后就变为绿色A。</p>
+<p>通过执行<code>git status</code>，我们可以了解项目中代码的变更情况，帮助我们更好地掌握代码版本的演进。</p>
+<p>在分支切换时，会常用此指令查看当前所处分支，确保分支无误后再进行代码提交等操作。</p>
+<h2 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h2><p>git commit命令用于将暂存区内容添加到本地仓库。</p>
+<p>学习要点：如何提交、提交成功的输出信息的含义、提交成功后状态变化、查看提交日志</p>
+<p>提交暂存区到本地仓库中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m [message]</span><br></pre></td></tr></table></figure>
+
+<p>[message]是一些备注信息。如果未输入备注信息会自动进入vim编辑器，要求你在vim编辑器内输入备注信息，否则提交失败。有关vim编辑器的基本使用可以查看我往期文章：vim编辑器基本使用。</p>
+<p>提交暂存区指定文件到仓库区：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit [file1] [file2] ... -m [message]</span><br></pre></td></tr></table></figure>
+
+<p>-a参数设置修改文件后不需要执行git add命令，直接来提交</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -a</span><br></pre></td></tr></table></figure>
+
+<p>另外在第一次提交前要设置用户信息，包括用户名和邮箱，此用户名与邮箱与远程仓库无任何关联，不产生影响，只是用于区分提交用户。不是真实邮箱也问题不大。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &#x27;WuJianRong&#x27;</span><br><span class="line">$ git config --global user.email 2270645424@qq.com</span><br></pre></td></tr></table></figure>
+
+<p>如果去掉–gobal参数则只对当前仓库有效。</p>
+<p>下面我们在上一小节的基础上提交代码，再查看状态以及提交日志(后续会详细介绍)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;二次提交&quot;</span><br><span class="line">[master 3dec064] 二次提交</span><br><span class="line"> 2 files changed, 1 insertion(+)  # 2个文件有更改，新插入1行代码</span><br><span class="line"> create mode 100644 html.js  # 表示一个新文件被添加到Git仓库中，六位数字表示文件权限，100644：可读写，100755：可执行文件</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean  # 没有可提交的东西，工作树是干净的</span><br><span class="line">$ git status -s</span><br><span class="line">    				 # 简短输出是空 表无可提交的东西</span><br><span class="line">$ git log    # 查看提交日志</span><br><span class="line">commit 3dec0643778646c59200135deb39d1e4506ee124 (HEAD -&gt; master) # 中间那串表示key，用于区分提交记录，可以使用此key回退提交版本，后续会详细介绍</span><br><span class="line">Author: WuJianRong &lt;2270645424@qq.com&gt;  # 提交用户，多人协作一个项目时用于区分哪个程序猿提交的</span><br><span class="line">Date:   Sat Jun 10 22:35:21 2023 +0800  # 提交时间</span><br><span class="line"></span><br><span class="line">    二次提交</span><br><span class="line"></span><br><span class="line">commit 33b65a64b587bb20d6d289b0eeb3b11d4b730e1f</span><br><span class="line">Author: WuJianRong &lt;2270645424@qq.com&gt;</span><br><span class="line">Date:   Sat Jun 10 21:53:03 2023 +0800</span><br><span class="line"></span><br><span class="line">    首次提交</span><br></pre></td></tr></table></figure>
+
+<p>详细请看代码备注。</p>
+<h2 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h2><p>git push命令用于从本地的分支版本上传到远程并合并。</p>
+<p>学习要点：如何推送、本地仓库如何连接远程仓库、如何配置代理</p>
+<p>命令格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br></pre></td></tr></table></figure>
+
+<p>当添加“-u”参数时，表示下次继续push的这个远端分支的时候推送命令就可以简写成“git push”【2023&#x2F;09&#x2F;17更】</p>
+<p>如果本地分支名与远程分支名相同，则可以省略冒号：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push &lt;远程主机名&gt; &lt;本地分支名&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在将本地仓库的更改推送到远程仓库前，要先配置默认推送的目标远程仓库，可以使用git remote add命令将远程仓库添加到本地仓库，并为它命名一个别名，从而在以后使用该别名来引用该远程仓库。</p>
+<p>另外，我们经常使用后面不带参数的<code>git push</code>命令，<strong>如果不带任何参数，默认情况下它会将当前分支推送到与其所跟踪的远程分支同名的远程分支上，如果该分支不存在，则会创建一个同名的远程分支并将当前分支推送到该分支上。</strong></p>
+<h2 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h2><p>git pull命令用于从远程拉取代码并合并本地的版本。</p>
+<p>git pull其实就是git fetch和git merge FETCH_HEAD的简写。命令格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br></pre></td></tr></table></figure>
+
+<p>下面我们在远端新建一个名为new-remote-file文件，再尝试在本地拉取远程的更改（即远端仓库和本地工作区的差异）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master  # 拉取</span><br><span class="line">remote: Enumerating objects: 4, done.  # 一些拉取的描述信息</span><br><span class="line">remote: Counting objects: 100% (4/4), done.</span><br><span class="line">remote: Compressing objects: 100% (2/2), done.</span><br><span class="line">Unpacking objects: 100% (3/3), 736 bytes | 147.00 KiB/s, done.</span><br><span class="line">remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0</span><br><span class="line">From https://github.com/WuJianR/Git-Study</span><br><span class="line"> * branch            master     -&gt; FETCH_HEAD</span><br><span class="line">   3dec064..b8fbc74  master     -&gt; origin/master</span><br><span class="line">Updating 3dec064..b8fbc74</span><br><span class="line">Fast-forward</span><br><span class="line"> new-remote-file | 1 +  # 文件名 | 一个新增文件</span><br><span class="line"> 1 file changed, 1 insertion(+)  # 一个变更了的文件，新增一行内容</span><br><span class="line"> create mode 100644 new-remote-file  # 可读写文件</span><br></pre></td></tr></table></figure>
+
+<p>查看本地工作区的文件内容，可以看到本地工作区的内容和远程仓库的同步了。</p>
+<p>再次拉取，则会显示当前工作区已是最新的了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master</span><br><span class="line">From https://github.com/WuJianR/Git-Study</span><br><span class="line"> * branch            master     -&gt; FETCH_HEAD</span><br><span class="line">Already up to date.</span><br></pre></td></tr></table></figure>
+
+<p>工作中，我们经常使用后面不带参数的git pull命令，它git pull不带参数是一个道理，可看上一小节末尾。</p>
+<h2 id="git-分支管理"><a href="#git-分支管理" class="headerlink" title="git 分支管理"></a>git 分支管理</h2><p><strong>(branch、checkout、merge)</strong></p>
+<p>几乎每一种版本控制系统都以某种形式支持分支。使用分支意味着你可以从开发主线上分离开来，然后再不影响主线的同时继续工作。有人把Git的分支模型称为必杀技特性，而正是因为它，将Git从版本控制系统家族里区分出来。</p>
+<p>学习要点：如何分别实现本地分支增删合查、如何查看远程仓库分支、分支合并[核心]</p>
+<p>查看本地仓库所有分支命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
+
+<p>添加-r参数可以查看远程仓库所有分支：r即表示remote。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -r</span><br></pre></td></tr></table></figure>
+
+<p>创建分支命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch [branchname]</span><br></pre></td></tr></table></figure>
+
+<p>切换分支命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout [branchname]</span><br></pre></td></tr></table></figure>
+
+<p>合并分支命令：将其他分支合并到当前分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge [branchname]</span><br></pre></td></tr></table></figure>
+
+<p>删除分支命令：不能删除当前所在分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d [branchname]</span><br></pre></td></tr></table></figure>
+
+<p>新建分支并切换到新建的分支的快捷命令：相当于先新建分支，再切换分支，两条指令合二为一</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b [branchname]</span><br></pre></td></tr></table></figure>
+
+<p>分支重命名【2023&#x2F;07&#x2F;16更】</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -m main master</span><br></pre></td></tr></table></figure>
+
+<p>上述命令实现将main分支重命名为master</p>
+<p>查看本地所有分支以及提交的版本【2023&#x2F;07&#x2F;16更】</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -v</span><br></pre></td></tr></table></figure>
+
+<p>案例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -v</span><br><span class="line">  dev       5a69c9a fix: 口碑地图返回，返回修复数据丢失修复</span><br><span class="line">  lectotype 6716f30 [behind 7] feat:更换在线选型加载效果</span><br><span class="line">* map_robot bb21668 fix:终审页底部转发按钮适配</span><br><span class="line">  master    8a0417e [behind 211] fix: 数据统计扫码进入通过scene接口获取全部参数</span><br><span class="line">拼接page_url</span><br><span class="line">  team      e9f3240 feat:完成我的团队成员筛选功能</span><br></pre></td></tr></table></figure>
+
+<p>下面我们接着上一节的案例，在本地新建分支，但不切换分支，在原分支上做出更改，再切换新建分支，对比差异：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">$ git branch  # 查看本地仓库所有分支</span><br><span class="line">* master  # * 表示当前所在分支</span><br><span class="line">$ git branch -r  # 查看远程仓库所有分支</span><br><span class="line">  origin/master</span><br><span class="line">$ ls  # 查看当前分支下工作区所有文件</span><br><span class="line">README.md  hello.js  html.js  new-remote-file</span><br><span class="line">$ git branch newbranch1  # 新建名为newbranch1的分支</span><br><span class="line">$ git branch  # 查看本地仓库的所有分支及当前所处分支</span><br><span class="line">* master</span><br><span class="line">  newbranch1</span><br><span class="line">$ touch hi.js  # 当前分支下新建文件hi.js</span><br><span class="line">$ ls</span><br><span class="line">README.md  hello.js  hi.js  html.js  new-remote-file</span><br><span class="line">$ git add .  # 添加所有文件至到暂存区</span><br><span class="line">$ git commit -m &quot;add hi.js&quot;  # 提交暂存区的文件至本地仓库</span><br><span class="line">[master 2bf84e8] add hi.js</span><br><span class="line"> 1 file changed, 0 insertions(+), 0 deletions(-)</span><br><span class="line"> create mode 100644 hi.js</span><br><span class="line">$ git checkout newbranch1  # 切换到新建分支</span><br><span class="line">Switched to branch &#x27;newbranch1&#x27;</span><br><span class="line">$ git branch  # 查看本地仓库的所有分支及当前所处分支</span><br><span class="line">  master</span><br><span class="line">* newbranch1</span><br><span class="line">$ ls  # 可以看到新建分支并没有在master分支下新建的hi.js文件</span><br><span class="line">README.md  hello.js  html.js  new-remote-file</span><br><span class="line">$ git checkout master  # 切换回master分支</span><br><span class="line">Switched to branch &#x27;master&#x27;</span><br><span class="line">$ ls  # 可以看到master是有hi.js文件的</span><br><span class="line">README.md  hello.js  hi.js  html.js  new-remote-file</span><br></pre></td></tr></table></figure>
+
+<p>通过执行上述指令可以看到，在当前分支做出更新，并提交更新后，在没有和其他分支合并的前提下切换到其他分支，Git将还原你的工作目录到你创建分支时候的样子，如上述在master分支新建并提交的hi.js文件在newbranch1分支下是没有的。</p>
+<p>但是值得注意的是：<strong>当你在Git中切换分支时，Git会自动将当前分支中的工作区文件和暂存区文件进行保存，然后Git会从目标分支读取它最新的commit的内容到工作区和暂存区。</strong>也就是没提交到本地仓库的内容会被保存，切换到其他分支依旧可以看到这些内容，提交到本地仓库就代表不在工作区和暂存区了，切换其他分支上也就看不到这些内容了。上面说的都是在没有合并分支的前提下。</p>
+<p>下面我们在master分支上新建一个文件nihao.js，不提交至本地仓库，我们切换分支对比工作区文件列表可以验证我上面说的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout newbranch1</span><br><span class="line">Switched to branch &#x27;newbranch1&#x27;</span><br><span class="line">$ touch &#x27;nihao.js&#x27;  # master分支下新建文件在工作区</span><br><span class="line">$ git checkout newbranch1  # 没提交到本地仓库直接切换分支</span><br><span class="line">Switched to branch &#x27;newbranch1&#x27;</span><br><span class="line">$ ls  # newbranch1分支下可以看到在master分支未提交的nihao.js文件</span><br><span class="line">README.md  hello.js  html.js  new-remote-file  nihao.js</span><br></pre></td></tr></table></figure>
+
+<p>下面我们再来讲讲如何分支合并，</p>
+<p>GIt分支合并是将两个不同的分支合并成一个新的分支，其中一个分支被称为”目标分支”（或基础分支，也就是当前所在分支），另一个分支被称为”要被合并的分支”。在合并的过程中，Git会比较两个分支之间的差异并尝试将这些差异合并到目标分支上，从而创建一个新的包含两个分支的代码库。通常情况下，新版本的分支应该被合并到旧版本的分支上，而不是相反，因为大多数情况下我们希望保留最新的更改并将其合并入旧版本中以创建一个更新版本。</p>
+<p>下面我们接着上面的案例，通过实践来体会分支合并，在上面的案例中，我们在master分支中做出了更新(即新建并提交了一个hi.js的文件)，newbranch1分支仍处于新建hi.js之前的提交状态，也就是说master分支相当于新版本，newbranch1分支相当于旧版本，我们先在新版本分支上尝试合并旧版本分支，看看会有啥结果，再切换旧版本分支，合并新版本分支，再看看会有什么不同：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master  # 切换到新版本分支</span><br><span class="line">Switched to branch &#x27;master&#x27;</span><br><span class="line">$ git merge newbranch1 # 合并旧版本</span><br><span class="line">Already up to date.  # 可以看到输出显示 当前分支已经是最新的了，也就是合并方向反了</span><br><span class="line">$ git checkout newbranch1  # 切换旧版本分支</span><br><span class="line">Switched to branch &#x27;newbranch1&#x27;</span><br><span class="line">$ git merge master  # 合并新版本分支</span><br><span class="line">Updating b8fbc74..2bf84e8</span><br><span class="line">Fast-forward</span><br><span class="line"> hi.js | 0</span><br><span class="line"> 1 file changed, 0 insertions(+), 0 deletions(-)  # 可以看到旧版本分支里新增了一个文件，也就是master分支的新建提交了的文件</span><br><span class="line"> create mode 100644 hi.js</span><br><span class="line"> $ git log  # 再看一眼提交日志，可以看到在新版本分支master分支的最新的提交也同步到newbranch1分支上了</span><br><span class="line">commit 2bf84e8c5df42fc42fe0cfb6c5be53026056427c (HEAD -&gt; newbranch1, master)</span><br><span class="line">Author: WuJianRong &lt;2270645424@qq.com&gt;</span><br><span class="line">Date:   Sun Jun 11 12:06:30 2023 +0800</span><br><span class="line"></span><br><span class="line">    add hi.js</span><br><span class="line"></span><br><span class="line">commit b8fbc741ab8b5861f41052306c30e0effb8a3261 (origin/master)</span><br><span class="line">Author: echo5 &lt;97384745+WuJianR@users.noreply.github.com&gt;</span><br><span class="line">Date:   Sat Jun 10 23:27:02 2023 +0800</span><br><span class="line"></span><br><span class="line">    Create new-remote-file</span><br><span class="line"></span><br><span class="line">    远端新建的一个文件</span><br><span class="line"></span><br><span class="line">commit 3dec0643778646c59200135deb39d1e4506ee124</span><br><span class="line">Author: WuJianRong &lt;2270645424@qq.com&gt;</span><br><span class="line">Date:   Sat Jun 10 22:35:21 2023 +0800</span><br><span class="line"></span><br><span class="line">    二次提交</span><br><span class="line"></span><br><span class="line">commit 33b65a64b587bb20d6d289b0eeb3b11d4b730e1f</span><br><span class="line">Author: WuJianRong &lt;2270645424@qq.com&gt;</span><br><span class="line">Date:   Sat Jun 10 21:53:03 2023 +0800</span><br><span class="line"></span><br><span class="line">    首次提交</span><br><span class="line">$ git branch -d master  # 删除被合并的分支</span><br><span class="line">Deleted branch master (was 2bf84e8).</span><br><span class="line">$ git branch  # 查看分支列表，可以看到master分支不见了</span><br><span class="line">* newbranch1</span><br></pre></td></tr></table></figure>
+
+<p>上述代码的对比可以很好的验证了新版本的分支应该被合并到旧版本的分支上。</p>
+<p>但是值得注意的是，以上被合并和删除的master分支仅仅只是用于测试。</p>
+<p>真实工作中，master分支往往作为主分支，不能用于被合并，往往都是新建一个分支，在新分支上开发新功能，再把新分支合并到主分支master上，最后删除新分支。</p>
+<h2 id="git-clone和log"><a href="#git-clone和log" class="headerlink" title="git clone和log"></a>git clone和log</h2><p>这两个命令一个是克隆远程仓库的项目，一个是查看提交日志。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone [仓库链接]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>查看提交日志常在处理冲突的过程中使用。</p>
+<p>不带任何参数，查看所有历史记录。返回结果有，每个版本的hash值、作者、邮箱、提交时间、当前指针位置、与远程仓库同步的版本、每次提交的message等。如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ git log</span><br><span class="line">commit d0ce8411071bd3c1675f9a3eea996325b2a402d6 (HEAD -&gt; master, origin/master)</span><br><span class="line">Author: Wu &lt;2270645424@163.com&gt;</span><br><span class="line">Date:   Sun Jul 16 20:19:35 2023 +0800</span><br><span class="line"></span><br><span class="line">    CSS实现冒泡动画、vue2数组对象失去响应式的两种解决方法、oninput和@input</span><br><span class="line"></span><br><span class="line">commit bd00b27badc5a96a4238847785c9ce4ba2e26197</span><br><span class="line">Author: Wu &lt;2270645424@q163.com&gt;</span><br><span class="line">Date:   Thu Apr 20 15:19:29 2023 +0800</span><br><span class="line"></span><br><span class="line">    init</span><br></pre></td></tr></table></figure>
+
+<p>其中：<br><code>HEAD -&gt; master</code>表示当前指针在master分支。<br><code>origin/master</code>表示远端仓库同步的版本在当前提交记录的版本。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log --oneline</span><br></pre></td></tr></table></figure>
+
+<p>携带–oneline选项，则每个版本的所有信息显示在一行，并且仅仅显示每个版本的hash的前7位、当前指针位置、与远程仓库同步的版本、每次提交的message等。如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git log --oneline</span><br><span class="line">d0ce841 (HEAD -&gt; master, origin/master) CSS实现冒泡动画、vue2数组对象失去响应式的两种解决方法、oninput和@input</span><br><span class="line">bd00b27 init</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --gragh</span><br></pre></td></tr></table></figure>
+
+<p>这是以<strong>图表的形式显示历史版本</strong>，通常是用来查看分支的情况</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --graph --oneline</span><br></pre></td></tr></table></figure>
+
+<h2 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h2><p>git diff命令用于比较文件的不同，即比较文件在暂存区和工作区的差异。</p>
+<p>学习要点：git diff命令比较的是哪两个区域的差异、参数–cached的使用，git status和git diff的差异</p>
+<p>git diff命令显示已写入暂存区和已经被修改但尚未写入暂存区文件的区别。</p>
+<p>它有两个主要的应用场景：</p>
+<p><code>git diff</code>命令显示已写入暂存区和已经被修改但尚未写入暂存区文件的区别。</p>
+<p>它有两个主要的应用场景：</p>
+<ul>
+<li>尚未暂存的改动：<code>git diff</code></li>
+<li>查看已暂存的改动：<code>git diff --cached</code></li>
+<li>查看已暂存的与未暂存的所有改动：<code>git diff HEAD</code></li>
+<li>显示摘要而非整个diff：<code>git diff --state</code></li>
+</ul>
+<p>显示暂存区和工作区的差异：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff [file]</span><br></pre></td></tr></table></figure>
+
+<p>显示具体文件的暂存区和上一次提交之间的差异：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git diff --cached [file]</span><br><span class="line">或</span><br><span class="line">$ git diff --staged [file]</span><br></pre></td></tr></table></figure>
+
+<p>显示两次提交之间的差异：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff [commitId] [commitId]</span><br></pre></td></tr></table></figure>
+
+<p>下面我们接着上一节的案例，测试一下如何显示两次提交之间的差异：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">$ git log  # 查看提交记录，并复制最近两次提交的id，用于比较两次的差异</span><br><span class="line">commit 939c25049f982e389725e5c25a59c47fb7f66a28 (HEAD -&gt; master)</span><br><span class="line">Author: echo5 &lt;97384745+WuJianR@users.noreply.github.com&gt;</span><br><span class="line">Date:   Mon Jun 12 19:01:14 2023 +0800</span><br><span class="line"></span><br><span class="line">    Update README.md</span><br><span class="line"></span><br><span class="line">    这是一次更新</span><br><span class="line"></span><br><span class="line">commit b8fbc741ab8b5861f41052306c30e0effb8a3261</span><br><span class="line">Author: echo5 &lt;97384745+WuJianR@users.noreply.github.com&gt;</span><br><span class="line">Date:   Sat Jun 10 23:27:02 2023 +0800</span><br><span class="line"></span><br><span class="line">    Create new-remote-file</span><br><span class="line"></span><br><span class="line">    远端新建的一个文件</span><br><span class="line"></span><br><span class="line">commit 3dec0643778646c59200135deb39d1e4506ee124</span><br><span class="line">Author: WuJianRong &lt;2270645424@qq.com&gt;</span><br><span class="line">Date:   Sat Jun 10 22:35:21 2023 +0800</span><br><span class="line"></span><br><span class="line">    二次提交</span><br><span class="line"></span><br><span class="line">commit 33b65a64b587bb20d6d289b0eeb3b11d4b730e1f</span><br><span class="line">$ git diff b8fbc741ab8b5861f41052306c30e0effb8a326 939c25049f982e389725e5c25a59c47fb7f66a28  # 比较近两次提交的差异，比较前面id的提交相比于后面的id的提交的差异</span><br><span class="line">diff --git a/README.md b/README.md</span><br><span class="line">index 557db03..1c8a839 100644</span><br><span class="line">--- a/README.md</span><br><span class="line">+++ b/README.md</span><br><span class="line">@@ -1 +1,2 @@  # -1表示从第一行开始，后续跟着的0行代码被删减了，如果删减了非0行的话会用逗号隔开，然后跟变化的行数</span><br><span class="line"># +1，2 表示从1行开始，有连续两行代码出现新增</span><br><span class="line"> Hello World</span><br><span class="line">+你好啊！ # 新增了一行</span><br></pre></td></tr></table></figure>
+
+<p>可以看到最新一次提交记录较上次提交多增了一行内容，跟上一案例的结果完美对上。</p>
+<p>下面我们再测试一下<code>git diff</code>的使用，修改<code>README.md</code>文件并添加至暂存区，再次修改<code>README.md</code>，使用<code>git diff</code>对比工作区和暂存区的差异：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">$ vim README.md  # 进入vim编辑器修改md文件</span><br><span class="line">$ cat README.md  # 查看修改结果</span><br><span class="line">Hello World</span><br><span class="line">$ git status  # status 显示变化的状态 没有暂存 add/modified/deleted</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">        modified:   README.md</span><br><span class="line"></span><br><span class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)  # 提示git add添加暂存</span><br><span class="line">$ git diff  # diff 显示工作区和暂存区的详细变化</span><br><span class="line">diff --git a/README.md b/README.md</span><br><span class="line">index df41c03..557db03 100644</span><br><span class="line">--- a/README.md</span><br><span class="line">+++ b/README.md</span><br><span class="line">@@ -1,2 +1 @@</span><br><span class="line"> Hello World</span><br><span class="line">-测试diff！</span><br><span class="line">$ git add .  # 添加暂存</span><br><span class="line">$ git status  # status 显示变化的状态 暂存for commit add/modified/deleted</span><br><span class="line">On branch master</span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span><br><span class="line">        modified:   README.md</span><br><span class="line"></span><br><span class="line">$ git diff  # 此时暂存和工作区没差异所以输出空</span><br><span class="line"></span><br><span class="line">$ vim README.md  # 再次进入vim编辑器修改md文件</span><br><span class="line">$ cat README.md  # 再次查看修改结果</span><br><span class="line">Hello World</span><br><span class="line">测试diff！</span><br><span class="line">$ git diff  # 查看工作区和暂存区的差异</span><br><span class="line">diff --git a/README.md b/README.md</span><br><span class="line">index 557db03..df41c03 100644</span><br><span class="line">--- a/README.md</span><br><span class="line">+++ b/README.md</span><br><span class="line">@@ -1 +1,2 @@</span><br><span class="line"> Hello World</span><br><span class="line">+测试diff！</span><br><span class="line">$ git status -s  # 使用 git status查看状态</span><br><span class="line">MM README.md  # 一个红色的M和一个绿色的M分别表示工作区有更改和暂存区有更改</span><br></pre></td></tr></table></figure>
+
+<p>通过上面的<code>git status</code>和<code>git diff</code>比对，可以看到，**<code>git status</code>显示当前工作区和Git仓库之间的差异，包括未暂存、已暂存和已提交的文件，并显示change的状态，而<code>git diff</code>则一行一行地显示暂存区和工作区之间的差异。**</p>
+<p>最后我们再测试一下<code>git diff --cached</code>显示暂存区与上一次提交commit的差异：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git diff --cached</span><br><span class="line">diff --git a/README.md b/README.md</span><br><span class="line">index 1c8a839..557db03 100644</span><br><span class="line">--- a/README.md</span><br><span class="line">+++ b/README.md</span><br><span class="line">@@ -1,2 +1 @@</span><br><span class="line"> Hello World</span><br><span class="line">-你好啊！  # 上一次提交是有你好啊这行的，暂存区的是删除了该行的</span><br></pre></td></tr></table></figure>
+
+<h2 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h2><p><code>git fetch</code>命令<strong>用于从远程获取代码库。</strong></p>
+<p><strong>学习要点</strong>：<code>git fetch</code>实现什么功能、它和<code>git pull</code>的区别以及优势。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch [alias]</span><br></pre></td></tr></table></figure>
+
+<p><code>alias</code>指的是远程仓库的别名</p>
+<p><strong><code>git pull</code>也实现从远程仓库拉取代码到本地仓库，并且它会自动合并代码以更新工作区，但是<code>git fetch</code>只执行拉取代码到本地仓库，并不合并和更新工作区。</strong></p>
+<p>它相比<code>git pull</code>的优势在于：</p>
+<ol>
+<li>不会自动合并代码，如果你希望手动检查远程仓库的代码并决定是否进行合并操作，则可以使用git fetch代码。</li>
+<li>更灵活，由于git fetch命令不会自动合并代码，所以允许你在执行合并前查看远程代码的状态，这是pull无法实现的。</li>
+<li>减少错误，当你使用git pull命令时，Git 会自动合并代码，这可能会导致合并冲突或错误的代码合并。而使用git fetch命令则可以避免这种风险，因为你可以在合并之前完全查看远程代码的状态。</li>
+</ol>
+<p>因此，确认远程代码状态无误后，通常会再执行合并操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge [alias]/[branchname]</span><br></pre></td></tr></table></figure>
+
+<p>在本地初始化一个仓库，连接远程仓库后拉取代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git init  # init</span><br><span class="line">Initialized empty Git repository in C:/Users/22706/Desktop/demo2/.git/</span><br><span class="line">$ git remote add origin https://github.com/WuJianR/Git-Study.git  # 连接远程仓库</span><br><span class="line">$ git pull origin master  # 拉取远程仓库的master分支</span><br><span class="line">From https://github.com/WuJianR/Git-Study</span><br><span class="line"> * branch            master     -&gt; FETCH_HEAD</span><br><span class="line">$ ls  # 验证拉取结果，可以看到工作区的文件和远程仓库的完全对上。</span><br><span class="line">README.md  hello.js  html.js  new-remote-file</span><br><span class="line">$ cat README.md  # 查看README.md的内容，便于和后续的操作结果进行对比</span><br><span class="line">Hello World</span><br></pre></td></tr></table></figure>
+
+<p>下面我们修改远程仓库的<code>readme.md</code>文件，</p>
+<p>然后我们在本地使用<code>git fetch</code>命令更新修改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch origin</span><br><span class="line">remote: Enumerating objects: 8, done.</span><br><span class="line">remote: Counting objects: 100% (8/8), done.</span><br><span class="line">remote: Compressing objects: 100% (4/4), done.</span><br><span class="line">remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (6/6), 1.49 KiB | 152.00 KiB/s, done.</span><br><span class="line">From https://github.com/WuJianR/Git-Study</span><br><span class="line">   b8fbc74..939c250  master     -&gt; origin/master</span><br><span class="line">$ cat README.md</span><br><span class="line">Hello World</span><br></pre></td></tr></table></figure>
+
+<p>以上信息<code>b8fbc74..939c250 master -&gt; origin/master</code>说明远程的master分支已被更新，并且可以看到工作区的<code>README.md</code>文件并没有更新，接着我们使用<code>git merge origin/master</code>命令将更新同步到本地。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git merge origin/master</span><br><span class="line">Updating b8fbc74..939c250</span><br><span class="line">Fast-forward</span><br><span class="line"> README.md | 1 +</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line">$ cat README.md</span><br><span class="line">Hello World</span><br><span class="line">你好啊！</span><br></pre></td></tr></table></figure>
+
+<p>可以看到成功将更新同步至本地工作区。</p>
+<h2 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h2><p><code>git rm</code>命令用于删除文件</p>
+<p><code>git rm</code>删除文件有以下几种形式：</p>
+<p>将文件从暂存区和工作区删除：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git rm &lt;file&gt;</span><br><span class="line">如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除参数`-f`。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm -f runoob.txt</span><br></pre></td></tr></table></figure>
+
+<p>如果想把文件从暂存区域删除，但仍然希望保留在当前工作目录中，换句话说，仅是从跟踪清单中删除，使用–cached选项即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached &lt;file&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="git-mv"><a href="#git-mv" class="headerlink" title="git mv"></a>git mv</h2><p>git mv命令用于移动或重命名一个文件、目录或软连接。</p>
+<p><code>git mv</code>命令用于移动或重命名一个文件、目录或软连接。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">mv</span> [file] [newfile]</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">ls</span></span><br><span class="line">README.md  hello.md</span><br><span class="line">$ git <span class="built_in">mv</span> hello.md hi.md</span><br><span class="line">$ <span class="built_in">ls</span></span><br><span class="line">README.md  hi.md</span><br><span class="line">12345</span><br></pre></td></tr></table></figure>
+
+<p>可以看到文件名由<code>hello.md</code>的变为<code>hi.md</code>。</p>
+<h1 id="Git进阶"><a href="#Git进阶" class="headerlink" title="Git进阶"></a>Git进阶</h1><h2 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h2><p><code>git reset</code>命令用于回退版本，可以指定退回到某一次提交的版本。</p>
+<p><code>git reset</code>命令的语法格式如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset [--soft | --mixed | --hard] [HEAD]</span><br></pre></td></tr></table></figure>
+
+<p><code>--mixed</code>为默认，可以不带该参数，用于重置<strong>暂存区</strong>的文件<strong>与上一次的commit保持一致</strong>，<strong>工作区文件内容保持不变</strong>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset [HEAD]/commitID</span><br></pre></td></tr></table></figure>
+
+<p><code>--soft</code>参数<strong>不会改变暂存区和工作区的任何内容，只是将HEAD指针移动到指定提交的版本</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --soft [HEAD]/commitID</span><br></pre></td></tr></table></figure>
+
+<p><code>--hard</code>参数<strong>撤销工作区中所有未提交的修改内容，将暂存区和工作区都回退到某个版本，并删除之前的所有提交信息</strong>。</p>
+<p>下面我们来看案例，这里初始化了一个只有一次提交记录的Git仓库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">readme.md</span><br><span class="line">$ cat readme.md  # 展示文件初始内容</span><br><span class="line">hello world!</span><br><span class="line">$ git log  # 查看提交记录</span><br><span class="line">commit e2d22d24f6dce634101d56e851dafbce80d0e423 (HEAD -&gt; master)</span><br><span class="line">Author: WuJianRong &lt;2270645424@qq.com&gt;</span><br><span class="line">Date:   Tue Jun 13 21:50:23 2023 +0800</span><br><span class="line"></span><br><span class="line">    init</span><br><span class="line">$ vim readme.md  # 使用vim编辑器修改文件</span><br><span class="line">$ cat readme.md  # 查看修改结果</span><br><span class="line">hello world!</span><br><span class="line">nihao!</span><br><span class="line">$ git status -s  # 查看状态  </span><br><span class="line"> M readme.md  # 前面一个空格，后跟一个红色M 表示被修改 并且还没到暂存区</span><br><span class="line">$ git add .  # 添加至暂存区</span><br><span class="line">warning: in the working copy of &#x27;readme.md&#x27;, LF will be replaced by CRLF the next time Git touches it</span><br><span class="line">$ git status -s  # 查看状态  </span><br><span class="line">M  readme.md  # 第一个空格变成绿色的M 表示修改过的文件存到暂存区了</span><br><span class="line">$ git reset  # 重置暂存区到和上一次提交一致</span><br><span class="line">Unstaged changes after reset:  # 重置之后未暂存的变化</span><br><span class="line">M       readme.md  # 和git add .之前是一样的状态</span><br><span class="line">$ git status -s</span><br><span class="line"> M readme.md  # 和git add .之前是一样的状态</span><br><span class="line">$ cat readme.md  # 查看工作区文件内容 </span><br><span class="line">hello world!  # 工作区内容并没有被重置，保持不变。</span><br><span class="line">nihao!</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，我们修改了文件并暂存后再使用<code>git reset --mixed</code>回退，只能将暂存区的内容回退到上一次commit的版本，工作区是不会回退的。</p>
+<p>下面我们再测试一下<code>git reset --hard</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">readme.md</span><br><span class="line">$ cat readme.md  # 查看文件内容，用于后续比对</span><br><span class="line">hello world!</span><br><span class="line">新增内容...</span><br><span class="line">$ git log  # 可以看到有两条提交记录</span><br><span class="line">commit 8cece25f4c8aabf8d78d2bd8862320e4bb41ea4e (HEAD -&gt; master)</span><br><span class="line">Author: WuJianRong &lt;2270645424@qq.com&gt;</span><br><span class="line">Date:   Tue Jun 13 22:10:57 2023 +0800</span><br><span class="line"></span><br><span class="line">    add</span><br><span class="line"></span><br><span class="line">commit e2d22d24f6dce634101d56e851dafbce80d0e423  # 后续我们回退到此版本</span><br><span class="line">Author: WuJianRong &lt;2270645424@qq.com&gt;</span><br><span class="line">Date:   Tue Jun 13 21:50:23 2023 +0800</span><br><span class="line"></span><br><span class="line">    init</span><br><span class="line">$ vim readme.md  # 修改文件内容</span><br><span class="line">$ cat readme.md  # 查看修改结果</span><br><span class="line">hello world!</span><br><span class="line">新增内容...</span><br><span class="line">addddddddddd</span><br><span class="line">$ git add .  # 暂存</span><br><span class="line">$ git commit -m &#x27;adddddddd&#x27;  # 提交</span><br><span class="line">[master cf58686] adddddddd</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line">$ git reset --hard e2d22d24f6dce634101d56e851dafbce80d0e423  # 回退到第一个版本</span><br><span class="line">HEAD is now at e2d22d2 init</span><br><span class="line">$ cat readme.md  # 查看工作区结果  是Git仓库初始化的内容 版本彻底回退，工作区也没保留</span><br><span class="line">hello world!</span><br><span class="line"></span><br><span class="line">$ git log  # 提交记录只剩初始化的那条</span><br><span class="line">commit e2d22d24f6dce634101d56e851dafbce80d0e423 (HEAD -&gt; master)</span><br><span class="line">Author: WuJianRong &lt;2270645424@qq.com&gt;</span><br><span class="line">Date:   Tue Jun 13 21:50:23 2023 +0800</span><br><span class="line"></span><br><span class="line">    init</span><br></pre></td></tr></table></figure>
+
+<p>可以看到<code>--hard</code>参数它删除了回退点之前的所有信息，连工作区都没有保留，因此<strong>谨慎使用<code>–hard</code>参数</strong>。</p>
+<h2 id="git-cherry-pick"><a href="#git-cherry-pick" class="headerlink" title="git cherry-pick"></a>git cherry-pick</h2><p><code>git cherry-pick</code>命令可以让你在当前分支上使用其他的分支的<code>commitID</code>来回退到此提交版本的代码状态。</p>
+<p>也就是说，你可以在一个分支上应用另一个分支的某个提交，并将其更新为该提交的版本。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git cherry-pick [commitID]</span><br></pre></td></tr></table></figure>
+
+<p>下面我们初始化<code>Git仓库</code>，并新建分支来测试此命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* master</span><br><span class="line">$ ls</span><br><span class="line">readme.md</span><br><span class="line">$ cat readme.md  # 查看初始化的文件内容</span><br><span class="line">hello world!</span><br><span class="line">$ git checkout -b newbranch  # 新建并切换到新分支</span><br><span class="line">Switched to a new branch &#x27;newbranch&#x27;</span><br><span class="line">$ git branch  # 查看分支情况</span><br><span class="line">  master</span><br><span class="line">* newbranch</span><br><span class="line">$ vim readme.md  # 使用vim编辑器修改文件内容</span><br><span class="line">$ cat readme.md  # 查看修改结果</span><br><span class="line">hello world!</span><br><span class="line">newbranch content!</span><br><span class="line">$ git add .  # 暂存修改</span><br><span class="line">$ git commit -m &quot;新分支内修改&quot;  # 提交修改</span><br><span class="line">[newbranch 2d5c494] 新分支内修改</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line">$ git log  # 查看提交日志，获取此分支下的提交ID</span><br><span class="line">commit 2d5c494504c14782c89f8fadb7cdef4e6feaee4d (HEAD -&gt; newbranch)</span><br><span class="line">Author: WuJianRong &lt;2270645424@qq.com&gt;</span><br><span class="line">Date:   Tue Jun 13 22:32:14 2023 +0800</span><br><span class="line"></span><br><span class="line">    新分支内修改</span><br><span class="line"></span><br><span class="line">commit e2d22d24f6dce634101d56e851dafbce80d0e423 (master)</span><br><span class="line">Author: WuJianRong &lt;2270645424@qq.com&gt;</span><br><span class="line">Date:   Tue Jun 13 21:50:23 2023 +0800</span><br><span class="line"></span><br><span class="line">    init</span><br><span class="line">$ git checkout master  # 切换到master分支</span><br><span class="line">Switched to branch &#x27;master&#x27;</span><br><span class="line">$ git cherry-pick 2d5c494504c14782c89f8fadb7cdef4e6feaee4d  # 回退newbranch分支的最新提交版本</span><br><span class="line">[master b619412] 新分支内修改</span><br><span class="line"> Date: Tue Jun 13 22:32:14 2023 +0800</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line">$ cat readme.md  # 查看结果</span><br><span class="line">hello world!</span><br><span class="line">newbranch content!  # 回退其他分支的版本成功</span><br></pre></td></tr></table></figure>
+
+<p><strong>一次择优多次提交</strong><br>值的注意的是：择优一次提交所提交的是本次提交所修改的内容，并不是本次提交后的内容与其他分支上有差异的内容，因此，如果在其他分支上进行了多次的提交，要想择优这些提交，需要多次复制提交Id，这会非常麻烦，因此，有了一次择优多次提交的功能。<br>语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git cherry-pick startCommitId...endCommitId  // (start, end]</span><br><span class="line">$ git cherry-pick startCommitId^...endCommitId   // [start, end]</span><br></pre></td></tr></table></figure>
+
+<h2 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h2><p><code>git remote</code>命令用于管理Git仓库中配置的远程仓库。</p>
+<p>查看当前Git仓库所有的远程仓库信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
+
+<p>显示指定远程仓库的详细信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote show &lt;远程仓库地址&gt;或&lt;远程仓库名&gt;</span><br></pre></td></tr></table></figure>
+
+<p>向GIt仓库中添加一个新的远程仓库，并未其指定一个名称：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add &lt;远程仓库名称&gt; &lt;远程仓库地址&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其他命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote <span class="built_in">rm</span> &lt;远程仓库名&gt;  <span class="comment"># 删除指定仓库</span></span><br><span class="line">$ git remote rename &lt;旧名称&gt; &lt;新名称&gt;  <span class="comment"># 改仓库名</span></span><br></pre></td></tr></table></figure>
+
+<p>这里我们先测试一下查看远程仓库信息的两个命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br><span class="line">origin  https://github.com/WuJianR/Git-Study.git (fetch)</span><br><span class="line">origin  https://github.com/WuJianR/Git-Study.git (push)</span><br><span class="line"></span><br><span class="line">$ git remote show https://github.com/WuJianR/Git-Study.git</span><br><span class="line">* remote https://github.com/WuJianR/Git-Study.git  # 远程仓库地址</span><br><span class="line">  Fetch URL: https://github.com/WuJianR/Git-Study.git  # fetch命令操作的仓库</span><br><span class="line">  Push  URL: https://github.com/WuJianR/Git-Study.git  # push命令操作的仓库</span><br><span class="line">  HEAD branch: master   # 主分支</span><br><span class="line">  Local ref configured for &#x27;git push&#x27;:</span><br><span class="line">    master pushes to master (local out of date)</span><br></pre></td></tr></table></figure>
+
+<p>这里为什么<strong>一个链接会有两个不同的仓库（Fetch仓库和Push仓库）</strong>呢？</p>
+<p>这是<strong>便于多人协作开发项目。</strong></p>
+<p><strong>这篇博客帮助你更好的理解fetch地址和push地址</strong><a target="_blank" rel="noopener" href="http://qhchwlkj.com/%E6%95%99%E4%BD%A0%E5%9C%A8git%E4%B8%AD%E8%AE%BE%E7%BD%AE%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84fetch%E5%92%8Cpush%E5%9C%B0%E5%9D%80">教你在Git中设置不一样的fetch和push地址</a></p>
+<p>Fetch 远程仓库和 Push 远程仓库的区别在于它们实际上完成的操作不同。</p>
+<p>具体来说，Fetch 远程仓库是我们从其它仓库中获取代码更新的地方。当我们使用 git fetch 命令时，Git 将从 Fetch 远程仓库中获取最新的代码变更，并将它们保存到本地代码仓库中。这一过程仅涉及本地仓库和远程仓库之间的数据传输，不会改变本地代码仓库中的代码。</p>
+<p>而 Push 远程仓库则是我们将本地修改推送到其它仓库的地方。当我们使用 git push 命令时，Git 将把当前本地分支的所有提交推送到指定的 Push 远程仓库中，从而将本地修改同步到远程仓库中。</p>
+<p>这种方式使得 Git 可以比较灵活地进行协作开发，<strong>比如我们可以从多个源头获取更新（从多个 Fetch 远程仓库中），并将自己所做的修改推送到合适的目标（通过指定对应的 Push 远程仓库）。</strong></p>
+<p>下面我们再测试一下向Git仓库添加新的远程仓库命令：<code>git remote add &lt;远程仓库名称&gt; &lt;远程仓库地址&gt;：</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add minDemo https://github.com/WuJianR/minDemo.git</span><br><span class="line">$ git remote -v</span><br><span class="line">minDemo https://github.com/WuJianR/minDemo.git (fetch)</span><br><span class="line">minDemo https://github.com/WuJianR/minDemo.git (push)</span><br><span class="line">origin  https://github.com/WuJianR/Git-Study.git (fetch)</span><br><span class="line">origin  https://github.com/WuJianR/Git-Study.git (push)</span><br></pre></td></tr></table></figure>
+
+<p>可以看到成功添加了一个取名为minDemo的新仓库，并都具有fetch仓库和push仓库。</p>
+<h2 id="git-stash"><a href="#git-stash" class="headerlink" title="git stash"></a><strong>git stash</strong></h2><p>git stash命令用于将当前工作目录中的修改保存起来，使你可以在切换分支或者应用其他操作之前回到一个干净的工作状态。简单来说它允许你暂存尚未提交的改动，并将工作区恢复到上次提交的状态。</p>
+<p>使用<code>git stash</code>的基本流程如下：</p>
+<ol>
+<li>在工作目录中进行一些修改，但是还没有准备好提交。</li>
+<li>运行<code>git stash</code>命令，将当前的修改存储为一个临时的“stash”。</li>
+<li>可以继续在工作目录中进行其他操作，例如切换分支。</li>
+<li>当你想要恢复之前的修改时，可以使用<code>git stash apply</code>命令将修改重新应用到当前工作目录中。</li>
+<li>如果在恢复修改之前有多个stash，可以通过指定stash的标识符（例如 <code>stash@&#123;2&#125;</code>）来选择要应用的stash。</li>
+<li>如果你希望在恢复修改后同时移除stash，可以使用<code>git stash drop</code>命令。这样会将stash从堆栈中删除。</li>
+<li>如果在应用stash后发现无需再使用欧冠该stash，可以使用<code>git stash drop</code>命令手动删除stash。</li>
+</ol>
+<p>git stash常应用在：<strong>当一个分支的开发工作未完成，却又要切换到另外一个分支进行开发的时候，可以先将自己写好的代码，储存到git栈，进行另外一个分支代码开发。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git stash               #储藏目前的进度，进行其他分支开发</span><br><span class="line">git stash list          #列出Stash栈</span><br><span class="line">git stash apply         #恢复但不删除stash</span><br><span class="line">git stash pop           #恢复并删除stash</span><br><span class="line">git stash drop			#删除所有stash</span><br><span class="line">git stash drop [stashName]  # 删除指定stash</span><br></pre></td></tr></table></figure>
+
+<h2 id="忽略提交文件-gitignore"><a href="#忽略提交文件-gitignore" class="headerlink" title="忽略提交文件.gitignore"></a>忽略提交文件.gitignore</h2><p>.gitignore 是一个用于指定 Git 版本控制系统忽略特定文件或目录的配置文件。当你执行一次提交操作时，Git 会自动检查 .gitignore 文件，并将被忽略的文件排除在版本控制之外。</p>
+<p>.gitignore 文件通常位于项目的根目录下，它的作用是告诉 Git 哪些文件和目录应该被忽略。这对于排除临时文件、编译产生的文件、不必要的日志和缓存等非版本控制相关的内容非常有用。</p>
+<p>以下是一些 .gitignore 文件的示例规则：</p>
+<p>忽略所有扩展名为.log的文件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*.<span class="property">log</span></span><br></pre></td></tr></table></figure>
+
+<p>忽略名为<code>config.ini</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config.ini</span><br></pre></td></tr></table></figure>
+
+<p>忽略一个名为logs的目录及其所有内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/logs/</span><br></pre></td></tr></table></figure>
+
+<p>忽略某个目录下的所有文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">directory/*</span><br></pre></td></tr></table></figure>
+
+<p>忽略以.txt结尾的所有文本文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*.txt</span><br></pre></td></tr></table></figure>
+
+<p>请注意，在添加或修改.gitignore文件后，之前已经被 Git 追踪的文件不会自动被排除在版本控制之外。你可能需要使用<code>git rm --cached &lt;file&gt;</code>命令来清除之前已经被追踪的文件。</p>
+<h2 id="git-tag标签管理"><a href="#git-tag标签管理" class="headerlink" title="git tag标签管理"></a>git tag标签管理</h2><p>参考这篇精彩的博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39505245/article/details/124705850">Git基础 - git tag 一文真正的搞懂git标签的使用</a></p>
+<h2 id="gitk图形化界面软件版本"><a href="#gitk图形化界面软件版本" class="headerlink" title="gitk图形化界面软件版本"></a>gitk图形化界面软件版本</h2><p>gitk是git图形化的界面软件版本，对仓库的管理更为直观，不需要在命令行中进行繁琐的控制，将各种信息合理的组织在不同的软件窗口中，让一些很繁琐的操作可以在图像软件中只需要一键获得。合理的结合命令行和图形工具可以大大提高软件开发和分支管理的效率。</p>
+<p>更多内容参考博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42271802/article/details/109640615">gitk详解</a></p>
+<h1 id="工作中常遇见的情况及解决"><a href="#工作中常遇见的情况及解决" class="headerlink" title="工作中常遇见的情况及解决"></a>工作中常遇见的情况及解决</h1><h2 id="冲突合并"><a href="#冲突合并" class="headerlink" title="冲突合并"></a>冲突合并</h2><p>当进行 Git 分支合并时，有时会出现合并冲突的情况。<strong>合并冲突是指两个分支上的同一个文件被两个分支中的不同修改所影响，从而无法自动合并</strong>。此时，Git 会给出提示，让用户手动解决冲突。</p>
+<p>解决合并冲突通常包含以下步骤：</p>
+<ol>
+<li>确定冲突的文件和位置。</li>
+<li>手动编辑文件，通过解决冲突来合并两个分支中的修改。</li>
+<li>将解决冲突后的文件添加到暂存区。</li>
+<li>对修改进行提交，完成合并操作。</li>
+</ol>
+<p>需要注意的是，解决合并冲突需要谨慎对待，因为错误的决策可能导致代码库的不稳定或者损失。如果不确定如何解决冲突，可以寻求其他开发者的帮助，或者查找相关的文档和教程以获取帮助。</p>
+<p>下面我们初识化一个带有<code>readme.md</code>文件的本地仓库，来测试解决冲突合并的问题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ git init  # init</span><br><span class="line">Initialized empty Git repository in C:/Users/22706/Desktop/demo2/.git/</span><br><span class="line">$ touch readme.md  # 新建文件</span><br><span class="line">$ git branch newbranch  # 新建分支，报错了，原因是没有commit对象，要有commit记录才能在commit最新版本基础上新建分支</span><br><span class="line">fatal: not a valid object name: &#x27;master&#x27;</span><br><span class="line">$ git add .  # add暂存</span><br><span class="line">$ git commit -m &quot;初始化一个带有readme.md文件的本地仓库&quot;  # commit本地仓库</span><br><span class="line">[master (root-commit) 402da2d] 初始化一个带有readme.md文件的本地仓库</span><br><span class="line"> 1 file changed, 0 insertions(+), 0 deletions(-)</span><br><span class="line"> create mode 100644 readme.md</span><br><span class="line">$ git branch newbranch  # 新建newbranch分支</span><br><span class="line">$ git branch  # 查看分支列表 验证结果</span><br><span class="line">* master</span><br><span class="line">  newbranch</span><br></pre></td></tr></table></figure>
+
+<p>下面我们通过使用vim编辑器修改master分支上的<code>readme.md</code>里面的内容，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ cat readme.md  # 输出readme.md的内容</span><br><span class="line">					# 里面是空的</span><br><span class="line">$ vim readme.md  # 进入vim编辑器修改readme.md的内容</span><br><span class="line"></span><br><span class="line">$ cat readme.md  # 输出readme.md的内容</span><br><span class="line">this is a change!  # 这是新增的内容</span><br><span class="line">$ git add . # 暂存更改 警告主要由window和linux换行符表示方式不同导致，忽略</span><br><span class="line">warning: in the working copy of &#x27;readme.md&#x27;, LF will be replaced by CRLF the next time Git touches it</span><br><span class="line">$ git commit -m &quot;在readme.md中新增一行内容:this is a change!&quot;  # 提交更改</span><br><span class="line">[master b34e00e] 在readme.md中新增一行内容:this is a change!</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br></pre></td></tr></table></figure>
+
+<p>再切换新的分支，修改<code>readme.md</code>的同个位置的内容，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout newbranch  # 切换新分支</span><br><span class="line">Switched to branch &#x27;newbranch&#x27;</span><br><span class="line">$ cat readme.md  # 内容空</span><br><span class="line"></span><br><span class="line">$ vim readme.md  # vim编辑器写入内容</span><br><span class="line"></span><br><span class="line">$ cat readme.md  # 输出readme.md的内容</span><br><span class="line">THIS IS A CHANGE!</span><br><span class="line">$ git add .  # 暂存</span><br><span class="line">warning: in the working copy of &#x27;readme.md&#x27;, LF will be replaced by CRLF the next time Git touches it</span><br><span class="line">$ git commit -m &quot;在readme.md中新增一行内容:THIS IS A CHANGE!&quot;  # 提交</span><br><span class="line">[newbranch f2eab5b] 在readme.md中新增一行内容:THIS IS A CHANGE!</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br></pre></td></tr></table></figure>
+
+<p>上面我们实现了在两个不同分支的同一个文件的做出不同的修改，下面我们实现合并时会产生合并冲突：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master  # 切换到主分支</span><br><span class="line">Switched to branch &#x27;master&#x27;</span><br><span class="line">$ git merge newbranch  # 合并新分支到主分支</span><br><span class="line">Auto-merging readme.md  </span><br><span class="line">CONFLICT (content): Merge conflict in readme.md  # 此处提示有冲突在readme.md文件中</span><br><span class="line">Automatic merge failed; fix conflicts and then commit the result.  # 提示自动合并失败</span><br><span class="line">$ cat readme.md  # 根据提示查看冲突文件，可以看到文件内容被更改了，里面添加了冲突提示</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">this is a change!</span><br><span class="line">=======</span><br><span class="line">THIS IS A CHANGE!</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; newbranch</span><br><span class="line">$ vim readme.md  # 进入vim编辑器解决冲突</span><br><span class="line"></span><br><span class="line">$ cat readme.md  # 文件修改结果[示例]</span><br><span class="line">this is a change!</span><br><span class="line">THIS IS A CHANGE!</span><br><span class="line">$ git diff  # 查看差异</span><br><span class="line">diff --cc readme.md</span><br><span class="line">index 5a091c3,eccce91..0000000</span><br><span class="line">--- a/readme.md</span><br><span class="line">+++ b/readme.md</span><br><span class="line">@@@ -1,1 -1,1 +1,2 @@@</span><br><span class="line"> +this is a change!</span><br><span class="line">+ THIS IS A CHANGE!</span><br></pre></td></tr></table></figure>
+
+<p>下面我们可以用<code>git add</code>告诉文件冲突已经解决。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git status -s</span><br><span class="line">UU readme.md  # 红色的UU表示还在工作区的一个要合并冲突的文件</span><br><span class="line">$ git add .  # 表示冲突已解决</span><br><span class="line">$ git status -s</span><br><span class="line">M  readme.md  # 由红色UU变成了绿色的M，表示在暂存区的被修改过的文件</span><br><span class="line">$ git commit -m &quot;解决冲突&quot;  # 提交冲突解决的结果</span><br><span class="line">[master 8475cf1] 解决冲突</span><br><span class="line">$ cat readme.md  # 这就是冲突解决的最终结果！</span><br><span class="line">this is a change!</span><br><span class="line">THIS IS A CHANGE!</span><br></pre></td></tr></table></figure>
+
+<p>现在我们成功解决了合并中的冲突，并提交了结果。</p>
+<h2 id="推代码前未拉取最新代码导致推送报错"><a href="#推代码前未拉取最新代码导致推送报错" class="headerlink" title="推代码前未拉取最新代码导致推送报错"></a>推代码前未拉取最新代码导致推送报错</h2><p>当你在推送代码前，有人推送了它的代码在同一个分支，而你没有先拉取最新代码就推送，将会报错。如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git push</span><br><span class="line">To https://github.com/WuJianR/Git-Study.git</span><br><span class="line"> ! [rejected]        master -&gt; master (fetch first)</span><br><span class="line">error: failed to push some refs to &#x27;https://github.com/WuJianR/Git-Study.git&#x27;</span><br><span class="line">hint: Updates were rejected because the remote contains work that you do</span><br><span class="line">hint: not have locally. This is usually caused by another repository pushing</span><br><span class="line">hint: to the same ref. You may want to first integrate the remote changes</span><br><span class="line">hint: (e.g., &#x27;git pull ...&#x27;) before pushing again.</span><br><span class="line">hint: See the &#x27;Note about fast-forwards&#x27; in &#x27;git push --help&#x27; for details.</span><br></pre></td></tr></table></figure>
+
+<p>上面的报错提示里有说到要先<code>git pull</code>再推送。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ git pull  # 此时git pull会进入vim编辑器</span><br><span class="line">remote: Enumerating objects: 5, done.</span><br><span class="line">remote: Counting objects: 100% (5/5), done.</span><br><span class="line">remote: Compressing objects: 100% (2/2), done.</span><br><span class="line">remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (3/3), 389 bytes | 77.00 KiB/s, done.</span><br><span class="line">From https://github.com/WuJianR/Git-Study</span><br><span class="line">   2165836..36fe8e6  master     -&gt; origin/master</span><br><span class="line">Merge made by the &#x27;ort&#x27; strategy.</span><br><span class="line"> README.md | 4 +---</span><br><span class="line"> 1 file changed, 1 insertion(+), 3 deletions(-)</span><br></pre></td></tr></table></figure>
+
+<p>此处<code>git pull</code>会进入vim编辑器，他要求输入提交消息，<strong>解释为什么需要合并</strong>。因为此处拉取代码相当于会把他人提交的代码和你刚提交的代码合并，如果有冲突要去解决冲突，这相当于一次提交，因此要输入备注。拉取成功后，我们查看日志，可以看到有一条合并的记录。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Merge: c6cc86c 36fe8e6  # 合并提交的记录 两个ID分别代表合并的提交记录</span><br><span class="line">Author: WuJianRong &lt;2270645424@qq.com&gt;</span><br><span class="line">Date:   Wed Jun 14 20:50:24 2023 +0800</span><br><span class="line"></span><br><span class="line">    Merge branch &#x27;master&#x27; of https://github.com/WuJianR/Git-Study</span><br><span class="line">    合并原因</span><br><span class="line"></span><br><span class="line">commit c6cc86c6d552c7719e3fe5891c3d248e3d30efd3</span><br><span class="line">Author: WuJianRong &lt;2270645424@qq.com&gt;</span><br><span class="line">Date:   Wed Jun 14 20:44:13 2023 +0800</span><br><span class="line"></span><br><span class="line">    测试推送失败</span><br><span class="line"></span><br><span class="line">commit 36fe8e6a0f2d6593e8d2f591b644dac1b8f6df5f</span><br><span class="line">Author: WuJianRong &lt;2270645424@qq.com&gt;</span><br><span class="line">Date:   Wed Jun 14 20:43:00 2023 +0800</span><br><span class="line"></span><br><span class="line">    测试如何解决推送前未拉取他人提交导致的推送失败</span><br><span class="line"></span><br><span class="line">commit 2165836698f405933011f568e70599e4a4753785</span><br><span class="line">Author: echo5 &lt;97384745+WuJianR@users.noreply.github.com&gt;</span><br></pre></td></tr></table></figure>
+
+<p>接着我们就可以成功的推送代码了！</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git push</span><br><span class="line">Enumerating objects: 9, done.</span><br><span class="line">Counting objects: 100% (8/8), done.</span><br><span class="line">Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (4/4), done.</span><br><span class="line">Writing objects: 100% (5/5), 611 bytes | 611.00 KiB/s, done.</span><br><span class="line">Total 5 (delta 2), reused 0 (delta 0), pack-reused 0</span><br><span class="line">remote: Resolving deltas: 100% (2/2), completed with 2 local objects.</span><br><span class="line">To https://github.com/WuJianR/Git-Study.git</span><br><span class="line">   36fe8e6..f1a6e4f  master -&gt; master</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地实现新建分支，并同步远程代码到此分支"><a href="#本地实现新建分支，并同步远程代码到此分支" class="headerlink" title="本地实现新建分支，并同步远程代码到此分支"></a>本地实现新建分支，并同步远程代码到此分支</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b branchName origin/branchName</span><br></pre></td></tr></table></figure>
+
+<h2 id="当选错分支开发并提交后该如何处理"><a href="#当选错分支开发并提交后该如何处理" class="headerlink" title="当选错分支开发并提交后该如何处理"></a>当选错分支开发并提交后该如何处理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">切换到错误分支 git checkout 选错的分支</span><br><span class="line">回退到开发之前的第一个版本 git reset --soft commitID</span><br><span class="line">查看暂存区 git stash 此时可以看到暂存区会有你开发完成并git add的内容</span><br><span class="line">切换到目标分支 git checkout 目标分支</span><br><span class="line">弹出暂存区的代码 git stash pop 此时工作区就有你开发完成的内容</span><br><span class="line">重新走提交流程 git add . -&gt; git commit -m &#x27;&#x27; -&gt; git push</span><br></pre></td></tr></table></figure>
+
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2023/09/16/PyTorch%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2024-03-23 15:38:37
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
+                        <b>#</b> 教程
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/Git/" title="Git">
+                        #Git
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2023/09/24/GH200/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E5%9F%BA%E7%A1%80"><span class="toc-text">Git基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8C%BA%E3%80%81%E6%9A%82%E5%AD%98%E5%8C%BA%E3%80%81%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%92%8C%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-text">工作区、暂存区、本地仓库和远程仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7"><span class="toc-text">Git添加用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-init"><span class="toc-text">git init</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-add"><span class="toc-text">git add</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-status"><span class="toc-text">git status</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-commit"><span class="toc-text">git commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-push"><span class="toc-text">git push</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-pull"><span class="toc-text">git pull</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="toc-text">git 分支管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-clone%E5%92%8Clog"><span class="toc-text">git clone和log</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-diff"><span class="toc-text">git diff</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-fetch"><span class="toc-text">git fetch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-rm"><span class="toc-text">git rm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-mv"><span class="toc-text">git mv</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E8%BF%9B%E9%98%B6"><span class="toc-text">Git进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git-reset"><span class="toc-text">git reset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-cherry-pick"><span class="toc-text">git cherry-pick</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-remote"><span class="toc-text">git remote</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash"><span class="toc-text">git stash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%BD%E7%95%A5%E6%8F%90%E4%BA%A4%E6%96%87%E4%BB%B6-gitignore"><span class="toc-text">忽略提交文件.gitignore</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-tag%E6%A0%87%E7%AD%BE%E7%AE%A1%E7%90%86"><span class="toc-text">git tag标签管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gitk%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC"><span class="toc-text">gitk图形化界面软件版本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E4%B8%AD%E5%B8%B8%E9%81%87%E8%A7%81%E7%9A%84%E6%83%85%E5%86%B5%E5%8F%8A%E8%A7%A3%E5%86%B3"><span class="toc-text">工作中常遇见的情况及解决</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B2%E7%AA%81%E5%90%88%E5%B9%B6"><span class="toc-text">冲突合并</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E4%BB%A3%E7%A0%81%E5%89%8D%E6%9C%AA%E6%8B%89%E5%8F%96%E6%9C%80%E6%96%B0%E4%BB%A3%E7%A0%81%E5%AF%BC%E8%87%B4%E6%8E%A8%E9%80%81%E6%8A%A5%E9%94%99"><span class="toc-text">推代码前未拉取最新代码导致推送报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%AE%9E%E7%8E%B0%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF%EF%BC%8C%E5%B9%B6%E5%90%8C%E6%AD%A5%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%88%B0%E6%AD%A4%E5%88%86%E6%94%AF"><span class="toc-text">本地实现新建分支，并同步远程代码到此分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%93%E9%80%89%E9%94%99%E5%88%86%E6%94%AF%E5%BC%80%E5%8F%91%E5%B9%B6%E6%8F%90%E4%BA%A4%E5%90%8E%E8%AF%A5%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86"><span class="toc-text">当选错分支开发并提交后该如何处理</span></a></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+            <a title="email" href="mailto:mailto:blog@282994.xyz">
+              <i class="iconfont icon-envelope"></i>
+            </a>
+            
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2024 Ame</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+
+      </div>
+    </div>
+  </body>
+</html>

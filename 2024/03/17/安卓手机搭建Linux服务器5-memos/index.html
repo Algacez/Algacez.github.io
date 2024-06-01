@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Ame" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      安卓手机搭建Linux服务器5-memos 
+      
+      
+      |
+    
+     Ame&#39;s Blog
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.ico">
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Ame</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">安卓手机搭建Linux服务器5-memos</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2024-03-23 15:17:32
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
+                    <b>#</b> 教程
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">
+                    #服务器
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="memos"><a href="#memos" class="headerlink" title="memos"></a>memos</h1><h2 id="Working-without-Docker"><a href="#Working-without-Docker" class="headerlink" title="Working without Docker"></a>Working without Docker</h2><h3 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a>, requires version &gt;&#x3D;18.0</li>
+<li><a target="_blank" rel="noopener" href="https://pnpm.io/">pnpm</a>, requires version &gt;&#x3D;8.0</li>
+<li><a target="_blank" rel="noopener" href="https://go.dev/">Go</a>, requires Go &gt;&#x3D; 1.19</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/cosmtrek/air">Air</a> for backend live reload</li>
+<li><a target="_blank" rel="noopener" href="https://buf.build/docs/installation">Buf</a> for generating TypeScript code from protobuf</li>
+</ul>
+<h3 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h3><ol>
+<li><p>Clone the repo</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/usememos/memos</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Start backend using air</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">air -c scripts/.air.toml</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Generate TypeScript code from protobuf with buf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd proto &amp;&amp; buf generate</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Start frontend dev server</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd web &amp;&amp; pnpm i &amp;&amp; pnpm dev</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>Memos should now be running at <a target="_blank" rel="noopener" href="http://localhost:3001/">http://localhost:3001</a> and change either frontend or backend code would trigger live reload.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt clean</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install --fix-broken</span><br></pre></td></tr></table></figure>
+
+<h2 id="报错及解决"><a href="#报错及解决" class="headerlink" title="报错及解决"></a>报错及解决</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">root@localhost:/home# sudo apt clean</span><br><span class="line">root@localhost:/home# sudo apt update</span><br><span class="line">Hit:1 https://mirrors.huaweicloud.com/debian buster InRelease</span><br><span class="line">Hit:2 https://mirrors.huaweicloud.com/debian buster-updates InRelease</span><br><span class="line">Hit:3 https://mirrors.huaweicloud.com/debian buster-backports InRelease</span><br><span class="line">Hit:4 https://mirrors.huaweicloud.com/debian-security buster/updates InRelease</span><br><span class="line">Err:3 https://mirrors.huaweicloud.com/debian buster-backports InRelease</span><br><span class="line">  The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 0E98404D386FA1D9 NO_PUBKEY 6ED0E7B82643E131</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">156 packages can be upgraded. Run &#x27;apt list --upgradable&#x27; to see them.</span><br><span class="line">W: https://mirrors.huaweicloud.com/debian/dists/buster-updates/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/debian-archive-stretch-stable.gpg are ignored as the file has an unsupported filetype.</span><br><span class="line">W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: https://mirrors.huaweicloud.com/debian buster-backports InRelease: The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 0E98404D386FA1D9 NO_PUBKEY 6ED0E7B82643E131</span><br><span class="line">W: Failed to fetch https://mirrors.huaweicloud.com/debian/dists/buster-backports/InRelease  The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 0E98404D386FA1D9 NO_PUBKEY 6ED0E7B82643E131</span><br><span class="line">W: Some index files failed to download. They have been ignored, or old ones used instead.</span><br><span class="line">root@localhost:/home# sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9 6ED0E7B82643E131</span><br><span class="line">cmp: -: Operation not permitted</span><br><span class="line">cmp: -: Operation not permitted</span><br><span class="line">cmp: -: Operation not permitted</span><br><span class="line">Executing: /tmp/apt-key-gpghome.SmktPNB7T6/gpg.1.sh --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9 6ED0E7B82643E131</span><br><span class="line">gpg: key B7C5D7D6350947F8: public key &quot;Debian Archive Automatic Signing Key (12/bookworm) &lt;ftpmaster@debian.org&gt;&quot; imported</span><br><span class="line">gpg: key 73A4F27B8DD47936: &quot;Debian Archive Automatic Signing Key (11/bullseye) &lt;ftpmaster@debian.org&gt;&quot; not changed</span><br><span class="line">gpg: Total number processed: 2</span><br><span class="line">gpg:               imported: 1</span><br><span class="line">gpg:              unchanged: 1</span><br><span class="line">sort: stat failed: -: Operation not permitted</span><br><span class="line">cut: write error: Broken pipe</span><br><span class="line">W: The key(s) in the keyring /etc/apt/trusted.gpg.d/debian-archive-bullseye-stable.gpg are ignored as the file has an unsupported filetype.</span><br></pre></td></tr></table></figure>
+
+<p>换源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">deb https://mirrors.huaweicloud.com/debian buster main contrib non-free</span><br><span class="line"></span><br><span class="line">deb https://mirrors.huaweicloud.com/debian buster-updates main contrib non-free</span><br><span class="line"></span><br><span class="line">deb https://mirrors.huaweicloud.com/debian buster-backports main contrib non-free</span><br><span class="line"></span><br><span class="line">deb https://mirrors.huaweicloud.com/debian-security/ buster/updates main contrib non-free</span><br><span class="line"></span><br><span class="line">deb-src https://mirrors.huaweicloud.com/debian buster main contrib non-free</span><br><span class="line"></span><br><span class="line">deb-src https://mirrors.huaweicloud.com/debian buster-updates main contrib non-free</span><br><span class="line"></span><br><span class="line">deb-src https://mirrors.huaweicloud.com/debian buster-backports main contrib non-free</span><br></pre></td></tr></table></figure>
+
+<p>换为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://deb.nodesource.com/setup_18.x | bash -</span><br><span class="line">apt-get install -y nodejs</span><br><span class="line">sudo apt-get install yarn</span><br></pre></td></tr></table></figure>
+
+<p> <code>node -v</code> </p>
+<h2 id="卸载node"><a href="#卸载node" class="headerlink" title="卸载node"></a>卸载node</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove nodejs</span><br></pre></td></tr></table></figure>
+
+<h2 id="pnpm"><a href="#pnpm" class="headerlink" title="pnpm"></a>pnpm</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo npm config set registry https://registry.npm.taobao.org</span><br><span class="line">sudo npm install -g pnpm</span><br></pre></td></tr></table></figure>
+
+<p>报错</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@localhost:/home# sudo npm install -g pnpm</span><br><span class="line">npm ERR! code CERT_HAS_EXPIRED</span><br><span class="line">npm ERR! errno CERT_HAS_EXPIRED</span><br><span class="line">npm ERR! request to https://registry.npm.taobao.org/pnpm failed, reason: certificate has expired</span><br><span class="line"></span><br><span class="line">npm ERR! A complete log of this run can be found in: /root/.npm/_logs/2024-02-23T06_04_18_543Z-debug-0.log</span><br></pre></td></tr></table></figure>
+
+<p>解决：换官方源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npmjs.org/</span><br></pre></td></tr></table></figure>
+
+<h2 id="go"><a href="#go" class="headerlink" title="go"></a>go</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir go</span><br><span class="line">cd go</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://go.dev/dl/go1.22.0.linux-arm64.tar.gz</span><br><span class="line">chmod +x go1.22.0.linux-arm64.tar.gz</span><br><span class="line">sudo tar -C /usr/local -xzf go1.22.0.linux-arm64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /usr/local/go</span><br></pre></td></tr></table></figure>
+
+<p>打开 root&#x2F;.bashrc 文件添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/usr/local/go/bin</span><br></pre></td></tr></table></figure>
+
+<p>重载</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br></pre></td></tr></table></figure>
+
+<p>换源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go env -w GO111MODULE=on</span><br><span class="line">go env -w GOPROXY=https://goproxy.cn</span><br></pre></td></tr></table></figure>
+
+<h2 id="air"><a href="#air" class="headerlink" title="air"></a>air</h2><p>以下要梯子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go install github.com/cosmtrek/air@latest</span><br></pre></td></tr></table></figure>
+
+<p>打开 root&#x2F;.bashrc 文件添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:$(go env GOPATH)/bin</span><br></pre></td></tr></table></figure>
+
+<p>重载</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<h2 id="buf"><a href="#buf" class="headerlink" title="buf"></a>buf</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install @bufbuild/buf</span><br><span class="line">go install github.com/bufbuild/buf/cmd/buf@latest</span><br><span class="line">buf --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd memos</span><br></pre></td></tr></table></figure>
+
+<p>搜索所有8081的端口换一个不常用的<code>55345</code></p>
+<h3 id="Steps-1"><a href="#Steps-1" class="headerlink" title="Steps"></a>Steps</h3><ol>
+<li><p>Clone the repo</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/usememos/memos</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Start backend using air</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">air -c scripts/.air.toml</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Generate TypeScript code from protobuf with buf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd proto &amp;&amp; buf generate</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Start frontend dev server</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd web &amp;&amp; pnpm i &amp;&amp; pnpm dev</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>Memos should now be running at <a target="_blank" rel="noopener" href="http://localhost:3001/">http://localhost:3001</a> and change either frontend or backend code would trigger live reload.</p>
+<h2 id="公网"><a href="#公网" class="headerlink" title="公网"></a>公网</h2><p>只需要开放3001端口</p>
+<h2 id="储存"><a href="#储存" class="headerlink" title="储存"></a>储存</h2><p>可使用minio</p>
+<p>本地的路径在&#x2F;memos&#x2F;.air</p>
+<p>用本地存储方案备份这个文件夹</p>
+<p>移动到稳定版要改数据库文件名</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A84-minio/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2024-03-23 15:17:32
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
+                        <b>#</b> 教程
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">
+                        #服务器
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A86-twikoo/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#memos"><span class="toc-text">memos</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Working-without-Docker"><span class="toc-text">Working without Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Prerequisite"><span class="toc-text">Prerequisite</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Steps"><span class="toc-text">Steps</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%A5%E9%94%99%E5%8F%8A%E8%A7%A3%E5%86%B3"><span class="toc-text">报错及解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85node"><span class="toc-text">安装node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BDnode"><span class="toc-text">卸载node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pnpm"><span class="toc-text">pnpm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go"><span class="toc-text">go</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#air"><span class="toc-text">air</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#buf"><span class="toc-text">buf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C"><span class="toc-text">运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Steps-1"><span class="toc-text">Steps</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E7%BD%91"><span class="toc-text">公网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%82%A8%E5%AD%98"><span class="toc-text">储存</span></a></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+            <a title="email" href="mailto:mailto:blog@282994.xyz">
+              <i class="iconfont icon-envelope"></i>
+            </a>
+            
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2024 Ame</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+
+      </div>
+    </div>
+  </body>
+</html>

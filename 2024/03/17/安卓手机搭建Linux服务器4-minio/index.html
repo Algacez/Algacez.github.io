@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Ame" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      安卓手机搭建Linux服务器4-minio 
+      
+      
+      |
+    
+     Ame&#39;s Blog
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.ico">
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Ame</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">安卓手机搭建Linux服务器4-minio</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2024-03-23 15:17:52
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
+                    <b>#</b> 教程
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">
+                    #服务器
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="minIO"><a href="#minIO" class="headerlink" title="minIO"></a>minIO</h1><p>需要公网–address端口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.min.io/server/minio/release/linux-arm64/archive/minio_20240214213602.0.0_arm64.deb -O minio.deb</span><br><span class="line">sudo dpkg -i minio.deb</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /home/minio</span><br><span class="line">minio server /home/minio --address :9001 --console-address :19001</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Formatting 1st pool, 1 set(s), 1 drives per set.</span><br><span class="line">WARNING: Host local has more than 0 drives of set. A host failure will result in data becoming unavailable.</span><br><span class="line">WARNING: Detected default credentials &#x27;minioadmin:minioadmin&#x27;, we recommend that you change these values with &#x27;MINIO_ROOT_USER&#x27; and &#x27;MINIO_ROOT_PASSWORD&#x27; environment variables</span><br><span class="line">MinIO Object Storage Server</span><br><span class="line">Copyright: 2015-2024 MinIO, Inc.</span><br><span class="line">License: GNU AGPLv3 &lt;https://www.gnu.org/licenses/agpl-3.0.html&gt;</span><br><span class="line">Version: RELEASE.2024-02-14T21-36-02Z (go1.21.7 linux/arm64)</span><br><span class="line"></span><br><span class="line">Status:         1 Online, 0 Offline. </span><br><span class="line">S3-API: http://192.168.1.8:9001  http://127.0.0.1:9001                 </span><br><span class="line">RootUser: minioadmin </span><br><span class="line">RootPass: minioadmin </span><br><span class="line"></span><br><span class="line">Console: http://192.168.1.8:19001 http://127.0.0.1:19001         </span><br><span class="line">RootUser: minioadmin </span><br><span class="line">RootPass: minioadmin </span><br><span class="line"></span><br><span class="line">Command-line: https://min.io/docs/minio/linux/reference/minio-mc.html#quickstart</span><br><span class="line">   $ mc alias set &#x27;myminio&#x27; &#x27;http://192.168.1.8:9001&#x27; &#x27;minioadmin&#x27; &#x27;minioadmin&#x27;</span><br><span class="line"></span><br><span class="line">Documentation: https://min.io/docs/minio/linux/index.html</span><br><span class="line">Warning: The standard parity is set to 0. This can lead to data loss.</span><br></pre></td></tr></table></figure>
+
+<h2 id="改密"><a href="#改密" class="headerlink" title="改密"></a>改密</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export MINIO_ACCESS_KEY=accesskey(自行设置)</span><br><span class="line">export MINIO_SECRET_KEY=secretkey(自行设置)</span><br></pre></td></tr></table></figure>
+
+<h2 id="typora"><a href="#typora" class="headerlink" title="typora"></a>typora</h2><h3 id="Typora-和-Python-脚本"><a href="#Typora-和-Python-脚本" class="headerlink" title="Typora 和 Python 脚本"></a>Typora 和 Python 脚本</h3><p>现在只需要准备一个脚本，让 Typora 能够向 Minio 上传文件就行了。选择 Python 是因为 Minio 官方提供了 API，而且我正好熟悉。</p>
+<p>Typora 上传的规则是这样，它会让你填写你的命令，比如你填写<code>python upload.py</code>，它就会执行<code>python upload.py &quot;image1-path&quot; &quot;image2-path&quot;</code>等等把图片位置作为参数穿进去。然后约定好需要你传回来上传完毕后的每张图片位置，每张图片占一行。比如上面的例子，传了两张，它就会自动从后往前查两行，作为 URL 替换掉原本的图片链接。</p>
+<p>于是我写了个脚本如下，写的比较糙，可以作为参考：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> uuid</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> minio <span class="keyword">import</span> Minio</span><br><span class="line"><span class="keyword">from</span> minio.error <span class="keyword">import</span> ResponseError</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line">warnings.filterwarnings(<span class="string">&#x27;ignore&#x27;</span>)</span><br><span class="line">images = sys.argv[<span class="number">1</span>:]</span><br><span class="line">minioClient = Minio(<span class="string">&quot;这里写你的Minio地址，格式为域名：端口，不带http://&quot;</span>,</span><br><span class="line">                    access_key=<span class="string">&#x27;你的Minio账号&#x27;</span>, secret_key=<span class="string">&#x27;你的Minio密码&#x27;</span>, secure=<span class="literal">False</span>)//secure为<span class="literal">True</span>的话第一项会填充为https://</span><br><span class="line">result = <span class="string">&quot;Upload Success:\n&quot;</span></span><br><span class="line">date = time.strftime(<span class="string">&quot;%Y%m&quot;</span>, time.localtime())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">download</span>(<span class="params">image_url</span>):</span><br><span class="line">    local_path = os.getcwd() + <span class="string">&quot;/temp&quot;</span></span><br><span class="line">    r = requests.get(image_url, verify=<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(local_path, <span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> code:</span><br><span class="line">        code.write(r.content)</span><br><span class="line">    <span class="keyword">return</span> local_path</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> image <span class="keyword">in</span> images:</span><br><span class="line">    <span class="keyword">if</span> os.path.isfile(image):</span><br><span class="line">        file_type = os.path.splitext(image)[-<span class="number">1</span>]</span><br><span class="line">        new_file_name = <span class="built_in">str</span>(uuid.uuid1()).replace(<span class="string">&#x27;-&#x27;</span>, <span class="string">&#x27;&#x27;</span>) + file_type</span><br><span class="line">    <span class="keyword">elif</span> image.startswith(<span class="string">&quot;https://&quot;</span>) <span class="keyword">or</span> image.startswith(<span class="string">&quot;http://&quot;</span>)://处理网络图片</span><br><span class="line">        <span class="keyword">if</span> image.endswith(<span class="string">&quot;.png&quot;</span>) <span class="keyword">or</span> image.endswith(<span class="string">&quot;.jpg&quot;</span>) <span class="keyword">or</span> image.endswith(<span class="string">&quot;.jpeg&quot;</span>) <span class="keyword">or</span> image.endswith(<span class="string">&quot;.gif&quot;</span>):</span><br><span class="line">            url = image.split(<span class="string">&quot;/&quot;</span>)</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(url) &gt; <span class="number">1</span>:</span><br><span class="line">                image = download(image)<span class="comment">#先把网图下载到本地了，然后在传到Minio</span></span><br><span class="line">                new_file_name = url[-<span class="number">1</span>]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                result = result + <span class="string">&quot;error:parsing image error!&quot;</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            result = result + <span class="string">&quot;error:parsing image error!&quot;</span></span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        result = result + <span class="string">&quot;error:parsing image error!&quot;</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        minioClient.fput_object(bucket_name=<span class="string">&#x27;blog&#x27;</span>, object_name=date + <span class="string">&quot;/&quot;</span> + new_file_name, file_path=image)</span><br><span class="line">        <span class="keyword">if</span> image.endswith(<span class="string">&quot;temp&quot;</span>):</span><br><span class="line">            os.remove(image)</span><br><span class="line">        result = result +<span class="string">&quot;你的Nginx地址，比如http://yourdomain:8081&quot;</span> + <span class="string">&quot;/blog/&quot;</span> + date + <span class="string">&quot;/&quot;</span> + new_file_name + <span class="string">&quot;\n&quot;</span></span><br><span class="line">    <span class="keyword">except</span> ResponseError <span class="keyword">as</span> err:</span><br><span class="line">        result = result + <span class="string">&quot;error:&quot;</span> + err.message + <span class="string">&quot;\n&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
+
+<h2 id="tls"><a href="#tls" class="headerlink" title="tls"></a>tls</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minio server /home/minio --address :9001 --console-address :19001 --certs-dir /path/to/certs</span><br></pre></td></tr></table></figure>
+
+<p>目录及文件名如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/path/to/certs</span><br><span class="line">  private.key</span><br><span class="line">  public.crt</span><br></pre></td></tr></table></figure>
+
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;Version&quot;: &quot;2012-10-17&quot;,</span><br><span class="line">    &quot;Statement&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Sid&quot;: &quot;allow-anybody-read&quot;,</span><br><span class="line">            &quot;Effect&quot;: &quot;Allow&quot;,</span><br><span class="line">            &quot;Principal&quot;: &#123;</span><br><span class="line">                &quot;AWS&quot;: [</span><br><span class="line">                    &quot;*&quot;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;Action&quot;: [</span><br><span class="line">                &quot;s3:GetObject&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;Resource&quot;: [</span><br><span class="line">                &quot;arn:aws:s3:::你的桶名字/*&quot;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="永久链接"><a href="#永久链接" class="headerlink" title="永久链接"></a>永久链接</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://域名/桶名称/文件名</span><br></pre></td></tr></table></figure>
+
+<h2 id="可用alist挂载minio"><a href="#可用alist挂载minio" class="headerlink" title="可用alist挂载minio"></a>可用alist挂载minio</h2><p>对象存储</p>
+<p>使用<code>Minio</code>自建对象存储的应该都知道，ID和秘钥如何获取，这里就不说了</p>
+<p>只需要填写存储桶名称，访问秘钥ID，安全访问秘钥，Endpoint 这四个选项，地区空着即可</p>
+<p>**Endpoint：http(s):&#x2F;&#x2F;《YOUR_IP&#x2F;URL》:9001&#x2F;**，可以使用IP也可以使用域名</p>
+<p>最后记得打开 <strong><code>强制路径样式</code></strong> 才能使用，否则无法使用<a target="_blank" rel="noopener" href="https://github.com/alist-org/alist/discussions/4920#discussioncomment-6635452">点击查看详情open in new window</a></p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A83-alist/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2024-03-23 15:17:52
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
+                        <b>#</b> 教程
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">
+                        #服务器
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A85-memos/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#minIO"><span class="toc-text">minIO</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B9%E5%AF%86"><span class="toc-text">改密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#typora"><span class="toc-text">typora</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Typora-%E5%92%8C-Python-%E8%84%9A%E6%9C%AC"><span class="toc-text">Typora 和 Python 脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tls"><span class="toc-text">tls</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%83%E9%99%90"><span class="toc-text">权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B0%B8%E4%B9%85%E9%93%BE%E6%8E%A5"><span class="toc-text">永久链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E7%94%A8alist%E6%8C%82%E8%BD%BDminio"><span class="toc-text">可用alist挂载minio</span></a></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+            <a title="email" href="mailto:mailto:blog@282994.xyz">
+              <i class="iconfont icon-envelope"></i>
+            </a>
+            
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2024 Ame</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+
+      </div>
+    </div>
+  </body>
+</html>

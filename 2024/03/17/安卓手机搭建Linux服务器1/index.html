@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Ame" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      安卓手机搭建Linux服务器1-cloudreve 
+      
+      
+      |
+    
+     Ame&#39;s Blog
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.ico">
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Ame</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">安卓手机搭建Linux服务器1-cloudreve</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2024-06-01 19:04:00
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
+                    <b>#</b> 教程
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">
+                    #服务器
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="cloudreve"><a href="#cloudreve" class="headerlink" title="cloudreve"></a>cloudreve</h1><p>使用cloudreve</p>
+<p><a target="_blank" rel="noopener" href="https://wp.282994.xyz/s/mETm">密码cloudreve</a></p>
+<p>放到指定目录后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x cloudreve</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./cloudreve</span><br></pre></td></tr></table></figure>
+
+<h2 id="静默运行"><a href="#静默运行" class="headerlink" title="静默运行"></a>静默运行</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./cloudreve &gt; output.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>不分片大文件可能传不上去，建议设置分片</p>
+<h3 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h3><p>要停止通过 <code>nohup</code> 后台运行的程序，你可以使用 <code>ps</code> 命令找到程序的进程号（PID），然后使用 <code>kill</code> 命令发送信号给该进程来终止它。以下是具体步骤：</p>
+<ol>
+<li><p>使用 <code>ps</code> 命令查找程序的进程号：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep cloudreve</span><br></pre></td></tr></table></figure>
+
+<p>这会列出所有包含 “cloudreve” 字符串的进程。找到与你要停止的程序相关的进程，记下其 PID。</p>
+</li>
+<li><p>使用 <code>kill</code> 命令发送终止信号给程序的进程：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill PID</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>PID</code> 是程序的进程号。如果程序仍未终止，可以使用 <code>-9</code> 选项发送强制终止信号：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 PID</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>这样就可以停止通过 <code>nohup</code> 后台运行的程序。</p>
+<h2 id="不使用tls"><a href="#不使用tls" class="headerlink" title="不使用tls"></a><strong>不使用tls</strong></h2><p>可以同时运行两个qwq</p>
+<h2 id="使用tls"><a href="#使用tls" class="headerlink" title="使用tls"></a>使用tls</h2><p>所有流量都要过cloudflare，<strong>可以隐藏端口号</strong></p>
+<p><strong>上传速度比较抽象</strong></p>
+<p>添加<code>conf.ini</code></p>
+<p>在SSL&#x2F;TLS - 源服务器申请源证书和私钥</p>
+<p>在本地新建pem，拷贝</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[SSL]</span><br><span class="line">Listen = :5213</span><br><span class="line">CertPath = C:\Users\i\Documents\fullchain.pem</span><br><span class="line">KeyPath = C:\Users\i\Documents\privkey.pem</span><br></pre></td></tr></table></figure>
+
+<p>在cloudflare的规则中添加一个Origin Rules</p>
+<p>自定义</p>
+<p>当主机名等于……时重写到外网端口</p>
+<h2 id="进程守护"><a href="#进程守护" class="headerlink" title="进程守护"></a>进程守护</h2><p>以下两种方式可任选其一。</p>
+<h3 id="Systemd"><a href="#Systemd" class="headerlink" title="Systemd"></a>Systemd</h3><p># 编辑配置文件</p>
+<p>vim &#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;cloudreve.service</p>
+<p>如果有两个，可添加cloudreve2.service</p>
+<p>将下文 <code>PATH_TO_CLOUDREVE</code> 更换为程序所在目录：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Cloudreve</span><br><span class="line">Documentation=https://docs.cloudreve.org</span><br><span class="line">After=network.target</span><br><span class="line">After=mysqld.service</span><br><span class="line">Wants=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">WorkingDirectory=/PATH_TO_CLOUDREVE</span><br><span class="line">ExecStart=/PATH_TO_CLOUDREVE/cloudreve</span><br><span class="line">Restart=on-abnormal</span><br><span class="line">RestartSec=5s</span><br><span class="line">KillMode=mixed</span><br><span class="line">StandardOutput=null</span><br><span class="line">StandardError=syslog</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"># 更新配置</span><br><span class="line">systemctl daemon-reload</span><br><span class="line"># 启动服务</span><br><span class="line">systemctl start cloudreve</span><br><span class="line"># 设置开机启动</span><br><span class="line">systemctl enable cloudreve</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">管理命令：</span><br><span class="line"># 启动服务</span><br><span class="line">systemctl start cloudreve</span><br><span class="line"># 停止服务</span><br><span class="line">systemctl stop cloudreve</span><br><span class="line"># 重启服务</span><br><span class="line">systemctl restart cloudreve</span><br><span class="line"># 查看状态</span><br><span class="line">systemctl status cloudreve</span><br></pre></td></tr></table></figure>
+
+<h3 id="Supervisor"><a href="#Supervisor" class="headerlink" title="Supervisor"></a>Supervisor</h3><p>首先安装<code>supervisor</code>，已安装的可以跳过。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 安装 supervisor</span><br><span class="line"></span><br><span class="line">sudo yum install python-setuptools</span><br><span class="line"></span><br><span class="line">sudo easy_install supervisor</span><br><span class="line"># 初始化全局配置文件</span><br><span class="line"></span><br><span class="line">sudo touch /etc/supervisord.conf</span><br><span class="line"></span><br><span class="line">sudo echo_supervisord_conf &gt; /etc/supervisord.conf</span><br></pre></td></tr></table></figure>
+
+<p>编辑全局配置文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/supervisord.conf</span><br></pre></td></tr></table></figure>
+
+<p>将文件底部的<code>[include]</code> 分区注释符号<code>;</code>删除，加入新的配置文件包含路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[include]</span><br><span class="line"></span><br><span class="line">files = /etc/supervisor/conf/*.conf</span><br></pre></td></tr></table></figure>
+
+<p>创建 Cloudreve 应用配置所在文件目录，并创建打开配置文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /etc/supervisor/conf</span><br><span class="line"></span><br><span class="line">sudo vim /etc/supervisor/conf/cloudreve.conf</span><br></pre></td></tr></table></figure>
+
+<p>根据实际情况填写以下内容并保存：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[program:cloudreve]</span><br><span class="line"></span><br><span class="line">directory=/home/cloudreve</span><br><span class="line"></span><br><span class="line">command=/home/cloudreve/cloudreve</span><br><span class="line"></span><br><span class="line">autostart=true</span><br><span class="line"></span><br><span class="line">autorestart=true</span><br><span class="line"></span><br><span class="line">stderr_logfile=/var/log/cloudreve.err</span><br><span class="line"></span><br><span class="line">stdout_logfile=/var/log/cloudreve.log</span><br><span class="line"></span><br><span class="line">environment=CODENATION_ENV=prod</span><br></pre></td></tr></table></figure>
+
+<p>其中以下配置项需要根据实际情况更改：</p>
+<ul>
+<li><code>directory</code>: Cloudreve 主程序所在目录</li>
+<li><code>command</code>: Cloudreve 主程序绝对路径</li>
+<li><code>stderr_logfile</code>: 错误日志路径</li>
+<li><code>stdout_logfile</code>: 通常日志路径</li>
+</ul>
+<p>通过全局配置文件启动 supervisor：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisord -c /etc/supervisord.conf</span><br></pre></td></tr></table></figure>
+
+<p>日后你可以通过以下指令管理 Cloudreve 进程：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 启动</span><br><span class="line">sudo supervisorctl start cloudreve</span><br><span class="line"># 停止</span><br><span class="line">sudo supervisorctl stop cloudreve</span><br><span class="line"># 查看状态</span><br><span class="line">sudo supervisorctl status cloudreve</span><br></pre></td></tr></table></figure>
+
+<h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">System has not been booted with systemd as init system (PID 1). Can&#x27;t operate.</span><br><span class="line">Failed to connect to bus: Host is down</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><h5 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove systemd</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install systemctl</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="报错2"><a href="#报错2" class="headerlink" title="报错2"></a>报错2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">无法解析响应: Unexpected token &#x27;&lt;&#x27;, &quot;&lt;html&gt; &lt;h&quot;... is not valid JSON (&lt;html&gt; &lt;head&gt;&lt;title&gt;413 Request Entity Too Large&lt;/title&gt;&lt;/head&gt; &lt;body&gt; &lt;center&gt;&lt;h1&gt;413 Request Entity Too Large&lt;/h1&gt;&lt;/center&gt; &lt;hr&gt;&lt;center&gt;cloudflare&lt;/center&gt; &lt;/body&gt; &lt;/html&gt; &lt;!-- a padding to disable MSIE and Chrome friendly error page --&gt; &lt;!-- a padding to disable MSIE and Chrome friendly error page --&gt; &lt;!-- a padding to disable MSIE and Chrome friendly error page --&gt; &lt;!-- a padding to disable MSIE and Chrome friendly error page --&gt; &lt;!-- a padding to disable MSIE and Chrome friendly error page --&gt; &lt;!-- a padding to disable MSIE and Chrome friendly error page --&gt; )</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h4><p>降低分片大小</p>
+<hr>
+<h1 id="离线下载"><a href="#离线下载" class="headerlink" title="离线下载"></a>离线下载</h1><h3 id="aria2"><a href="#aria2" class="headerlink" title="aria2"></a>aria2</h3><h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><h3 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h3><blockquote>
+<p>Aria2 是目前最强大的全能型下载工具，它支持 BT、磁力、HTTP、FTP 等下载协议，常用做离线下载的服务端。Aria2 一键安装管理脚本是 Toyo (逗比) 大佬最为知名的脚本作品之一，2018 年 11 月 14 日逗比大佬因未知原因突然失联。由于博主非常喜欢 Aria2 所以自 2018 年 12 月 7 日起开始接手这个项目并进行了大量的功能与细节优化，一直持续维护至今。增强版脚本整合了 <a target="_blank" rel="noopener" href="https://github.com/P3TERX/aria2.conf">Aria2 完美配置</a>，在安装 Aria2 的过程中会下载这套配置方案，这套方案包含了配置文件、附加功能脚本等文件，用于实现 Aria2 功能的增强和扩展，提升 Aria2 的下载速度与使用体验，解决 Aria2 在使用中遇到的 BT 下载无速度、文件残留占用磁盘空间、任务丢失、重复下载等问题。</p>
+</blockquote>
+<p>如果使用 ARIA2 进行挂机下载的话，建议使用云服务器这种可以二十四小时开机的机器，而且尽量选择大硬盘、大带宽的机器。</p>
+<h3 id="1-2-功能特性"><a href="#1-2-功能特性" class="headerlink" title="1.2 功能特性"></a>1.2 功能特性</h3><ul>
+<li>使用 Aria2 完美配置方案<ul>
+<li>BT 下载率高、速度快</li>
+<li>重启后不丢失任务进度、不重复下载</li>
+<li>删除正在下载的任务自动删除未完成的文件</li>
+<li>下载错误自动删除未完成的文件</li>
+<li>下载完成自动删除控制文件 (<code>.aria2</code> 后缀名文件)</li>
+<li>下载完成自动删除种子文件 (<code>.torrent</code> 后缀名文件)</li>
+<li>下载完成自动删除空目录</li>
+<li>BT 下载完成自动清除垃圾文件 (文件类型过滤功能)</li>
+<li>BT 下载完成自动清除小文件 (文件大小过滤功能)</li>
+<li>有一定的防版权投诉、防迅雷吸血效果</li>
+<li>更好的 PT 下载支持</li>
+</ul>
+</li>
+<li>使用 Aria2 Pro Core 项目最新静态编译二进制文件<ul>
+<li>多平台：<code>amd64</code>, <code>i386</code>, <code>arm64</code>, <code>armhf</code></li>
+<li>全功能：<code>Async DNS</code>, <code>BitTorrent</code>, <code>Firefox3 Cookie</code>, <code>GZip</code>, <code>HTTPS</code>, <code>Message Digest</code>, <code>Metalink</code>, <code>XML-RPC</code>, <code>SFTP</code></li>
+<li>单服务器线程数最大值无上限（已破解线程数限制）</li>
+<li>防掉线程优化</li>
+<li>最新依赖库，下载更安全、稳定、快速</li>
+<li>持续更新最新版本</li>
+</ul>
+</li>
+<li>支持与 RCLONE 联动，更多扩展功能与玩法：<ul>
+<li>OneDrive、Google Drive 等网盘离线下载</li>
+<li>百度网盘转存到 OneDrive 、Google Drive 等其他网盘</li>
+</ul>
+</li>
+<li>支持新一代互联网协议 IPv6</li>
+<li>定时自动更新 BT tracker 列表（无需重启）</li>
+</ul>
+<h3 id="1-3-项目地址"><a href="#1-3-项目地址" class="headerlink" title="1.3 项目地址"></a>1.3 项目地址</h3><p>GitHub：<a target="_blank" rel="noopener" href="https://github.com/P3TERX/aria2.sh">https://github.com/P3TERX/aria2.sh</a></p>
+<h3 id="1-4-系统要求"><a href="#1-4-系统要求" class="headerlink" title="1.4 系统要求"></a>1.4 系统要求</h3><p>CentOS 6+ &#x2F; Debian 6+ &#x2F; Ubuntu 14.04+</p>
+<h3 id="1-5-架构支持"><a href="#1-5-架构支持" class="headerlink" title="1.5 架构支持"></a>1.5 架构支持</h3><p>x86_64 &#x2F; i386 &#x2F; ARM64 &#x2F; ARM32v7 &#x2F; ARM32v6</p>
+<h2 id="2-准备"><a href="#2-准备" class="headerlink" title="2. 准备"></a>2. 准备</h2><p>夜梦这里使用的是雨云的服务器，<strong>长期全场景九折 + 首月五折</strong>优惠链接：<a target="_blank" rel="noopener" href="https://www.rainyun.com/YeMeng_">https://www.rainyun.com/</a></p>
+<p>更多服务器推荐请看：<a target="_blank" rel="noopener" href="https://tech.yemengstar.com/?page_id=8084">服务器推荐</a> | <a target="_blank" rel="noopener" href="https://tech.yemengstar.com/?p=5865">部分服务器测评</a></p>
+<h2 id="3-部署"><a href="#3-部署" class="headerlink" title="3. 部署"></a>3. 部署</h2><p>为了确保能正常使用，请先安装基础组件 <code>wget</code>、<code>curl</code>、<code>ca-certificates</code>。夜梦这里使用 debian 进行演示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install wget curl ca-certificates</span><br></pre></td></tr></table></figure>
+
+<p>下载脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N git.io/aria2.sh &amp;&amp; chmod +x aria2.sh</span><br></pre></td></tr></table></figure>
+
+<p>运行脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./aria2.sh</span><br></pre></td></tr></table></figure>
+
+<p>选择你要执行的选项，首次运行选择 1 安装 aria2：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Aria2 一键安装管理脚本 增强版 [v2.7.4] by P3TERX.COM</span><br><span class="line"></span><br><span class="line"> 0. 升级脚本</span><br><span class="line">———————————————————————</span><br><span class="line"> 1. 安装 Aria2</span><br><span class="line"> 2. 更新 Aria2</span><br><span class="line"> 3. 卸载 Aria2</span><br><span class="line">———————————————————————</span><br><span class="line"> 4. 启动 Aria2</span><br><span class="line"> 5. 停止 Aria2</span><br><span class="line"> 6. 重启 Aria2</span><br><span class="line">———————————————————————</span><br><span class="line"> 7. 修改 配置</span><br><span class="line"> 8. 查看 配置</span><br><span class="line"> 9. 查看 日志</span><br><span class="line">10. 清空 日志</span><br><span class="line">———————————————————————</span><br><span class="line">11. 手动更新 BT-Tracker</span><br><span class="line">12. 自动更新 BT-Tracker</span><br><span class="line">———————————————————————</span><br><span class="line"></span><br><span class="line">Aria2 状态: 未安装 | 未启动</span><br><span class="line"></span><br><span class="line">自动更新 BT-Tracker: 未开启</span><br><span class="line"></span><br><span class="line">请输入数字 [0-12]:</span><br></pre></td></tr></table></figure>
+
+<p>默认安装完毕后会输出安装信息，默认运行在 6800 端口。你也可以再次运行<code>./aria2.sh</code> 选择 8 查看具体配置信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">IPv4 地址	: yourIP</span><br><span class="line">IPv6 地址	: yourIPV6</span><br><span class="line">RPC 端口	: 6800</span><br><span class="line">RPC 密钥	: yourRPCSecrets</span><br><span class="line">下载目录	: /root/downloads</span><br><span class="line">AriaNg 链接	: yourAriaNgLink</span><br></pre></td></tr></table></figure>
+
+<p>访问 ariang 地址即可进入控制面板。</p>
+<h2 id="4-其他操作"><a href="#4-其他操作" class="headerlink" title="4. 其他操作"></a>4. 其他操作</h2><p>启动：<code>/etc/init.d/aria2 start</code> | <code>service aria2 start</code></p>
+<p>停止：<code>/etc/init.d/aria2 stop</code> | <code>service aria2 stop</code></p>
+<p>重启：<code>/etc/init.d/aria2 restart</code> | <code>service aria2 restart</code></p>
+<p>查看状态：<code>/etc/init.d/aria2 status</code> | <code>service aria2 status</code></p>
+<p>配置文件路径：<code>/root/.aria2c/aria2.conf</code> （配置文件有中文注释，若语言设置有问题会导致中文乱码）</p>
+<p>默认下载目录：<code>/root/downloads</code></p>
+<p>RPC 密钥：随机生成，可使用选项 <code>7. 修改 配置文件</code>自定义</p>
+<p>[<a target="_blank" rel="noopener" href="https://tech.yemengstar.com/?p=2416#ref_1">1]</a></p>
+<h2 id="5-保存的地址"><a href="#5-保存的地址" class="headerlink" title="5. 保存的地址"></a>5. 保存的地址</h2><p>下载的文件保存在服务器的 <code>/root/downloads</code> 目录下。</p>
+<p>可以利用 FTP 下载到本地。</p>
+<p>XFTP 官方网站：<a target="_blank" rel="noopener" href="http://www.xshell.com/zh/xftp/">XFTP – NetSarang Website (xshell.com)</a></p>
+<p>后续夜梦会讲解如何使用 aria2 和 cloudreve 进行离线下载。小伙伴们可以先关注一下哦！</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://tech.yemengstar.com/?p=2416#ref_1_1">^</a><a target="_blank" rel="noopener" href="https://github.com/P3TERX/aria2.sh">P3TERX&#x2F;aria2.sh: Aria2 一键安装管理脚本 增强版 (github.com)</a></li>
+</ol>
+<h2 id="接入"><a href="#接入" class="headerlink" title="接入"></a>接入</h2><h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>推荐将 aria2 与 cloudreve 放在一个服务器上面。然后先开启 aria2，然后开启 cloudreve。</p>
+<p>之后再 cloudreve 后台管理面板中进行设置即可！</p>
+<p>选择离线下载节点，点击编辑主节点</p>
+<p>在 PRC 地址中填入本地地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1:6800/</span><br></pre></td></tr></table></figure>
+
+<p>在 RPC 授权令牌中填入 <a target="_blank" rel="noopener" href="https://tech.yemengstar.com/?tag=aria2">aria2</a> 中的密钥</p>
+<p>在地址中填入你下载的目录</p>
+<p>一切完成以后，可以测试 Aria2 通信</p>
+<p>这个时候就可以到主页进行离线下载了。</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2024/02/21/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2024-06-01 19:04:00
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
+                        <b>#</b> 教程
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">
+                        #服务器
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A82-codeserv/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cloudreve"><span class="toc-text">cloudreve</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E9%BB%98%E8%BF%90%E8%A1%8C"><span class="toc-text">静默运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE"><span class="toc-text">设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2"><span class="toc-text">停止</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E4%BD%BF%E7%94%A8tls"><span class="toc-text">不使用tls</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8tls"><span class="toc-text">使用tls</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E5%AE%88%E6%8A%A4"><span class="toc-text">进程守护</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Systemd"><span class="toc-text">Systemd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Supervisor"><span class="toc-text">Supervisor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%A5%E9%94%99"><span class="toc-text">报错</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3"><span class="toc-text">解决</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D"><span class="toc-text">第一种</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%A5%E9%94%992"><span class="toc-text">报错2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3-1"><span class="toc-text">解决</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD"><span class="toc-text">离线下载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#aria2"><span class="toc-text">aria2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-text">1. 前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">1.1 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7"><span class="toc-text">1.2 功能特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80"><span class="toc-text">1.3 项目地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82"><span class="toc-text">1.4 系统要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E6%9E%B6%E6%9E%84%E6%94%AF%E6%8C%81"><span class="toc-text">1.5 架构支持</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%87%86%E5%A4%87"><span class="toc-text">2. 准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%83%A8%E7%BD%B2"><span class="toc-text">3. 部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C"><span class="toc-text">4. 其他操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BF%9D%E5%AD%98%E7%9A%84%E5%9C%B0%E5%9D%80"><span class="toc-text">5. 保存的地址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%85%A5"><span class="toc-text">接入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5"><span class="toc-text">连接</span></a></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+            <a title="email" href="mailto:mailto:blog@282994.xyz">
+              <i class="iconfont icon-envelope"></i>
+            </a>
+            
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2024 Ame</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Ame" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      RAID磁盘阵列技术 
+      
+      
+      |
+    
+     Ame&#39;s Blog
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.ico">
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Ame</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">RAID磁盘阵列技术</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2024-03-23 15:39:29
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E7%A1%AC%E7%9B%98/" title="硬盘">
+                    #硬盘
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h2 id="RAID磁盘阵列技术"><a href="#RAID磁盘阵列技术" class="headerlink" title="RAID磁盘阵列技术"></a>RAID磁盘阵列技术</h2><h3 id="1、RAID概述"><a href="#1、RAID概述" class="headerlink" title="1、RAID概述"></a>1、RAID概述</h3><p>RAID(Redundant Array of Independent Disk)，从字面意思讲的是基于独立磁盘的具有冗余的磁盘阵列，其核心思想是将多块独立磁盘按不同方式组成一个逻辑磁盘，以此来提高其存储容量、提高性能或者提供数据备份的功能。按其组合的方式不同而分成不同级别的RAID。</p>
+<p>RAID分为软件RAID和硬件RAID两类，在比较流行的操作系统中已经集成了软RAID功能，如常用的Windows、Linux系统都有软件RAID功能，在功能上，软件RAID与硬件RAID一样，但是由于软件RAID没有独立的硬件控制设备，所以其性能不如硬件RAID，但是其实现比硬件RAID简单，不需要额外的硬件支持。硬件RAID通常需要有RAID卡，而RAID卡自带有独立的控制部件和内存，所以不会占用系统资源。目前大部分主板都已经集成了RAID卡。</p>
+<h3 id="2、什么是RAID？"><a href="#2、什么是RAID？" class="headerlink" title="2、什么是RAID？"></a>2、什么是RAID？</h3><ul>
+<li>RAID（Redundatnt Array of lndependent Disks），全称为：独立磁盘冗余阵列</li>
+</ul>
+<blockquote>
+<p>RAID是一种把多块独立的硬盘（物理硬盘）按不同的方式组合起来形成一个硬盘组（逻辑硬盘），从而提供比单个硬盘 <strong>更高的存储性能</strong> 和提供 <strong>数据备份技术</strong></p>
+</blockquote>
+<ul>
+<li><p>常见的RAID级别别有以下几种：</p>
+<p>RAID 0 、 RAID 1、 RAID 5、RAID 10</p>
+</li>
+</ul>
+<p> <strong>RAID 0、1、5、10方案技术对比</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">RAID级别</th>
+<th align="left">硬盘数量</th>
+<th align="left">硬盘利用率</th>
+<th align="left">是否有校验</th>
+<th align="left">保护能力</th>
+<th align="left">写性能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">RAID0</td>
+<td align="left">N</td>
+<td align="left">N</td>
+<td align="left">无</td>
+<td align="left">无</td>
+<td align="left">单个硬盘的N倍</td>
+</tr>
+<tr>
+<td align="left">RAID1</td>
+<td align="left">N（偶数）</td>
+<td align="left">N&#x2F;2</td>
+<td align="left">无</td>
+<td align="left">允许一个设备故障</td>
+<td align="left">需写两对存储设备，互为主备</td>
+</tr>
+<tr>
+<td align="left">RAID5</td>
+<td align="left">N≥3</td>
+<td align="left">（N-1）N</td>
+<td align="left">有</td>
+<td align="left">允许一个设备故障</td>
+<td align="left">需写计算校验</td>
+</tr>
+<tr>
+<td align="left">RAID10</td>
+<td align="left">N≥4（偶数)</td>
+<td align="left">N&#x2F;2</td>
+<td align="left">无</td>
+<td align="left">允许两个基组各坏一个</td>
+<td align="left">N&#x2F;2块盘同时写入</td>
+</tr>
+</tbody></table>
+<p><strong>注意：其中*N*代表硬盘总数</strong></p>
+<h3 id="3、RAID级别详解"><a href="#3、RAID级别详解" class="headerlink" title="3、RAID级别详解"></a>3、RAID级别详解</h3><h4 id="3-1-RAID-0-不含校验与冗余的条带存储"><a href="#3-1-RAID-0-不含校验与冗余的条带存储" class="headerlink" title="3.1 RAID 0(不含校验与冗余的条带存储)"></a>3.1 RAID 0(不含校验与冗余的条带存储)</h4><blockquote>
+<p>RAID 0技术把多块物理硬盘设备（至少两块）通过硬件或软件的方式串联在一起，组成一个大的卷组，并将数据依次写入各个物理硬盘中。这样一来，在最理想的状态下，硬盘设备的读写性能会提升数倍，但是若任意一块硬盘发生故障，将导致整个系统的数据都受到破坏。通俗来说，RAID 0技术能够有效地提升硬盘数据的吞吐速度，但是不具备数据备份和错误修复能力</p>
+</blockquote>
+<h4 id="3-2-RAID-1-不含检验的镜像存储"><a href="#3-2-RAID-1-不含检验的镜像存储" class="headerlink" title="3.2 RAID 1(不含检验的镜像存储)"></a>3.2 RAID 1(不含检验的镜像存储)</h4><blockquote>
+<p>RAID 1技术 是把两块以上的硬盘设备进行绑定，在写入数据时，是将数据同时写入到多块硬盘设备上（可以将其视为数据的镜像或备份）。但在读取数据的时候，操作系统可以分别从两块硬盘中读取信息，因此理论读取速度的峰值可以是硬盘数量的倍数。另外，平时只要保证有一块硬盘稳定运行，数据就不会出现损坏的情况，可靠性较高。</p>
+</blockquote>
+<h4 id="3-3-RAID-5-数据块级别的分布式检验条带存储"><a href="#3-3-RAID-5-数据块级别的分布式检验条带存储" class="headerlink" title="3.3 RAID 5(数据块级别的分布式检验条带存储)"></a>3.3 RAID 5(数据块级别的分布式检验条带存储)</h4><blockquote>
+<p>RAID 5 最少需要3块磁盘组成，使用的是硬盘切割（Disk Striping）技术。两块磁盘为数据的存储，一块磁盘为校验数据，数据存储的盘的数据读写和RAID 1（分布式存储）是一样的，但是有校验机制，所以写的速度相对RAID 0较差一点，读取的速度很高。任何一个磁盘数据丢失或损坏，都不会导致整个数据丢失，因为有校验机制的盘会通过其它没有损坏的盘计算出损坏的盘内容数据。</p>
+</blockquote>
+<h4 id="3-4-RAID-10-镜像与条带存储"><a href="#3-4-RAID-10-镜像与条带存储" class="headerlink" title="3.4 RAID 10(镜像与条带存储)"></a>3.4 RAID 10(镜像与条带存储)</h4><blockquote>
+<p>RAID 10技术是RAID 1+RAID 0技术的一个“组合体”，RAID 10需要至少4块硬盘来组建，其中先分别两两制作成RAID 1磁盘阵列，以保证数据的安全性；然后再对两个RAID 1磁盘阵列实施RAID 0技术，进一步提高硬盘设备的读写速度。RAID 10技术继承了RAID 0的高读写速度和RAID 1的数据安全性。</p>
+</blockquote>
+<h3 id="4、RAID实战"><a href="#4、RAID实战" class="headerlink" title="4、RAID实战"></a>4、RAID实战</h3><p>准备</p>
+<blockquote>
+<p>安装CentOS 8操作系统主机，并添加4块20 GB硬盘。</p>
+</blockquote>
+<p>命令</p>
+<blockquote>
+<p>mdadm命令用于创建、调整、监控和管理RAID设备，语法格式为“mdadm 参数 硬盘名称”。</p>
+</blockquote>
+<p> <strong>mdadm命令的常用参数和作用</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">-D</th>
+<th align="left">显示RAID设备的详细信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-A</td>
+<td align="left">加入一个以前定义的RAID</td>
+</tr>
+<tr>
+<td align="left">-B</td>
+<td align="left">创建一个没有超级块的RAID设备</td>
+</tr>
+<tr>
+<td align="left">-F</td>
+<td align="left">选项监控模式</td>
+</tr>
+<tr>
+<td align="left">-G</td>
+<td align="left">更改RAID设备的大小或形态</td>
+</tr>
+<tr>
+<td align="left">-I</td>
+<td align="left">添加设备到RAID中，或从RAID中删除设备</td>
+</tr>
+<tr>
+<td align="left">-z</td>
+<td align="left">组建RAID1、RAID4、RAID5、RAID6后从每个RAID成员获取的空间容量</td>
+</tr>
+<tr>
+<td align="left">-s</td>
+<td align="left">扫描配置文件或&#x2F;proc&#x2F;mdstat以搜寻丢失的信息</td>
+</tr>
+<tr>
+<td align="left">-C</td>
+<td align="left">把RAID信息写入每个成员超级块中</td>
+</tr>
+<tr>
+<td align="left">-v</td>
+<td align="left">显示RAID创建过程中的详细信息</td>
+</tr>
+<tr>
+<td align="left">-B</td>
+<td align="left">不把RAID信息写入每个成员的超级块中</td>
+</tr>
+<tr>
+<td align="left">-l</td>
+<td align="left">指定RAID的级别</td>
+</tr>
+<tr>
+<td align="left">-n</td>
+<td align="left">指定RAID中活动设备的数目</td>
+</tr>
+<tr>
+<td align="left">-f</td>
+<td align="left">把RAID成员列为有问题，以便移除该成员</td>
+</tr>
+<tr>
+<td align="left">-r</td>
+<td align="left">把RAID成员移出RAID设备</td>
+</tr>
+<tr>
+<td align="left">-a</td>
+<td align="left">向RAID设备中添加一个成员</td>
+</tr>
+<tr>
+<td align="left">–re-add</td>
+<td align="left">把最近移除的RAID成员重新添加到RAID设备中</td>
+</tr>
+<tr>
+<td align="left">-E</td>
+<td align="left">查看RAID成员详细信息</td>
+</tr>
+<tr>
+<td align="left">-c</td>
+<td align="left">创建一个RAID设备时默认为512kb</td>
+</tr>
+<tr>
+<td align="left">-R</td>
+<td align="left">开始部分组装RAID</td>
+</tr>
+<tr>
+<td align="left">-S</td>
+<td align="left">停用RAID设备，释放所有资源</td>
+</tr>
+<tr>
+<td align="left">-x</td>
+<td align="left">指定初始RAID设备的备用成员的数量</td>
+</tr>
+<tr>
+<td align="left">–zero-superblock</td>
+<td align="left">如果RAID设备包含一个有效的超级块，该块使用零覆盖</td>
+</tr>
+</tbody></table>
+<h4 id="4-1-RAID-0部署"><a href="#4-1-RAID-0部署" class="headerlink" title="4.1 RAID 0部署"></a>4.1 RAID 0部署</h4><p><strong>实验环境</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">RAID级别</th>
+<th align="left">磁盘</th>
+<th align="left">热备盘</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">raid0</td>
+<td align="left">sdb，sdc</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"># 安装mdadm</span><br><span class="line">[root@localhost ~]# yum -y install mdadm</span><br><span class="line"></span><br><span class="line"># 创建raid0</span><br><span class="line">[root@localhost ~]# mdadm -C -v /dev/md0 -l 0 -n 2 /dev/sd[b,c]</span><br><span class="line">mdadm: chunk size defaults to 512K</span><br><span class="line">mdadm: Defaulting to version 1.2 metadata</span><br><span class="line">mdadm: array /dev/md0 started.</span><br><span class="line"></span><br><span class="line"># 查看阵列信息</span><br><span class="line">[root@localhost ~]# mdadm -Ds</span><br><span class="line">ARRAY /dev/md0 metadata=1.2 name=localhost.localdomain:0 UUID=85c13218:1975466f:a1d59df8:b4833594</span><br><span class="line">[root@localhost ~]# mdadm -D /dev/md0 </span><br><span class="line">/dev/md0:</span><br><span class="line">           Version : 1.2</span><br><span class="line">     Creation Time : Tue Aug 16 11:21:04 2022</span><br><span class="line">        Raid Level : raid0</span><br><span class="line">        Array Size : 41908224 (39.97 GiB 42.91 GB)</span><br><span class="line">      Raid Devices : 2</span><br><span class="line">     Total Devices : 2</span><br><span class="line">       Persistence : Superblock is persistent</span><br><span class="line"></span><br><span class="line">       Update Time : Tue Aug 16 11:21:04 2022</span><br><span class="line">             State : clean </span><br><span class="line">    Active Devices : 2</span><br><span class="line">   Working Devices : 2</span><br><span class="line">    Failed Devices : 0</span><br><span class="line">     Spare Devices : 0</span><br><span class="line"></span><br><span class="line">            Layout : -unknown-</span><br><span class="line">        Chunk Size : 512K</span><br><span class="line"></span><br><span class="line">Consistency Policy : none</span><br><span class="line"></span><br><span class="line">              Name : localhost.localdomain:0  (local to host localhost.localdomain)</span><br><span class="line">              UUID : 85c13218:1975466f:a1d59df8:b4833594</span><br><span class="line">            Events : 0</span><br><span class="line"></span><br><span class="line">    Number   Major   Minor   RaidDevice State</span><br><span class="line">       0       8       16        0      active sync   /dev/sdb</span><br><span class="line">       1       8       32        1      active sync   /dev/sdc</span><br><span class="line"></span><br><span class="line"># 将RAID信息保存到配置文件</span><br><span class="line">[root@localhost ~]# mdadm -Dsv &gt; /etc/mdadm.conf</span><br><span class="line"></span><br><span class="line"># 格式化</span><br><span class="line">[root@localhost ~]# mkfs.xfs /dev/md0 </span><br><span class="line">log stripe unit (524288 bytes) is too large (maximum is 256KiB)</span><br><span class="line">log stripe unit adjusted to 32KiB</span><br><span class="line">meta-data=/dev/md0               isize=512    agcount=16, agsize=654720 blks</span><br><span class="line">         =                       sectsz=512   attr=2, projid32bit=1</span><br><span class="line">         =                       crc=1        finobt=1, sparse=1, rmapbt=0</span><br><span class="line">         =                       reflink=1</span><br><span class="line">data     =                       bsize=4096   blocks=10475520, imaxpct=25</span><br><span class="line">         =                       sunit=128    swidth=256 blks</span><br><span class="line">naming   =version 2              bsize=4096   ascii-ci=0, ftype=1</span><br><span class="line">log      =internal log           bsize=4096   blocks=5120, version=2</span><br><span class="line">         =                       sectsz=512   sunit=8 blks, lazy-count=1</span><br><span class="line">realtime =none                   extsz=4096   blocks=0, rtextents=0</span><br><span class="line"></span><br><span class="line"># 创建挂载点</span><br><span class="line">[root@localhost ~]# mkdir /raid0</span><br><span class="line">[root@localhost ~]# ls /</span><br><span class="line">bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  raid0  root  run  sbin  srv  sys  tmp  usr  var</span><br><span class="line"></span><br><span class="line"># 进行挂载</span><br><span class="line">[root@localhost ~]# mount /dev/md0 /raid0/</span><br><span class="line">[root@localhost ~]# df -h</span><br><span class="line">Filesystem           Size  Used Avail Use% Mounted on</span><br><span class="line">devtmpfs             876M     0  876M   0% /dev</span><br><span class="line">tmpfs                895M     0  895M   0% /dev/shm</span><br><span class="line">tmpfs                895M  8.7M  887M   1% /run</span><br><span class="line">tmpfs                895M     0  895M   0% /sys/fs/cgroup</span><br><span class="line">/dev/mapper/cs-root   17G  1.9G   16G  11% /</span><br><span class="line">/dev/sda1           1014M  195M  820M  20% /boot</span><br><span class="line">tmpfs                179M     0  179M   0% /run/user/0</span><br><span class="line">/dev/md0              40G  319M   40G   1% /raid0</span><br><span class="line"></span><br><span class="line"># 查找md0UUID</span><br><span class="line">[root@localhost ~]# blkid /dev/md0 </span><br><span class="line">/dev/md0: UUID=&quot;52e21055-43a3-442e-b649-110de8d92071&quot; BLOCK_SIZE=&quot;512&quot; TYPE=&quot;xfs&quot;</span><br><span class="line"></span><br><span class="line"># 将挂载写入到/etc/fstab中，实现永久挂载, 开机自动挂载</span><br><span class="line">[root@localhost ~]# vim /etc/fstab</span><br><span class="line">......</span><br><span class="line">UUID=&quot;52e21055-43a3-442e-b649-110de8d92071&quot; /raid0 xfs defaults 0 0</span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"># 解除挂载</span><br><span class="line">[root@localhost ~]# umount /raid0/</span><br><span class="line">[root@localhost ~]# df -h</span><br><span class="line">Filesystem           Size  Used Avail Use% Mounted on</span><br><span class="line">devtmpfs             876M     0  876M   0% /dev</span><br><span class="line">tmpfs                895M     0  895M   0% /dev/shm</span><br><span class="line">tmpfs                895M  8.7M  887M   1% /run</span><br><span class="line">tmpfs                895M     0  895M   0% /sys/fs/cgroup</span><br><span class="line">/dev/mapper/cs-root   17G  1.9G   16G  11% /</span><br><span class="line">/dev/sda1           1014M  195M  820M  20% /boot</span><br><span class="line">tmpfs                179M     0  179M   0% /run/user/0</span><br><span class="line"></span><br><span class="line"># 加载fstab配置文件, 同时检测语法是否有错误</span><br><span class="line">[root@localhost ~]# mount -a</span><br><span class="line">[root@localhost ~]# df -h</span><br><span class="line">Filesystem           Size  Used Avail Use% Mounted on</span><br><span class="line">devtmpfs             876M     0  876M   0% /dev</span><br><span class="line">tmpfs                895M     0  895M   0% /dev/shm</span><br><span class="line">tmpfs                895M  8.7M  887M   1% /run</span><br><span class="line">tmpfs                895M     0  895M   0% /sys/fs/cgroup</span><br><span class="line">/dev/mapper/cs-root   17G  1.9G   16G  11% /</span><br><span class="line">/dev/sda1           1014M  195M  820M  20% /boot</span><br><span class="line">tmpfs                179M     0  179M   0% /run/user/0</span><br><span class="line">/dev/md0              40G  319M   40G   1% /raid0</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-RAID1-部署"><a href="#4-2-RAID1-部署" class="headerlink" title="4.2 RAID1 部署"></a>4.2 RAID1 部署</h4><p><strong>实验环境</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">RAID级别</th>
+<th align="left">磁盘</th>
+<th align="left">热备盘</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">raid1</td>
+<td align="left">sdb，sdc</td>
+<td align="left">sdd</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>1)创建RAID1</p>
+<p>2)添加1个热备盘</p>
+<p>3)模拟磁盘故障,自动顶替故障盘</p>
+<p>4)从raid1中移除故障盘</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br></pre></td><td class="code"><pre><span class="line"># 创建raid1</span><br><span class="line">[root@localhost ~]# mdadm -C -v /dev/md1 -l 1 -n 2 -x 1 /dev/sd[b,c,d]</span><br><span class="line">// -C 创建 -v 详细信息 -l阵列级别 -n 阵列成员数量 -x阵列备用盘数量</span><br><span class="line">mdadm: Note: this array has metadata at the start and</span><br><span class="line">    may not be suitable as a boot device.  If you plan to</span><br><span class="line">    store &#x27;/boot&#x27; on this device please ensure that</span><br><span class="line">    your boot-loader understands md/v1.x metadata, or use</span><br><span class="line">    --metadata=0.90</span><br><span class="line">mdadm: size set to 20954112K</span><br><span class="line">Continue creating array? y</span><br><span class="line">mdadm: Defaulting to version 1.2 metadata</span><br><span class="line">mdadm: array /dev/md1 started.</span><br><span class="line"></span><br><span class="line"># 将RAID信息保存到配置文件</span><br><span class="line">[root@localhost ~]# mdadm -Dsv &gt; /etc/mdadm.conf</span><br><span class="line"></span><br><span class="line"># 查看RAID阵列信息</span><br><span class="line">[root@localhost ~]# mdadm -D /dev/md1 </span><br><span class="line">/dev/md1:</span><br><span class="line">           Version : 1.2</span><br><span class="line">     Creation Time : Tue Aug 16 10:41:44 2022</span><br><span class="line">        Raid Level : raid1</span><br><span class="line">        Array Size : 20954112 (19.98 GiB 21.46 GB)</span><br><span class="line">     Used Dev Size : 20954112 (19.98 GiB 21.46 GB)</span><br><span class="line">      Raid Devices : 2</span><br><span class="line">     Total Devices : 3</span><br><span class="line">       Persistence : Superblock is persistent</span><br><span class="line"></span><br><span class="line">       Update Time : Tue Aug 16 10:43:29 2022</span><br><span class="line">             State : clean </span><br><span class="line">    Active Devices : 2</span><br><span class="line">   Working Devices : 3</span><br><span class="line">    Failed Devices : 0</span><br><span class="line">     Spare Devices : 1</span><br><span class="line"></span><br><span class="line">Consistency Policy : resync</span><br><span class="line"></span><br><span class="line">              Name : localhost.localdomain:1  (local to host localhost.localdomain)</span><br><span class="line">              UUID : c371a1b7:49be4a4f:9d0c47c1:ca740e5d</span><br><span class="line">            Events : 17</span><br><span class="line"></span><br><span class="line">    Number   Major   Minor   RaidDevice State</span><br><span class="line">       0       8       16        0      active sync   /dev/sdb</span><br><span class="line">       1       8       32        1      active sync   /dev/sdc</span><br><span class="line"></span><br><span class="line">       2       8       48        -      spare   /dev/sdd</span><br><span class="line"></span><br><span class="line"># 格式化</span><br><span class="line">[root@localhost ~]# mkfs.xfs /dev/md1 </span><br><span class="line">meta-data=/dev/md1               isize=512    agcount=4, agsize=1309632 blks</span><br><span class="line">         =                       sectsz=512   attr=2, projid32bit=1</span><br><span class="line">         =                       crc=1        finobt=1, sparse=1, rmapbt=0</span><br><span class="line">         =                       reflink=1</span><br><span class="line">data     =                       bsize=4096   blocks=5238528, imaxpct=25</span><br><span class="line">         =                       sunit=0      swidth=0 blks</span><br><span class="line">naming   =version 2              bsize=4096   ascii-ci=0, ftype=1</span><br><span class="line">log      =internal log           bsize=4096   blocks=2560, version=2</span><br><span class="line">         =                       sectsz=512   sunit=0 blks, lazy-count=1</span><br><span class="line">realtime =none                   extsz=4096   blocks=0, rtextents=0</span><br><span class="line"></span><br><span class="line"># 创建挂载点</span><br><span class="line">[root@localhost ~]# mkdir /raid1</span><br><span class="line"></span><br><span class="line"># 进行挂载</span><br><span class="line">[root@localhost ~]# mount /dev/md1 /raid1/</span><br><span class="line"></span><br><span class="line"># 准备测试文件</span><br><span class="line">[root@localhost ~]# cp /etc/passwd /raid1/</span><br><span class="line"></span><br><span class="line"># 模拟损坏</span><br><span class="line">[root@localhost ~]# mdadm /dev/md1 -f /dev/sdc</span><br><span class="line">mdadm: set /dev/sdc faulty in /dev/md1</span><br><span class="line"># 查看阵列状态信息</span><br><span class="line">[root@localhost ~]# mdadm -D /dev/md1 </span><br><span class="line">/dev/md1:</span><br><span class="line">           Version : 1.2</span><br><span class="line">     Creation Time : Tue Aug 16 10:41:44 2022</span><br><span class="line">        Raid Level : raid1</span><br><span class="line">        Array Size : 20954112 (19.98 GiB 21.46 GB)</span><br><span class="line">     Used Dev Size : 20954112 (19.98 GiB 21.46 GB)</span><br><span class="line">      Raid Devices : 2</span><br><span class="line">     Total Devices : 3</span><br><span class="line">       Persistence : Superblock is persistent</span><br><span class="line"></span><br><span class="line">       Update Time : Tue Aug 16 10:51:21 2022</span><br><span class="line">             State : clean, degraded, recovering </span><br><span class="line">    Active Devices : 1</span><br><span class="line">   Working Devices : 2</span><br><span class="line">    Failed Devices : 1</span><br><span class="line">     Spare Devices : 1</span><br><span class="line"></span><br><span class="line">Consistency Policy : resync</span><br><span class="line"></span><br><span class="line">    Rebuild Status : 11% complete</span><br><span class="line"></span><br><span class="line">              Name : localhost.localdomain:1  (local to host localhost.localdomain)</span><br><span class="line">              UUID : c371a1b7:49be4a4f:9d0c47c1:ca740e5d</span><br><span class="line">            Events : 20</span><br><span class="line"></span><br><span class="line">    Number   Major   Minor   RaidDevice State</span><br><span class="line">       0       8       16        0      active sync   /dev/sdb</span><br><span class="line">       2       8       48        1      spare rebuilding   /dev/sdd</span><br><span class="line"></span><br><span class="line">       1       8       32        -      faulty   /dev/sdc</span><br><span class="line"></span><br><span class="line"># 更新配置文件</span><br><span class="line">[root@localhost ~]# mdadm -Dsv &gt; /etc/mdadm.conf </span><br><span class="line"></span><br><span class="line"># 查看数据是否丢失</span><br><span class="line">[root@localhost ~]# ls /raid1/</span><br><span class="line">passwd</span><br><span class="line">[root@localhost ~]# cat -n /raid1/passwd </span><br><span class="line">     1	root:x:0:0:root:/root:/bin/bash</span><br><span class="line">     2	bin:x:1:1:bin:/bin:/sbin/nologin</span><br><span class="line">     3	daemon:x:2:2:daemon:/sbin:/sbin/nologin</span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"># 移除损坏设备</span><br><span class="line">[root@localhost ~]# mdadm -r /dev/md1 /dev/sdc</span><br><span class="line">mdadm: hot removed /dev/sdc from /dev/md1</span><br><span class="line"></span><br><span class="line"># 添加一块新热备盘</span><br><span class="line">[root@localhost ~]# mdadm -a /dev/md1 /dev/sde</span><br><span class="line">mdadm: added /dev/sde</span><br><span class="line"></span><br><span class="line"># 查看阵列状态信息</span><br><span class="line">[root@localhost ~]# mdadm -D /dev/md1 </span><br><span class="line">/dev/md1:</span><br><span class="line">           Version : 1.2</span><br><span class="line">     Creation Time : Tue Aug 16 11:03:51 2022</span><br><span class="line">        Raid Level : raid1</span><br><span class="line">        Array Size : 20954112 (19.98 GiB 21.46 GB)</span><br><span class="line">     Used Dev Size : 20954112 (19.98 GiB 21.46 GB)</span><br><span class="line">      Raid Devices : 2</span><br><span class="line">     Total Devices : 3</span><br><span class="line">       Persistence : Superblock is persistent</span><br><span class="line"></span><br><span class="line">       Update Time : Tue Aug 16 11:07:31 2022</span><br><span class="line">             State : clean </span><br><span class="line">    Active Devices : 2</span><br><span class="line">   Working Devices : 3</span><br><span class="line">    Failed Devices : 0</span><br><span class="line">     Spare Devices : 1</span><br><span class="line"></span><br><span class="line">Consistency Policy : resync</span><br><span class="line"></span><br><span class="line">              Name : localhost.localdomain:1  (local to host localhost.localdomain)</span><br><span class="line">              UUID : fccb9296:7e443ff9:0b0b3537:d7b43b6e</span><br><span class="line">            Events : 54</span><br><span class="line"></span><br><span class="line">    Number   Major   Minor   RaidDevice State</span><br><span class="line">       0       8       16        0      active sync   /dev/sdb</span><br><span class="line">       2       8       48        1      active sync   /dev/sdd</span><br><span class="line"></span><br><span class="line">       3       8       64        -      spare   /dev/sde</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-3-RAID-5部署"><a href="#4-3-RAID-5部署" class="headerlink" title="4.3 RAID 5部署"></a>4.3 RAID 5部署</h4><p><strong>实验环境</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">RAID级别</th>
+<th align="left">磁盘</th>
+<th align="left">热备盘</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">raid5</td>
+<td align="left">sdb，sdc，sdd</td>
+<td align="left">sde</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>1)创建RAID5,添加1个热备盘，指定chunk大小为32K<br>-X或–spare- devicds&#x3D; 指定阵列中备用盘的数量<br>-C或–chunk&#x3D;设定阵列的块chunk块大小，单位为KB<br>2)停止阵列，重新激活阵列<br>3)使用热备盘，扩展阵列容量，从3个磁盘扩展到4个</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line"># 创建raid5</span><br><span class="line">[root@localhost ~]# mdadm -C -v /dev/md5 -l 5 -n 3 -x 1 -c 32 /dev/sd[b,c,d,e]</span><br><span class="line">mdadm: layout defaults to left-symmetric</span><br><span class="line">mdadm: layout defaults to left-symmetric</span><br><span class="line">mdadm: size set to 20954112K</span><br><span class="line">mdadm: Defaulting to version 1.2 metadata</span><br><span class="line">mdadm: array /dev/md5 started.</span><br><span class="line"></span><br><span class="line"># 查看阵列状态信息</span><br><span class="line">[root@localhost ~]# mdadm -D /dev/md5 </span><br><span class="line">/dev/md5:</span><br><span class="line">           Version : 1.2</span><br><span class="line">     Creation Time : Tue Aug 16 14:06:04 2022</span><br><span class="line">        Raid Level : raid5</span><br><span class="line">        Array Size : 41908224 (39.97 GiB 42.91 GB)</span><br><span class="line">     Used Dev Size : 20954112 (19.98 GiB 21.46 GB)</span><br><span class="line">      Raid Devices : 3</span><br><span class="line">     Total Devices : 4</span><br><span class="line">       Persistence : Superblock is persistent</span><br><span class="line"></span><br><span class="line">       Update Time : Tue Aug 16 14:06:10 2022</span><br><span class="line">             State : clean, degraded, recovering </span><br><span class="line">    Active Devices : 2</span><br><span class="line">   Working Devices : 4</span><br><span class="line">    Failed Devices : 0</span><br><span class="line">     Spare Devices : 2</span><br><span class="line"></span><br><span class="line">            Layout : left-symmetric</span><br><span class="line">        Chunk Size : 32K</span><br><span class="line"></span><br><span class="line">Consistency Policy : resync</span><br><span class="line"></span><br><span class="line">    Rebuild Status : 9% complete		#同步状态，同步完，此行消失。</span><br><span class="line"></span><br><span class="line">              Name : localhost.localdomain:5  (local to host localhost.localdomain)</span><br><span class="line">              UUID : 6b7d5927:032f6b93:7e0638b1:5e9dec9f</span><br><span class="line">            Events : 2</span><br><span class="line"></span><br><span class="line">    Number   Major   Minor   RaidDevice State</span><br><span class="line">       0       8       16        0      active sync   /dev/sdb</span><br><span class="line">       1       8       32        1      active sync   /dev/sdc</span><br><span class="line">       4       8       48        2      spare rebuilding   /dev/sdd</span><br><span class="line"></span><br><span class="line">       3       8       64        -      spare   /dev/sde</span><br><span class="line"></span><br><span class="line"># 将RAID信息保存到配置文件</span><br><span class="line">[root@localhost ~]# mdadm -Dsv &gt; /etc/mdadm.conf</span><br><span class="line"></span><br><span class="line"># 确认数据同步</span><br><span class="line">[root@localhost ~]# mdadm -D /dev/md5 </span><br><span class="line">/dev/md5:</span><br><span class="line">           Version : 1.2</span><br><span class="line">     Creation Time : Tue Aug 16 14:06:04 2022</span><br><span class="line">        Raid Level : raid5</span><br><span class="line">        Array Size : 41908224 (39.97 GiB 42.91 GB)</span><br><span class="line">     Used Dev Size : 20954112 (19.98 GiB 21.46 GB)</span><br><span class="line">      Raid Devices : 3</span><br><span class="line">     Total Devices : 4</span><br><span class="line">       Persistence : Superblock is persistent</span><br><span class="line"></span><br><span class="line">       Update Time : Tue Aug 16 14:07:49 2022</span><br><span class="line">             State : clean </span><br><span class="line">    Active Devices : 3</span><br><span class="line">   Working Devices : 4</span><br><span class="line">    Failed Devices : 0</span><br><span class="line">     Spare Devices : 1</span><br><span class="line"></span><br><span class="line">            Layout : left-symmetric</span><br><span class="line">        Chunk Size : 32K</span><br><span class="line"></span><br><span class="line">Consistency Policy : resync</span><br><span class="line"></span><br><span class="line">              Name : localhost.localdomain:5  (local to host localhost.localdomain)</span><br><span class="line">              UUID : 6b7d5927:032f6b93:7e0638b1:5e9dec9f</span><br><span class="line">            Events : 18</span><br><span class="line"></span><br><span class="line">    Number   Major   Minor   RaidDevice State</span><br><span class="line">       0       8       16        0      active sync   /dev/sdb</span><br><span class="line">       1       8       32        1      active sync   /dev/sdc</span><br><span class="line">       4       8       48        2      active sync   /dev/sdd</span><br><span class="line"></span><br><span class="line">       3       8       64        -      spare   /dev/sde</span><br><span class="line"></span><br><span class="line"># 扩展RAID5磁盘阵列</span><br><span class="line">[root@localhost ~]# mdadm -G /dev/md5 -n 4 -c 32</span><br><span class="line"></span><br><span class="line"># 确认数据同步</span><br><span class="line">[root@localhost ~]# mdadm -D /dev/md5 </span><br><span class="line">/dev/md5:</span><br><span class="line">           Version : 1.2</span><br><span class="line">     Creation Time : Tue Aug 16 14:06:04 2022</span><br><span class="line">        Raid Level : raid5</span><br><span class="line">        Array Size : 41908224 (39.97 GiB 42.91 GB)</span><br><span class="line">     Used Dev Size : 20954112 (19.98 GiB 21.46 GB)</span><br><span class="line">      Raid Devices : 4</span><br><span class="line">     Total Devices : 4</span><br><span class="line">       Persistence : Superblock is persistent</span><br><span class="line"></span><br><span class="line">       Update Time : Tue Aug 16 14:10:20 2022</span><br><span class="line">             State : clean, reshaping </span><br><span class="line">    Active Devices : 4</span><br><span class="line">   Working Devices : 4</span><br><span class="line">    Failed Devices : 0</span><br><span class="line">     Spare Devices : 0</span><br><span class="line"></span><br><span class="line">            Layout : left-symmetric</span><br><span class="line">        Chunk Size : 32K</span><br><span class="line"></span><br><span class="line">Consistency Policy : resync</span><br><span class="line"></span><br><span class="line">    Reshape Status : 26% complete</span><br><span class="line">     Delta Devices : 1, (3-&gt;4)</span><br><span class="line"></span><br><span class="line">              Name : localhost.localdomain:5  (local to host localhost.localdomain)</span><br><span class="line">              UUID : 6b7d5927:032f6b93:7e0638b1:5e9dec9f</span><br><span class="line">            Events : 50</span><br><span class="line"></span><br><span class="line">    Number   Major   Minor   RaidDevice State</span><br><span class="line">       0       8       16        0      active sync   /dev/sdb</span><br><span class="line">       1       8       32        1      active sync   /dev/sdc</span><br><span class="line">       4       8       48        2      active sync   /dev/sdd</span><br><span class="line">       3       8       64        3      active sync   /dev/sde</span><br><span class="line"></span><br><span class="line"># 停止MD5阵列</span><br><span class="line">[root@localhost ~]# mdadm -Dsv &gt; /etc/mdadm.conf		#停止前，一定要先保存配置文件</span><br><span class="line">[root@localhost ~]# mdadm -D /dev/md5 	#停止前，请确认数据已经同步完（同步不完成，有时会无法激活）</span><br><span class="line">......</span><br><span class="line">Consistency Policy : resync		#数据已经同步完</span><br><span class="line">......</span><br><span class="line">[root@localhost ~]# mdadm -S /dev/md5 	#-S 停止阵列</span><br><span class="line">mdadm: stopped /dev/md5</span><br><span class="line"></span><br><span class="line"># 激活MD5阵列</span><br><span class="line">[root@localhost ~]# mdadm -As 	#-A 激活磁盘阵列 s扫描配置文件得到阵列信息</span><br><span class="line">mdadm: /dev/md5 has been started with 4 drives.</span><br></pre></td></tr></table></figure>
+
+<p><strong>备注</strong>：</p>
+<blockquote>
+<p>1）停止前，一定要先保存配置文件<br>2）阵列只有在正常状态下才能扩容，降级及重构时不允许扩容。对于raid5来说，只能增加成员盘，不能减少；而对于raid1来说，可以增加成员盘，也可以减少。<br>3）要等所有数据同步后，新增加的磁盘空间才会在md5空间中有数据变化</p>
+</blockquote>
+<h4 id="4-4-RAID-10-部署"><a href="#4-4-RAID-10-部署" class="headerlink" title="4.4 RAID 10 部署"></a>4.4 RAID 10 部署</h4><p><strong>实验环境</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">RAID级别</th>
+<th align="left">磁盘</th>
+<th align="left">热备盘</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">raid10</td>
+<td align="left">分区：sdb1，sdb2，sdb3，sdb4</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<p><strong>备注：</strong></p>
+<blockquote>
+<p>1）–zero-superblock:清除设备上的MD超级块</p>
+<p>2)如更换的RAID卡与原卡规格型号相同，则不会有什么问题；若两卡规格型号不同，需重新安装新卡驱动程序。若驱动程序差别不大，RAID盘组合顺序正常，硬盘原数据可正确读写；若驱动程序结构差别大，则可能发生读写错误。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br></pre></td><td class="code"><pre><span class="line"># 创建raid10</span><br><span class="line">[root@localhost ~]# mdadm -C -v /dev/md10 -l 10 -n 4 /dev/sd[b,c,d,e]</span><br><span class="line">mdadm: layout defaults to n2</span><br><span class="line">mdadm: layout defaults to n2</span><br><span class="line">mdadm: chunk size defaults to 512K</span><br><span class="line">mdadm: partition table exists on /dev/sdb</span><br><span class="line">mdadm: partition table exists on /dev/sdb but will be lost or</span><br><span class="line">       meaningless after creating array</span><br><span class="line">mdadm: size set to 20954112K</span><br><span class="line">Continue creating array? y</span><br><span class="line">mdadm: Defaulting to version 1.2 metadata</span><br><span class="line">mdadm: array /dev/md10 started.</span><br><span class="line"></span><br><span class="line"># 查看阵列状态信息</span><br><span class="line">[root@localhost ~]# mdadm -D /dev/md10 </span><br><span class="line">/dev/md10:</span><br><span class="line">           Version : 1.2</span><br><span class="line">     Creation Time : Tue Aug 16 14:57:53 2022</span><br><span class="line">        Raid Level : raid10</span><br><span class="line">        Array Size : 41908224 (39.97 GiB 42.91 GB)</span><br><span class="line">     Used Dev Size : 20954112 (19.98 GiB 21.46 GB)</span><br><span class="line">      Raid Devices : 4</span><br><span class="line">     Total Devices : 4</span><br><span class="line">       Persistence : Superblock is persistent</span><br><span class="line"></span><br><span class="line">       Update Time : Tue Aug 16 14:57:53 2022</span><br><span class="line">             State : clean, resyncing </span><br><span class="line">    Active Devices : 4</span><br><span class="line">   Working Devices : 4</span><br><span class="line">    Failed Devices : 0</span><br><span class="line">     Spare Devices : 0</span><br><span class="line"></span><br><span class="line">            Layout : near=2</span><br><span class="line">        Chunk Size : 512K</span><br><span class="line"></span><br><span class="line">Consistency Policy : resync</span><br><span class="line"></span><br><span class="line">     Resync Status : 4% complete	#同步状态，同步完，此行消失。</span><br><span class="line"></span><br><span class="line">              Name : localhost.localdomain:10  (local to host localhost.localdomain)</span><br><span class="line">              UUID : 6c6b4207:a0b0cc25:6df948a3:4997c88c</span><br><span class="line">            Events : 0</span><br><span class="line"></span><br><span class="line">    Number   Major   Minor   RaidDevice State</span><br><span class="line">       0       8       16        0      active sync set-A   /dev/sdb</span><br><span class="line">       1       8       32        1      active sync set-B   /dev/sdc</span><br><span class="line">       2       8       48        2      active sync set-A   /dev/sdd</span><br><span class="line">       3       8       64        3      active sync set-B   /dev/sde</span><br><span class="line"></span><br><span class="line"># 将RAID信息保存到配置文件</span><br><span class="line">[root@localhost ~]# mdadm -Dsv &gt; /etc/mdadm.conf</span><br><span class="line"></span><br><span class="line"># 确认数据同步</span><br><span class="line">[root@localhost ~]# mdadm -D /dev/md10 </span><br><span class="line">/dev/md10:</span><br><span class="line">           Version : 1.2</span><br><span class="line">     Creation Time : Tue Aug 16 14:57:53 2022</span><br><span class="line">        Raid Level : raid10</span><br><span class="line">        Array Size : 41908224 (39.97 GiB 42.91 GB)</span><br><span class="line">     Used Dev Size : 20954112 (19.98 GiB 21.46 GB)</span><br><span class="line">      Raid Devices : 4</span><br><span class="line">     Total Devices : 4</span><br><span class="line">       Persistence : Superblock is persistent</span><br><span class="line"></span><br><span class="line">       Update Time : Tue Aug 16 15:01:21 2022</span><br><span class="line">             State : clean </span><br><span class="line">    Active Devices : 4</span><br><span class="line">   Working Devices : 4</span><br><span class="line">    Failed Devices : 0</span><br><span class="line">     Spare Devices : 0</span><br><span class="line"></span><br><span class="line">            Layout : near=2</span><br><span class="line">        Chunk Size : 512K</span><br><span class="line"></span><br><span class="line">Consistency Policy : resync</span><br><span class="line"></span><br><span class="line">              Name : localhost.localdomain:10  (local to host localhost.localdomain)</span><br><span class="line">              UUID : 6c6b4207:a0b0cc25:6df948a3:4997c88c</span><br><span class="line">            Events : 17</span><br><span class="line"></span><br><span class="line">    Number   Major   Minor   RaidDevice State</span><br><span class="line">       0       8       16        0      active sync set-A   /dev/sdb</span><br><span class="line">       1       8       32        1      active sync set-B   /dev/sdc</span><br><span class="line">       2       8       48        2      active sync set-A   /dev/sdd</span><br><span class="line">       3       8       64        3      active sync set-B   /dev/sde</span><br><span class="line"></span><br><span class="line"># 查看阵列信息</span><br><span class="line">[root@localhost ~]# cat /proc/mdstat </span><br><span class="line">Personalities : [raid10] </span><br><span class="line">md10 : active raid10 sde[3] sdd[2] sdc[1] sdb[0]</span><br><span class="line">      41908224 blocks super 1.2 512K chunks 2 near-copies [4/4] [UUUU]</span><br><span class="line">      </span><br><span class="line">unused devices: &lt;none&gt;</span><br><span class="line"></span><br><span class="line"># 格式化阵列</span><br><span class="line">[root@localhost ~]# mkfs.ext4 /dev/md10 </span><br><span class="line">mke2fs 1.45.6 (20-Mar-2020)</span><br><span class="line">Creating filesystem with 10477056 4k blocks and 2621440 inodes</span><br><span class="line">Filesystem UUID: 16833119-5f99-4104-a324-1c4fd0aeaf6b</span><br><span class="line">Superblock backups stored on blocks: </span><br><span class="line">	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, </span><br><span class="line">	4096000, 7962624</span><br><span class="line"></span><br><span class="line">Allocating group tables: done                            </span><br><span class="line">Writing inode tables: done                            </span><br><span class="line">Creating journal (65536 blocks): done</span><br><span class="line">Writing superblocks and filesystem accounting information: done   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 挂载阵列</span><br><span class="line">[root@localhost ~]# mkdir /raid10		#创建挂载点</span><br><span class="line">[root@localhost ~]# mount /dev/md10 /raid10/</span><br><span class="line">[root@localhost ~]# df -h</span><br><span class="line">Filesystem           Size  Used Avail Use% Mounted on</span><br><span class="line">devtmpfs             876M     0  876M   0% /dev</span><br><span class="line">tmpfs                895M     0  895M   0% /dev/shm</span><br><span class="line">tmpfs                895M  8.7M  887M   1% /run</span><br><span class="line">tmpfs                895M     0  895M   0% /sys/fs/cgroup</span><br><span class="line">/dev/mapper/cs-root   17G  1.9G   16G  11% /</span><br><span class="line">/dev/sda1           1014M  195M  820M  20% /boot</span><br><span class="line">tmpfs                179M     0  179M   0% /run/user/0</span><br><span class="line">/dev/md10             40G   49M   38G   1% /raid10</span><br><span class="line"></span><br><span class="line"># 编辑/etc/fstab永久挂载阵列</span><br><span class="line">[root@localhost ~]# vim /etc/fstab</span><br><span class="line">....</span><br><span class="line">UUID=&quot;16833119-5f99-4104-a324-1c4fd0aeaf6b&quot; /raid10 ext4 defaults 0 0</span><br><span class="line">.....</span><br><span class="line">[root@localhost ~]# df -h</span><br><span class="line">Filesystem           Size  Used Avail Use% Mounted on</span><br><span class="line">devtmpfs             876M     0  876M   0% /dev</span><br><span class="line">tmpfs                895M     0  895M   0% /dev/shm</span><br><span class="line">tmpfs                895M  8.7M  887M   1% /run</span><br><span class="line">tmpfs                895M     0  895M   0% /sys/fs/cgroup</span><br><span class="line">/dev/mapper/cs-root   17G  1.9G   16G  11% /</span><br><span class="line">/dev/sda1           1014M  195M  820M  20% /boot</span><br><span class="line">tmpfs                179M     0  179M   0% /run/user/0</span><br><span class="line">/dev/md10             40G   49M   38G   1% /raid10</span><br><span class="line"></span><br><span class="line"># 模拟磁盘损坏及修复</span><br><span class="line">//模拟/dev/sdc损坏</span><br><span class="line">[root@localhost ~]# mdadm /dev/md10 -f /dev/sdc </span><br><span class="line">mdadm: set /dev/sdc faulty in /dev/md10</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# mdadm -D /dev/md10 </span><br><span class="line">/dev/md10:</span><br><span class="line">           Version : 1.2</span><br><span class="line">     Creation Time : Tue Aug 16 14:57:53 2022</span><br><span class="line">        Raid Level : raid10</span><br><span class="line">        Array Size : 41908224 (39.97 GiB 42.91 GB)</span><br><span class="line">     Used Dev Size : 20954112 (19.98 GiB 21.46 GB)</span><br><span class="line">      Raid Devices : 4</span><br><span class="line">     Total Devices : 4</span><br><span class="line">       Persistence : Superblock is persistent</span><br><span class="line"></span><br><span class="line">       Update Time : Tue Aug 16 15:14:52 2022</span><br><span class="line">             State : clean, degraded </span><br><span class="line">    Active Devices : 3</span><br><span class="line">   Working Devices : 3</span><br><span class="line">    Failed Devices : 1</span><br><span class="line">     Spare Devices : 0</span><br><span class="line"></span><br><span class="line">            Layout : near=2</span><br><span class="line">        Chunk Size : 512K</span><br><span class="line"></span><br><span class="line">Consistency Policy : resync</span><br><span class="line"></span><br><span class="line">              Name : localhost.localdomain:10  (local to host localhost.localdomain)</span><br><span class="line">              UUID : 6c6b4207:a0b0cc25:6df948a3:4997c88c</span><br><span class="line">            Events : 19</span><br><span class="line"></span><br><span class="line">    Number   Major   Minor   RaidDevice State</span><br><span class="line">       0       8       16        0      active sync set-A   /dev/sdb</span><br><span class="line">       -       0        0        1      removed</span><br><span class="line">       2       8       48        2      active sync set-A   /dev/sdd</span><br><span class="line">       3       8       64        3      active sync set-B   /dev/sde</span><br><span class="line"></span><br><span class="line">       1       8       32        -      faulty   /dev/sdc</span><br><span class="line"></span><br><span class="line">#查看raid状态，缺了一个U，说明4个盘有一个down了</span><br><span class="line">[root@localhost ~]# cat /proc/mdstat </span><br><span class="line">Personalities : [raid10] </span><br><span class="line">md10 : active raid10 sde[3] sdd[2] sdc[1](F) sdb[0]</span><br><span class="line">      41908224 blocks super 1.2 512K chunks 2 near-copies [4/3] [U_UU]</span><br><span class="line">      </span><br><span class="line">unused devices: &lt;none&gt;</span><br><span class="line"></span><br><span class="line">#移除/dev/sdc</span><br><span class="line">[root@localhost ~]# mdadm /dev/md10  -r /dev/sdc</span><br><span class="line">mdadm: hot removed /dev/sdc from /dev/md10</span><br><span class="line"></span><br><span class="line">#通过lsblk以及mdadm -D /dev/md0命令可以查看一下情况</span><br><span class="line">[root@localhost ~]# mdadm /dev/md10  -r /dev/sdc</span><br><span class="line">mdadm: hot removed /dev/sdc from /dev/md10</span><br><span class="line">[root@localhost ~]# lsblk </span><br><span class="line">NAME        MAJ:MIN RM SIZE RO TYPE   MOUNTPOINT</span><br><span class="line">sda           8:0    0  20G  0 disk   </span><br><span class="line">├─sda1        8:1    0   1G  0 part   /boot</span><br><span class="line">└─sda2        8:2    0  19G  0 part   </span><br><span class="line">  ├─cs-root 253:0    0  17G  0 lvm    /</span><br><span class="line">  └─cs-swap 253:1    0   2G  0 lvm    [SWAP]</span><br><span class="line">sdb           8:16   0  20G  0 disk   </span><br><span class="line">└─md10        9:10   0  40G  0 raid10 /raid10</span><br><span class="line">sdc           8:32   0  20G  0 disk   #已经离开阵列</span><br><span class="line">sdd           8:48   0  20G  0 disk   </span><br><span class="line">└─md10        9:10   0  40G  0 raid10 /raid10</span><br><span class="line">sde           8:64   0  20G  0 disk   </span><br><span class="line">└─md10        9:10   0  40G  0 raid10 /raid10</span><br><span class="line">sr0          11:0    1   9G  0 rom    </span><br><span class="line"></span><br><span class="line">#现在假设/dev/sdc已经修复，重新加回到阵列里</span><br><span class="line">[root@localhost ~]# mdadm /dev/md10 -a /dev/sdc</span><br><span class="line">mdadm: added /dev/sdc</span><br><span class="line"></span><br><span class="line"># 四个U，表示4块盘都正常了</span><br><span class="line">[root@localhost ~]# cat /proc/mdstat </span><br><span class="line">Personalities : [raid10] </span><br><span class="line">md10 : active raid10 sdc[4] sde[3] sdd[2] sdb[0]</span><br><span class="line">      41908224 blocks super 1.2 512K chunks 2 near-copies [4/4] [UUUU]</span><br><span class="line">      </span><br><span class="line">unused devices: &lt;none&gt;</span><br><span class="line"></span><br><span class="line"># 更新配置文件</span><br><span class="line">[root@localhost ~]# mdadm -Dvs /dev/md10 &gt; /etc/mdadm.conf </span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong></p>
+<blockquote>
+<p>mdadm运行时会自动检查&#x2F;etc&#x2F;mdadm.conf 文件并尝试自动装配，因此第一次配置raid后可以将信息导入到&#x2F;etc&#x2F;mdadm.conf中,如果不生成mdadm.conf文件，mdadm会尝试自己加载raid，最后可能会出现把raid生成到&#x2F;dev&#x2F;md*里</p>
+</blockquote>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2023/09/24/GH200/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2024-03-23 15:39:29
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E7%A1%AC%E7%9B%98/" title="硬盘">
+                        #硬盘
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2023/09/30/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RAID%E7%A3%81%E7%9B%98%E9%98%B5%E5%88%97%E6%8A%80%E6%9C%AF"><span class="toc-text">RAID磁盘阵列技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81RAID%E6%A6%82%E8%BF%B0"><span class="toc-text">1、RAID概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFRAID%EF%BC%9F"><span class="toc-text">2、什么是RAID？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81RAID%E7%BA%A7%E5%88%AB%E8%AF%A6%E8%A7%A3"><span class="toc-text">3、RAID级别详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-RAID-0-%E4%B8%8D%E5%90%AB%E6%A0%A1%E9%AA%8C%E4%B8%8E%E5%86%97%E4%BD%99%E7%9A%84%E6%9D%A1%E5%B8%A6%E5%AD%98%E5%82%A8"><span class="toc-text">3.1 RAID 0(不含校验与冗余的条带存储)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-RAID-1-%E4%B8%8D%E5%90%AB%E6%A3%80%E9%AA%8C%E7%9A%84%E9%95%9C%E5%83%8F%E5%AD%98%E5%82%A8"><span class="toc-text">3.2 RAID 1(不含检验的镜像存储)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-RAID-5-%E6%95%B0%E6%8D%AE%E5%9D%97%E7%BA%A7%E5%88%AB%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E6%A3%80%E9%AA%8C%E6%9D%A1%E5%B8%A6%E5%AD%98%E5%82%A8"><span class="toc-text">3.3 RAID 5(数据块级别的分布式检验条带存储)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-RAID-10-%E9%95%9C%E5%83%8F%E4%B8%8E%E6%9D%A1%E5%B8%A6%E5%AD%98%E5%82%A8"><span class="toc-text">3.4 RAID 10(镜像与条带存储)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81RAID%E5%AE%9E%E6%88%98"><span class="toc-text">4、RAID实战</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-RAID-0%E9%83%A8%E7%BD%B2"><span class="toc-text">4.1 RAID 0部署</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-RAID1-%E9%83%A8%E7%BD%B2"><span class="toc-text">4.2 RAID1 部署</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-RAID-5%E9%83%A8%E7%BD%B2"><span class="toc-text">4.3 RAID 5部署</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-RAID-10-%E9%83%A8%E7%BD%B2"><span class="toc-text">4.4 RAID 10 部署</span></a></li></ol></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+            <a title="email" href="mailto:mailto:blog@282994.xyz">
+              <i class="iconfont icon-envelope"></i>
+            </a>
+            
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2024 Ame</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+
+      </div>
+    </div>
+  </body>
+</html>

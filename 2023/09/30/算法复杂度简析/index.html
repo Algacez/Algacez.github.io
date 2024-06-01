@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Ame" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      算法复杂度简析 
+      
+      
+      |
+    
+     Ame&#39;s Blog
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.ico">
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Ame</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">算法复杂度简析</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2023-12-29 23:29:46
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" title="学习">
+                    <b>#</b> 学习
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法">
+                    #算法
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="算法复杂度简析"><a href="#算法复杂度简析" class="headerlink" title="算法复杂度简析"></a>算法复杂度简析</h1><h2 id="时间复杂度大O表示法"><a href="#时间复杂度大O表示法" class="headerlink" title="时间复杂度大O表示法"></a>时间复杂度大O表示法</h2><p>接触过算法的都知道，算法的时间复杂度是用大写的“O”来表示的，比如：<code>O(1)</code>，<code>O(n)</code>，<code>O(logn)</code>，<code>O(nlogn)</code>，<code>O(n²)</code> 等等。</p>
+<p>时间复杂度的全称是渐进时间复杂度，表示算法的执行时间与数据规模之间的增长关系，上面的这种时间复杂度表示法并不能真正反应一个算法的执行时间，反应的只是一个趋势，所以我们在分析复杂度的时候要关注“变”，忽略“不变”。</p>
+<p>变指的是变量，也就是一段代码的执行时间是随着变量的变化而变化的，而不变指的是常量，也就是不论我的变量如何改变，执行时间都不会改变。</p>
+<p>接下来我们就实际的来分析下常用时间复杂度的例子来练习一下。</p>
+<h3 id="O-1-常数阶"><a href="#O-1-常数阶" class="headerlink" title="O(1) 常数阶"></a>O(1) 常数阶</h3><p>0(1) 复杂度算法也称之为常数阶算法。这里的 <code>1</code> 是用来代指常量，也就是说这个算法的效率是固定的，无论你的数据量如何变化，效率都一样，这种复杂度也是最优的一种算法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_sum</span>(<span class="params">n</span>):  </span><br><span class="line">    a = <span class="number">1</span>  </span><br><span class="line">    b = <span class="number">2</span>  </span><br><span class="line">    c = <span class="number">3</span>  </span><br><span class="line">    <span class="built_in">sum</span> = a + b + c  </span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
+
+<p>上面的示例中不论有多少行代码，时间复杂度都是属于常数阶。换言之：只要代码不存在<strong>循环</strong>，<strong>递归</strong>等循环类调用，不论代码有多少行，其复杂度都是常数阶。</p>
+<h3 id="O-n-线性阶"><a href="#O-n-线性阶" class="headerlink" title="O(n) 线性阶"></a>O(n) 线性阶</h3><p><code>O(n)</code> 复杂度算法也称之为线性阶。比如下面这个示例我们应该怎么分析复杂度呢？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print1</span>(<span class="params">n</span>):  </span><br><span class="line">    a = <span class="number">0</span>  </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):  </span><br><span class="line">        <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+
+<p>前面常量阶没分析是因为常量阶比较容易理解，接下来我们就以线性阶这个为例子来分析下具体是怎么得到的。</p>
+<p>我们假设每一行代码的执行时间是 <code>T</code>，那么上面这段代码的执行复杂度是多少呢？</p>
+<p>答案很明显，那就是 <code>T+n*T</code>，也就是 <code>(n+1)T</code>，而在算法中有一个原则，那就是常量可以被忽略，所以就得到了 <code>nT</code>，换成大 <code>O</code> 表示法就是 <code>O(n)</code>。</p>
+<p>这只是一个简略的计算过程，大家也不用较真说每行代码执行时间可能不一样之类的，也不要较真说 <code>for</code> 循环占用了一行，下面的大括号也占用了一行，如果要较真这个，那我建议可以去想一下 <code>1=1</code> 为什么等于 <code>2</code>。</p>
+<p>算法中的复杂度反应的只是一个趋势，这里 <code>O(n)</code> 反应的就是一个趋势，也就是随着 <code>n</code> 的变化，算法的执行时间是会降低的。</p>
+<h3 id="O-n²-平方阶"><a href="#O-n²-平方阶" class="headerlink" title="O(n²) 平方阶"></a>O(n²) 平方阶</h3><p>知道了上面的线性阶，那么平方阶就很好理解了，双层循环就是平方阶，同理，三次循环就是立方阶，<code>k</code> 次循环就是 <code>k</code> 次方阶。</p>
+<h3 id="O-logn-对数阶"><a href="#O-logn-对数阶" class="headerlink" title="O(logn) 对数阶"></a>O(logn) 对数阶</h3><p><code>O(logn)</code> 也称之为对数阶，对数阶也很常见，像二分查找，二叉树之类的问题中会见到比较多的对数阶复杂度，但是对数阶也是比较难理解的一种算法复杂度。</p>
+<p>下面我们还是来看一个例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print2</span>(<span class="params">n</span>):  </span><br><span class="line">    i = <span class="number">1</span>  </span><br><span class="line">    <span class="keyword">while</span> i &lt;= n:  </span><br><span class="line">        i = i * <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>这段代码又该如何分析复杂度呢？这段代码最关键就是要分析出 <code>while</code> 循环中到底循环了多少次，我们观察这个循环，发现 <code>i</code> 并不是逐一递增，而是不断的翻倍：<code>1-&gt;2-&gt;4-&gt;8-&gt;16-&gt;32-&gt;64</code> 一直到等于 <code>n</code> 为止才会结束，所以我们得到了这样的一个公式：<code>2^x=n</code>。</p>
+<p>也就是我们只要计算出 <code>x</code> 的值，就得到了循环次数，而根据高中的数学知识我们可以得到 <code>x=log2n</code>（<code>2</code> 在下面，是底数，试了几种方法都打不出来，放弃了），所以根据上面线性阶的分析方法，我们省略常量，就得到了示例中的算法复杂度为 <code>O(log2n)</code>。</p>
+<p>同样的分析方式，下面的例子，我们可以很快的分析出复杂度就为 <code>O(log3n)</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">1</span>  </span><br><span class="line"><span class="keyword">while</span> i &lt;= n:  </span><br><span class="line">    i = i * <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<p>上面得到的 <code>log3n</code> 我们可以再做进一步的转换：<code>log3n=log32 * log2n</code>，而 <code>log32</code>（注意这几个地方的 <code>3</code> 是底数，在下面） 是一个常量，常量可以省略，所以也就得到了：<code>O(log3n)=O(log2n)</code>。同样的道理，不论底数是多少，其实最终都可以转化成和 <code>O(log2n)</code> 相等，正因为如此，为了方便，我们算法中通常就会省略底数，直接写作 <code>O(logn)</code>。</p>
+<p>上面的数学公式大家如果忘了或者看不懂也没关系，只要记住不论对数的底数是多少，我们都算作 <code>O(logn)</code>，而对于一个算法的复杂度是否是对数阶，还有一个简易的判断方法：<strong>当循环中下标以指定倍数形式衰减，那么这就是一个对数阶</strong>。</p>
+<h3 id="O-nlogn-线性对数阶"><a href="#O-nlogn-线性对数阶" class="headerlink" title="O(nlogn) 线性对数阶"></a>O(nlogn) 线性对数阶</h3><p>如果理解了上面的对数阶，那么这种线性对数阶就非常好理解了，只需要在对数阶的算法中再嵌一层循环就是线性对数阶：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):  </span><br><span class="line">    i = <span class="number">1</span>  </span><br><span class="line">    <span class="keyword">while</span> i &lt;= n:  </span><br><span class="line">        i = i * <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>分析了前面这些最常用的时间复杂度，其实我们可以得到以下规律：</p>
+<ul>
+<li>只要是常量级别，不论多大，效率都是一样的（如：常量阶复杂度例子）。</li>
+<li>分析一段代码的时间复杂度，只需要分析执行次数最多的一段代码（如：所以例子中我们只分析了循环体中代码执行次数）。</li>
+<li>嵌套代码的复杂度等于嵌套内外代码复杂度的乘积（如：分析线性对数阶复杂度例子）。</li>
+</ul>
+<h3 id="其他复杂度"><a href="#其他复杂度" class="headerlink" title="其他复杂度"></a>其他复杂度</h3><p>除了上面常用的复杂度之外，另外还有指数阶，阶层阶，根号阶等，这些接触的相对会较少，我们就不特意做分析了，如果大家感兴趣的话，可以自己去了解下。</p>
+<h3 id="组合式复杂度分析"><a href="#组合式复杂度分析" class="headerlink" title="组合式复杂度分析"></a>组合式复杂度分析</h3><p>前面我们分析的都是只有一段代码比较复杂的情况下得到的复杂度结果，那么假如我一个算法中，有多段代码都比较复杂呢？这时候复杂度该如何分析？</p>
+<h4 id="取最大复杂度作为整个算法复杂度"><a href="#取最大复杂度作为整个算法复杂度" class="headerlink" title="取最大复杂度作为整个算法复杂度"></a>取最大复杂度作为整个算法复杂度</h4><p>我们先看下面这个例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print1</span>(<span class="params">n</span>):  </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):  </span><br><span class="line">        <span class="built_in">print</span>(i)  </span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):  </span><br><span class="line">        <span class="built_in">print</span>(j)  </span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">range</span>(n):  </span><br><span class="line">        <span class="keyword">for</span> q <span class="keyword">in</span> <span class="built_in">range</span>(n):  </span><br><span class="line">            <span class="built_in">print</span>(p + q)</span><br></pre></td></tr></table></figure>
+
+<p>这个例子中有三个循环，首先第一个，是一个常量，那么根据前面的结论，不论这个常量是多大，都属于常量级，所以第一个循环中的复杂度为 <code>O(1)</code>，第二个和第三个循环我们前面也分析过，复杂度分别为 <code>O(n)</code> 和 <code>O(n²)</code>。</p>
+<p>也就是这一段代码中有三段代码产生了三种不同复杂度，而且这三个复杂度可以很明显得到的大小关系为：<code>O(1)&lt;O(n)&lt;O(n²)</code>，像这种在同一个算法中有明确大小关系的，我们就可以直接取最大值作为这个算法的复杂度，所以这个例子中算法的复杂度就是 <code>O(n²)</code>。</p>
+<h4 id="取多个复杂度之和作为整个算法复杂度"><a href="#取多个复杂度之和作为整个算法复杂度" class="headerlink" title="取多个复杂度之和作为整个算法复杂度"></a>取多个复杂度之和作为整个算法复杂度</h4><p>接下来我们再来看一个例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print2</span>(<span class="params">m, n</span>):  </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):  </span><br><span class="line">        <span class="built_in">print</span>(i)  </span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(m):  </span><br><span class="line">        <span class="built_in">print</span>(j)  </span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(n):  </span><br><span class="line">        <span class="built_in">print</span>(k)</span><br></pre></td></tr></table></figure>
+
+<p>这个例子我们同样对三段循环分别分析可以分别得到如下复杂度：<code>O(1)</code>，<code>O(m)</code>，<code>O(n)</code>。这时候我们只能知道 <code>O(1)</code> 最小可以忽略，但是后面两个无法却无法确定大小，所以这时候我们需要取两段循环复杂度之和来作为算法的复杂度，所以可以得到这个例子的算法复杂度为：<code>O(m+n)</code>。</p>
+<h2 id="时间复杂度类型"><a href="#时间复杂度类型" class="headerlink" title="时间复杂度类型"></a>时间复杂度类型</h2><p>上面分析的时间复杂度都是比较简单的，实际算法中可能会比示例中复杂的多，而且我们示例中只要是循环都是无脑循环，也就是一定从头循环到尾，然而实际中我们有时候并不需要从头循环到尾，可能中途就会结束循环，所以我们根据实际情况，又可以将时间复杂度从以下四个方面来进一步分析：</p>
+<ul>
+<li>最好时间复杂度</li>
+<li>最坏时间复杂度</li>
+<li>平均时间复杂度</li>
+<li>均摊时间复杂度</li>
+</ul>
+<p>这四种类型的时间复杂度在这里只会介绍前面三种，因为第四种比较复杂，而且使用场景也非常有限，而且对于这四种复杂度的分析，大家也作为了解就可以，不敢兴趣的朋友们可以跳过这一小部分，因为在绝大部分情况我们只需要分析最坏复杂度就行，也就是假设循环全部执行完毕场景下的时间复杂度。</p>
+<h3 id="最好时间复杂度"><a href="#最好时间复杂度" class="headerlink" title="最好时间复杂度"></a>最好时间复杂度</h3><p>我们通过一个例子来理解下最好时间复杂度：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">findEle</span>(<span class="params">arr, val</span>):  </span><br><span class="line">    <span class="keyword">if</span> arr <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> <span class="built_in">len</span>(arr) == <span class="number">0</span>:  </span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>  </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(arr)):  </span><br><span class="line">        <span class="keyword">if</span> arr[i] == val:  </span><br><span class="line">            <span class="keyword">return</span> i  </span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>这个方法就是在一个指定数组中找到指定元素的下标，找不到就返回 <code>-1</code>，这个方法比较简单，应该比较好理解。</p>
+<p>注意这个方法中的循环体，如果找到元素，那么就直接返回，这就会有一个现象，那就是我这个循环体到底会循环多少次是不确定的，可能是 <code>1</code> 次，也可能是 <code>n</code>（假设数组的长度） 次，所以假如我们要找的元素就在数组中的第一个位置，那么我循环一次就找到了，这个算法的复杂度就是 <code>O(1)</code>，这就是最好情况时间复杂度。</p>
+<h3 id="最坏时间复杂度"><a href="#最坏时间复杂度" class="headerlink" title="最坏时间复杂度"></a>最坏时间复杂度</h3><p>理解了最好时间复杂度，那么最坏时间复杂度也很好理解了，那就是数组中不存在我要找到元素，或者说最后一个值才是我要找的元素，那么这样我就必须循环完整个数组，那么时间复杂度就是 <code>O(n)</code>，这也就是最坏时间复杂度。</p>
+<h3 id="平均时间复杂度"><a href="#平均时间复杂度" class="headerlink" title="平均时间复杂度"></a>平均时间复杂度</h3><p>最好时间复杂度和最坏时间复杂度毕竟只有特殊情况才会发生，概率还是相对较小，所以我们很容易就想到我们也需要有一个平均时间复杂度。</p>
+<p>我们简单的来分析一下，为了便于分析，我们假设一个元素在数组和不在数组中的概率都为 <code>1/2</code>，然后假如在数组在，那么又假设元素出现在每个位置的概率也是一样的，也就是每个位置出现元素的概率为： <code>1/n</code>。</p>
+<p>所以最终得到的平均时间复杂度应该等于元素在数组中和元素不在数组中两种情况相加。</p>
+<ul>
+<li>元素在数组中的复杂度</li>
+</ul>
+<p>因为元素在数组中的概率为 <code>1/2</code>，然后在每个位置出现的概率也为 <code>1/n</code>。假如元素出现在第一个位置，复杂度为 <code>1*(1/2n)</code>；假如元素出现在第二个位置，复杂度为 <code>2 * (1/2n)</code>，最终得到当前场景下时间复杂度为：<code>1*(1/2n) + 2 * (1/2n) + ... + n*(1/2n)</code>&#x3D;(n+1)&#x2F;4。</p>
+<ul>
+<li>元素不在数组中的复杂度</li>
+</ul>
+<p>前面已经假定了元素不在数组中的概率为 <code>1/2</code>，所以当前场景下的时间复杂度为：<code>n * (1/2)</code>，因为元素不在数组中，那么这个算法必然会将整个循环执行完毕，也就循环是 <code>n</code> 次。</p>
+<p>最后我们把两种情况的复杂度之和相加就得到了平均时间复杂度：<code>(n+1)/4 + n/2 = (3n+1)/4</code>，最终我们将常数类的系数忽略掉，就得到了平均时间复杂度为 <code>O(n)</code>。</p>
+<h3 id="均摊时间复杂度"><a href="#均摊时间复杂度" class="headerlink" title="均摊时间复杂度"></a>均摊时间复杂度</h3><p>均摊时间复杂度的算法需要使用摊还分析法，计算方式相对有点复杂，而且使用场景很有限，本文就不做过多介绍了。</p>
+<h2 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h2><p>空间复杂度全称就是渐进空间复杂度，用来表示算法的存储空间与数据规模之间的增长关系。和时间复杂度一样，空间复杂度也是用大 <code>O</code> 进行表示。</p>
+<p>其实学会了分析时间复杂度，那么空间复杂度的分析就简单了，主要就看我们在一个算法当中到底有没有使用到了额外的空间来进行存储数据，然后判断这个额外空间的大小会不会随着 <code>n</code> 的变化而变化，从而得到空间复杂度。</p>
+<p>我们来看一个给数组赋值例子，假设这就是一个算法，我们可以来分析下这个算法的空间复杂度：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">init</span>(<span class="params">n</span>):  </span><br><span class="line">    a = <span class="number">0</span>  </span><br><span class="line">    arr = [<span class="number">0</span>] * n  </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):  </span><br><span class="line">        arr[i] = n</span><br></pre></td></tr></table></figure>
+
+<p>一开始定义了一个变量，这里需要空间，但是这是一个常量级的（不随 <code>n</code> 的变化而变化），然后再定义了一个数组，数组的长度为 <code>n</code>，这里数组也需要占用空间，而且数组的空间是随着 <code>n</code> 的变化而变化的，其余代码没有占用额外空间，所以我们就可以认为上面示例中的空间复杂度为 <code>O(n)</code>。</p>
+<p>对于算法的空间复杂度也可以简单的进行总结一下：</p>
+<ul>
+<li>如果申请的是有限个数（常量）的变量，空间复杂度为 <code>O(1)</code>。</li>
+<li>如果申请的是一维数组，队列或者链表等，那么空间复杂度为 <code>O(n)</code>。</li>
+<li>如果申请的是二维数组，那么空间复杂度为 <code>O(n²)</code>。</li>
+<li>如果是在循环体中申请的数组等，可能就需要取嵌套的乘积来作为空间复杂度，这种就需要具体的进一步分析。</li>
+</ul>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2023/09/30/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2023-12-29 23:29:46
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E5%AD%A6%E4%B9%A0/" title="学习">
+                        <b>#</b> 学习
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法">
+                        #算法
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2023/10/01/%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81%E7%AE%80%E4%BB%8B/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%AE%80%E6%9E%90"><span class="toc-text">算法复杂度简析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%A4%A7O%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-text">时间复杂度大O表示法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#O-1-%E5%B8%B8%E6%95%B0%E9%98%B6"><span class="toc-text">O(1) 常数阶</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O-n-%E7%BA%BF%E6%80%A7%E9%98%B6"><span class="toc-text">O(n) 线性阶</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O-n%C2%B2-%E5%B9%B3%E6%96%B9%E9%98%B6"><span class="toc-text">O(n²) 平方阶</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O-logn-%E5%AF%B9%E6%95%B0%E9%98%B6"><span class="toc-text">O(logn) 对数阶</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O-nlogn-%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%95%B0%E9%98%B6"><span class="toc-text">O(nlogn) 线性对数阶</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">其他复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E5%BC%8F%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="toc-text">组合式复杂度分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%96%E6%9C%80%E5%A4%A7%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%BD%9C%E4%B8%BA%E6%95%B4%E4%B8%AA%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">取最大复杂度作为整个算法复杂度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%96%E5%A4%9A%E4%B8%AA%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B9%8B%E5%92%8C%E4%BD%9C%E4%B8%BA%E6%95%B4%E4%B8%AA%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">取多个复杂度之和作为整个算法复杂度</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%B1%BB%E5%9E%8B"><span class="toc-text">时间复杂度类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%A5%BD%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">最好时间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%9D%8F%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">最坏时间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%9D%87%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">平均时间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%87%E6%91%8A%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">均摊时间复杂度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">空间复杂度</span></a></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+            <a title="email" href="mailto:mailto:blog@282994.xyz">
+              <i class="iconfont icon-envelope"></i>
+            </a>
+            
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2024 Ame</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+
+      </div>
+    </div>
+  </body>
+</html>

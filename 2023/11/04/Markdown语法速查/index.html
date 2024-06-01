@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Ame" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      Markdown语法速查 
+      
+      
+      |
+    
+     Ame&#39;s Blog
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.ico">
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Ame</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">Markdown语法速查</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2024-03-24 14:05:00
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
+                    <b>#</b> 教程
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="Markdown语法速查"><a href="#Markdown语法速查" class="headerlink" title="Markdown语法速查"></a>Markdown语法速查</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 这是 <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span></span> 一级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 这是 <span class="language-xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span></span> 二级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 这是 <span class="language-xml"><span class="tag">&lt;<span class="name">h3</span>&gt;</span></span> 三级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 这是 <span class="language-xml"><span class="tag">&lt;<span class="name">h4</span>&gt;</span></span> 四级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">##### 这是 <span class="language-xml"><span class="tag">&lt;<span class="name">h5</span>&gt;</span></span> 五级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">###### 这是 <span class="language-xml"><span class="tag">&lt;<span class="name">h6</span>&gt;</span></span> 六级标题</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="emphasis">*这个是 斜体 的文字*</span></span><br><span class="line"><span class="emphasis">_这也是 斜体 的文字_</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>演示</strong>：</p>
+<p><em>这个是 斜体 的文字</em></p>
+<p><em>这也是 斜体 的文字</em></p>
+<h2 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a>粗体</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">**这个是 粗体 的文字**</span></span><br><span class="line"><span class="strong">__这也是 粗体 的文字__</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>演示</strong>：</p>
+<p><strong>这个是 粗体 的文字</strong></p>
+<p><strong>这也是 粗体 的文字</strong></p>
+<h2 id="划去文本"><a href="#划去文本" class="headerlink" title="划去文本"></a>划去文本</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~这个文字将会被横线删除~~</span><br></pre></td></tr></table></figure>
+
+<p><strong>演示</strong>：</p>
+<p>这个文字将会被横线删除</p>
+<h2 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>带下划线文本<span class="language-xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><strong>演示</strong>：</p>
+<p>带下划线文本</p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p><strong>无序列表</strong></p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">*</span> 第一项</span><br><span class="line"><span class="bullet">*</span> 第二项</span><br><span class="line"><span class="bullet">*</span> 第三项</span><br></pre></td></tr></table></figure>
+
+<p><strong>演示</strong>：</p>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+<p>除了这种方式还可以用<code>+</code>和<code>-</code></p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">*</span> 方法1</span><br><span class="line"><span class="bullet">+</span> 方法2</span><br><span class="line"><span class="bullet">-</span> 方法3</span><br></pre></td></tr></table></figure>
+
+<p><strong>演示</strong>：</p>
+<ul>
+<li><p>方法1</p>
+</li>
+<li><p>方法2</p>
+</li>
+<li><p>方法3</p>
+</li>
+</ul>
+<p><strong>有序列表</strong></p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一项</span><br><span class="line"><span class="bullet">2.</span> 第二项</span><br><span class="line"><span class="bullet">3.</span> 第三项</span><br></pre></td></tr></table></figure>
+
+<p><strong>演示</strong>：</p>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ol>
+<p>虽然看起来好像没什么变化，但这个并不是普通的文本，而是经过markdown排布的</p>
+<h2 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 这是一个区块</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; 这是一个大区块</span></span><br><span class="line"><span class="quote">&gt; </span></span><br><span class="line"><span class="quote">&gt; 若要在区块里换行</span></span><br><span class="line"><span class="quote">&gt; </span></span><br><span class="line"><span class="quote">&gt; 行之间要用`&gt;`联系起来</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这是一个区块</p>
+</blockquote>
+<p><strong>区块换行</strong>：</p>
+<blockquote>
+<p>这是一个大区块</p>
+<p>若要在区块里换行</p>
+<p>行之间要用用<code>&gt;</code>联系起来</p>
+</blockquote>
+<p><strong>区块嵌套</strong>：</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 最外层</span></span><br><span class="line"><span class="quote">&gt; &gt; 第一层嵌套</span></span><br><span class="line"><span class="quote">&gt; &gt; &gt; 第二层嵌套</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>最外层</p>
+<blockquote>
+<p>第一层嵌套</p>
+<blockquote>
+<p>第二层嵌套</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">logo</span>](<span class="link">/img/logo.png</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>[]</code>里是图片名称<code>()</code>里是图片路径</p>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">GitHub</span>](<span class="link">https://github.com</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>[]</code>里是链接文本<code>()</code>里是链接</p>
+<p><strong>演示</strong>：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/">GitHub(opens new window)</a></p>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>以下三种方式都可以表示分割线</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="strong">***</span></span><br><span class="line"><span class="strong">__<span class="emphasis">_</span></span></span><br></pre></td></tr></table></figure>
+
+<p><strong>演示</strong>：</p>
+<hr>
+<p>这就是分割线</p>
+<h2 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">`scanf(&quot;%d&quot;, &amp;price); `</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>演示</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scanf(&quot;%d&quot;, &amp;price);</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p>在Markdown中，我们可以通过这样的方式使用代码块</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">这里填写代码</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<p>如果代码要显示高亮，可以加上代码的类型，例如语言类型为JavaScript时就填写<code>javascript</code>或者<code>js</code></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```js</span><br><span class="line">这里填写代码</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<p><strong>显示效果：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">100</span><span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><p>我们可以在Markdown中使用LaTeX来编写公式，要在LaTeX代码前后写上<code>$$</code></p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span></span><br><span class="line">f(x) = <span class="keyword">\begin</span>&#123;cases&#125;</span><br><span class="line"><span class="keyword">\lim</span><span class="keyword">\limits</span><span class="built_in">_</span>&#123;x <span class="keyword">\to</span> 0&#125; <span class="keyword">\frac</span>&#123;a<span class="built_in">^</span>x&#125;&#123;b+c&#125;, <span class="built_in">&amp;</span> x&lt;3 <span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\pi</span>, <span class="built_in">&amp;</span> x=3 <span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\int</span><span class="built_in">_</span>a<span class="built_in">^</span>&#123;3b&#125;x<span class="built_in">_</span>&#123;ij&#125;+e<span class="built_in">^</span>2 <span class="keyword">\mathrm</span>&#123;d&#125;x,<span class="built_in">&amp;</span> x&gt;3 <span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\end</span>&#123;cases&#125;<span class="keyword">\tag</span>&#123;1.1&#125;</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h3><p>要在一行文本中添加公式时，要在LaTeX代码前后写上<code>$</code></p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表达式<span class="built_in">$</span>f(x) = <span class="keyword">\log</span><span class="built_in">_</span>&#123;a&#125;&#123;b&#125;-c<span class="built_in">$</span>是一个对数函数</span><br></pre></td></tr></table></figure>
+
+<h3 id="推荐编辑器"><a href="#推荐编辑器" class="headerlink" title="推荐编辑器"></a><a target="_blank" rel="noopener" href="https://www.latexlive.com/home">推荐编辑器</a></h3><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><table>
+<thead>
+<tr>
+<th>标题</th>
+<th>标题</th>
+<th>标题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单元格</td>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+</tbody></table>
+<p>在markdown中表格的单元间要用<code>|</code>隔开，第一行目录要用<code>| ------ |</code>和后面的表格隔开</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| 标题   | 标题   | 标题   |</span><br><span class="line">| ------ | ------ | ------ |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br></pre></td></tr></table></figure>
+
+<p>在单元格中换行时可以用<code>&lt;br&gt;</code>表示换行，例如</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">| 其他   | 水果   | 其他   |</span><br><span class="line">| ------ | ------ | ------ |</span><br><span class="line">| 其他 | 苹果<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span>香蕉<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span>橘子 | 其他 |</span><br></pre></td></tr></table></figure>
+
+<p><strong>显示：</strong></p>
+<table>
+<thead>
+<tr>
+<th>其他</th>
+<th>水果</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>其他</td>
+<td>苹果 香蕉 橘子</td>
+<td>其他</td>
+</tr>
+</tbody></table>
+<p>除此之外还可以用<code>&lt;ul&gt;</code>和<code>&lt;li&gt;</code>标签在表格中显示列表</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">| 其他   | 水果   | 其他   |</span><br><span class="line">| ------ | ------ | ------ |</span><br><span class="line">| 其他 | <span class="language-xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span></span>Coffee<span class="language-xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span></span>Tea<span class="language-xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span></span>Milk<span class="language-xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span> | 其他 |</span><br></pre></td></tr></table></figure>
+
+<p><strong>显示：</strong></p>
+<table>
+<thead>
+<tr>
+<th>其他</th>
+<th>水果</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>其他</td>
+<td>CoffeeTeaMilk</td>
+<td>其他</td>
+</tr>
+</tbody></table>
+<p>或者是有序号的列表</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">| 其他   | 水果   | 其他   |</span><br><span class="line">| ------ | ------ | ------ |</span><br><span class="line">| 其他 | <span class="language-xml"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span></span>Coffee<span class="language-xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span></span>Tea<span class="language-xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span></span>Milk<span class="language-xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span> | 其他 |</span><br></pre></td></tr></table></figure>
+
+<p><strong>显示：</strong></p>
+<table>
+<thead>
+<tr>
+<th>其他</th>
+<th>水果</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>其他</td>
+<td>CoffeeTeaMilk</td>
+<td>其他</td>
+</tr>
+</tbody></table>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--注释--&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在Markdown中使用注释和HTML一样</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ul>
+<li>在Markdown中还<strong>可以使用html标签</strong>，你可通过html标签来添加一些Markdown原本没有的内容，例如按钮，视频等</li>
+<li>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用<code>\</code>转义特殊字符</li>
+</ul>
+<p>例如<code>*</code>在markdown中用来表示列表，如果要像文本一样的输出它就要在符号前加上<code>\</code>，就像这样<code>\*</code>，那么<code>*</code>就会像文本一样在段落中显示</p>
+<h3 id="使用VScode编写Markdown"><a href="#使用VScode编写Markdown" class="headerlink" title="使用VScode编写Markdown"></a>使用VScode编写Markdown</h3><p><strong>插件推荐</strong></p>
+<ul>
+<li>Markdown All in One</li>
+</ul>
+<p>它能让你正确的编写markdown，自动帮你自动填写序号，并且支持快捷键功能和命令，让你编写更快捷，不仅如此，当你编写Latex公式时还会弹出选项，以免你忘记那些表示符号的代码，如果你要插入链接，你只需要选中要插入的文本然后把链接粘贴上就行他会自动帮你处理</p>
+<p><strong>快捷键</strong></p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ctrl&#x2F;Cmd + B</td>
+<td>切换粗体</td>
+</tr>
+<tr>
+<td>Ctrl&#x2F;Cmd + I</td>
+<td>切换斜体</td>
+</tr>
+<tr>
+<td>Alt+S (on Windows)</td>
+<td>切换删除线</td>
+</tr>
+<tr>
+<td>Ctrl&#x2F;Cmd + M</td>
+<td>切换LaTeX公式</td>
+</tr>
+<tr>
+<td>Ctrl&#x2F;Cmd + Shift + F</td>
+<td>格式化</td>
+</tr>
+<tr>
+<td>Ctrl&#x2F;Cmd + K V</td>
+<td>将预览切换到一侧</td>
+</tr>
+</tbody></table>
+<p><strong>命令</strong></p>
+<ul>
+<li><strong>Markdown All in One: Print current document to HTML</strong></li>
+</ul>
+<p>将当前文档打印为 HTML</p>
+<ul>
+<li><strong>Markdown All in One: Print documents to HTML</strong></li>
+</ul>
+<p>将目录下的所有文档打印为 HTML</p>
+<p>以上这两个命令最实用，除此之外还有其他命令，使用<strong>Ctrl + Shift + P</strong>，然后在搜索框输入插件名称就可以看到命令，不需要输入全部名称一般输入markdown就可以看到命令</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2023/11/04/GFW/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2024-03-24 14:05:00
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
+                        <b>#</b> 教程
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2023/11/04/LaTeX%E7%BC%96%E5%86%99%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown%E8%AF%AD%E6%B3%95%E9%80%9F%E6%9F%A5"><span class="toc-text">Markdown语法速查</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E9%A2%98"><span class="toc-text">标题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%9C%E4%BD%93"><span class="toc-text">斜体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B2%97%E4%BD%93"><span class="toc-text">粗体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%92%E5%8E%BB%E6%96%87%E6%9C%AC"><span class="toc-text">划去文本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E5%88%92%E7%BA%BF"><span class="toc-text">下划线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E8%A1%A8"><span class="toc-text">列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%9D%97"><span class="toc-text">区块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87"><span class="toc-text">插入图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5"><span class="toc-text">链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%89%B2%E7%BA%BF"><span class="toc-text">分割线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81"><span class="toc-text">行内代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-text">代码块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F"><span class="toc-text">公式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E5%86%85%E5%85%AC%E5%BC%8F"><span class="toc-text">行内公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-text">推荐编辑器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC"><span class="toc-text">表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-text">注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-text">补充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8VScode%E7%BC%96%E5%86%99Markdown"><span class="toc-text">使用VScode编写Markdown</span></a></li></ol></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+            <a title="email" href="mailto:mailto:blog@282994.xyz">
+              <i class="iconfont icon-envelope"></i>
+            </a>
+            
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2024 Ame</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+
+      </div>
+    </div>
+  </body>
+</html>

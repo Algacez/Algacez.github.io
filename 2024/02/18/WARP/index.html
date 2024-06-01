@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Ame" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      WARP 
+      
+      
+      |
+    
+     Ame&#39;s Blog
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.ico">
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Ame</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">WARP</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2024-03-23 15:22:38
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
+                    <b>#</b> 教程
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E7%BD%91%E7%BB%9C/" title="网络">
+                    #网络
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h1><p><strong>本人完全支持并坚定拥护中国共产党和中国政府作出的所有有关网络安全的决定与举措，本文章仅做交流学习用，无任何不良引导倾向</strong></p>
+<ol>
+<li><p>访问网址：<a target="_blank" rel="noopener" href="https://1.1.1.1/">https://1.1.1.1/</a> 。</p>
+</li>
+<li><p>根据自己的情况，下载对应的客户端，使用iPhone请用<strong>美区Apple ID</strong>进行下载。</p>
+</li>
+<li><p>我这里下载windows客户端，下载完成后，点击安装。</p>
+</li>
+<li><p>打开cloudflare官方网站：并进行注册</p>
+</li>
+<li><p>来到左侧列表里的Zero Trust<br>根据提示一步步注册账号，选择0元的！到结账那一步，直接关闭网页，就等于跳过绑定支付方式。</p>
+</li>
+<li><p><strong>使用<code>cloudflare.com/你的ID/home/quick-start</code>可以跳过Zero Trust的验证</strong></p>
+<p><strong>Add an application - Cloudflare One：[<a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/access/apps/add]">https://one.dash.cloudflare.com/你的ID/access/apps/add]</a></strong></p>
+</li>
+<li><p>再次回到cloudflare官方网站，点击左侧列表的Zero Trust之后，点击左侧列表my team 第一个，添加邮箱后缀，如果是谷歌邮箱，那么后缀就是@gmail，如果是qq邮箱，那后缀就是@qq.com。<strong>建议添加自己的域名后缀以获得对所有账号的使用管理权。</strong></p>
+</li>
+<li><p>添加完成后，也可以直接在此处下载客户端。回到WARP，点击偏好设置，找到账号，登录刚刚申请好的Zero Trust账户即可！</p>
+</li>
+<li><p>另一种无限流量获取方式：TG搜索机器人@generatewarpplusbot进行流量添加，需要加入2个群组，回答一个数学题，回答完成后，会送一个密钥，密钥复制，来到WARP客户端，点击偏好设置，点击更改密钥，粘贴刚刚获取的密钥</p>
+</li>
+<li><p>想要优选IP的同学，下载这个优选IP程序：点我下载</p>
+</li>
+<li><p>使用优选IP软件进行优选，2种方式，首先关闭WARP的连接。点击自动方式，自动的如果出错，就换手动的。手动方式1，打开操作。完成后打开根目录的输出文件，选择第一个延迟较低的ip地址和端口。再次打开手动方式2，右键粘贴刚刚的ip地址和端口。回车确认。WARP会自动连接。这就等于优选成功了！</p>
+</li>
+</ol>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
+<li>安卓端登录时可能需要挂一下梯子</li>
+<li>打不开就是锁了国区，换优选ip登录</li>
+</ol>
+<p>相关域名整理</p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/home/quick-start">Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/gateway/locations/c9f203fd9ccf4028a1228edeeedd2c45/instructions">Setup Instructions for - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/analytics/access?tab=privateNetwork">Access analytics - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/analytics/gateway/">Gateway analytics - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/gateway/locations?search=">DNS Locations - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/gateway/locations/add">Add a DNS location - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/gateway/locations?search=">DNS Locations - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/gateway/policies?tab=dns-rules-list">Firewall policies - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/gateway/egress-policies">Egress Policies - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/gateway/policies/egress-policies">Create an Egress policy - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/gateway/policies/dns-rule">Create a DNS policy - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/gateway/resolver-policies">Resolver Policies - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/access/apps">Resolver Policies - Cloudflare One</a>+&#x2F;add即可</p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/access/groups?search=">Access groups - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/access/groups/add">Add a group - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/access/service-auth?search=&tab=service-token">Service Authentication - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/access/service-auth/service-tokens/add">Add a service token - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/access/tags?search=">Tags - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/access/tags/add">Add tags - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/networks/tunnels">Tunnels - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/networks/tunnels/add">Create a tunnel - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/networks/routes">Routes - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/networks/routes/add">Create new route - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/team/devices">Create new route - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/team/users?search=">Users - Cloudflare One</a></p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/team/lists">Lists - Cloudflare One</a></p>
+<h1 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h1><p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/settings/account"><strong>Account</strong>Manage payment methods, seats and plans.</a><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/settings/custom_pages"><strong>Custom Pages</strong>Personalize the Cloudflare Zero Trust experience for your end-users.</a><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/settings/network"><strong>Network</strong>Manage your filtering preferences for outbound traffic.</a><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/settings/authentication"><strong>Authentication</strong>Set global preferences for applications protected behind Access.</a><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/settings/devices"><strong>WARP Client</strong>Manage preferences for the WARP client.</a><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/settings/downloads"><strong>Downloads</strong>Download WARP Client, Cloudflared, and certificates.</a></p>
+<hr>
+<h1 id="Custom-Pages"><a href="#Custom-Pages" class="headerlink" title="Custom Pages"></a>Custom Pages</h1><h3 id="Team-domain"><a href="#Team-domain" class="headerlink" title="Team domain"></a>Team domain</h3><p>This is where the App Launcher lives, and where users make access requests to applications behind Access.</p>
+<p>Content Loaded</p>
+<p><strong>casternal.cloudflareaccess.com</strong>Edit</p>
+<h3 id="Block-page"><a href="#Block-page" class="headerlink" title="Block page"></a>Block page</h3><p>Customize the page users see when they reach a website blocked by Gateway. Note: Devices must have the Cloudflare certificate or a custom root CA installed.</p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/settings/custom_pages/custom_block">Customize</a></p>
+<p>Content LoadedUse the customized block page over Cloudflare’s default.Content Loaded</p>
+<p>Disabled</p>
+<h3 id="Login-page"><a href="#Login-page" class="headerlink" title="Login page"></a>Login page</h3><p>Users will see this page when they reach an application behind Access.</p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/settings/custom_pages/custom_login">Customize</a></p>
+<hr>
+<h1 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h1><h2 id="Gateway-Logging"><a href="#Gateway-Logging" class="headerlink" title="Gateway Logging"></a>Gateway Logging</h2><p>Content Loaded</p>
+<h3 id="Activity-logging"><a href="#Activity-logging" class="headerlink" title="Activity logging"></a>Activity logging</h3><p>Log DNS queries, network packets, and&#x2F;or HTTP requests.</p>
+<p>Content LoadedContent Loaded</p>
+<p>Enabled</p>
+<p>Content Loaded</p>
+<p>Gateway DNS logs</p>
+<p>Content Loaded</p>
+<p>Capture all</p>
+<p>Content Loaded</p>
+<p>Capture only blocked</p>
+<p>Content Loaded</p>
+<p>Don’t capture</p>
+<p>Gateway Network logs</p>
+<p>Content Loaded</p>
+<p>Capture all</p>
+<p>Content Loaded</p>
+<p>Capture only blocked</p>
+<p>Content Loaded</p>
+<p>Don’t capture</p>
+<p>Gateway HTTP logs</p>
+<p>Content Loaded</p>
+<p>Capture all</p>
+<p>Content Loaded</p>
+<p>Capture only blocked</p>
+<p>Content Loaded</p>
+<p>Don’t capture</p>
+<h3 id="Exclude-PII"><a href="#Exclude-PII" class="headerlink" title="Exclude PII"></a>Exclude PII</h3><p>When the feature is enabled, Gateway will log activity without capturing any personally identifiable information. This does not apply to Logpush logs. <a target="_blank" rel="noopener" href="https://developers.cloudflare.com/cloudflare-one/analytics/logs/gateway-logs/manage-pii/">Read more about PII in Zero Trust</a></p>
+<p>Content LoadedContent Loaded</p>
+<p>Disabled</p>
+<h3 id="Enable-enhanced-file-detection"><a href="#Enable-enhanced-file-detection" class="headerlink" title="Enable enhanced file detection"></a>Enable enhanced file detection</h3><p>Allows inspection and extraction of file information from your traffic. <a target="_blank" rel="noopener" href="https://developers.cloudflare.com/cloudflare-one/analytics/logs/gateway-logs/#http-logs">Learn more</a></p>
+<p>Content LoadedContent Loaded</p>
+<p>Disabled</p>
+<p>Content Loaded</p>
+<h3 id="SSH-Encryption-public-key"><a href="#SSH-Encryption-public-key" class="headerlink" title="SSH Encryption public key"></a>SSH Encryption public key</h3><p>Upload your public key to download SSH logs file. This key will be used to encrypt all SSH logs recorded via SSH command logging.</p>
+<p>Edit</p>
+<h2 id="Firewall"><a href="#Firewall" class="headerlink" title="Firewall"></a>Firewall</h2><p>Content Loaded</p>
+<p>Proxy</p>
+<p>Enable to forward HTTP and network traffic to Gateway for policy enforcement and logging.Forward traffic to Gateway to filter both outbound traffic as well as traffic directed to resources connected via a Cloudflare Tunnel, GRE tunnel, and&#x2F;or IPsec tunnel.</p>
+<p>Content LoadedContent Loaded</p>
+<p>Disabled</p>
+<h3 id="TLS-decryption"><a href="#TLS-decryption" class="headerlink" title="TLS decryption"></a>TLS decryption</h3><p>Inspect encrypted HTTP traffic. All HTTPS traffic will be decrypted and re-signed with a new root certificate authority. You must install this CA on devices for your users to continue accessing the Internet. To install the CA <a target="_blank" rel="noopener" href="https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/warp/user-side-certificates/install-cert-with-warp/">enable “Install CA to system certificate store”</a> or follow the <a target="_blank" rel="noopener" href="https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/warp/user-side-certificates">installation instructions</a> in our Developer Documentation.</p>
+<p>Content LoadedContent Loaded</p>
+<p>Disabled</p>
+<h3 id="Match-extended-email-addresses"><a href="#Match-extended-email-addresses" class="headerlink" title="Match extended email addresses"></a>Match extended email addresses</h3><p>Match all variants of user emails used as criteria in Firewall policies. <a target="_blank" rel="noopener" href="https://developers.cloudflare.com/cloudflare-one/policies/gateway/identity-selectors/#extended-email-addresses">Learn more about email matching</a></p>
+<p>Content LoadedContent Loaded</p>
+<p>Disabled</p>
+<h3 id="AV-inspection"><a href="#AV-inspection" class="headerlink" title="AV inspection"></a>AV inspection</h3><p>Define your anti-virus scanning preferences on the Layer 7 firewall:</p>
+<p>Content LoadedContent Loaded</p>
+<p>Disabled</p>
+<p>Scan on file upload</p>
+<p>Scan on file download</p>
+<p>Block requests for files that cannot be scanned</p>
+<h2 id="Integrated-experiences"><a href="#Integrated-experiences" class="headerlink" title="Integrated experiences"></a>Integrated experiences</h2><h3 id="Bypass-decryption-of-Office-365-traffic"><a href="#Bypass-decryption-of-Office-365-traffic" class="headerlink" title="Bypass decryption of Office 365 traffic"></a>Bypass decryption of Office 365 traffic</h3><p>Create a Do Not Inspect policy to optimize performance and interoperability for Office 365 traffic.</p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/gateway/policies?tab=http">Create policy</a></p>
+<hr>
+<h1 id="Authentication"><a href="#Authentication" class="headerlink" title="Authentication"></a>Authentication</h1><h3 id="Global-session-timeout"><a href="#Global-session-timeout" class="headerlink" title="Global session timeout"></a>Global session timeout</h3><p>Set the maximum session length for all your applications.</p>
+<p>Content Loaded</p>
+<p><strong>Timeout</strong>Same as application session timeoutEdit</p>
+<h3 id="App-Launcher"><a href="#App-Launcher" class="headerlink" title="App Launcher"></a>App Launcher</h3><p>Define who has access to the App Launcher.</p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/settings/authentication/app-launcher">Manage</a></p>
+<h3 id="WARP-authentication-identity-settings"><a href="#WARP-authentication-identity-settings" class="headerlink" title="WARP authentication identity settings"></a>WARP authentication identity settings</h3><p>Allow users to log in to Access applications with the WARP&#x2F;Gateway session identity. Users will need to reauthenticate based on the defined session duration.</p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/settings/devices/edit?tab=authentication">Go to WARP</a></p>
+<h3 id="Login-methods"><a href="#Login-methods" class="headerlink" title="Login methods"></a>Login methods</h3><p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/settings/authentication/idp/add">Add new</a></p>
+<p>Content Loaded</p>
+<p>- </p>
+<p>  <strong>One-time PIN</strong></p>
+<p>  <a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/settings/authentication/idp/edit/aba19c82-101a-4291-959c-ea7cc9f3ae4a">Edit</a></p>
+<hr>
+<p><strong>Get started with Cloudflare Zero Trust</strong></p>
+<p>Start protecting your data and applications from threats on the Internet. Check out our payment plans and choose the one that fits your organization’s needs.</p>
+<p><a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/%E4%BD%A0%E7%9A%84ID/settings/account/plan">Choose a plan</a></p>
+<p>If you need help, here’s our <a target="_blank" rel="noopener" href="https://www.cloudflare.com/teams-pricing/">documentation</a>.</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2024/02/18/%E5%B8%B8%E8%A7%81%E7%AB%AF%E5%8F%A3%E5%8F%B7%E6%B1%87%E6%80%BB%E4%BF%A1%E6%81%AF/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2024-03-23 15:22:38
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
+                        <b>#</b> 教程
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E7%BD%91%E7%BB%9C/" title="网络">
+                        #网络
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2024/02/19/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A8/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E"><span class="toc-text">声明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-text">注意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Settings"><span class="toc-text">Settings</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Custom-Pages"><span class="toc-text">Custom Pages</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Team-domain"><span class="toc-text">Team domain</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Block-page"><span class="toc-text">Block page</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Login-page"><span class="toc-text">Login page</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Network"><span class="toc-text">Network</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Gateway-Logging"><span class="toc-text">Gateway Logging</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity-logging"><span class="toc-text">Activity logging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exclude-PII"><span class="toc-text">Exclude PII</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Enable-enhanced-file-detection"><span class="toc-text">Enable enhanced file detection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH-Encryption-public-key"><span class="toc-text">SSH Encryption public key</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Firewall"><span class="toc-text">Firewall</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TLS-decryption"><span class="toc-text">TLS decryption</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Match-extended-email-addresses"><span class="toc-text">Match extended email addresses</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AV-inspection"><span class="toc-text">AV inspection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Integrated-experiences"><span class="toc-text">Integrated experiences</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bypass-decryption-of-Office-365-traffic"><span class="toc-text">Bypass decryption of Office 365 traffic</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Authentication"><span class="toc-text">Authentication</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Global-session-timeout"><span class="toc-text">Global session timeout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#App-Launcher"><span class="toc-text">App Launcher</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WARP-authentication-identity-settings"><span class="toc-text">WARP authentication identity settings</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Login-methods"><span class="toc-text">Login methods</span></a></li></ol></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+            <a title="email" href="mailto:mailto:blog@282994.xyz">
+              <i class="iconfont icon-envelope"></i>
+            </a>
+            
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2024 Ame</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Ame" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      安卓手机搭建Linux服务器3-alist 
+      
+      
+      |
+    
+     Ame&#39;s Blog
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.ico">
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Ame</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">安卓手机搭建Linux服务器3-alist</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2024-03-23 15:24:43
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
+                    <b>#</b> 教程
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">
+                    #服务器
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="Alist"><a href="#Alist" class="headerlink" title="Alist"></a>Alist</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://alist.nn.ci/v3.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
+
+<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://alist.nn.ci/v3.sh&quot;</span> | bash -s update</span><br></pre></td></tr></table></figure>
+
+<p>卸载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://alist.nn.ci/v3.sh&quot;</span> | bash -s uninstall</span><br></pre></td></tr></table></figure>
+
+<h2 id="自定义路径"><a href="#自定义路径" class="headerlink" title="自定义路径"></a>自定义路径</h2><p>默认安装在 <code>/opt/alist</code> 中。 自定义安装路径，将安装路径作为第二个参数添加，必须是绝对路径（如果路径以 alist 结尾，则直接安装到给定路径，否则会安装在给定路径 alist 目录下），如 安装到 <code>/root</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Install</span></span><br><span class="line">curl -fsSL <span class="string">&quot;https://alist.nn.ci/v3.sh&quot;</span> | bash -s install /root</span><br><span class="line"><span class="comment"># update</span></span><br><span class="line">curl -fsSL <span class="string">&quot;https://alist.nn.ci/v3.sh&quot;</span> | bash -s update /root</span><br><span class="line"><span class="comment"># Uninstall</span></span><br><span class="line">curl -fsSL <span class="string">&quot;https://alist.nn.ci/v3.sh&quot;</span> | bash -s uninstall /root</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动: <code>systemctl start alist</code></li>
+<li>关闭: <code>systemctl stop alist</code></li>
+<li>状态: <code>systemctl status alist</code></li>
+<li>重启: <code>systemctl restart alist</code></li>
+</ul>
+<h2 id="获取密码"><a href="#获取密码" class="headerlink" title="获取密码"></a>获取密码</h2><p>需要进入脚本安装AList的目录文件夹內执行如下命令</p>
+<h3 id="低于v3-25-0版本"><a href="#低于v3-25-0版本" class="headerlink" title="低于v3.25.0版本"></a>低于v3.25.0版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./alist admin</span><br></pre></td></tr></table></figure>
+
+<h3 id="高于v3-25-0版本"><a href="#高于v3-25-0版本" class="headerlink" title="高于v3.25.0版本"></a>高于v3.25.0版本</h3><p>3.25.0以上版本将密码改成加密方式存储的hash值，无法直接反算出密码，如果忘记了密码只能通过重新 <strong><code>随机生成</code></strong> 或者 <strong><code>手动设置</code></strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 随机生成一个密码</span></span><br><span class="line">./alist admin random</span><br><span class="line"><span class="comment"># 手动设置一个密码,`NEW_PASSWORD`是指你需要设置的密码</span></span><br><span class="line">./alist admin <span class="built_in">set</span> NEW_PASSWORD</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件夹加密"><a href="#文件夹加密" class="headerlink" title="文件夹加密"></a>文件夹加密</h2><p>使用说明</p>
+<p>我们只需要在现在已经挂载的驱动(网盘)中新建一个<strong>空白文件夹</strong>，名称随意，准备给加密(Crypt)驱动使用</p>
+<p>然后把我们新建的空白文件夹名称填写到我们新建的<code>Crypt</code>驱动配置中的<code>加密后文件存储路径</code>选项</p>
+<p>例如：</p>
+<ul>
+<li><p>我们原本的驱动路径是<code>/123</code>，我们在123这个目录下新建了一个<code>air空白文件夹</code></p>
+</li>
+<li><p>我们就要在<code>Crypt</code>驱动的<code>加密后文件存储路径</code>选项填写<code>/123/air</code></p>
+</li>
+<li><p>我们上传文件需要在 新建的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Crypt</span><br></pre></td></tr></table></figure>
+
+<p>驱动目录进行上传文件才会进行加密</p>
+<ul>
+<li>加密文件我们去 <strong><code>加密后文件存储路径</code></strong> 查看会看到加密后的文件，无法正常打开查看</li>
+<li>如果要打开查看，我们需要在挂载的<code>Crypt</code>驱动文件夹查看</li>
+</ul>
+</li>
+</ul>
+<h2 id="填写示例"><a href="#填写示例" class="headerlink" title="填写示例"></a>填写示例</h2><p>如果你不懂如何配置，可以使用如下最简单默认的配置，具体每个配置的作用会在下方详细说明</p>
+<p>注意</p>
+<p>关于加密组合一共有5种方式，（实际上是6种）因为只开启<strong>文件夹加密，文件名不加密</strong>这样的配置不生效（下面举例的第一种）</p>
+<ol>
+<li>无效 文件名 <code>Off</code>，文件夹 <code>true</code></li>
+<li>有效 文件名 <code>Off</code>，文件夹 <code>false</code></li>
+<li>有效 文件名 <code>标准</code>，文件夹 <code>false</code></li>
+<li>有效 文件名 <code>标准</code>，文件夹 <code>true</code></li>
+<li>有效 文件名 <code>混淆</code>，文件夹 <code>false</code></li>
+<li>有效 文件名 <code>混淆</code>，文件夹 <code>true</code></li>
+</ol>
+<h3 id="文件名加密"><a href="#文件名加密" class="headerlink" title="文件名加密"></a><strong>文件名加密</strong></h3><p>如果看不懂可以使用默认配置</p>
+<ul>
+<li>1.<strong>默认为 <code>Off关闭</code>状态</strong><ul>
+<li>文件名是否加密，作用于上传后文件名进行加密</li>
+</ul>
+</li>
+<li>2.<strong>标准加密</strong><ul>
+<li>标准加密安全等级高(荐)</li>
+</ul>
+</li>
+<li>3.<strong>简单混淆</strong><ul>
+<li>安全等级很低 ，对长文件名友好，但是对于中文文件名会生成特殊字符，某些网盘存储不支持特殊字符。</li>
+</ul>
+</li>
+<li>下图中左侧的加密了的 <a target="_blank" rel="noopener" href="https://alist.nn.ci/zh/guide/drivers/Crypt.html#%E5%8A%A0%E5%AF%86%E5%90%8E%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E8%B7%AF%E5%BE%84"><strong>加密后文件存储路径</strong></a>，右侧是解密后的<code>Crypt</code>驱动可以查看文件<ul>
+<li>如果不开启文件名加密，就会显示左上角那样的是源文件后面新增一个加密的后缀（xxxxx.xxx <strong>.bin</strong> ）(后缀名可以自定义不一定是.bin)</li>
+<li>如果开启文件名加密，就会显示左下角那样将文件名也进行了加密混淆没有了后缀和原文件名，别人就无法知道是什么了，但是可以在<code>Crypt</code>驱动（右侧展示的文件夹）中看到真实文件名</li>
+</ul>
+</li>
+</ul>
+<h3 id="文件夹名加密"><a href="#文件夹名加密" class="headerlink" title="文件夹名加密"></a>文件夹名加密</h3><p>使用启用文件夹加密，默认为 <code>false</code> 未启用，看不懂可以不启用，</p>
+<p>开启文件夹加密的同时必须选择一项<strong>文件名加密</strong>否则单独只开文件夹加密不生效</p>
+<ul>
+<li><p>下图中左侧的加密了的</p>
+<p><strong>加密后文件存储路径</strong></p>
+<p>，右侧是解密后的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crypt</span><br></pre></td></tr></table></figure>
+
+<p>驱动可以查看文件</p>
+<ul>
+<li>如果不开启文件夹加密，就会显示左上角那样的没有任何变化的文件夹</li>
+<li>如果开启文件夹加密，就会显示左下角那样将文件夹名字也进行了加密混淆</li>
+</ul>
+</li>
+</ul>
+<h3 id="加密后文件存储路径"><a href="#加密后文件存储路径" class="headerlink" title="加密后文件存储路径"></a>加密后文件存储路径</h3><p>也就是存储加密后的文件，可以是AList能挂载的驱动里面任意一款驱动</p>
+<h3 id="密码"><a href="#密码" class="headerlink" title="密码"></a>密码</h3><p>就是字面意思密码</p>
+<h3 id="盐值"><a href="#盐值" class="headerlink" title="盐值"></a>盐值</h3><p>也可以理解为第二个密码</p>
+<h3 id="加密后缀"><a href="#加密后缀" class="headerlink" title="加密后缀"></a>加密后缀</h3><p>高级选项，默认为<code>.bin</code>，可自定义必须要以<code>.</code>开头，例如 .abc .aaa .psd 这样的后缀</p>
+<p>如果开启了文件名加密<code>加密后缀</code>就不会显示</p>
+<h3 id="文件名编码"><a href="#文件名编码" class="headerlink" title="文件名编码"></a>文件名编码</h3><p>高级选项，非专业人士请勿修改，默认为 **<code>Base64</code>**，但是除了 <strong><code>Base64</code></strong> 之外的选项并没有测试，遇到问题需要自己解决。</p>
+<ul>
+<li>参考<a target="_blank" rel="noopener" href="https://github.com/alist-org/alist/issues/5109">#5109open in new window</a>，<a target="_blank" rel="noopener" href="https://github.com/alist-org/alist/issues/5080">#5080open in new window</a></li>
+</ul>
+<h2 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h2><p>高级用法仅适用于对 <strong><code>Rclone</code></strong> 了解的人</p>
+<p>如果你对 <strong><code>Rclone</code></strong> 很了解可以看 👉 <a target="_blank" rel="noopener" href="https://rclone.org/crypt"><strong>Rclone Crypt 文档</strong>open in new window</a> 目前完全兼容</p>
+<p>注意，<code>Alist Crypt</code>驱动默认使用了 <code>filename_encoding = base64</code> ,如果使用Rclone请在高级设置中配置此条。（理由：对长文件名更友好一些）</p>
+<p>因为alist内部并没有对大小写<strong>不敏感</strong>提供支持，所以如果使用了大小写不敏感的文件系统可能会出问题，例如：windows上使用本地存储驱动，再使用Crypt</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A82-codeserv/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2024-03-23 15:24:43
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
+                        <b>#</b> 教程
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">
+                        #服务器
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A84-minio/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Alist"><span class="toc-text">Alist</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0"><span class="toc-text">更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%B7%AF%E5%BE%84"><span class="toc-text">自定义路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%AF%86%E7%A0%81"><span class="toc-text">获取密码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%8E%E4%BA%8Ev3-25-0%E7%89%88%E6%9C%AC"><span class="toc-text">低于v3.25.0版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E4%BA%8Ev3-25-0%E7%89%88%E6%9C%AC"><span class="toc-text">高于v3.25.0版本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%A4%B9%E5%8A%A0%E5%AF%86"><span class="toc-text">文件夹加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A1%AB%E5%86%99%E7%A4%BA%E4%BE%8B"><span class="toc-text">填写示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%90%8D%E5%8A%A0%E5%AF%86"><span class="toc-text">文件名加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E5%8A%A0%E5%AF%86"><span class="toc-text">文件夹名加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E5%90%8E%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E8%B7%AF%E5%BE%84"><span class="toc-text">加密后文件存储路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%86%E7%A0%81"><span class="toc-text">密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%90%E5%80%BC"><span class="toc-text">盐值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E5%90%8E%E7%BC%80"><span class="toc-text">加密后缀</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%90%8D%E7%BC%96%E7%A0%81"><span class="toc-text">文件名编码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95"><span class="toc-text">高级用法</span></a></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+            <a title="email" href="mailto:mailto:blog@282994.xyz">
+              <i class="iconfont icon-envelope"></i>
+            </a>
+            
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2024 Ame</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+
+      </div>
+    </div>
+  </body>
+</html>
