@@ -13,7 +13,7 @@
   
   <title>
     
-      Typora快速设置文字颜色 
+      蒙日圆 
       
       
       |
@@ -150,34 +150,55 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">Typora快速设置文字颜色</div>
+      <div class="post-title">蒙日圆</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2023-12-29 23:27:05
+          2024-06-02 14:02:48
         </span>
         
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" title="学习">
+                    <b>#</b> 学习
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E6%95%B0%E5%AD%A6/" title="数学">
+                    #数学
+                  </a>
+                </span>
+                
+              </span>
+          
       </div>
       <div class="markdown-body">
-        <h2 id="先安装AutoHotKey"><a href="#先安装AutoHotKey" class="headerlink" title="先安装AutoHotKey"></a>先安装AutoHotKey</h2><span id="more"></span>
-
-<p><a target="_blank" rel="noopener" href="https://autohotkey.com/download/">官方下载</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.123pan.com/s/k79SVv-tNzJ.html">网盘</a></p>
-<h2 id="打开记事本，把如下内容复制粘贴进去："><a href="#打开记事本，把如下内容复制粘贴进去：" class="headerlink" title="打开记事本，把如下内容复制粘贴进去："></a>打开记事本，把如下内容复制粘贴进去：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">; Typora</span><br><span class="line">; 快捷增加字体颜色</span><br><span class="line">; SendInput &#123;Text&#125; 解决中文输入法问题</span><br><span class="line">#IfWinActive ahk_exe Typora.exe</span><br><span class="line">&#123;</span><br><span class="line">    ; Ctrl+Alt+O 橙色</span><br><span class="line">    ^!o::addFontColor(&quot;orange&quot;)</span><br><span class="line">    ; Ctrl+Alt+R 红色</span><br><span class="line">    ^!r::addFontColor(&quot;red&quot;)</span><br><span class="line">    ; Ctrl+Alt+B 浅蓝色</span><br><span class="line">    ^!b::addFontColor(&quot;cornflowerblue&quot;)</span><br><span class="line">&#125;</span><br><span class="line">; 快捷增加字体颜色</span><br><span class="line">addFontColor(color)&#123;</span><br><span class="line">    clipboard := &quot;&quot; ; 清空剪切板</span><br><span class="line">    Send &#123;ctrl down&#125;c&#123;ctrl up&#125; ; 复制</span><br><span class="line">    SendInput &#123;TEXT&#125;&lt;font color=&#x27;%color%&#x27;&gt;</span><br><span class="line">    SendInput &#123;ctrl down&#125;v&#123;ctrl up&#125; ; 粘贴</span><br><span class="line">    If(clipboard = &quot;&quot;)&#123;</span><br><span class="line">        SendInput &#123;TEXT&#125;&lt;/font&gt; ; Typora 在这不会自动补充</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        SendInput &#123;TEXT&#125;&lt;/ ; Typora中自动补全标签</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="将文件保存为ahk后缀的文件"><a href="#将文件保存为ahk后缀的文件" class="headerlink" title="将文件保存为ahk后缀的文件"></a>将文件保存为ahk后缀的文件</h2><p>如<code>TyporaHotKey.ahk</code></p>
-<h2 id="双击运行"><a href="#双击运行" class="headerlink" title="双击运行"></a>双击运行</h2><h2 id="在Typora软件里就可以使用快捷键："><a href="#在Typora软件里就可以使用快捷键：" class="headerlink" title="在Typora软件里就可以使用快捷键："></a>在Typora软件里就可以使用快捷键：</h2><p>如按<code>Ctrl+Alt+O</code>添加橙色，<code>Ctrl+Alt+R</code> 红色，按<code>Ctrl+\</code>取消样式！</p>
-<p>也可以右键 <code>MyHotkeyScript.ahk</code> 脚本文件，点击<code>Compile Script</code>编译脚本成exe程序，就可以不用下载<code>Autohotkey</code>在其他电脑上运行了。</p>
-<p>上面脚本只写了橙色、红色、浅蓝三种颜色，你可以按需照例增加其他颜色或快捷方式！</p>
-<h2 id="加入到开机自启动"><a href="#加入到开机自启动" class="headerlink" title="加入到开机自启动"></a>加入到开机自启动</h2>
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="807fb3fff51eec0ae16015358cf29ff4691abd424c39819f7bd30b0a1a4cc624">ff33c2e3ce4ea54f57acf84b568fb90a5ab79f9fc88e4127855c84f5665509badd76c65e873408767a262ff4ad73cbd163e321f3379eb3a6cb67da11666c61732fa255580b0b9beb8a4b56c3a3df5d3729406704a3832567ccfd055d07fde11089149f8edce1729c92996061b64ba04591b28667eef31bdb25dc369ff33f8441d847662d67ed70192fef3dd582bcf3233cfa7bfa2e0f62acbd0fa06bf50609761d36be43c51f092d1ae412488afda35992dc0c71b73f47635b3c4a34b70f711ac1fe9391da3fac318c90087f7f5d4263db5e5b525c3b89688d7e96b1755d68048f458dbe3a18d4970a95aed47c5e2f07b7aa1b511e41c5af69404e8ffd40860c4674a46e557f1052780c48c728726d2570bb1c22702cdcfde38d8d6293ee83f7d397c011d0ffbb9e54d3fa50e7366844e6a4d06364af42dd573850df00253cb232b3794e18d2954ba4a8f285af76f6f20c97474d5a18f82792dab8aad5fbf3884e11c3e4a69d3d98a5cb9000a57bf7ec8a978d9ea3a6aebeaa22813d228154e0a80a30f1d496aa6a078b739a27efa89dd31e10588b21a5e6f47cd5b90f1bb8291ff7c773b3f214873949f6c953a78e98ba7bc74f311b912bcd18d54ca931a1528928559524e85c9c7e0fae12aa1035ac887dfd18cf066994b5ede64cca146a14fa91eaab2fa07c54c983813033eea21c3057b117afa724d0cb26be1a67a546065021565a03525d14e505ed5eec19be719646d0cc227528ab02d85381f1b7341170d2085b471ba51ea983a0a06244920bf154d88a1b10f7bf59df9a4d520fa2ca36d39a6397ec853810887b4a803a32319afb726d6550f32389ecab2b2f5403d5b3a8bffbb623a3066ef58b70537f1a259960904c1b9205bd380867340140bc365308fc4de68ab70b191a308f66aa5ca33864f15c87ed2a3b0dbb64abb0fed3dc799abf7b267133baa0c2c00429b7dbea71b78c68662da8545ab2d8d316a8d8c45e98ec4f150de685f8abaa7ad01b5de12cbe3274f092915e44eb8bce40c1bab3f611d44a733f8d142aaf1e4420dfb7847f83c52ec76c70f819ad3a56e147b759344fb37427dab2b26e31aef52aa4e21b</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2023/04/09/Word%E6%96%87%E6%A1%A3%E8%BD%ACMarkdown/" target="_self">
+              <a href="/2024/06/01/21%E5%B9%B4%E6%96%B0%E4%B8%80%E5%8D%B7T22/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>上一页</span>
               </a>
@@ -186,16 +207,33 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-12-29 23:27:05
+              2024-06-02 14:02:48
             </span>
             
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E5%AD%A6%E4%B9%A0/" title="学习">
+                        <b>#</b> 学习
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E6%95%B0%E5%AD%A6/" title="数学">
+                        #数学
+                      </a>
+                    </span>
+                    
+                  </span>
+              
           </div>
           <div class="post-foot-prev">
-            
-              <a href="/2023/06/08/%E9%BB%84%E4%BB%81%E5%8B%8B%E5%8F%B0%E5%A4%A7%E6%AF%95%E5%85%B8%E6%BC%94%E8%AE%B2/" target="_self">
-                <span>下一页</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
             
           </div>
         </div>
@@ -209,7 +247,7 @@
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E5%AE%89%E8%A3%85AutoHotKey"><span class="toc-text">先安装AutoHotKey</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E8%AE%B0%E4%BA%8B%E6%9C%AC%EF%BC%8C%E6%8A%8A%E5%A6%82%E4%B8%8B%E5%86%85%E5%AE%B9%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4%E8%BF%9B%E5%8E%BB%EF%BC%9A"><span class="toc-text">打开记事本，把如下内容复制粘贴进去：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E4%B8%BAahk%E5%90%8E%E7%BC%80%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-text">将文件保存为ahk后缀的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E5%87%BB%E8%BF%90%E8%A1%8C"><span class="toc-text">双击运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8Typora%E8%BD%AF%E4%BB%B6%E9%87%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%9A"><span class="toc-text">在Typora软件里就可以使用快捷键：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E5%85%A5%E5%88%B0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-text">加入到开机自启动</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-text">例题</span></a></li></ol>
       
     </div>
   </div>

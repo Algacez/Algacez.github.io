@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ame&#39;s Blog</title>
+    <link>http://blog.282994.xyz/</link>
+    
+    <image>
+      <url>http://blog.282994.xyz/images/favicon.ico</url>
+      <title>Ame&#39;s Blog</title>
+      <link>http://blog.282994.xyz/</link>
+    </image>
+    
+    <atom:link href="http://blog.282994.xyz/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <description></description>
+    <pubDate>Sun, 02 Jun 2024 06:02:48 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>蒙日圆</title>
+      <link>http://blog.282994.xyz/2024/06/02/%E8%92%99%E6%97%A5%E5%9C%86/</link>
+      <guid>http://blog.282994.xyz/2024/06/02/%E8%92%99%E6%97%A5%E5%9C%86/</guid>
+      <pubDate>Sun, 02 Jun 2024 04:05:40 GMT</pubDate>
+      
+      <description>Here&#39;s something encrypted, password is required to continue reading.</description>
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E6%95%B0%E5%AD%A6/">数学</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/06/02/%E8%92%99%E6%97%A5%E5%9C%86/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>21年新一卷T22</title>
+      <link>http://blog.282994.xyz/2024/06/01/21%E5%B9%B4%E6%96%B0%E4%B8%80%E5%8D%B7T22/</link>
+      <guid>http://blog.282994.xyz/2024/06/01/21%E5%B9%B4%E6%96%B0%E4%B8%80%E5%8D%B7T22/</guid>
+      <pubDate>Sat, 01 Jun 2024 14:25:25 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;&lt;img src=&quot;https://raw.bgithub.xyz/amedesuu/img-2/main/img/202405251852650.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img</description>
+          
+        
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E6%95%B0%E5%AD%A6/">数学</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/06/01/21%E5%B9%B4%E6%96%B0%E4%B8%80%E5%8D%B7T22/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>23年乙卷21</title>
+      <link>http://blog.282994.xyz/2024/06/01/23%E5%B9%B4%E4%B9%99%E5%8D%B721/</link>
+      <guid>http://blog.282994.xyz/2024/06/01/23%E5%B9%B4%E4%B9%99%E5%8D%B721/</guid>
+      <pubDate>Sat, 01 Jun 2024 12:20:35 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;&lt;img src=&quot;https://raw.bgithub.xyz/amedesuu/img-2/main/img/202406012020351.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img</description>
+          
+        
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E6%95%B0%E5%AD%A6/">数学</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/06/01/23%E5%B9%B4%E4%B9%99%E5%8D%B721/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>GFW的前世今生</title>
+      <link>http://blog.282994.xyz/2024/04/20/GFW%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/</link>
+      <guid>http://blog.282994.xyz/2024/04/20/GFW%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/</guid>
+      <pubDate>Sat, 20 Apr 2024 10:50:56 GMT</pubDate>
+      
+      <description>Here&#39;s something encrypted, password is required to continue reading.</description>
+      
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E7%BD%91%E7%BB%9C/">网络</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/04/20/GFW%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>国内至国际骨干ISP线路整理</title>
+      <link>http://blog.282994.xyz/2024/04/20/%E5%9B%BD%E5%86%85%E8%87%B3%E5%9B%BD%E9%99%85%E9%AA%A8%E5%B9%B2ISP%E7%BA%BF%E8%B7%AF%E6%95%B4%E7%90%86/</link>
+      <guid>http://blog.282994.xyz/2024/04/20/%E5%9B%BD%E5%86%85%E8%87%B3%E5%9B%BD%E9%99%85%E9%AA%A8%E5%B9%B2ISP%E7%BA%BF%E8%B7%AF%E6%95%B4%E7%90%86/</guid>
+      <pubDate>Sat, 20 Apr 2024 10:47:48 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;本文主要探讨的是IPv4网络，对于IPv6网络，那就是另一个故事了~</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E7%BD%91%E7%BB%9C/">网络</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/04/20/%E5%9B%BD%E5%86%85%E8%87%B3%E5%9B%BD%E9%99%85%E9%AA%A8%E5%B9%B2ISP%E7%BA%BF%E8%B7%AF%E6%95%B4%E7%90%86/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>IP基础知识</title>
+      <link>http://blog.282994.xyz/2024/04/20/IP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <guid>http://blog.282994.xyz/2024/04/20/IP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <pubDate>Sat, 20 Apr 2024 10:38:50 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;一、对-IP地址-基本的认识&quot;&gt;&lt;a href=&quot;#一、对-IP地址-基本的认识&quot; class=&quot;headerlink&quot; title=&quot;一、对 IP地址 基本的认识&quot;&gt;&lt;/a&gt;一、对 IP地址 基本的认识&lt;/h1&gt;&lt;p&gt;IP地址 在 TCP&amp;#x2F;IP地址</description>
+          
+        
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E7%BD%91%E7%BB%9C/">网络</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/04/20/IP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>How GFW Detects and Blocks Fully Encrypted Traffic</title>
+      <link>http://blog.282994.xyz/2024/04/20/How-GFW-Detects-and-Blocks-Fully-Encrypted-Traffic/</link>
+      <guid>http://blog.282994.xyz/2024/04/20/How-GFW-Detects-and-Blocks-Fully-Encrypted-Traffic/</guid>
+      <pubDate>Sat, 20 Apr 2024 10:33:14 GMT</pubDate>
+      
+      <description>Here&#39;s something encrypted, password is required to continue reading.</description>
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E7%BD%91%E7%BB%9C/">网络</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/04/20/How-GFW-Detects-and-Blocks-Fully-Encrypted-Traffic/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>函数定义详解</title>
+      <link>http://blog.282994.xyz/2024/03/31/%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%E8%AF%A6%E8%A7%A3/</link>
+      <guid>http://blog.282994.xyz/2024/03/31/%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%E8%AF%A6%E8%A7%A3/</guid>
+      <pubDate>Sun, 31 Mar 2024 04:16:45 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;函数定义详解&quot;&gt;&lt;a href=&quot;#函数定义详解&quot; class=&quot;headerlink&quot; title=&quot;函数定义详解&quot;&gt;&lt;/a&gt;函数定义详解&lt;/h1&gt;&lt;h2 id=&quot;4-8-函数定义详解&quot;&gt;&lt;a href=&quot;#4-8-函数定义详解&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/Python/">Python</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/03/31/%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%E8%AF%A6%E8%A7%A3/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Python match语句</title>
+      <link>http://blog.282994.xyz/2024/03/31/match%E8%AF%AD%E5%8F%A5/</link>
+      <guid>http://blog.282994.xyz/2024/03/31/match%E8%AF%AD%E5%8F%A5/</guid>
+      <pubDate>Sun, 31 Mar 2024 04:02:11 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;&lt;code&gt;match&lt;/code&gt; 语句&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.python.org/zh-cn/3/reference/compound_stmts.html#match&quot;&gt;&lt;code&gt;match&lt;/code&gt;&lt;/a&gt;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/Python/">Python</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/03/31/match%E8%AF%AD%E5%8F%A5/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>基于Kubernetes环境搭建hk4e服务器</title>
+      <link>http://blog.282994.xyz/2024/03/24/%E5%9F%BA%E4%BA%8EKubernetes%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAhk4e/</link>
+      <guid>http://blog.282994.xyz/2024/03/24/%E5%9F%BA%E4%BA%8EKubernetes%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAhk4e/</guid>
+      <pubDate>Sun, 24 Mar 2024 05:21:40 GMT</pubDate>
+      
+      <description>Here&#39;s something encrypted, password is required to continue reading.</description>
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E6%95%99%E7%A8%8B/">教程</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E6%B8%B8%E6%88%8F/">游戏</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/03/24/%E5%9F%BA%E4%BA%8EKubernetes%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAhk4e/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>拉格朗日中值定理</title>
+      <link>http://blog.282994.xyz/2024/03/23/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/</link>
+      <guid>http://blog.282994.xyz/2024/03/23/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/</guid>
+      <pubDate>Sat, 23 Mar 2024 15:21:47 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;拉格朗日中值定理是微积分中的一个重要定理，它描述了连续函数在一个区间内的平均变化率与其在该区间内某一点的导数之间的关系。该定理的表述如下：&lt;/p&gt;
+&lt;p&gt;假设函数 $f(x)$ 在闭区间 $[a, b]$ 上连续，在开区间 $(a, b)$ 上可导，则存在一个 $&#92;xi</description>
+          
+        
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E6%95%B0%E5%AD%A6/">数学</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/03/23/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>安卓手机搭建Linux服务器7-qbittorrent</title>
+      <link>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A87-qbittorrent/</link>
+      <guid>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A87-qbittorrent/</guid>
+      <pubDate>Sun, 17 Mar 2024 05:03:58 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;qbittorrent&quot;&gt;&lt;a href=&quot;#qbittorrent&quot; class=&quot;headerlink&quot; title=&quot;qbittorrent&quot;&gt;&lt;/a&gt;qbittorrent&lt;/h1&gt;&lt;figure class=&quot;highlight</description>
+          
+        
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E6%95%99%E7%A8%8B/">教程</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A87-qbittorrent/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>安卓手机搭建Linux服务器6-twikoo</title>
+      <link>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A86-twikoo/</link>
+      <guid>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A86-twikoo/</guid>
+      <pubDate>Sun, 17 Mar 2024 05:03:10 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;twikoo&quot;&gt;&lt;a href=&quot;#twikoo&quot; class=&quot;headerlink&quot; title=&quot;twikoo&quot;&gt;&lt;/a&gt;twikoo&lt;/h1&gt;&lt;p&gt;注意&lt;/p&gt;
+&lt;p&gt;私有部署的环境需配合 1.6.0 或以上版本的 twikoo.js</description>
+          
+        
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E6%95%99%E7%A8%8B/">教程</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A86-twikoo/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>安卓手机搭建Linux服务器5-memos</title>
+      <link>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A85-memos/</link>
+      <guid>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A85-memos/</guid>
+      <pubDate>Sun, 17 Mar 2024 05:02:28 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;memos&quot;&gt;&lt;a href=&quot;#memos&quot; class=&quot;headerlink&quot; title=&quot;memos&quot;&gt;&lt;/a&gt;memos&lt;/h1&gt;&lt;h2 id=&quot;Working-without-Docker&quot;&gt;&lt;a</description>
+          
+        
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E6%95%99%E7%A8%8B/">教程</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A85-memos/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>安卓手机搭建Linux服务器4-minio</title>
+      <link>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A84-minio/</link>
+      <guid>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A84-minio/</guid>
+      <pubDate>Sun, 17 Mar 2024 05:01:45 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;minIO&quot;&gt;&lt;a href=&quot;#minIO&quot; class=&quot;headerlink&quot; title=&quot;minIO&quot;&gt;&lt;/a&gt;minIO&lt;/h1&gt;&lt;p&gt;需要公网–address端口&lt;/p&gt;
+&lt;figure class=&quot;highlight</description>
+          
+        
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E6%95%99%E7%A8%8B/">教程</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A84-minio/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>安卓手机搭建Linux服务器3-alist</title>
+      <link>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A83-alist/</link>
+      <guid>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A83-alist/</guid>
+      <pubDate>Sun, 17 Mar 2024 05:01:05 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;Alist&quot;&gt;&lt;a href=&quot;#Alist&quot; class=&quot;headerlink&quot; title=&quot;Alist&quot;&gt;&lt;/a&gt;Alist&lt;/h1&gt;&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E6%95%99%E7%A8%8B/">教程</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A83-alist/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>安卓手机搭建Linux服务器2-codeserver</title>
+      <link>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A82-codeserv/</link>
+      <guid>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A82-codeserv/</guid>
+      <pubDate>Sun, 17 Mar 2024 05:00:08 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;code-server&quot;&gt;&lt;a href=&quot;#code-server&quot; class=&quot;headerlink&quot; title=&quot;code-server&quot;&gt;&lt;/a&gt;code-server&lt;/h1&gt;&lt;h2 id=&quot;搭建&quot;&gt;&lt;a href=&quot;#搭建&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E6%95%99%E7%A8%8B/">教程</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A82-codeserv/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>安卓手机搭建Linux服务器1-cloudreve</title>
+      <link>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A81/</link>
+      <guid>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A81/</guid>
+      <pubDate>Sun, 17 Mar 2024 04:28:25 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;cloudreve&quot;&gt;&lt;a href=&quot;#cloudreve&quot; class=&quot;headerlink&quot; title=&quot;cloudreve&quot;&gt;&lt;/a&gt;cloudreve&lt;/h1&gt;&lt;p&gt;使用cloudreve&lt;/p&gt;
+&lt;p&gt;&lt;a</description>
+          
+        
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E6%95%99%E7%A8%8B/">教程</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A81/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>服务器配置</title>
+      <link>http://blog.282994.xyz/2024/02/21/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/</link>
+      <guid>http://blog.282994.xyz/2024/02/21/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/</guid>
+      <pubDate>Wed, 21 Feb 2024 03:37:50 GMT</pubDate>
+      
+      <description>Here&#39;s something encrypted, password is required to continue reading.</description>
+      
+      
+      
+      
+      
+      
+      <comments>http://blog.282994.xyz/2024/02/21/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>安卓手机搭建Linux服务器</title>
+      <link>http://blog.282994.xyz/2024/02/19/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <guid>http://blog.282994.xyz/2024/02/19/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <pubDate>Mon, 19 Feb 2024 07:48:35 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;文件下载&quot;&gt;&lt;a href=&quot;#文件下载&quot; class=&quot;headerlink&quot; title=&quot;文件下载&quot;&gt;&lt;/a&gt;文件下载&lt;/h1&gt;&lt;p&gt;&lt;a</description>
+          
+        
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E6%95%99%E7%A8%8B/">教程</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/02/19/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A8/#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>

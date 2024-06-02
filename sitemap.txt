@@ -1,3 +1,4 @@
+http://blog.282994.xyz/2024/06/02/%E8%92%99%E6%97%A5%E5%9C%86/
 http://blog.282994.xyz/2024/06/01/21%E5%B9%B4%E6%96%B0%E4%B8%80%E5%8D%B7T22/
 http://blog.282994.xyz/2024/06/01/23%E5%B9%B4%E4%B9%99%E5%8D%B721/
 http://blog.282994.xyz/2023/09/16/PyTorch%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/
@@ -57,16 +58,16 @@ http://blog.282994.xyz/2023/11/18/Windows%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5
 http://blog.282994.xyz/2023/09/30/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/
 http://blog.282994.xyz/2023/05/01/Typora%E5%BF%AB%E9%80%9F%E8%AE%BE%E7%BD%AE%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2/
 http://blog.282994.xyz/
+http://blog.282994.xyz/tags/%E7%A1%AC%E4%BB%B6/
 http://blog.282994.xyz/tags/%E6%95%B0%E5%AD%A6/
 http://blog.282994.xyz/tags/Docker/
-http://blog.282994.xyz/tags/%E7%A1%AC%E4%BB%B6/
 http://blog.282994.xyz/tags/%E7%BD%91%E7%BB%9C/
 http://blog.282994.xyz/tags/Github/
 http://blog.282994.xyz/tags/%E5%9B%BE%E5%BA%8A/
 http://blog.282994.xyz/tags/Git/
 http://blog.282994.xyz/tags/OpenAI/
-http://blog.282994.xyz/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1/
 http://blog.282994.xyz/tags/PyTorch/
+http://blog.282994.xyz/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1/
 http://blog.282994.xyz/tags/%E7%A1%AC%E7%9B%98/
 http://blog.282994.xyz/tags/Windows/
 http://blog.282994.xyz/tags/Python/

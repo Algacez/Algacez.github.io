@@ -60,7 +60,8 @@
       document.documentElement.setAttribute('color-mode', colorMode)
     }
   </script>
-<meta name="generator" content="Hexo 7.2.0"></head>
+<meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/rss.xml" title="Ame's Blog" type="application/rss+xml">
+</head>
 
 
   <body>
@@ -70,7 +71,7 @@
     <a href="/">
       <!-- 头像取消懒加载，添加no-lazy -->
       
-        <img src="/images/avatar.png" alt="">
+        <img no-lazy src="/images/avatar.png" alt="">
       
     </a>
     <div class="nickname"><a href="/">Ame</a></div>
@@ -192,7 +193,7 @@
 <p>运行 <strong>npm初始化指令</strong>，打包整个图床。需要注意的是，事先需要通过搜索确认你的包名是否<strong>唯一</strong>。同时 <strong>git repository</strong> 填写的是仓库的 <strong>HTTPS</strong>，而不是 <strong>SSH</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BASH</span><br><span class="line">npm init</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610205802.png" alt="img"></p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610205802.png" alt="img"></p>
 <p>初始化后会生成 <strong>package.json</strong> 文件，此时进行发布，也就是把<strong>包</strong>发布到 <strong>npm</strong> 上</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BASH</span><br><span class="line">npm publish</span><br></pre></td></tr></table></figure>
 
@@ -200,8 +201,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 将更改提交到暂存区中</span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"># 将暂存区内容添加到本地仓库中</span><br><span class="line">git commit -m &quot;npm publish&quot;</span><br><span class="line"></span><br><span class="line"># 更新package版本号，每次会在末尾版本号 +1。例如 0.0.1 =&gt; 0.0.2</span><br><span class="line"># 大版本需要在 package.json 手动更改 version，即从 1.0.0 =&gt; 2.0.0</span><br><span class="line">npm version patch</span><br><span class="line"></span><br><span class="line"># 推送至Github上</span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line"># 推送到npm上</span><br><span class="line">npm publish</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="Github-Action"><a href="#Github-Action" class="headerlink" title="Github Action"></a>Github Action</h2><p>为了节省时间，减少没必要的工作，可以通过 <strong>github action</strong> 进行上传。点击 <strong>你的头像</strong> - 选择 <strong>Access Tokens</strong> - 点击 <strong>Generate New Token</strong> - 选择 <strong>Classic Token</strong>。需要注意的是，选择 <strong>Automation</strong>，并记住出现的 <strong>Token</strong>，它只会出现一次<br><a target="_blank" rel="noopener" href="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610214209.png"><img src="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610214209.png" alt="img"></a></p>
-<p>在 <strong>Github图床</strong> 所在的仓库<strong>设置</strong>中添加一个名为 <strong>NPM_TOKEN</strong> 的私钥。<strong>Secret</strong> 既是所记住的 <strong>Token</strong>。<br><a target="_blank" rel="noopener" href="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610214723.png"><img src="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610214723.png" alt="img"></a></p>
+<h2 id="Github-Action"><a href="#Github-Action" class="headerlink" title="Github Action"></a>Github Action</h2><p>为了节省时间，减少没必要的工作，可以通过 <strong>github action</strong> 进行上传。点击 <strong>你的头像</strong> - 选择 <strong>Access Tokens</strong> - 点击 <strong>Generate New Token</strong> - 选择 <strong>Classic Token</strong>。需要注意的是，选择 <strong>Automation</strong>，并记住出现的 <strong>Token</strong>，它只会出现一次<br><a target="_blank" rel="noopener" href="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610214209.png"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610214209.png" alt="img"></a></p>
+<p>在 <strong>Github图床</strong> 所在的仓库<strong>设置</strong>中添加一个名为 <strong>NPM_TOKEN</strong> 的私钥。<strong>Secret</strong> 既是所记住的 <strong>Token</strong>。<br><a target="_blank" rel="noopener" href="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610214723.png"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610214723.png" alt="img"></a></p>
 <p>在图床根目录 上新建 <strong>new_version.py</strong> 文件，并写入如下代码</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># new_version.py</span><br><span class="line">import json;</span><br><span class="line">import time;</span><br><span class="line">with open(&quot;package.json&quot;,&#x27;r&#x27;,encoding=&#x27;utf-8&#x27;) as f:</span><br><span class="line">    jspack = json.load(f)</span><br><span class="line">new_version = &#x27;1.1.&#x27;+str(int(time.time()))[1:11:1]</span><br><span class="line">jspack[&#x27;version&#x27;]=new_version</span><br><span class="line">with open(&quot;package.json&quot;,&#x27;w&#x27;,encoding=&#x27;utf-8&#x27;) as f:</span><br><span class="line">    json.dump(jspack, f,ensure_ascii=False)</span><br></pre></td></tr></table></figure>
 
@@ -219,9 +220,9 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># jsdelivr：fastly.jsdelivr.net</span><br><span class="line">https://jsd.onmicrosoft.cn/npm/[npm包名]/[图片路径]</span><br><span class="line"></span><br><span class="line"># 饿了么1：github.elemecdn.com</span><br><span class="line">http://github.elemecdn.com/[npm包名]/[图片路径]</span><br><span class="line"></span><br><span class="line"># 饿了么2：npm.elemecdn.com</span><br><span class="line">http://npm.elemecdn.com/[npm包名]/[图片路径]</span><br><span class="line"></span><br><span class="line"># unpkg.zhimg.com</span><br><span class="line">https://unpkg.com/[npm包名]/[图片路径]</span><br><span class="line"></span><br><span class="line"># jsd.onmicrosoft.cn</span><br><span class="line">https://jsd.onmicrosoft.cn/npm/[npm包名]/[图片路径]</span><br><span class="line"></span><br><span class="line"># npm.onmicrosoft.cn</span><br><span class="line">http://npm.onmicrosoft.cn/[npm包名]/[图片路径]</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="PicGO-安装"><a href="#PicGO-安装" class="headerlink" title="PicGO 安装"></a>PicGO 安装</h2><p>下载 <a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases/tag/v2.3.1">PicGO</a> 后，为了使它可以访问 <strong>Github</strong>，需要先获取<strong>私钥</strong>。点击 <strong>你的头像</strong> - 选择 <strong>Settings</strong> - 选择 <strong>Developer settings</strong> ，进入该界面后：<br><a target="_blank" rel="noopener" href="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610234731.png"><img src="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610234731.png" alt="img"></a></p>
-<p>创建私钥，<strong>TOKEN</strong> 只显示一次，记得保存，如果没有保存，后面也可以重新创建一个。<br><a target="_blank" rel="noopener" href="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610235402.png"><img src="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610235402.png" alt="img"></a></p>
-<p>对 <strong>Github图床</strong> 进行配置：<br><a target="_blank" rel="noopener" href="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230611005942.png"><img src="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230611005942.png" alt="img"></a></p>
+<h2 id="PicGO-安装"><a href="#PicGO-安装" class="headerlink" title="PicGO 安装"></a>PicGO 安装</h2><p>下载 <a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases/tag/v2.3.1">PicGO</a> 后，为了使它可以访问 <strong>Github</strong>，需要先获取<strong>私钥</strong>。点击 <strong>你的头像</strong> - 选择 <strong>Settings</strong> - 选择 <strong>Developer settings</strong> ，进入该界面后：<br><a target="_blank" rel="noopener" href="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610234731.png"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610234731.png" alt="img"></a></p>
+<p>创建私钥，<strong>TOKEN</strong> 只显示一次，记得保存，如果没有保存，后面也可以重新创建一个。<br><a target="_blank" rel="noopener" href="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610235402.png"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230610235402.png" alt="img"></a></p>
+<p>对 <strong>Github图床</strong> 进行配置：<br><a target="_blank" rel="noopener" href="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230611005942.png"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://jsd.onmicrosoft.cn/npm/blogassert/posts/7fee/20230611005942.png" alt="img"></a></p>
 <hr>
 <h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><blockquote>
 <p><strong>Github图床</strong> 存储的图片总大小不能超过 <strong>1G</strong>，否则会有<strong>人工审核</strong>仓库内容，如果发现<strong>用来做图床</strong>，轻则删库，重则封号。因此为了安全起见，建议在 <strong>1G</strong> 之前就换个仓库，反正可以创建无数个仓库嘛。</p>
@@ -315,6 +316,14 @@
             
         </li>
         
+        <li>
+          
+              <a title="rss" href="/rss.xml">
+                <i class="iconfont icon-rss"></i>
+              </a>
+              
+        </li>
+        
     </ul>
   </div>
   
@@ -322,6 +331,13 @@
     <div class="footer-more">
       
         <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2024 Ame</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://www.travellings.cn/go.html">开往</a>
         
     </div>
   
@@ -553,5 +569,18 @@
 
       </div>
     </div>
-  </body>
+  
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,d=o();function o(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=o());for(var e,i=0;i<d.length;i++)0<=(e=(e=d[i]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,a,n,o=d[i];e=function(){d=d.filter(function(t){return o!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(o)},(t=o).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,n=t.getAttribute("data-original"),a.onload=function(){t.src=n,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=n},t.src!==n&&(a.src=n)))}()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)}(this);</script></body>
 </html>
