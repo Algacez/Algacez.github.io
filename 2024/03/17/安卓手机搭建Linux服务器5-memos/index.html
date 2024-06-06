@@ -154,7 +154,7 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2024-03-23 15:17:32
+          2024-06-06 15:35:22
         </span>
         
               <span class="post-categories">
@@ -275,6 +275,19 @@
 <p>本地的路径在&#x2F;memos&#x2F;.air</p>
 <p>用本地存储方案备份这个文件夹</p>
 <p>移动到稳定版要改数据库文件名</p>
+<hr>
+<h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><p>拉取新的代码，将原来的.air文件夹复制过来</p>
+<p>搜索所有8081的端口换一个不常用的<code>55345</code></p>
+<ol>
+<li><p>Start backend using air</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">air -c scripts/.air.toml</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Generate TypeScript code from protobuf with buf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd proto &amp;&amp; buf generate</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Start frontend dev server</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd web &amp;&amp; pnpm i &amp;&amp; pnpm dev</span><br></pre></td></tr></table></figure></li>
+</ol>
 
       </div>
       
@@ -290,7 +303,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2024-03-23 15:17:32
+              2024-06-06 15:35:22
             </span>
             
                   <span class="post-categories">
@@ -335,7 +348,7 @@
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#memos"><span class="toc-text">memos</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Working-without-Docker"><span class="toc-text">Working without Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Prerequisite"><span class="toc-text">Prerequisite</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Steps"><span class="toc-text">Steps</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%A5%E9%94%99%E5%8F%8A%E8%A7%A3%E5%86%B3"><span class="toc-text">报错及解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85node"><span class="toc-text">安装node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BDnode"><span class="toc-text">卸载node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pnpm"><span class="toc-text">pnpm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go"><span class="toc-text">go</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#air"><span class="toc-text">air</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#buf"><span class="toc-text">buf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C"><span class="toc-text">运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Steps-1"><span class="toc-text">Steps</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E7%BD%91"><span class="toc-text">公网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%82%A8%E5%AD%98"><span class="toc-text">储存</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#memos"><span class="toc-text">memos</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Working-without-Docker"><span class="toc-text">Working without Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Prerequisite"><span class="toc-text">Prerequisite</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Steps"><span class="toc-text">Steps</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%A5%E9%94%99%E5%8F%8A%E8%A7%A3%E5%86%B3"><span class="toc-text">报错及解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85node"><span class="toc-text">安装node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BDnode"><span class="toc-text">卸载node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pnpm"><span class="toc-text">pnpm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go"><span class="toc-text">go</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#air"><span class="toc-text">air</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#buf"><span class="toc-text">buf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C"><span class="toc-text">运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Steps-1"><span class="toc-text">Steps</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E7%BD%91"><span class="toc-text">公网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%82%A8%E5%AD%98"><span class="toc-text">储存</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0"><span class="toc-text">更新</span></a></li></ol>
       
     </div>
   </div>
