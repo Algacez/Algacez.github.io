@@ -15,8 +15,25 @@
     <atom:link href="http://blog.282994.xyz/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 07 Jun 2024 04:09:32 GMT</pubDate>
+    <pubDate>Sat, 08 Jun 2024 09:56:32 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>2024甲卷T21</title>
+      <link>http://blog.282994.xyz/2024/06/08/2024%E7%94%B2%E5%8D%B7T21/</link>
+      <guid>http://blog.282994.xyz/2024/06/08/2024%E7%94%B2%E5%8D%B7T21/</guid>
+      <pubDate>Sat, 08 Jun 2024 03:50:37 GMT</pubDate>
+      
+      <description>Here&#39;s something encrypted, password is required to continue reading.</description>
+      
+      
+      
+      
+      
+      
+      <comments>http://blog.282994.xyz/2024/06/08/2024%E7%94%B2%E5%8D%B7T21/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>2024高考作文</title>
@@ -486,34 +503,6 @@
       
       
       <comments>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A85-memos/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>安卓手机搭建Linux服务器4-minio</title>
-      <link>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A84-minio/</link>
-      <guid>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A84-minio/</guid>
-      <pubDate>Sun, 17 Mar 2024 05:01:45 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h1 id=&quot;minIO&quot;&gt;&lt;a href=&quot;#minIO&quot; class=&quot;headerlink&quot; title=&quot;minIO&quot;&gt;&lt;/a&gt;minIO&lt;/h1&gt;&lt;p&gt;需要公网–address端口&lt;/p&gt;
-&lt;figure class=&quot;highlight</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://blog.282994.xyz/categories/%E6%95%99%E7%A8%8B/">教程</category>
-      
-      
-      <category domain="http://blog.282994.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</category>
-      
-      
-      <comments>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A84-minio/#disqus_thread</comments>
       
     </item>
     
