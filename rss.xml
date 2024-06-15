@@ -15,8 +15,82 @@
     <atom:link href="http://blog.282994.xyz/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sat, 08 Jun 2024 09:56:32 GMT</pubDate>
+    <pubDate>Sat, 15 Jun 2024 11:41:52 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>沉思</title>
+      <link>http://blog.282994.xyz/2024/06/15/%E6%B2%89%E6%80%9D/</link>
+      <guid>http://blog.282994.xyz/2024/06/15/%E6%B2%89%E6%80%9D/</guid>
+      <pubDate>Sat, 15 Jun 2024 10:15:33 GMT</pubDate>
+      
+      <description>Here&#39;s something encrypted, password is required to continue reading.</description>
+      
+      
+      
+      
+      
+      
+      <comments>http://blog.282994.xyz/2024/06/15/%E6%B2%89%E6%80%9D/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>SAM ALTMAN&#39;S MANIFEST DESTINY</title>
+      <link>http://blog.282994.xyz/2024/06/15/SAM-ALTMAN-S-MANIFEST-DESTINY/</link>
+      <guid>http://blog.282994.xyz/2024/06/15/SAM-ALTMAN-S-MANIFEST-DESTINY/</guid>
+      <pubDate>Sat, 15 Jun 2024 07:19:24 GMT</pubDate>
+      
+      <description>Here&#39;s something encrypted, password is required to continue reading.</description>
+      
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/tags/Sama/">Sama</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/06/15/SAM-ALTMAN-S-MANIFEST-DESTINY/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>马尔科夫链</title>
+      <link>http://blog.282994.xyz/2024/06/15/%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E9%93%BE/</link>
+      <guid>http://blog.282994.xyz/2024/06/15/%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E9%93%BE/</guid>
+      <pubDate>Sat, 15 Jun 2024 03:40:10 GMT</pubDate>
+      
+      <description>Here&#39;s something encrypted, password is required to continue reading.</description>
+      
+      
+      
+      
+      
+      
+      <comments>http://blog.282994.xyz/2024/06/15/%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E9%93%BE/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>琴生不等式</title>
+      <link>http://blog.282994.xyz/2024/06/09/%E7%90%B4%E7%94%9F%E4%B8%8D%E7%AD%89%E5%BC%8F/</link>
+      <guid>http://blog.282994.xyz/2024/06/09/%E7%90%B4%E7%94%9F%E4%B8%8D%E7%AD%89%E5%BC%8F/</guid>
+      <pubDate>Sun, 09 Jun 2024 09:35:04 GMT</pubDate>
+      
+      <description>Here&#39;s something encrypted, password is required to continue reading.</description>
+      
+      
+      
+      
+      <category domain="http://blog.282994.xyz/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <category domain="http://blog.282994.xyz/tags/%E6%95%B0%E5%AD%A6/">数学</category>
+      
+      
+      <comments>http://blog.282994.xyz/2024/06/09/%E7%90%B4%E7%94%9F%E4%B8%8D%E7%AD%89%E5%BC%8F/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>2024甲卷T21</title>
@@ -400,109 +474,6 @@
       
       
       <comments>http://blog.282994.xyz/2024/03/24/%E5%9F%BA%E4%BA%8EKubernetes%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAhk4e/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>拉格朗日中值定理</title>
-      <link>http://blog.282994.xyz/2024/03/23/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/</link>
-      <guid>http://blog.282994.xyz/2024/03/23/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/</guid>
-      <pubDate>Sat, 23 Mar 2024 15:21:47 GMT</pubDate>
-      
-      <description>Here&#39;s something encrypted, password is required to continue reading.</description>
-      
-      
-      
-      
-      <category domain="http://blog.282994.xyz/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
-      
-      
-      <category domain="http://blog.282994.xyz/tags/%E6%95%B0%E5%AD%A6/">数学</category>
-      
-      
-      <comments>http://blog.282994.xyz/2024/03/23/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>安卓手机搭建Linux服务器7-qbittorrent</title>
-      <link>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A87-qbittorrent/</link>
-      <guid>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A87-qbittorrent/</guid>
-      <pubDate>Sun, 17 Mar 2024 05:03:58 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h1 id=&quot;qbittorrent&quot;&gt;&lt;a href=&quot;#qbittorrent&quot; class=&quot;headerlink&quot; title=&quot;qbittorrent&quot;&gt;&lt;/a&gt;qbittorrent&lt;/h1&gt;&lt;figure class=&quot;highlight</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://blog.282994.xyz/categories/%E6%95%99%E7%A8%8B/">教程</category>
-      
-      
-      <category domain="http://blog.282994.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</category>
-      
-      
-      <comments>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A87-qbittorrent/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>安卓手机搭建Linux服务器6-twikoo</title>
-      <link>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A86-twikoo/</link>
-      <guid>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A86-twikoo/</guid>
-      <pubDate>Sun, 17 Mar 2024 05:03:10 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h1 id=&quot;twikoo&quot;&gt;&lt;a href=&quot;#twikoo&quot; class=&quot;headerlink&quot; title=&quot;twikoo&quot;&gt;&lt;/a&gt;twikoo&lt;/h1&gt;&lt;p&gt;注意&lt;/p&gt;
-&lt;p&gt;私有部署的环境需配合 1.6.0 或以上版本的 twikoo.js</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://blog.282994.xyz/categories/%E6%95%99%E7%A8%8B/">教程</category>
-      
-      
-      <category domain="http://blog.282994.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</category>
-      
-      
-      <comments>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A86-twikoo/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>安卓手机搭建Linux服务器5-memos</title>
-      <link>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A85-memos/</link>
-      <guid>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A85-memos/</guid>
-      <pubDate>Sun, 17 Mar 2024 05:02:28 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h1 id=&quot;memos&quot;&gt;&lt;a href=&quot;#memos&quot; class=&quot;headerlink&quot; title=&quot;memos&quot;&gt;&lt;/a&gt;memos&lt;/h1&gt;&lt;h2 id=&quot;Working-without-Docker&quot;&gt;&lt;a</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://blog.282994.xyz/categories/%E6%95%99%E7%A8%8B/">教程</category>
-      
-      
-      <category domain="http://blog.282994.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</category>
-      
-      
-      <comments>http://blog.282994.xyz/2024/03/17/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E6%9C%8D%E5%8A%A1%E5%99%A85-memos/#disqus_thread</comments>
       
     </item>
     
