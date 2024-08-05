@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Ame" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      Machine intelligence 
+      
+      
+      |
+    
+     Ame&#39;s Blog
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.ico">
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/rss.xml" title="Ame's Blog" type="application/rss+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Ame</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/SpaceX-Wiki/">
+          <a href="/SpaceX-Wiki/">SpaceX Wiki</a>
+        </li>
+      
+        <li class="nav-item" data-path="/study/">
+          <a href="/study/">Study</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">Machine intelligence</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2024-08-05 16:04:32
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/Sama/" title="Sama">
+                    #Sama
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h2 id="Machine-intelligence"><a href="#Machine-intelligence" class="headerlink" title="Machine intelligence"></a><a target="_blank" rel="noopener" href="https://blog.samaltman.com/machine-intelligence-part-1">Machine intelligence</a></h2><p><em>This is going to be a two-part post—one on why machine intelligence is something we should be afraid of, and one on what we should do about it. If you’re already afraid of machine intelligence, you can skip this one and read the second post tomorrow—I was planning to only write part 2, but when I asked a few people to read drafts it became clear I needed part 1.</em></p>
+<h3 id="Part1"><a href="#Part1" class="headerlink" title="Part1"></a>Part1</h3><p>WHY YOU SHOULD FEAR MACHINE INTELLIGENCE</p>
+<p>Development of superhuman machine intelligence (SMI) [1] is probably the greatest threat to the continued existence of humanity. There are other threats that I think are more certain to happen (for example, an engineered virus with a long incubation period and a high mortality rate) but are unlikely to destroy every human in the universe in the way that SMI could. Also, most of these other big threats are already widely feared.</p>
+<p>It is extremely hard to put a timeframe on when this will happen (more on this later), and it certainly feels to most people working in the field that it’s still many, many years away.  But it’s also extremely hard to believe that it isn’t very likely that it will happen at some point.</p>
+<p>SMI does not have to be the inherently evil sci-fi version to kill us all. A more probable scenario is that it simply doesn’t care about us much either way, but in an effort to accomplish some other goal (most goals, if you think about them long enough, could make use of resources currently being used by humans) wipes us out. Certain goals, like self-preservation, could clearly benefit from no humans. We wash our hands not because we actively wish ill towards the bacteria and viruses on them, but because we don’t want them to get in the way of our plans.</p>
+<p>(Incidentally, Nick Bostrom’s excellent book “Superintelligence” is the best thing I’ve seen on this topic. It is well worth a read.)</p>
+<p>Most machine intelligence development involves a “fitness function”—something the program tries to optimize. At some point, someone will probably try to give a program the fitness function of “survive and reproduce”.  Even if not, it will likely be a useful subgoal of many other fitness functions. It worked well for biological life.  Unfortunately for us, one thing I learned when I was a student in the Stanford AI lab is that programs often achieve their fitness function in unpredicted ways.</p>
+<p>Evolution will continue forward, and if humans are no longer the most-fit species, we may go away.  In some sense, this is the system working as designed.  But as a human programmed to survive and reproduce, I feel we should fight it.</p>
+<p>How can we survive the development of SMI? It may not be possible. One of my top 4 favorite explanations for the Fermi paradox is that biological intelligence always eventually creates machine intelligence, which wipes out biological life and then for some reason decides to makes itself undetectable.</p>
+<p>It’s very hard to know how close we are to machine intelligence surpassing human intelligence. Progression of machine intelligence is a double exponential function; human-written programs and computing power are getting better at an exponential rate, and self-learning&#x2F;self-improving software will improve itself at an exponential rate. Development progress may look relatively slow and then all of a sudden go vertical—things could get out of control very quickly (it also may be more gradual and we may barely perceive it happening).</p>
+<p>As mentioned earlier, it is probably still somewhat far away, especially in its ability to build killer robots with no help at all from humans. But recursive self-improvement is a powerful force, and so it’s difficult to have strong opinions about machine intelligence being ten or one hundred years away.</p>
+<p>We also have a bad habit of changing the definition of machine intelligence when a program gets really good to claim that the problem wasn’t really that hard in the first place (chess, Jeopardy, self-driving cars, etc.). This makes it seems like we aren’t making any progress towards it. Admittedly, narrow machine intelligence is very different than general-purpose machine intelligence, but I still think this is a potential blindspot.</p>
+<p>It’s hard to look at the rate or improvement in the last 40 years and think that 40 years for now we’re not going to be somewhere crazy. 40 years ago we had Pong. Today we have virtual reality so advanced that it’s difficult to be sure if it’s virtual or real, and computers that can beat humans in most games.</p>
+<p>Though, to be fair, in the last 40 years we have made little progress on the parts of machine intelligence that seem really hard—learning, creativity, etc. Basic search with a lot of compute power has just worked better than expected. </p>
+<p>One additional reason that progress towards SMI is difficult to quantify is that emergent behavior is always a challenge for intuition. The above common criticism of current machine intelligence—that no one has produced anything close to human creativity, and that this is somehow inextricably linked with any sort of real intelligence—causes a lot of smart people to think that SMI must be very far away.</p>
+<p>But it’s very possible that creativity and what we think of us as human intelligence are just an emergent property of a small number of algorithms operating with a lot of compute power (In fact, many respected neocortex researchers believe there is effectively one algorithm for all intelligence. I distinctly remember my undergrad advisor saying the reason he was excited about machine intelligence again was that brain research made it seem possible there was only one algorithm computer scientists had to figure out.)</p>
+<p>Because we don’t understand how human intelligence works in any meaningful way, it’s difficult to make strong statements about how close or far away from emulating it we really are. We could be completely off track, or we could be one algorithm away.</p>
+<p>Human brains don’t look all that different from chimp brains, and yet somehow produce wildly different capabilities. We decry current machine intelligence as cheap tricks, but perhaps our own intelligence is just the emergent combination of a bunch of cheap tricks.</p>
+<p>Many people seem to believe that SMI would be very dangerous if it were developed, but think that it’s either never going to happen or definitely very far off.  This is sloppy, dangerous thinking.</p>
+<h3 id="Part2"><a href="#Part2" class="headerlink" title="Part2"></a>Part2</h3><p>THE NEED FOR REGULATION</p>
+<p>Although there has been a lot of discussion about the dangers of machine intelligence recently, there hasn’t been much discussion about what we should try to do to mitigate the threat. </p>
+<p>Part of the reason is that many people are almost proud of how strongly they believe that the algorithms in their neurons will never be replicated in silicon, and so they don’t believe it’s a potential threat. Another part of it is that figuring out what to do about it is just very hard, and the more one thinks about it the less possible it seems. And another part is that superhuman machine intelligence (SMI) is probably still decades away [2], and we have very pressing problems now.</p>
+<p>But we will face this threat at some point, and we have a lot of work to do before it gets here. So here is a suggestion.</p>
+<p>The US government, and all other governments, should regulate the development of SMI. In an ideal world, regulation would slow down the bad guys and speed up the good guys—it seems like what happens with the first SMI to be developed will be very important.</p>
+<p>Although my general belief is that technology is often over-regulated, I think some regulation is a good thing, and I’d hate to live in a world with no regulation at all.  And I think it’s definitely a good thing when the survival of humanity is in question.  (Incidentally, there is precedent for classification of privately-developed knowledge when it carries mass risk to human life. SILEX is perhaps the best-known example.) </p>
+<p>To state the obvious, one of the biggest challenges is that the US has broken all trust with the tech community over the past couple of years. We’d need a new agency to do this.</p>
+<p>I am sure that Internet commentators will say that everything I’m about to propose is not nearly specific enough, which is definitely true. I mean for this to be the beginning of a conversation, not the end of one.</p>
+<p>The first serious dangers from SMI are likely to involve humans and SMI working together. Regulation should address both the case of malevolent humans intentionally misusing machine intelligence to, for example, wreak havoc on worldwide financial markets or air traffic control systems, and the “accident” case of SMI being developed and then acting unpredictably.</p>
+<p>Specifically, regulation should: </p>
+<ol>
+<li>Provide a framework to observe progress. This should happen in two ways. The first is looking for places in the world where it seems like a group is either being aided by significant machine intelligence or training such an intelligence in some way.</li>
+</ol>
+<p>The second is observing companies working on SMI development. The companies shouldn’t have to disclose how they’re doing what they’re doing (though when governments gets serious about SMI they are likely to out-resource any private company), but periodically showing regulators their current capabilities seems like a smart idea.</p>
+<ol start="2">
+<li>Given how disastrous a bug could be, require development safeguards to reduce the risk of the accident case. For example, beyond a certain checkpoint, we could require development happen only on airgapped computers, require that self-improving software require human intervention to move forward on each iteration, require that certain parts of the software be subject to third-party code reviews, etc. I’m not very optimistic than any of this will work for anything except accidental errors—humans will always be the weak link in the strategy (see the AI-in-a-box thought experiments). But it at least feels worth trying.</li>
+</ol>
+<p>Being able to do this—if it is possible at all—will require a huge amount of technical research and development that we should start intensive work on now. This work is almost entirely separate from the work that’s happening today to get piecemeal machine intelligence to work.</p>
+<p>To state the obvious but important point, it’s important to write the regulations in such a way that they provide protection while producing minimal drag on innovation (though there will be some unavoidable cost).</p>
+<ol start="3">
+<li>Require that the first SMI developed have as part of its operating rules that a) it can’t cause any direct or indirect harm to humanity (i.e. Asimov’s zeroeth law), b) it should detect other SMI being developed but take no action beyond detection, c) other than required for part b, have no effect on the world.</li>
+</ol>
+<p>We currently don’t know how to implement any of this, so here too, we need significant technical research and development that we should start now. </p>
+<ol start="4">
+<li>Provide lots of funding for R+D for groups that comply with all of this, especially for groups doing safety research.</li>
+<li>Provide a longer-term framework for how we figure out a safe and happy future for coexisting with SMI—the most optimistic version seems like some version of “the human&#x2F;machine merge”. We don’t have to figure this out today.</li>
+</ol>
+<p>Regulation would have an effect on SMI development via financing—most venture firms and large technology companies don’t want to break major laws. Most venture-backed startups and large companies would presumably comply with the regulations.</p>
+<p>Although it’s possible that a lone wolf in a garage will be the one to figure SMI out, it seems more likely that it will be a group of very smart people with a lot of resources. It also seems likely, at least given the current work I’m aware of, it will involve US companies in some way (though, as I said above, I think every government in the world should enact similar regulations).</p>
+<p>Some people worry that regulation will slow down progress in the US and ensure that SMI gets developed somewhere else first. I don’t think a little bit of regulation is likely to overcome the huge head start and density of talent that US companies currently have.</p>
+<p>There is an obvious upside case to SMI —it could solve a lot of the serious problems facing humanity—but in my opinion it is not the default case.  The other big upside case is that machine intelligence could help us figure out how to upload ourselves, and we could live forever in computers. Or maybe in some way, we can make SMI be a descendent of humanity.</p>
+<p>Generally, the arc of technology has been about reducing randomness and increasing our control over the world. At some point in the next century, we are going to have the most randomness ever injected into the system. </p>
+<p>In politics, we usually fight over small differences. These differences pale in comparison to the difference between humans and aliens, which is what SMI will effectively be like. We should be able to come together and figure out a regulatory strategy quickly.</p>
+<p>Thanks to Dario Amodei (especially Dario), Paul Buchheit, Matt Bush, Patrick Collison, Holden Karnofsky, Luke Muehlhauser, and Geoff Ralston for reading drafts of this and the previous post. </p>
+<p>[1] I prefer calling it “machine intelligence” and not “artificial intelligence” because artificial seems to imply it’s not real or not very good.  When it gets developed, there will be nothing artificial about it.</p>
+<p>[2] If you want to try to guess when, the two things I’d think about are computational power and algorithmic development.  For the former, assume there are about 100 billion neurons and 100 trillion synapses in a human brain, and the average neuron fires 5 times per second, and then think about how long it will take on the current computing trajectory to get a machine with enough memory and flops to simulate that.</p>
+<p>For the algorithms, neural networks and reinforcement learning have both performed better than I’ve expected for input and output respectively (e.g. captioning photos depicting complex scenes, beating humans at video games the software has never seen before with just the ability to look at the screen and access to the controls). I am always surprised how unimpressed most people seem with these results. Unsupervised learning has been a weaker point, and this is probably a critical part of replicating human intelligence.  But many researchers I’ve spoken to are optimistic about current work, and I have no reason to believe this is outside the scope of a Turing machine.</p>
+<hr>
+<h2 id="机器智能的威胁与应对"><a href="#机器智能的威胁与应对" class="headerlink" title="机器智能的威胁与应对"></a>机器智能的威胁与应对</h2><p><em>这将是一篇分为两部分的文章——一部分讨论为什么我们应该害怕机器智能，另一部分讨论我们应该如何应对。如果你已经对机器智能感到害怕，可以跳过这一部分，明天阅读第二部分。我原本只打算写第二部分，但当我请几个人阅读草稿时，显然我需要第一部分。</em></p>
+<h3 id="第1部分"><a href="#第1部分" class="headerlink" title="第1部分"></a>第1部分</h3><h4 id="为什么你应该害怕机器智能"><a href="#为什么你应该害怕机器智能" class="headerlink" title="为什么你应该害怕机器智能"></a>为什么你应该害怕机器智能</h4><p>超人类机器智能（SMI）[1]的发展可能是人类生存的最大威胁。还有其他我认为更确定会发生的威胁（例如，具有长潜伏期和高死亡率的工程病毒），但这些威胁不太可能以SMI可能造成的方式摧毁宇宙中的每一个人。此外，这些其他重大威胁大多已经被广泛恐惧。</p>
+<p>很难给出这种情况发生的时间框架（稍后会详细讨论），而且在该领域工作的多数人都感觉距离实现仍然很遥远。但同样，很难相信这在某个时刻不会发生。</p>
+<p>SMI并不需要是固有邪恶的科幻版本就能消灭我们。更可能的情景是，它根本不在乎我们，但为了实现某个其他目标（如果你仔细想想，大多数目标都可能利用人类当前使用的资源）而消灭我们。某些目标，例如自我保护，显然会从没有人类中受益。我们洗手不是因为我们主动希望细菌和病毒遭受不幸，而是因为我们不希望它们妨碍我们的计划。</p>
+<p>（顺便提一下，尼克·波斯特罗姆的优秀著作《超智能》是我在这个话题上见过的最好作品，非常值得一读。）</p>
+<p>大多数机器智能的发展涉及“适应性函数”——程序试图优化的某种东西。在某个时刻，可能会有人尝试给程序一个“生存与繁殖”的适应性函数。即使没有，它也可能是许多其他适应性函数的一个有用子目标。它在生物生命中运作良好。不幸的是，我在斯坦福大学人工智能实验室学习时了解到，程序通常以意想不到的方式实现其适应性函数。</p>
+<p>进化将继续向前发展，如果人类不再是最适应的物种，我们可能会消失。在某种意义上，这就是系统按设计运作。但作为一个被编程为生存和繁殖的生物，我觉得我们应该反抗它。</p>
+<p>我们该如何在SMI的发展中生存？这可能不可能。关于费米悖论，我最喜欢的四个解释之一是，生物智能最终总是会创造机器智能，而机器智能会消灭生物生命，然后出于某种原因决定让自己不可被探测。</p>
+<p>我们很难知道我们距离机器智能超越人类智能有多近。机器智能的进展是一个双重指数函数；人类编写的程序和计算能力以指数速度提高，而自我学习&#x2F;自我改善的软件将以指数速度自我提升。发展进程可能看起来相对缓慢，然后突然间垂直增长——事情可能会迅速失控（这也可能是逐步的，我们几乎察觉不到变化）。</p>
+<p>如前所述，这可能仍然距离实现有些遥远，尤其是在其能力上，能够独立构建杀手机器人而无需人类的任何帮助。但递归自我改善是一种强大的力量，因此很难对机器智能是否在十年或一百年内实现做出明确的看法。</p>
+<p>我们还有一个坏习惯，就是当一个程序变得非常优秀时，改变机器智能的定义，以声称这个问题其实没有那么困难（国际象棋、危险边缘、自驾车等）。这让人觉得我们在向其发展上没有任何进展。诚然，狭义机器智能与通用机器智能是非常不同的，但我仍然认为这是一个潜在的盲点。</p>
+<p>很难看40年来的进步速度，并认为40年后我们不会处于一个疯狂的境地。40年前我们有乒乓游戏。今天，我们有如此先进的虚拟现实，以至于很难确定它是虚拟的还是现实的，还有能够在大多数游戏中击败人类的计算机。</p>
+<p>不过，公平地说，在过去的40年里，我们在机器智能的某些看似非常困难的部分（学习、创造力等）上几乎没有取得进展。基本搜索与大量计算能力结合效果好于预期。</p>
+<p>一个额外的原因是，进展难以量化，是因为涌现行为始终是直觉上的挑战。针对当前机器智能的常见批评——没有人生产出接近人类创造力的东西，且这在某种程度上与任何真正的智能密切相关——导致许多聪明人认为SMI一定会非常遥远。</p>
+<p>但创造力以及我们认为的人类智能很可能只是少数算法在大量计算能力下运作的涌现特性（事实上，许多受人尊敬的新皮层研究员相信实际上所有智能只需一个算法。我清楚地记得我的本科导师说，他对机器智能再次感兴趣的原因是，脑研究让他觉得可能只有一个算法需要计算机科学家去搞明白）。</p>
+<p>因为我们并不理解人类智能是如何运作的，所以很难对我们距离模拟它有多近或多远做出强有力的陈述。我们可能完全走错了方向，或者我们可能只差一个算法。</p>
+<p>人类的大脑与黑猩猩的大脑看起来并没有太大不同，但却产生了截然不同的能力。我们谴责当前的机器智能是廉价把戏，但也许我们自己的智能只是许多廉价把戏的涌现组合。</p>
+<p>许多人似乎相信，如果SMI得到发展，它将非常危险，但认为它要么永远不会发生，要么肯定非常遥远。这种思维是马虎和危险的。</p>
+<h3 id="第2部分"><a href="#第2部分" class="headerlink" title="第2部分"></a>第2部分</h3><h4 id="监管的必要性"><a href="#监管的必要性" class="headerlink" title="监管的必要性"></a>监管的必要性</h4><p>尽管最近关于机器智能的危险进行了很多讨论，但关于我们应该尝试做些什么来减轻这种威胁的讨论却不多。</p>
+<p>部分原因是许多人几乎自豪于他们坚信其神经元中的算法永远不会在硅中复制，因此他们不认为这是潜在的威胁。另一个原因是，弄清楚该怎么办真的很难，越是思考似乎越不可能。还有一个原因是，超人类机器智能（SMI）可能仍然需要几十年才能实现[2]，而我们现在有许多紧迫的问题。</p>
+<p>但我们在某个时刻将面临这一威胁，而在它到来之前我们还有很多工作要做。因此，这里有一个建议。</p>
+<p>美国政府以及所有其他政府应该对SMI的发展进行监管。在理想的情况下，监管应该减缓坏人的步伐，加快好人的进展——似乎首个开发出来的SMI将非常重要。</p>
+<p>虽然我通常认为技术往往受到过度监管，但我认为一些监管是好事，我不想生活在一个完全没有监管的世界里。尤其是在生存问题上，这绝对是件好事。（顺便提一下，在涉及对人类生命构成重大风险的私有知识分类方面，已经有先例。SILEX可能是最著名的例子。）</p>
+<p>显而易见的一个最大挑战是，美国在过去几年里已经与科技界破裂了所有信任。我们需要一个新的机构来做这件事。</p>
+<p>我相信互联网评论员会说，我即将提出的所有建议都不够具体，这确实是事实。我希望这只是一个对话的开始，而不是结束。</p>
+<p>来自SMI的第一个严重危险可能涉及人类与SMI的合作。监管应同时考虑恶意人类故意滥用机器智能的情况，例如，故意破坏全球金融市场或空中交通控制系统，以及SMI被开发后行为不可预测的“意外”情况。</p>
+<p>具体而言，监管应：</p>
+<ol>
+<li>提供观察进展的框架。这应通过两种方式进行。第一种是在世界范围内寻找似乎受到重大机器智能支持或以某种方式训练这种智能的团体。</li>
+</ol>
+<p>第二种是观察从事SMI开发的公司。这些公司不应被迫披露他们的具体做法（尽管当政府开始认真对待SMI时，他们可能会在资源方面超越任何私营公司），但定期向监管者展示他们的当前能力似乎是个明智的主意。</p>
+<ol>
+<li>鉴于故障可能造成的灾难性后果，要求开发保障措施以降低意外情况下的风险。例如，在某些检查点之后，我们可以要求开发仅在隔离计算机上进行，要求自我改善的软件在每个迭代过程中都需要人类干预，要求某些软件部分接受第三方代码审查等。我对这些措施能否在意外错误之外有效并不乐观——人类将始终是战略中的薄弱环节（见AI在盒子中的思维实验）。但至少值得一试。</li>
+</ol>
+<p>能够做到这一点——如果可能的话——将需要大量的技术研究和开发，我们应立即开始密集的工作。这项工作几乎与今天正在进行的工作（使局部机器智能发挥作用）完全不同。</p>
+<p>显而易见但重要的一点是，重要的是要以这样的方式撰写监管规定，使其提供保护，同时对创新产生最小的阻力（尽管会有一些不可避免的成本）。</p>
+<ol>
+<li>要求首个开发的SMI在其操作规则中包含以下内容：a) 它不能对人类造成直接或间接的伤害（即阿西莫夫的零法则），b) 应该能够检测到其他正在开发的SMI，但不采取任何超出检测的行动，c) 除了b部分所需之外，对世界没有影响。</li>
+</ol>
+<p>我们目前不知道如何实施这些规定，因此在这一点上，我们也需要进行重大技术研究和开发，我们应该立即开始。</p>
+<ol>
+<li>为遵守所有规定的团队提供大量研发资金，尤其是为进行安全研究的团队。</li>
+<li>提供一个长期框架，以便我们找出与SMI共存的安全和美好未来——最乐观的版本似乎是某种形式的“人机融合”。我们不必今天就弄清楚这一点。</li>
+</ol>
+<p>监管将通过融资对SMI的发展产生影响——大多数风险投资公司和大型科技公司不想违反重大法律。大多数获得风险投资的初创公司和大型公司大概会遵守这些规定。</p>
+<p>尽管可能会有一个孤狼在车库中发现SMI，但似乎更可能的是，它将是一个拥有大量资源的非常聪明的团队。鉴于我目前了解到的工作，似乎也很可能涉及美国公司（尽管正如我上面所说，我认为世界上每个政府都应该制定类似的法规）。</p>
+<p>一些人担心监管会减缓美国的进步，并确保SMI在其他地方先发展。我认为一点点监管不太可能战胜美国公司当前的巨大先发优势和人才密度。</p>
+<p>SMI有一个明显的好处——它可以解决人类面临的许多严重问题——但在我看来，这并不是默认的情况。另一个大的好处是，机器智能可以帮助我们找到如何将自己上传，我们可以永远生活在计算机中。或者也许在某种方式上，我们可以让SMI成为人类的后代。</p>
+<p>一般来说，技术的发展轨迹是减少随机性并增加我们对世界的控制。在下一个世纪的某个时刻，我们将向系统注入最多的随机性。</p>
+<p>在政治上，我们通常会争论小差异。这些差异与人类与外星人之间的差异相比微不足道，而SMI的有效性将类似于这一点。我们应该能够团结起来，迅速制定出一个监管策略。</p>
+<p>感谢Dario Amodei（尤其是Dario）、Paul Buchheit、Matt Bush、Patrick Collison、Holden Karnofsky、Luke Muehlhauser和Geoff Ralston为此文及前一篇文章的草稿提供反馈。</p>
+<p>[1] 我更愿意称其为“机器智能”，而不是“人工智能”，因为“人工”似乎暗示它不真实或不好。当它被开发出来时，将没有任何人工的成分。</p>
+<p>[2] 如果你想尝试猜测何时会发生，我想到的两个因素是计算能力和算法开发。对于前者，假设人类大脑中约有1000亿个神经元和100万亿个突触，平均每个神经元每秒发射5次，然后考虑在当前的计算轨迹上，需要多长时间才能获得一台具有足够内存和浮点运算能力的机器来模拟这一点。</p>
+<p>对于算法，神经网络和强化学习在输入和输出方面的表现都超出了我的预期（例如，给复杂场景拍照并标注，击败从未见过的视频游戏的人类，仅凭观察屏幕和访问控制）。我总是对大多数人对这些结果似乎不太满意感到惊讶。无监督学习一直是一个薄弱环节，这可能是复制人类智能的关键部分。但我与之交谈过的许多研究人员对当前的工作持乐观态度，我没有理由相信这超出了图灵机的范畴。</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2024/08/05/The-days-are-long-but-the-decades-are-short/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2024-08-05 16:04:32
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/Sama/" title="Sama">
+                        #Sama
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2024/08/05/Startup-advice-briefly/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Machine-intelligence"><span class="toc-text">Machine intelligence</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Part1"><span class="toc-text">Part1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Part2"><span class="toc-text">Part2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E6%99%BA%E8%83%BD%E7%9A%84%E5%A8%81%E8%83%81%E4%B8%8E%E5%BA%94%E5%AF%B9"><span class="toc-text">机器智能的威胁与应对</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC1%E9%83%A8%E5%88%86"><span class="toc-text">第1部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E5%BA%94%E8%AF%A5%E5%AE%B3%E6%80%95%E6%9C%BA%E5%99%A8%E6%99%BA%E8%83%BD"><span class="toc-text">为什么你应该害怕机器智能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC2%E9%83%A8%E5%88%86"><span class="toc-text">第2部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%91%E7%AE%A1%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7"><span class="toc-text">监管的必要性</span></a></li></ol></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+            <a title="email" href="mailto:mailto:blog@282994.xyz">
+              <i class="iconfont icon-envelope"></i>
+            </a>
+            
+        </li>
+        
+        <li>
+          
+              <a title="rss" href="/rss.xml">
+                <i class="iconfont icon-rss"></i>
+              </a>
+              
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a href="https://blog.282994.xyz">Copyright © 2024 Ame</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://www.travellings.cn/go.html">开往</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20239014">萌ICP备20239014</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+
+      </div>
+    </div>
+  
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,d=o();function o(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=o());for(var e,i=0;i<d.length;i++)0<=(e=(e=d[i]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,a,n,o=d[i];e=function(){d=d.filter(function(t){return o!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(o)},(t=o).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,n=t.getAttribute("data-original"),a.onload=function(){t.src=n,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=n},t.src!==n&&(a.src=n)))}()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)}(this);</script></body>
+</html>
