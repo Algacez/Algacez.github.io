@@ -1,3 +1,4 @@
+http://blog.282994.xyz/updates/index.html
 http://blog.282994.xyz/2024/08/05/Employee-Retention/
 http://blog.282994.xyz/2024/08/05/How-to-hire/
 http://blog.282994.xyz/2024/08/05/How-things-get-done/
@@ -107,8 +108,8 @@ http://blog.282994.xyz/tags/Python/
 http://blog.282994.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/
 http://blog.282994.xyz/tags/%E6%B8%B8%E6%88%8F/
 http://blog.282994.xyz/tags/%E6%95%B0%E5%AD%A6/
-http://blog.282994.xyz/tags/%E7%BD%91%E7%9B%98/
 http://blog.282994.xyz/tags/%E7%AE%97%E6%B3%95/
+http://blog.282994.xyz/tags/%E7%BD%91%E7%9B%98/
 http://blog.282994.xyz/tags/%E5%B0%8F%E7%B1%B3/
 http://blog.282994.xyz/tags/%E9%BB%84%E4%BB%81%E5%8B%8B/
 http://blog.282994.xyz/categories/SpaceX/

@@ -13,7 +13,7 @@
   
   <title>
     
-      安卓手机搭建Linux服务器 
+      更新日志 
       
       
       |
@@ -162,106 +162,31 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">安卓手机搭建Linux服务器</div>
+      <div class="post-title">更新日志</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2024-06-02 15:10:25
+          2024-08-05 23:31:35
         </span>
         
-              <span class="post-categories">
-                <i class="iconfont icon-bookmark" title="分类"></i>
-                
-                <span class="span--category">
-                  <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
-                    <b>#</b> 教程
-                  </a>
-                </span>
-                
-              </span>
-          
-              <span class="post-tags">
-                <i class="iconfont icon-tags mr-10" title="标签"></i>
-                
-                <span class="span--tag mr-8">
-                  <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">
-                    #服务器
-                  </a>
-                </span>
-                
-              </span>
-          
       </div>
       <div class="markdown-body">
-        <h1 id="Linux容器"><a href="#Linux容器" class="headerlink" title="Linux容器"></a>Linux容器</h1><p><a target="_blank" rel="noopener" href="https://aidlux.com/">AidLux智能物联网(AIoT)应用开发和部署平台-阿加犀智能科技</a></p>
-<p>不支持root</p>
-<p><strong>ALL-IN-BOOM</strong></p>
-<hr>
-<h1 id="DDNS"><a href="#DDNS" class="headerlink" title="DDNS"></a>DDNS</h1><p><a target="_blank" rel="noopener" href="https://github.com/yousaforever/DDNS-Cloudflare">https://github.com/yousaforever/DDNS-Cloudflare</a></p>
-<hr>
-<h1 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h1><p>整点和半小时一次</p>
-<p>编辑</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo crontab -e</span><br></pre></td></tr></table></figure>
-
-<p>按<code>i</code>。退出先<code>Esc</code>，再输入<code>:x</code>回车</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0,30 * * * * /bin/python /home/ddns/ddns.py</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service cron start</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="各种报错"><a href="#各种报错" class="headerlink" title="各种报错"></a>各种报错</h1><h2 id="Windows-下编辑过程中引入了额外的回车符"><a href="#Windows-下编辑过程中引入了额外的回车符" class="headerlink" title="Windows 下编辑过程中引入了额外的回车符"></a>Windows 下编辑过程中引入了额外的回车符</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./start.sh: line 2: $&#x27;\r&#x27;: command not found</span><br><span class="line">sleep: invalid time interval ‘10\r’</span><br></pre></td></tr></table></figure>
-
-<p>这些错误通常是由于脚本文件的格式不正确导致的，可能是由于文件在 Windows 下编辑过程中引入了额外的回车符（<code>\r</code>）。您可以尝试使用 <code>dos2unix</code> 命令将脚本文件转换为适合在 Linux 下运行的格式。例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dos2unix start.sh</span><br></pre></td></tr></table></figure>
-
-<p>然后再次运行您的脚本。这应该会消除那些与回车符相关的错误。</p>
+        <h1 id="2024"><a href="#2024" class="headerlink" title="2024"></a>2024</h1><h2 id="8-5"><a href="#8-5" class="headerlink" title="8.5"></a>8.5</h2><p>从Sam Altman博客上扒了不少文章</p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2024/02/18/WARP/" target="_self">
-                <i class="iconfont icon-chevronleft"></i>
-                <span>上一页</span>
-              </a>
-            
           </div>
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2024-06-02 15:10:25
+              2024-08-05 23:31:35
             </span>
             
-                  <span class="post-categories">
-                    <i class="iconfont icon-bookmark" title="分类"></i>
-                    
-                    <span class="span--category">
-                      <a href="/categories/%E6%95%99%E7%A8%8B/" title="教程">
-                        <b>#</b> 教程
-                      </a>
-                    </span>
-                    
-                  </span>
-              
-                  <span class="post-tags">
-                    <i class="iconfont icon-tags mr-10" title="标签"></i>
-                    
-                    <span class="span--tag mr-8">
-                      <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器">
-                        #服务器
-                      </a>
-                    </span>
-                    
-                  </span>
-              
           </div>
           <div class="post-foot-prev">
-            
-              <a href="/2024/02/21/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/" target="_self">
-                <span>下一页</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
             
           </div>
         </div>
@@ -275,7 +200,7 @@
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E5%AE%B9%E5%99%A8"><span class="toc-text">Linux容器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DDNS"><span class="toc-text">DDNS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-text">定时任务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%84%E7%A7%8D%E6%8A%A5%E9%94%99"><span class="toc-text">各种报错</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows-%E4%B8%8B%E7%BC%96%E8%BE%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%BC%95%E5%85%A5%E4%BA%86%E9%A2%9D%E5%A4%96%E7%9A%84%E5%9B%9E%E8%BD%A6%E7%AC%A6"><span class="toc-text">Windows 下编辑过程中引入了额外的回车符</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2024"><span class="toc-text">2024</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-5"><span class="toc-text">8.5</span></a></li></ol></li></ol>
       
     </div>
   </div>

@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.282994.xyz/updates/index.html</loc>
+    
+    <lastmod>2024-08-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.282994.xyz/2024/08/05/Employee-Retention/</loc>
     
     <lastmod>2024-08-05</lastmod>
@@ -947,14 +956,14 @@
   </url>
   
   <url>
-    <loc>http://blog.282994.xyz/tags/%E7%BD%91%E7%9B%98/</loc>
+    <loc>http://blog.282994.xyz/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2024-08-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://blog.282994.xyz/tags/%E7%AE%97%E6%B3%95/</loc>
+    <loc>http://blog.282994.xyz/tags/%E7%BD%91%E7%9B%98/</loc>
     <lastmod>2024-08-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
