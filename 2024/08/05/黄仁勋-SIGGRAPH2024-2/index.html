@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Ame" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      黄仁勋-SIGGRAPH2024-2 
+      
+      
+      |
+    
+     Ame&#39;s Blog
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.ico">
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/rss.xml" title="Ame's Blog" type="application/rss+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Ame</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/SpaceX-Wiki/">
+          <a href="/SpaceX-Wiki/">SpaceX Wiki</a>
+        </li>
+      
+        <li class="nav-item" data-path="/study/">
+          <a href="/study/">Study</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">黄仁勋-SIGGRAPH2024-2</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2024-08-05 11:29:36
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E6%BC%94%E8%AE%B2/" title="演讲">
+                    <b>#</b> 演讲
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E9%BB%84%E4%BB%81%E5%8B%8B/" title="黄仁勋">
+                    #黄仁勋
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="欢迎马克·扎克伯格"><a href="#欢迎马克·扎克伯格" class="headerlink" title="欢迎马克·扎克伯格"></a>欢迎马克·扎克伯格</h1><h2 id="黄仁勋介绍"><a href="#黄仁勋介绍" class="headerlink" title="黄仁勋介绍"></a>黄仁勋介绍</h2><p>黄仁勋：<br>女士们，先生们，我有一位非常特别的嘉宾。请大家坐下，我们即将开始。</p>
+<p>我的下一位嘉宾给我留下了深刻的印象，原因有三。首先，只有少数企业家和创始人能够创办一家真正影响全球数十亿人生活的公司，发明服务，并成为一家最先进的计算公司。其次，很少有企业家和创始人能够创立一家市值超过一万亿美元的公司。第三，他是一位大学辍学生。这三件事同时成立。</p>
+<p>女士们，先生们，请欢迎马克·扎克伯格。</p>
+<p>马克，欢迎你第一次参加 SIGGRAPH。你能相信吗？作为计算的先驱之一，现代计算的推动者，我不得不邀请他参加 SIGGRAPH。马克，请坐。很高兴你能来，感谢你飞过来。</p>
+<h2 id="扎克伯格的回应"><a href="#扎克伯格的回应" class="headerlink" title="扎克伯格的回应"></a>扎克伯格的回应</h2><p>扎克伯格：<br>是的，这会很有趣。我听说你已经走了五个小时了？</p>
+<h2 id="黄仁勋谈论-SIGGRAPH-和人工智能"><a href="#黄仁勋谈论-SIGGRAPH-和人工智能" class="headerlink" title="黄仁勋谈论 SIGGRAPH 和人工智能"></a>黄仁勋谈论 SIGGRAPH 和人工智能</h2><p>黄仁勋：<br>是的，当然。这就是 SIGGRAPH，90% 的参与者都是博士。SIGGRAPH 的伟大之处在于，它是计算机图形学、图像处理、人工智能和机器人技术的结合。多年来，一些公司在这里展示了令人惊叹的成果，包括迪士尼、皮克斯、Adobe、Epic Games，当然还有 NVIDIA，我们在这里做了很多工作。今年，我们在人工智能和模拟的交叉点上发表了 20 篇论文。我们正在使用人工智能来帮助模拟变得更大规模、更快，例如可微分物理。我们还在使用模拟来创建用于人工智能合成数据生成的模拟环境。这两个领域真的走到了一起，我们为我们在这里所做的工作感到自豪。</p>
+<p>在 Meta，你们做了令人惊叹的人工智能工作。我觉得有趣的是，当媒体报道 Meta 近年来如何进军人工智能领域时，提到了 FAIR 所做的工作。记住，我们都使用来自 Meta 的 PyTorch。你们在计算机视觉、语言模型、实时翻译方面所做的工作都是开创性的。我想问的第一个问题是，您如何看待 Meta 当今生成式人工智能的进步？您如何应用它来增强运营或引入新功能？</p>
+<h2 id="扎克伯格谈论-Meta-和生成式人工智能"><a href="#扎克伯格谈论-Meta-和生成式人工智能" class="headerlink" title="扎克伯格谈论 Meta 和生成式人工智能"></a>扎克伯格谈论 Meta 和生成式人工智能</h2><p>扎克伯格：<br>是的，有很多内容需要解答。首先，很高兴来到这里。Meta 在 SIGGRAPH 工作了八年，所以与大家相比，我们是菜鸟。我记得那是在 2018 年，我们展示了一些早期的 VR 和混合现实头戴设备的手势追踪工作。我们在编解码器头像方面取得了显著进展，希望通过消费者头戴设备实现照片级逼真的头像，这一目标越来越近了。对此我感到非常兴奋。</p>
+<p>此外，我们还在显示系统方面完成了许多工作。一些未来的原型和研究旨在使混合现实头显变得非常薄，但需要相当先进的光学堆栈和显示系统，即集成系统。这些通常是我们首先展示的内容。因此，今年我很高兴能来到这里，不仅仅是谈论 Metaverse 的内容，还有所有的人工智能部分。</p>
+<p>在创办 Reality Labs 之前，我们创办了 FAIR，即人工智能研究中心，当时是 Facebook，现在是 Meta。我们在这个领域已经工作了一段时间。围绕生成式人工智能（Gen AI）的所有内容，都是一场有趣的革命。我认为它最终会以有趣的方式改变我们所有不同产品的运作方式。</p>
+<p>我们已经拥有一系列大型产品，如 feed 和推荐系统，以及 Instagram 和 Facebook 等。我们不再仅仅是为了与朋友联系。排名一直很重要，因为即使你只是关注朋友，如果有人做了一些非常重要的事情，比如你的表弟生了孩子，你希望它出现在最上面。如果它被埋在信息流的某个地方，你会很生气。因此，排名很重要。</p>
+<p>在过去几年里，情况已经发展到更多的内容是公开的。推荐系统变得非常重要，因为现在不仅仅是几百或几千个来自朋友的潜在候选帖子，而是数百万条内容。这变成了一个非常有趣的推荐问题。</p>
+<p>有了生成式人工智能，我认为我们将很快进入一个新领域：你今天在 Instagram 上看到的大部分内容不仅是从世界上符合你兴趣的内容中推荐给你的，不管你是否关注这些人。我认为在未来，很多这样的内容也将使用这些工具来创建。一些将是创作者使用工具来创建新内容，另一些将是为你即时创建的内容，或者通过现有的不同事物汇集和合成的内容。</p>
+<p>这是我们正在做的事情的核心部分将如何发展的一个例子。它已经发展了 20 年，但我认为这将继续发展。</p>
+<hr>
+<h1 id="推荐系统与生成式人工智能"><a href="#推荐系统与生成式人工智能" class="headerlink" title="推荐系统与生成式人工智能"></a>推荐系统与生成式人工智能</h1><h2 id="黄仁勋关于推荐系统的见解"><a href="#黄仁勋关于推荐系统的见解" class="headerlink" title="黄仁勋关于推荐系统的见解"></a>黄仁勋关于推荐系统的见解</h2><p>黄仁勋：<br>很少有人意识到世界上有史以来最大的计算系统之一是推荐系统。</p>
+<h2 id="扎克伯格谈论生成式人工智能与通用模型"><a href="#扎克伯格谈论生成式人工智能与通用模型" class="headerlink" title="扎克伯格谈论生成式人工智能与通用模型"></a>扎克伯格谈论生成式人工智能与通用模型</h2><p>扎克伯格：<br>这是一条完全不同的道路，并不完全是人们谈论的那种生成式人工智能热点，但它与建立越来越多的通用模型类似。</p>
+<p>推动质量改进的一大因素是过去对每种类型的内容都有不同的模型。最近的一个例子是，我们有一个模型用于对卷轴进行排名和推荐，另一个模型用于对更长视频进行排名和推荐。为了使系统能够在线显示任何内容，还需要进行一些产品工作。然而，你创建的通用推荐模型越多，它就会变得越好。这部分原因在于内容的经济学和流动性。你可以从中获取的内容池越广，就不会遇到从不同池中获取内容的低效率问题。随着模型变得越来越大、越来越通用，情况会变得越来越好。</p>
+<p>我梦想有一天，整个 Facebook 或 Instagram 都像一个单一的 AI 模型，将所有不同的内容类型和系统统一在一起。这些内容类型和系统在不同的时间范围内有不同的目标，有些只是向你展示你今天想要看到的有趣内容，而有些则帮助你长期建立你的网络，比如你可能认识的人或你可能想要关注的账户。</p>
+<h2 id="黄仁勋对多模态模型的观察"><a href="#黄仁勋对多模态模型的观察" class="headerlink" title="黄仁勋对多模态模型的观察"></a>黄仁勋对多模态模型的观察</h2><p>黄仁勋：<br>这些多模态模型往往更擅长识别模式和弱信号。</p>
+<p>AI 在你的公司中如此深入，真是太有趣了。你一直在构建 GPU 基础设施，运行这些大型推荐系统。现在，我有点慢，实际上是在 GPU 方面。是的，我试图表现得友善。你知道吗？你是我的客人。</p>
+<h2 id="扎克伯格对生成式人工智能的展望"><a href="#扎克伯格对生成式人工智能的展望" class="headerlink" title="扎克伯格对生成式人工智能的展望"></a>扎克伯格对生成式人工智能的展望</h2><p>扎克伯格：<br>在我来这里之前，你在后台谈论承认自己的错误或诸如此类的事情，所以你不必突然主动这么做。就好像被这篇帖子批评了一段时间一样。但是一旦你进入这个状态，你就会变得坚强。</p>
+<p>现在，想象一下我。过去一周我花了很多时间和我的女儿们在一起，想象她们是美人鱼之类的。这很有趣。很多新一代人工智能的东西将会是对我们长期以来拥有的所有工作流程和产品的重大升级。同时，现在将会有所有这些全新的东西可以被创造出来。因此，META AI，即在我们的世界中拥有一个能够帮助你完成不同任务的人工智能助手的想法将非常具有创造性，就像你说的。但它们非常通用，所以你不需要仅仅将其限制在那里。它将能够回答任何问题。</p>
+<p>我认为，随着时间的推移，当我们从 Llama 3 类模型转向 Llama 4 及更高版本时，它将不再像聊天机器人那样，你给它一个提示，它就会做出反应。然后你给它一个提示，它就会做出反应，就像来回一样。我认为它会很快进化，你给它一个意图，它实际上可以在多个时间范围内消失。它可能应该承认你事先给了它一个意图。但我认为有些东西最终会启动，计算需要数周或数月的时间，然后当世界上发生某些事情时才返回给你。我认为这会非常强大。</p>
+<h2 id="黄仁勋对人工智能工作室的兴趣"><a href="#黄仁勋对人工智能工作室的兴趣" class="headerlink" title="黄仁勋对人工智能工作室的兴趣"></a>黄仁勋对人工智能工作室的兴趣</h2><p>黄仁勋：<br>今天的人工智能，如你所知，是回合制的。你说些什么，它会回应你些什么。但显然，当我们思考时，当我们被赋予任务或问题时，我们会考虑多种选择，或者我们会想出一个选项树，一个决策树，然后我们沿着决策树走下去，在脑海中模拟我们可能做出的每个决定的不同结果。所以我们在做规划。在未来，人工智能也会做同样的事情。</p>
+<p>当你谈到你对创造者人工智能的愿景时，我非常兴奋的一件事，坦率地说，我认为这是一个本垒打的想法。告诉大家关于创造者人工智能和人工智能工作室的信息，它们将使你能够做到这一点。</p>
+<h2 id="扎克伯格对-AI-Studio-的展望"><a href="#扎克伯格对-AI-Studio-的展望" class="headerlink" title="扎克伯格对 AI Studio 的展望"></a>扎克伯格对 AI Studio 的展望</h2><p>扎克伯格：<br>是的，所以我们实际上……这是我们讨论过的事情，我们今天要把它推广得更广泛。我们的很多愿景是……我不认为会只有一个人工智能模型，业内其他一些公司也这么做，他们正在构建一个中央代理。是的，我们将提供 MetAI 助手供您使用。但我们的愿景是，我们希望让所有使用我们产品的人都能为自己创建代理。因此，无论是平台上的数百万创作者，还是数亿小企业，我们最终都希望能够整合您的所有内容，并快速建立业务代理，以便与您的客户互动，做销售和客户支持等等。</p>
+<p>所以我们现在开始推出的更多产品是我们称之为 AI Studio 的产品。它基本上是一套工具，最终将使每个创作者都可以构建自己的 AI 版本，作为他们的社区可以与之互动的代理或助手。这里有一个根本问题，就是一天中的时间不够用，如果你是一个创作者，你想更多地与你的社区互动，但你的时间有限。同样，你的社区也想与你互动，但这很难，这样做的时间有限。所以下一个最好的事情是允许人们基本上创造这些工件，它有点像一个代理，但你需要训练它在你的材料上以你想要的方式代表你。我认为这是一种非常有创造性的努力，几乎就像你在那里展示的一件艺术品或内容。很明显，这种技术不会与创作者本身直接互动，但我认为这会是一种有趣的方式，就像创作者在社交平台上发布内容一样，代理也可以这样做。</p>
+<p>我认为，人们会为各种不同的用途创建自己的代理。有些代理将是某种定制的实用程序，用户希望通过微调和训练来完成特定任务。另一些代理则会用于娱乐，人们创造的一些东西可能很有趣，虽然有点傻，但以不同的方式展现了有趣的态度。我们可能不会将这些构建为META AI的助手，但我认为人们非常有兴趣看到和互动。</p>
+<p>一个有趣的用例是人们使用这些代理来提供支持。让我有点惊讶的是，META AI的主要用例之一是人们用它来模拟他们将要遇到的困难社交场合。无论是在专业场合，比如询问经理如何获得晋升或加薪，还是在个人生活中，比如与朋友吵架或与女朋友遇到困难情况，这些代理提供了一个完全没有判断力的区域，用户可以在其中扮演角色，看看谈话会如何进行，并获得反馈。</p>
+<p>然而，很多人不想只与同一种代理互动，无论是META AI还是聊天GPT，还是其他人都在使用的代理。他们希望创造自己的代理。这就是我们对AI Studio的目标之一，但这也是我们更大观点的一部分，即我们不应该只有一个与人们交互的大型AI。我们认为，如果这些不同的代理多样化，世界将会变得更好、更有趣。</p>
+<hr>
+<h1 id="生成式人工智能与商业应用"><a href="#生成式人工智能与商业应用" class="headerlink" title="生成式人工智能与商业应用"></a>生成式人工智能与商业应用</h1><h2 id="艺术家与AI模型的微调"><a href="#艺术家与AI模型的微调" class="headerlink" title="艺术家与AI模型的微调"></a>艺术家与AI模型的微调</h2><p>黄仁勋：<br>如果你是一名艺术家，你可以将你的风格和所有作品拿出来，对其中一个模型进行微调，使其成为一个人工智能模型。然后，你可以提示它按照你的艺术风格创作一些东西，甚至可以给它一幅画或素描作为灵感，它可以为你创作一些东西。未来，每家餐馆、每个网站都可能拥有这些人工智能。</p>
+<h2 id="企业与客户互动的AI代理"><a href="#企业与客户互动的AI代理" class="headerlink" title="企业与客户互动的AI代理"></a>企业与客户互动的AI代理</h2><p>扎克伯格：<br>我认为，在未来，就像每个企业都有一个电子邮件地址、一个网站和一个社交媒体账户一样，每个企业都会有一个与客户互动的人工智能代理。从历史上看，有些事情很难做到。比如，客户支持部门通常是与销售部门分开的组织，而这并不是CEO希望的运作方式。虽然它们是不同的技能，但你正在建立这些大型系统。</p>
+<p>我想，当你是 CEO 时，你必须做所有的事情。但当你将抽象概念融入组织时，很多时候组织是分开的，因为它们针对不同事物进行了优化。</p>
+<p>我认为，柏拉图式的理想是，它是一回事。作为客户，你其实并不关心。当你试图购买某样东西时，你不希望有一条不同的路线，而当你购买的东西有问题时，你又不希望有一条不同的路线。你只是希望有一个地方可以回答你的问题，并能够以不同的方式与企业互动。我认为这也适用于创作者。个人消费者方面将是与客户的所有互动，尤其是他们的投诉，将使你的公司变得更好。</p>
+<h2 id="人工智能与机构知识的结合"><a href="#人工智能与机构知识的结合" class="headerlink" title="人工智能与机构知识的结合"></a>人工智能与机构知识的结合</h2><p>黄仁勋：<br>事实上，这一切都与人工智能有关，这将捕捉机构知识和方法，所有这些都可以用于分析，从而改进人工智能等等。</p>
+<h2 id="AI-工作室的发展与未来"><a href="#AI-工作室的发展与未来" class="headerlink" title="AI 工作室的发展与未来"></a>AI 工作室的发展与未来</h2><p>扎克伯格：<br>所以我认为这个商业版本有更多的集成，我们仍然处于相当早期的 alpha 阶段。但是 AI 工作室让人们可以创建他们的 UGC 代理和不同的东西，并开始让创作者创建它们的飞轮。我对此非常兴奋。</p>
+<h3 id="AI-工作室的功能与发展"><a href="#AI-工作室的功能与发展" class="headerlink" title="AI 工作室的功能与发展"></a>AI 工作室的功能与发展</h3><p>黄仁勋：<br>那么我可以使用 AI 工作室来微调我的图像集合吗？</p>
+<p>扎克伯格：<br>是的，我们会到达那里。</p>
+<p>黄仁勋：<br>然后我可以把我写的所有东西都加载进去，这样你就可以把它当作我的抹布吗？</p>
+<p>扎克伯格：<br>是的，基本上。然后每次我回到它时，它都会再次加载它的内存。所以它会记得上次停在哪里，我们继续我们的对话，好像什么都没发生过一样。</p>
+<p>就像任何产品一样，它会随着时间的推移变得更好。训练它的工具会变得更好。这不仅仅是你想让它说什么。我认为一般来说，创作者和企业也有一些他们想避开的话题，所以只是在所有这些方面做得更好。我认为这的柏拉图式版本不仅仅是文本，您几乎只希望能够做到这一点，然后这与我们长期以来所做的某些编解码器化身工作有所交集。您希望能够与经纪人进行视频聊天。我认为随着时间的推移，我们会实现这一目标。我认为这些事情并不遥远，但飞轮旋转得非常快。所以这很令人兴奋。有很多新东西需要构建。</p>
+<p>即使基础模型的进展现在停止了（但我认为不会停止），我们也会有五年的时间让行业进行产品创新，基本上弄清楚如何最有效地利用迄今为止已经建成的所有东西。但实际上我认为基础模型和基础研究的进展正在加速。所以，这是一段相当疯狂的时光。</p>
+<h2 id="开源理念与技术发展"><a href="#开源理念与技术发展" class="headerlink" title="开源理念与技术发展"></a>开源理念与技术发展</h2><p>黄仁勋：<br>在上次谈话中，我……谢谢。我们是首席执行官，也是娇嫩的花朵。是的，我们需要很多后卫。我们现在相当灰白了。我想我们是这个行业中最资深的两位创始人，这是真的。</p>
+<p>扎克伯格：<br>这是真的。你的头发变白了，我的头发却变长了。</p>
+<p>黄仁勋：<br>我的头发变灰了，你的头发变卷了。这是怎么回事？</p>
+<p>扎克伯格：<br>它一直是卷曲的，这就是我把它剪短的原因。</p>
+<p>黄仁勋：<br>是的，如果我知道要花这么长时间才能成功，我根本就不会开始。不，我会像你一样辍学，抢占先机。</p>
+<p>扎克伯格：<br>这就是我们性格之间的很大差异。我认为这些事情……</p>
+<p>黄仁勋：<br>你已经领先了12年。那非常好。你做得很好。</p>
+<p>我喜欢你的愿景，即每个人都可以拥有人工智能，每个企业都可以拥有人工智能。在我们公司，我希望每个工程师和每个软件开发人员都拥有一个人工智能，或者许多人工智能。我喜欢你的愿景，因为你也相信每个人、每家公司都应该能够创造自己的人工智能。所以你们实际上已经开源了。当你开源Llama时，我认为这很棒。</p>
+<p>顺便说一下，Llama 2.1，我认为Llama 2可能是去年人工智能领域最大的事件。</p>
+<h3 id="开源的影响与历史"><a href="#开源的影响与历史" class="headerlink" title="开源的影响与历史"></a>开源的影响与历史</h3><p>扎克伯格：<br>是的，这方面有很多历史。我们长期以来已经做了很多开源工作。我认为部分原因在于，坦白地说，我们是在其他一些科技公司之后起步的，构建分布式计算基础设施和数据中心之类的东西。正因为如此，当我们制造出这些东西的时候，它已经不具备竞争优势了。我们想，好吧，我们不妨把它公开，然后我们将受益于周围的生态系统。因此我们有很多这样的项目。</p>
+<p>我认为最大的一个可能是开放计算，我们将服务器设计、网络设计以及最终的数据中心设计都发布在这里。通过将其打造成为某种行业标准，所有供应链基本上都围绕它进行组织，这样做的好处是每个人都能省钱。因此，通过将其公开，我们基本上已经节省了数十亿美元的资金。Open Compute 也使得我们为一个数据中心设计的 NVIDIA HGX 突然可以在每个数据中心运行。</p>
+<hr>
+<h1 id="人工智能与开源哲学对话"><a href="#人工智能与开源哲学对话" class="headerlink" title="人工智能与开源哲学对话"></a>人工智能与开源哲学对话</h1><h2 id="黄仁勋的初步感受"><a href="#黄仁勋的初步感受" class="headerlink" title="黄仁勋的初步感受"></a>黄仁勋的初步感受</h2><p>黄仁勋：<br>这是一次非常棒的经历。</p>
+<h2 id="扎克伯格对人工智能模型的看法"><a href="#扎克伯格对人工智能模型的看法" class="headerlink" title="扎克伯格对人工智能模型的看法"></a>扎克伯格对人工智能模型的看法</h2><h3 id="技术背景与历史回顾"><a href="#技术背景与历史回顾" class="headerlink" title="技术背景与历史回顾"></a>技术背景与历史回顾</h3><p>扎克伯格：<br>我们已经使用一系列基础设施工具完成了这项工作，比如 React、PyTorch。因此我想说，当 Llama 出现时，我们已经积极地倾向于这样做了。具体来说，对于人工智能模型，我想我可以从几个方面来看待这个问题。</p>
+<p>一是，过去 20 年在公司里创造东西真的很有趣。最困难的事情之一就是我们必须通过竞争对手的移动平台发布我们的应用程序。一方面，移动平台给该行业带来了巨大的福音，这真是太棒了。另一方面，必须通过竞争对手来交付产品，这很有挑战性。在我成长的那个时代，Facebook 的第一个版本是在网络上的，它是开放的。随着向移动设备的过渡，好处是现在每个人的口袋里都有一台电脑，这太棒了。缺点是，我们能做的事情受到了很大限制。</p>
+<p>当你观察这几代计算技术时，就会发现存在着巨大的近因偏差，每个人都只关注移动设备，并认为，因为封闭的生态系统，因为苹果基本上赢了，并设定了其条款。是的，我知道从技术上来说 Android 手机的数量更多，但苹果基本上占据了整个市场并获得了所有的利润。基本上，Android 在开发方面是在追随苹果的。所以我认为苹果显然赢得了这一代产品。</p>
+<p>但情况并不总是这样。如果你回顾上一代，苹果当时在做他们那种封闭的事情，但微软，它显然不是一个完全开放的公司，但与苹果相比，Windows 在所有不同的 OEM 和不同的软件上运行，不同的硬件，是一个更加开放的生态系统。Windows 是领先的生态系统。基本上，在 PC 时代，开放的生态系统赢得了胜利。我希望在下一代计算中，我们能够回到开放生态系统获胜并再次占据领先地位的区域。总是会有一个封闭的和一个开放的。我认为同时做这两件事都是有理由的，两者各有各的好处。在这一点上，我并不像一个狂热分子。我们做的是闭源的东西，我们所发表的并不是所有的东西都是开放的。但我认为，总体而言，对于整个行业所构建的计算平台而言，如果软件是开放的，那么将具有很大的价值。这确实塑造了我的哲学观念。</p>
+<h3 id="开放生态系统与未来展望"><a href="#开放生态系统与未来展望" class="headerlink" title="开放生态系统与未来展望"></a>开放生态系统与未来展望</h3><p>对于 Llama 的人工智能以及我们在 AR 和 VR 领域所做的工作，我们基本上是在开发用于混合现实的 Horizon OS，它是一种开放的操作系统，类似于 Android 或 Windows，基本上就是为了让我们能够与许多不同的硬件公司合作来制造各种不同的设备。我们基本上只是想让生态系统恢复到开放的水平。我非常乐观地认为，在下一代中，开放的将会获胜。</p>
+<p>对于我们来说，我只是想确保我们能够获得，这有点自私，但在建立了这家公司一段时间之后，我未来 10 年或 15 年的计划之一就是确保我们能够建立基础技术，我们将在此基础上构建社交体验。因为我尝试构建的东西太多了，然后被告知，不，你不能真正由平台提供商在某种程度上构建这一点，我只是想，不，去他的。对于下一代，我们要一路走下去…</p>
+<h2 id="黄仁勋对开放与封闭平台的看法"><a href="#黄仁勋对开放与封闭平台的看法" class="headerlink" title="黄仁勋对开放与封闭平台的看法"></a>黄仁勋对开放与封闭平台的看法</h2><h3 id="广播机会与平台开放"><a href="#广播机会与平台开放" class="headerlink" title="广播机会与平台开放"></a>广播机会与平台开放</h3><p>黄仁勋：<br>确保我们拥有广播机会。哔… （笑指扎克伯格前面粗言）</p>
+<p>扎克伯格：<br>抱歉。对不起。我们大概 20 分钟内一切都还好，但是当我谈论封闭的平台时我就会生气。</p>
+<h3 id="人工智能的开放性与服务质量"><a href="#人工智能的开放性与服务质量" class="headerlink" title="人工智能的开放性与服务质量"></a>人工智能的开放性与服务质量</h3><p>黄仁勋：<br>嘿，看，很棒。我认为这是一个美好的世界，有人致力于构建最好的人工智能，不管他们如何构建它，并将其作为服务提供给世界。但是如果你想构建自己的人工智能，你仍然可以构建自己的人工智能。</p>
+<p>所以能力——是的，完全是。要使用人工智能，有很多事情要做。我不想自己做这件夹克。我更希望有人为我量身定做这件夹克。你知道我在说什么？是的。是的。但皮革可以开源这一事实对我来说不是一个有用的概念。但我认为，如果你能拥有优质的服务、令人难以置信的服务以及开放的能力，那么我们基本上就拥有了整个范围。</p>
+<p>但是 3.1 的真正伟大之处在于您有 405B、70B、8B。您可以用它来生成合成数据，使用较大的模型来实质上教导较小的模型。尽管较大的模型会更加通用，更不易碎，但您仍然可以构建一个较小的模型，以适应您想要的任何操作领域或运营成本。</p>
+<p>我想，你遇见了一名警卫。是的，Llamaguard。Llamaguard 用于护栏，太棒了。所以现在，您构建模型的方式是透明的。它有，你奉献，你有一个世界一流的安全团队，世界一流的道德团队。您可以以这样一种方式构建它，让每个人都知道它已正确构建。所以我真的很喜欢它的这个部分。</p>
+<h2 id="扎克伯格对开源的坚持"><a href="#扎克伯格对开源的坚持" class="headerlink" title="扎克伯格对开源的坚持"></a>扎克伯格对开源的坚持</h2><h3 id="开源策略与生态系统的构建"><a href="#开源策略与生态系统的构建" class="headerlink" title="开源策略与生态系统的构建"></a>开源策略与生态系统的构建</h3><p>扎克伯格：<br>在我被岔开话题之前，我确实认为存在这种一致性。我们构建它是因为我们希望这个东西存在，并将它从某个封闭的模型中剔除出去。但这不仅仅是一个可以构建的软件，还需要一个围绕它的生态系统。因此，如果我们不开源它，它几乎就无法很好地运行。</p>
+<p>我们这样做并不是因为我们是利他主义者，尽管我认为这对生态系统是有帮助的。我们这样做是因为我们认为通过在其周围建立一个强大的生态系统，这将使我们正在构建的东西变得最好。看看有多少人为 PyTorch 生态系统做出了贡献。</p>
+<h3 id="开源的行业影响"><a href="#开源的行业影响" class="headerlink" title="开源的行业影响"></a>开源的行业影响</h3><p>黄仁勋：<br>是的，完全正确。大量的工程。仅 NVIDIA 一家，我们可能就有几百人致力于让 PyTorch 变得更好、更具可扩展性、性能更强等等。</p>
+<p>扎克伯格：<br>当某种东西成为行业标准时，其他人就会去解决它，因此，系统中的所有硅片最终都将得到优化，以便很好地运行这个系统，这将使每个人受益，但它也将与我们正在构建的系统配合良好。我认为，这只是其中一个例子，说明这种方法最终确实非常有效。所以，我认为开源策略将是一个很好的商业策略。我认为人们仍然不太明白这一点。</p>
+<h3 id="AI-Foundry-的贡献"><a href="#AI-Foundry-的贡献" class="headerlink" title="AI Foundry 的贡献"></a>AI Foundry 的贡献</h3><p>黄仁勋：<br>我们非常喜欢它，并围绕它建立了一个生态系统。我们建造了这个叫做 AI Foundry 的东西。</p>
+<p>扎克伯格：<br>你们在这方面做得非常棒。每次我们发布新产品时，你们总是第一个发布、优化并使其正常运行。所以，我很感激，但是我能说什么呢？我们有优秀的工程师。而且你们总是能很快地开始做这些事情。</p>
+<h2 id="黄仁勋对AI-Foundry的介绍"><a href="#黄仁勋对AI-Foundry的介绍" class="headerlink" title="黄仁勋对AI Foundry的介绍"></a>黄仁勋对AI Foundry的介绍</h2><h3 id="AI-Foundry的创建与功能"><a href="#AI-Foundry的创建与功能" class="headerlink" title="AI Foundry的创建与功能"></a>AI Foundry的创建与功能</h3><p>黄仁勋：<br>我是一名老年人，但我很敏捷。这就是首席执行官必须要做的事。</p>
+<p>我认识到一件重要的事情。我认为 Llama 确实很重要。我们构建了这个概念，称之为 AI Foundry，以便我们可以帮助每个人构建、采取行动。很多人都有构建人工智能的愿望。对他们来说，拥有人工智能非常重要，因为一旦他们将其放入飞轮、数据飞轮中，他们公司的机构知识就会被编码并嵌入到人工智能中。所以，他们无法承受将人工智能飞轮、数据飞轮和经验飞轮放在其他地方。因此，开源允许他们这样做，但他们并不真正知道如何将整个东西变成人工智能。</p>
+<p>因此，我们创建了所谓的“AI Foundry”。我们提供工具、提供专业知识、Llama 技术，我们有能力帮助他们将整个事情转变为 AI 服务。然后，当我们完成这些之后，他们就拿走它，拥有它，它的输出就是我们所说的 NIM。用户只需下载 Neural Micro NVIDIA 推理微服务（NIM），并在任何他们喜欢的地方运行，包括本地环境。我们拥有一个完整的合作伙伴生态系统，从可以运行 NIM 的 OEM 到像埃森哲这样的全球系统集成商（GSI）。我们对这些 GSI 进行了培训并与其合作，以创建基于 Llama 的 NIM 和管道。现在，我们正在帮助世界各地的企业实现这一目标，这确实是一件令人兴奋的事情。</p>
+<p>这一切都是由 Llama 开源引发的。</p>
+<h2 id="扎克伯格对人工智能模型的观点"><a href="#扎克伯格对人工智能模型的观点" class="headerlink" title="扎克伯格对人工智能模型的观点"></a>扎克伯格对人工智能模型的观点</h2><h3 id="大模型与个性化模型的未来"><a href="#大模型与个性化模型的未来" class="headerlink" title="大模型与个性化模型的未来"></a>大模型与个性化模型的未来</h3><p>扎克伯格：<br>我认为，帮助人们从大模型中提取自己的模型的能力将成为真正有价值的新事物。就像我们在产品方面讨论的那样，我不认为会有一个主要的人工智能代理与每个人交谈。它们处于同一水平，我认为不一定存在一个所有人都使用的模型。</p>
+<h3 id="芯片设计与软件编码中的AI应用"><a href="#芯片设计与软件编码中的AI应用" class="headerlink" title="芯片设计与软件编码中的AI应用"></a>芯片设计与软件编码中的AI应用</h3><p>黄仁勋：<br>我们有芯片设计AI、软件编码AI。我们的软件编码AI能够理解USD，因为我们使用USD来编码全宇宙的东西。我们有一个可以理解Verilog的AI，即我们的Verilog。我们拥有能够了解错误数据库并知道如何帮助我们分类错误并将其发送给合适工程师的软件AI。每一个AI都是根据Llama进行微调的，因此我们对它们进行微调和保护。如果我们有一个用于芯片设计的AI，我们就不会对询问政治、宗教等问题感兴趣，因此我们对其进行了防护。</p>
+<p>我认为每家公司基本上都会为其每一项功能配备专门构建的AI，他们需要帮助才能做到这一点。</p>
+<h3 id="大模型的推理成本与应用"><a href="#大模型的推理成本与应用" class="headerlink" title="大模型的推理成本与应用"></a>大模型的推理成本与应用</h3><p>扎克伯格：<br>未来的一个大问题是人们在多大程度上会使用更大、更复杂的模型，而不是仅仅为了他们的用途而训练自己的模型。我敢打赌，它们将会是大量不同模型的混合体。</p>
+<p>我们使用最大的模型，因为我们的工程师的时间非常宝贵。我们现在获得了针对性能进行了优化的405B。正如您所知，405B不适合任何GPU，无论多大。这就是为什么NVLink性能如此重要。我们的每个GPU都通过一个称为NVLink交换机的非阻塞交换机连接。例如，在HVAC中有两个这样的交换机。我们让所有这些GPU都能工作并运行405B，真正发挥作用。我们这样做的原因是因为工程师的时间对我们来说非常宝贵。我们想使用最好的模型。事实上，它只节省了几分钱，谁在乎呢？因此我们只是想确保向他们呈现最优质的结果。</p>
+<p>我认为405B的推理成本大约是GPT-4o模型的一半。在那个水平上，它已经相当好了。但是，我认为人们正在设备上做一些事情，或者想要更小的模型。他们只是需要进一步提炼。</p>
+<hr>
+<h1 id="人工智能应用与未来展望"><a href="#人工智能应用与未来展望" class="headerlink" title="人工智能应用与未来展望"></a>人工智能应用与未来展望</h1><h2 id="AI-Foundry的功能与应用"><a href="#AI-Foundry的功能与应用" class="headerlink" title="AI Foundry的功能与应用"></a>AI Foundry的功能与应用</h2><h3 id="人工智能的雇用与成本效益"><a href="#人工智能的雇用与成本效益" class="headerlink" title="人工智能的雇用与成本效益"></a>人工智能的雇用与成本效益</h3><p>黄仁勋：<br>这就像是一整套不同的服务。</p>
+<p>假设我们正在雇用人工智能，用于芯片设计的人工智能每小时的费用大概是10美元。如果你在不断使用它，并且与一群工程师共享该AI，那么每个工程师可能都有一个伴随他们的AI，而且成本并不高。我们给工程师付了很多钱，所以，每小时几美元可以放大某人的真正有价值的能力。</p>
+<p>如果您还没有雇用人工智能，请立即雇用。这就是我们要说的全部内容。那么，让我们来讨论下一波。</p>
+<h3 id="计算机视觉与视频理解"><a href="#计算机视觉与视频理解" class="headerlink" title="计算机视觉与视频理解"></a>计算机视觉与视频理解</h3><p>我非常喜欢你们所做的工作之一，计算机视觉。我们内部经常使用的模型之一就是对所有事物进行细分。我们现在正在视频上训练人工智能模型，以便能够理解世界模型。我们的用例是用于机器人和工业数字化，并将这些AI模型连接到Omniverse，以便更好地建模和表示物理世界，让机器人更好地在这些Omniverse世界中运行。</p>
+<p>您的应用程序Ray-Ban Metaglass，以及将AI引入虚拟世界的愿景确实很有趣。请告诉我们更多。</p>
+<h2 id="扎克伯格的技术展望"><a href="#扎克伯格的技术展望" class="headerlink" title="扎克伯格的技术展望"></a>扎克伯格的技术展望</h2><h3 id="Segment-Anything2与视频分析技术"><a href="#Segment-Anything2与视频分析技术" class="headerlink" title="Segment Anything2与视频分析技术"></a>Segment Anything2与视频分析技术</h3><p>扎克伯格：<br>是的，里面有很多内容需要解开。您所谈论的任意分段模型（Segment Anything2），我们实际上正在SIGGRAPH上展示它的下一个版本，任意分段二。现在它可以工作得更快，并且可以在视频中发挥作用。我认为这些实际上是来自我考艾岛牧场的牛，顺便说一下，这些被称为三月美味牛。</p>
+<h3 id="智能眼镜与全息AR的未来"><a href="#智能眼镜与全息AR的未来" class="headerlink" title="智能眼镜与全息AR的未来"></a>智能眼镜与全息AR的未来</h3><p>扎克伯格：<br>是的，所以基本上，对于智能眼镜，我们从两个不同的方向来解决这个问题。一方面，我们一直在开发我们认为理想的全息AR眼镜所需的技术。我们正在进行所有定制硅片的工作、所有定制显示堆栈的工作，以及使这些工作得以完成所需要做的所有事情。它们是眼镜，但这不是头显。它不像 VR 或 MR 头显。它们看起来像眼镜，但与您现在佩戴的眼镜相比还有很大差距。它们非常薄，但即使是我们生产的雷朋眼镜，也无法将全息 AR 所需的所有技术都融入其中。我们越来越接近了。在接下来的几年里，我认为我们将会更加接近彼此。虽然它仍然会相当昂贵，但我认为它会开始成为一种产品。</p>
+<p>我们从另一个角度来讨论这个问题，先从好看的眼镜开始。通过与世界上最好的眼镜制造商 Essler Luxottica 合作，他们基本上拥有您使用的所有大品牌。无论是雷朋 (Ray-Ban)、奥克利 (Oakley) 还是奥利弗·皮帕斯 (Oliver Peoples)，或者只是少数其他品牌，这有点像 Essler Luxottica 是眼镜界的 NVIDIA。</p>
+<h3 id="Ray-Ban-Metaglass的功能与前景"><a href="#Ray-Ban-Metaglass的功能与前景" class="headerlink" title="Ray-Ban Metaglass的功能与前景"></a>Ray-Ban Metaglass的功能与前景</h3><p>黄仁勋：<br>我认为他们可能会喜欢这个比喻。</p>
+<p>扎克伯格：<br>谁不愿意呢？</p>
+<p>我们一直在与他们合作研发雷朋 (Ray-Bans) 眼镜。我们已进入第二代。我们的目标是将外形尺寸限制为看起来很棒的尺寸。在此范围内，我们尽可能多地投入技术，同时明白我们无法从技术上达到理想效果，但最终，它会像很漂亮的眼镜一样。目前，我们已经有了摄像传感器，所以你可以拍摄照片和视频。您实际上可以将直播流传输到 Instagram。您可以在 WhatsApp 上进行视频通话，并向对方直播您所看到的内容。它有麦克风和扬声器，这个扬声器确实非常好，是开放的耳朵设计，因此很多人觉得它比耳塞更舒适。您可以听音乐，就像一种私人体验一样，这真是太棒了。人们喜欢这个，您可以用它接听电话。</p>
+<p>后来事实证明，这个传感器包正是与人工智能对话所需要的东西，这算是一次意外。如果五年前你问我，我们是否会在人工智能之前获得全息增强现实 (AR)？我会说，是的，可能吧。它看起来就像是所有虚拟和混合现实方面的图形进展和显示进展，并建立了新的显示堆栈。我们正朝着这个目标不断前进，这是正确的。随后，这一突破在LLM学位课程上得以实现。事实证明，我们现在拥有非常高质量的人工智能，并且在全息增强现实出现之前，它的改进速度非常快。这是我真没有想到的这种逆转。</p>
+<p>我们很幸运，因为我们致力于研发所有这些不同的产品。但我认为，最终你会得到一系列不同潜在眼镜，不同价位的产品，以及不同技术水平的产品。因此，我认为，根据我们现在看到的雷朋 Metas 的情况，我猜售价 300 美元左右的无显示屏 AI 眼镜将成为一个真正受欢迎的产品，最终将有数千万人或数亿人拥有它。你将会拥有一个可以与你对话的超级互动人工智能。</p>
+<h2 id="视觉语言理解与实时翻译"><a href="#视觉语言理解与实时翻译" class="headerlink" title="视觉语言理解与实时翻译"></a>视觉语言理解与实时翻译</h2><h3 id="实时翻译的应用场景"><a href="#实时翻译的应用场景" class="headerlink" title="实时翻译的应用场景"></a>实时翻译的应用场景</h3><p>黄仁勋：<br>你刚刚展示了视觉语言理解，并且具备实时翻译功能。你用一种语言和我说话，我听到的却是另一种语言。</p>
+<h3 id="显示技术的挑战"><a href="#显示技术的挑战" class="headerlink" title="显示技术的挑战"></a>显示技术的挑战</h3><p>扎克伯格：<br>显示屏显然也会很棒，但它会增加眼镜的重量，并且会使眼镜变得更加昂贵。所以我认为会有很多人想要那种全息显示屏，但也会有很多人希望最终能有像非常薄的眼镜一样的设备。</p>
+<h2 id="工业应用与消费品的未来"><a href="#工业应用与消费品的未来" class="headerlink" title="工业应用与消费品的未来"></a>工业应用与消费品的未来</h2><h3 id="对工业应用的需求"><a href="#对工业应用的需求" class="headerlink" title="对工业应用的需求"></a>对工业应用的需求</h3><p>黄仁勋：<br>对于工业应用和一些工作应用，我们需要它。我也认为对于消费品而言也是如此。你这么认为吗？</p>
+<h3 id="未来虚拟会议的展望"><a href="#未来虚拟会议的展望" class="headerlink" title="未来虚拟会议的展望"></a>未来虚拟会议的展望</h3><p>扎克伯格：<br>是的，我想，在 COVID 期间，当每个人都远程办公一段时间时，我就经常考虑这个问题。就好像你把所有的时间都花在了 Zoom 上。拥有这样的技术真是太好了，但是在未来，我们大概要不了几年就能举行虚拟会议，就好像我并不是亲自到场，这只是我的全息图而已。感觉我们就在那里，亲临现场。我们可以一起做某事，一起合作做某事。</p>
+<h2 id="时尚与计算平台的未来"><a href="#时尚与计算平台的未来" class="headerlink" title="时尚与计算平台的未来"></a>时尚与计算平台的未来</h2><h3 id="眼镜的时尚与功能"><a href="#眼镜的时尚与功能" class="headerlink" title="眼镜的时尚与功能"></a>眼镜的时尚与功能</h3><p>黄仁勋：<br>是的，这是一种非常有用的风格。无论是谁，就像我在努力成为一名时尚影响者，这样我就能在这副眼镜进入市场之前对其产生影响。</p>
+<h3 id="扎克伯格对时尚眼镜的看法"><a href="#扎克伯格对时尚眼镜的看法" class="headerlink" title="扎克伯格对时尚眼镜的看法"></a>扎克伯格对时尚眼镜的看法</h3><p>扎克伯格：<br>但我不知道。</p>
+<p>黄仁勋：<br>好吧，我看到你正在尝试。你的风格对你的锻炼有什么影响？</p>
+<p>扎克伯格：<br>现在还早，还早。</p>
+<p>但我觉得如果未来业务的很大一部分是制造人们佩戴的时尚眼镜，那么我应该开始更多地关注这一点。好的。是的，我们将不得不淘汰每天穿同样衣服的我。但眼镜也有同样的问题。我认为它与手表或手机不同，人们真的不希望它们看起来都一样。正确的。</p>
+<h2 id="计算技术的演变与影响"><a href="#计算技术的演变与影响" class="headerlink" title="计算技术的演变与影响"></a>计算技术的演变与影响</h2><h3 id="从通用计算到生成式人工智能"><a href="#从通用计算到生成式人工智能" class="headerlink" title="从通用计算到生成式人工智能"></a>从通用计算到生成式人工智能</h3><p>黄仁勋：<br>马克，我们正处于一个整个计算堆栈被重新发明的时代，这真是令人难以置信。我们如何看待软件，安德烈称之为软件一和软件二，现在我们基本上处于软件三。我们从通用计算方式到这些生成神经网络处理的计算方式，我们现在可以开发的功能和应用程序在过去是不可想象的。生成式人工智能是一项能够迅速影响消费者、企业、行业和科学的技术。我不记得还有哪项技术能如此快速地在各个领域产生如此深远的影响。它不仅跨越了气候技术、生物技术、物理科学等所有不同的科学领域，而且在我们所遇到的每一个领域中，生成式人工智能都处于根本性转变的中心。</p>
+<h3 id="创造性人工智能的潜力"><a href="#创造性人工智能的潜力" class="headerlink" title="创造性人工智能的潜力"></a>创造性人工智能的潜力</h3><p>除此之外，正如您所谈论的，生成式人工智能将对社会产生深远的影响。我们正在生产的产品中，有一件让我非常兴奋的事情。之前有人问我，是否会有 Jensen AI？这正是您所说的创造性人工智能，我们可以构建自己的人工智能。我把我写的所有内容都放到里面，并根据我回答问题的方式对其进行微调。希望随着时间的推移和使用次数的积累，它会成为许多想要提问或交流想法的人的真正助手和伙伴。</p>
+<h2 id="个人经历与公司发展"><a href="#个人经历与公司发展" class="headerlink" title="个人经历与公司发展"></a>个人经历与公司发展</h2><h3 id="NVIDIA与GPU的变革"><a href="#NVIDIA与GPU的变革" class="headerlink" title="NVIDIA与GPU的变革"></a>NVIDIA与GPU的变革</h3><p>黄仁勋：<br>实际上，你会想要这些能够瘫痪的大型系统。我们走了另一条路。我们不再制造越来越小的设备，而是制造仓库大小的计算机。一时不时髦，有点不时髦，超级不时髦。但现在很酷。相反，我们开始构建图形芯片，即 GPU。现在，当您部署 GPU 时，您仍将其称为 Hopper H100。当扎克伯格称其为 H100 时，他的 H100 数据中心数量会达到 600,000。而且他们是好顾客。</p>
+<h3 id="对扎克伯格成就的赞赏"><a href="#对扎克伯格成就的赞赏" class="headerlink" title="对扎克伯格成就的赞赏"></a>对扎克伯格成就的赞赏</h3><p>扎克伯格：<br>这就是您在 SIGGRAPH 上获得 Jensen 问答的方式。</p>
+<p>黄仁勋：<br>哇。请稍等，我正在查看马克·扎克伯格的问答。你是我的客人，我想确保马克……</p>
+<p>扎克伯格：<br>有一天你打电话给我，说再过几周我们将在 SIGGRAPH 上做这件事。那天我什么都没做，我离开了丹佛，这听起来很有趣。确切地说，那天下午我什么事也没有做，你刚刚出现。</p>
+<p>黄仁勋：<br>这件事实在令人难以置信。你们构建的这些系统都是巨型系统，极难协调和运行。你说过你进入 GPU 领域比大多数人都晚，但你的运营规模却比任何人都大，真是令人难以置信。祝贺你所做的一切。现在你已经成为时尚偶像了。看看这个家伙。</p>
+<p>女士们、先生们，马克·扎克伯格~ 谢谢。</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2024/08/05/%E9%9B%B7%E5%86%9B%E5%B9%B4%E5%BA%A6%E6%BC%94%E8%AE%B22024/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2024-08-05 11:29:36
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E6%BC%94%E8%AE%B2/" title="演讲">
+                        <b>#</b> 演讲
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E9%BB%84%E4%BB%81%E5%8B%8B/" title="黄仁勋">
+                        #黄仁勋
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AC%A2%E8%BF%8E%E9%A9%AC%E5%85%8B%C2%B7%E6%89%8E%E5%85%8B%E4%BC%AF%E6%A0%BC"><span class="toc-text">欢迎马克·扎克伯格</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%84%E4%BB%81%E5%8B%8B%E4%BB%8B%E7%BB%8D"><span class="toc-text">黄仁勋介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8E%E5%85%8B%E4%BC%AF%E6%A0%BC%E7%9A%84%E5%9B%9E%E5%BA%94"><span class="toc-text">扎克伯格的回应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%84%E4%BB%81%E5%8B%8B%E8%B0%88%E8%AE%BA-SIGGRAPH-%E5%92%8C%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD"><span class="toc-text">黄仁勋谈论 SIGGRAPH 和人工智能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8E%E5%85%8B%E4%BC%AF%E6%A0%BC%E8%B0%88%E8%AE%BA-Meta-%E5%92%8C%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD"><span class="toc-text">扎克伯格谈论 Meta 和生成式人工智能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%8E%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD"><span class="toc-text">推荐系统与生成式人工智能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%84%E4%BB%81%E5%8B%8B%E5%85%B3%E4%BA%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%A7%81%E8%A7%A3"><span class="toc-text">黄仁勋关于推荐系统的见解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8E%E5%85%8B%E4%BC%AF%E6%A0%BC%E8%B0%88%E8%AE%BA%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E9%80%9A%E7%94%A8%E6%A8%A1%E5%9E%8B"><span class="toc-text">扎克伯格谈论生成式人工智能与通用模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%84%E4%BB%81%E5%8B%8B%E5%AF%B9%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%A7%82%E5%AF%9F"><span class="toc-text">黄仁勋对多模态模型的观察</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8E%E5%85%8B%E4%BC%AF%E6%A0%BC%E5%AF%B9%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E5%B1%95%E6%9C%9B"><span class="toc-text">扎克伯格对生成式人工智能的展望</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%84%E4%BB%81%E5%8B%8B%E5%AF%B9%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%B7%A5%E4%BD%9C%E5%AE%A4%E7%9A%84%E5%85%B4%E8%B6%A3"><span class="toc-text">黄仁勋对人工智能工作室的兴趣</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8E%E5%85%8B%E4%BC%AF%E6%A0%BC%E5%AF%B9-AI-Studio-%E7%9A%84%E5%B1%95%E6%9C%9B"><span class="toc-text">扎克伯格对 AI Studio 的展望</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E5%95%86%E4%B8%9A%E5%BA%94%E7%94%A8"><span class="toc-text">生成式人工智能与商业应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%89%BA%E6%9C%AF%E5%AE%B6%E4%B8%8EAI%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BE%AE%E8%B0%83"><span class="toc-text">艺术家与AI模型的微调</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%81%E4%B8%9A%E4%B8%8E%E5%AE%A2%E6%88%B7%E4%BA%92%E5%8A%A8%E7%9A%84AI%E4%BB%A3%E7%90%86"><span class="toc-text">企业与客户互动的AI代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E6%9C%BA%E6%9E%84%E7%9F%A5%E8%AF%86%E7%9A%84%E7%BB%93%E5%90%88"><span class="toc-text">人工智能与机构知识的结合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AI-%E5%B7%A5%E4%BD%9C%E5%AE%A4%E7%9A%84%E5%8F%91%E5%B1%95%E4%B8%8E%E6%9C%AA%E6%9D%A5"><span class="toc-text">AI 工作室的发展与未来</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AI-%E5%B7%A5%E4%BD%9C%E5%AE%A4%E7%9A%84%E5%8A%9F%E8%83%BD%E4%B8%8E%E5%8F%91%E5%B1%95"><span class="toc-text">AI 工作室的功能与发展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E7%90%86%E5%BF%B5%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%8F%91%E5%B1%95"><span class="toc-text">开源理念与技术发展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E7%9A%84%E5%BD%B1%E5%93%8D%E4%B8%8E%E5%8E%86%E5%8F%B2"><span class="toc-text">开源的影响与历史</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E5%BC%80%E6%BA%90%E5%93%B2%E5%AD%A6%E5%AF%B9%E8%AF%9D"><span class="toc-text">人工智能与开源哲学对话</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%84%E4%BB%81%E5%8B%8B%E7%9A%84%E5%88%9D%E6%AD%A5%E6%84%9F%E5%8F%97"><span class="toc-text">黄仁勋的初步感受</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8E%E5%85%8B%E4%BC%AF%E6%A0%BC%E5%AF%B9%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%9C%8B%E6%B3%95"><span class="toc-text">扎克伯格对人工智能模型的看法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E8%83%8C%E6%99%AF%E4%B8%8E%E5%8E%86%E5%8F%B2%E5%9B%9E%E9%A1%BE"><span class="toc-text">技术背景与历史回顾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%94%BE%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B"><span class="toc-text">开放生态系统与未来展望</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%84%E4%BB%81%E5%8B%8B%E5%AF%B9%E5%BC%80%E6%94%BE%E4%B8%8E%E5%B0%81%E9%97%AD%E5%B9%B3%E5%8F%B0%E7%9A%84%E7%9C%8B%E6%B3%95"><span class="toc-text">黄仁勋对开放与封闭平台的看法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E6%92%AD%E6%9C%BA%E4%BC%9A%E4%B8%8E%E5%B9%B3%E5%8F%B0%E5%BC%80%E6%94%BE"><span class="toc-text">广播机会与平台开放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E5%BC%80%E6%94%BE%E6%80%A7%E4%B8%8E%E6%9C%8D%E5%8A%A1%E8%B4%A8%E9%87%8F"><span class="toc-text">人工智能的开放性与服务质量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8E%E5%85%8B%E4%BC%AF%E6%A0%BC%E5%AF%B9%E5%BC%80%E6%BA%90%E7%9A%84%E5%9D%9A%E6%8C%81"><span class="toc-text">扎克伯格对开源的坚持</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E7%AD%96%E7%95%A5%E4%B8%8E%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9E%84%E5%BB%BA"><span class="toc-text">开源策略与生态系统的构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E7%9A%84%E8%A1%8C%E4%B8%9A%E5%BD%B1%E5%93%8D"><span class="toc-text">开源的行业影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AI-Foundry-%E7%9A%84%E8%B4%A1%E7%8C%AE"><span class="toc-text">AI Foundry 的贡献</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%84%E4%BB%81%E5%8B%8B%E5%AF%B9AI-Foundry%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-text">黄仁勋对AI Foundry的介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AI-Foundry%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E5%8A%9F%E8%83%BD"><span class="toc-text">AI Foundry的创建与功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8E%E5%85%8B%E4%BC%AF%E6%A0%BC%E5%AF%B9%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%A7%82%E7%82%B9"><span class="toc-text">扎克伯格对人工智能模型的观点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8E%E4%B8%AA%E6%80%A7%E5%8C%96%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%9C%AA%E6%9D%A5"><span class="toc-text">大模型与个性化模型的未来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%AF%E7%89%87%E8%AE%BE%E8%AE%A1%E4%B8%8E%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A0%81%E4%B8%AD%E7%9A%84AI%E5%BA%94%E7%94%A8"><span class="toc-text">芯片设计与软件编码中的AI应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8E%A8%E7%90%86%E6%88%90%E6%9C%AC%E4%B8%8E%E5%BA%94%E7%94%A8"><span class="toc-text">大模型的推理成本与应用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B"><span class="toc-text">人工智能应用与未来展望</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AI-Foundry%E7%9A%84%E5%8A%9F%E8%83%BD%E4%B8%8E%E5%BA%94%E7%94%A8"><span class="toc-text">AI Foundry的功能与应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E9%9B%87%E7%94%A8%E4%B8%8E%E6%88%90%E6%9C%AC%E6%95%88%E7%9B%8A"><span class="toc-text">人工智能的雇用与成本效益</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E4%B8%8E%E8%A7%86%E9%A2%91%E7%90%86%E8%A7%A3"><span class="toc-text">计算机视觉与视频理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8E%E5%85%8B%E4%BC%AF%E6%A0%BC%E7%9A%84%E6%8A%80%E6%9C%AF%E5%B1%95%E6%9C%9B"><span class="toc-text">扎克伯格的技术展望</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Segment-Anything2%E4%B8%8E%E8%A7%86%E9%A2%91%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF"><span class="toc-text">Segment Anything2与视频分析技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E7%9C%BC%E9%95%9C%E4%B8%8E%E5%85%A8%E6%81%AFAR%E7%9A%84%E6%9C%AA%E6%9D%A5"><span class="toc-text">智能眼镜与全息AR的未来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ray-Ban-Metaglass%E7%9A%84%E5%8A%9F%E8%83%BD%E4%B8%8E%E5%89%8D%E6%99%AF"><span class="toc-text">Ray-Ban Metaglass的功能与前景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E8%A7%89%E8%AF%AD%E8%A8%80%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E6%97%B6%E7%BF%BB%E8%AF%91"><span class="toc-text">视觉语言理解与实时翻译</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E6%97%B6%E7%BF%BB%E8%AF%91%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">实时翻译的应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E6%8A%80%E6%9C%AF%E7%9A%84%E6%8C%91%E6%88%98"><span class="toc-text">显示技术的挑战</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%B8%9A%E5%BA%94%E7%94%A8%E4%B8%8E%E6%B6%88%E8%B4%B9%E5%93%81%E7%9A%84%E6%9C%AA%E6%9D%A5"><span class="toc-text">工业应用与消费品的未来</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%B7%A5%E4%B8%9A%E5%BA%94%E7%94%A8%E7%9A%84%E9%9C%80%E6%B1%82"><span class="toc-text">对工业应用的需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AA%E6%9D%A5%E8%99%9A%E6%8B%9F%E4%BC%9A%E8%AE%AE%E7%9A%84%E5%B1%95%E6%9C%9B"><span class="toc-text">未来虚拟会议的展望</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E5%B0%9A%E4%B8%8E%E8%AE%A1%E7%AE%97%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%9C%AA%E6%9D%A5"><span class="toc-text">时尚与计算平台的未来</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%BC%E9%95%9C%E7%9A%84%E6%97%B6%E5%B0%9A%E4%B8%8E%E5%8A%9F%E8%83%BD"><span class="toc-text">眼镜的时尚与功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8E%E5%85%8B%E4%BC%AF%E6%A0%BC%E5%AF%B9%E6%97%B6%E5%B0%9A%E7%9C%BC%E9%95%9C%E7%9A%84%E7%9C%8B%E6%B3%95"><span class="toc-text">扎克伯格对时尚眼镜的看法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF%E7%9A%84%E6%BC%94%E5%8F%98%E4%B8%8E%E5%BD%B1%E5%93%8D"><span class="toc-text">计算技术的演变与影响</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E9%80%9A%E7%94%A8%E8%AE%A1%E7%AE%97%E5%88%B0%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD"><span class="toc-text">从通用计算到生成式人工智能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E9%80%A0%E6%80%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E6%BD%9C%E5%8A%9B"><span class="toc-text">创造性人工智能的潜力</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E7%BB%8F%E5%8E%86%E4%B8%8E%E5%85%AC%E5%8F%B8%E5%8F%91%E5%B1%95"><span class="toc-text">个人经历与公司发展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#NVIDIA%E4%B8%8EGPU%E7%9A%84%E5%8F%98%E9%9D%A9"><span class="toc-text">NVIDIA与GPU的变革</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%89%8E%E5%85%8B%E4%BC%AF%E6%A0%BC%E6%88%90%E5%B0%B1%E7%9A%84%E8%B5%9E%E8%B5%8F"><span class="toc-text">对扎克伯格成就的赞赏</span></a></li></ol></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+            <a title="email" href="mailto:mailto:blog@282994.xyz">
+              <i class="iconfont icon-envelope"></i>
+            </a>
+            
+        </li>
+        
+        <li>
+          
+              <a title="rss" href="/rss.xml">
+                <i class="iconfont icon-rss"></i>
+              </a>
+              
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a href="https://blog.282994.xyz">Copyright © 2024 Ame</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://www.travellings.cn/go.html">开往</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20239014">萌ICP备20239014</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+
+      </div>
+    </div>
+  
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,d=o();function o(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=o());for(var e,i=0;i<d.length;i++)0<=(e=(e=d[i]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,a,n,o=d[i];e=function(){d=d.filter(function(t){return o!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(o)},(t=o).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,n=t.getAttribute("data-original"),a.onload=function(){t.src=n,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=n},t.src!==n&&(a.src=n)))}()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)}(this);</script></body>
+</html>

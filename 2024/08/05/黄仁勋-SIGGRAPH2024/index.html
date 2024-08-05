@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Ame" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      黄仁勋 SIGGRAPH2024 
+      
+      
+      |
+    
+     Ame&#39;s Blog
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.ico">
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/rss.xml" title="Ame's Blog" type="application/rss+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Ame</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/SpaceX-Wiki/">
+          <a href="/SpaceX-Wiki/">SpaceX Wiki</a>
+        </li>
+      
+        <li class="nav-item" data-path="/study/">
+          <a href="/study/">Study</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">黄仁勋 SIGGRAPH2024</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2024-08-05 11:20:34
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E6%BC%94%E8%AE%B2/" title="演讲">
+                    <b>#</b> 演讲
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E9%BB%84%E4%BB%81%E5%8B%8B/" title="黄仁勋">
+                    #黄仁勋
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="主旨访谈"><a href="#主旨访谈" class="headerlink" title="主旨访谈"></a>主旨访谈</h1><h1 id="开场致辞"><a href="#开场致辞" class="headerlink" title="开场致辞"></a>开场致辞</h1><p>主持人：欢迎来到 SIGGRAPH。这是我第一次参加这个会议，我非常高兴能来到这里，与大家交流，特别是与 NVIDIA 的创始人兼首席执行官 Jensen Huang 进行对话。谢谢大家，很高兴见到你们。</p>
+<p>黄仁勋：欢迎来到 SIGGRAPH，Lauren。谢谢，欢迎来到我的社区。</p>
+<p>主持人：你是这里的常客。</p>
+<p>黄仁勋：大家好，很高兴见到你们。我穿了一件全新的皮夹克。</p>
+<p>主持人：哦，全新的？你有多少件？</p>
+<p>黄仁勋：我不知道，但 Lori 给我买了一件 SIGGRAPH 的新夹克。她说，你对 SIGGRAPH 很兴奋。这是一件新夹克。加油，好好干。我看起来很敏锐。谢谢。</p>
+<h1 id="SIGGRAPH-与-NVIDIA-的关系"><a href="#SIGGRAPH-与-NVIDIA-的关系" class="headerlink" title="SIGGRAPH 与 NVIDIA 的关系"></a>SIGGRAPH 与 NVIDIA 的关系</h1><h2 id="历史回顾"><a href="#历史回顾" class="headerlink" title="历史回顾"></a>历史回顾</h2><p>主持人：</p>
+<p>好的，你与 SIGGRAPH 合作了很长时间。当你回想这个会议的历史，自 1974 年以来一直在举办，再回顾 NVIDIA 从 1990 年代以来的历史，你的 DNA 真的融入了计算机图形学，帮助制作精美的图形。NVIDIA 今天参加像 SIGGRAPH 这样的会议有什么意义？</p>
+<h2 id="计算机图形学与生成式人工智能"><a href="#计算机图形学与生成式人工智能" class="headerlink" title="计算机图形学与生成式人工智能"></a>计算机图形学与生成式人工智能</h2><p>黄仁勋：</p>
+<p>SIGGRAPH 曾经是关于计算机图形学的，现在它涵盖了计算机图形学和生成式人工智能。它涉及模拟和生成式人工智能。我们都知道，NVIDIA 的旅程从计算机图形学开始，真正把我们带到了今天。所以我为你做了一个动画片，关于我们旅程的动画片。</p>
+<p>主持人：是你做的还是生成式人工智能做的？</p>
+<p>黄仁勋：我做了它。这就是 CEO 们所做的，我们什么也不做，只是让它完成。嘿，伙计们，如果我们有一幅动画片，描绘了计算机行业一些最重要的里程碑，以及它如何引领 NVIDIA 以及我们今天所处的位置，那不是很棒吗？所以我们描绘了……而且是在三个小时内完成的。非常感谢。而且是在三个小时内完成的，对吧。</p>
+<h1 id="计算机行业的里程碑"><a href="#计算机行业的里程碑" class="headerlink" title="计算机行业的里程碑"></a>计算机行业的里程碑</h1><h2 id="动画片内容"><a href="#动画片内容" class="headerlink" title="动画片内容"></a>动画片内容</h2><p>黄仁勋：这幅动画片真的很棒。这些是计算机行业一些最重要的时刻：IBM System 360，当然，现代计算的发明；茶壶，1975 年；犹他茶壶，1979 年；光线追踪。Turner Whitted 是一位伟大的研究人员，长期担任 NVIDIA 的研究员。1986 年，他提出了可编程着色的概念。如果没有可编程着色，我们今天看到的大多数动画电影都不可能实现。最初，这项技术是在 Cray 超级计算机上完成的。</p>
+<h2 id="NVIDIA-的发展历程"><a href="#NVIDIA-的发展历程" class="headerlink" title="NVIDIA 的发展历程"></a>NVIDIA 的发展历程</h2><p>黄仁勋：</p>
+<p>1993 年，NVIDIA 成立，Chris和我共同创立了这家公司。1995 年，Windows PC 的出现彻底改变了个人电脑行业，每个家庭和办公桌上都有了一台个人电脑，多媒体 PC 也随之被发明。2001 年，我们发明了第一款可编程着色 GPU，这在很大程度上推动了 NVIDIA 的发展。</p>
+<h1 id="NVIDIA-的技术革命"><a href="#NVIDIA-的技术革命" class="headerlink" title="NVIDIA 的技术革命"></a>NVIDIA 的技术革命</h1><h2 id="加速计算的理念"><a href="#加速计算的理念" class="headerlink" title="加速计算的理念"></a>加速计算的理念</h2><p>黄仁勋：</p>
+<p>我们所做的一切都是以加速计算为背景。我们相信可以创建一种增强通用计算的计算模型，从而解决普通计算机无法解决的问题。我们首先选择的应用程序是计算机图形学，这可能是我们做过的最好的决定之一，因为计算机图形学的计算密集程度极高。从计算机图形学诞生之日起，它就需要一台 Cray 超级计算机来渲染一些原始场景，这在某种程度上说明了其计算密集程度和容量的巨大。</p>
+<h2 id="3D-图形视频游戏的应用"><a href="#3D-图形视频游戏的应用" class="headerlink" title="3D 图形视频游戏的应用"></a>3D 图形视频游戏的应用</h2><p>黄仁勋：</p>
+<p>我们将计算机图形学应用于当时还不是主流的应用程序——3D 图形视频游戏。庞大的规模和复杂的计算问题导致我们需要投入巨大的研发预算，这推动了我们公司的飞轮。我们在 1993 年做出的观察是正确的，这让我们能够在加速计算领域开创先河。</p>
+<h1 id="CUDA-的革命"><a href="#CUDA-的革命" class="headerlink" title="CUDA 的革命"></a>CUDA 的革命</h1><h2 id="计算模型的演变"><a href="#计算模型的演变" class="headerlink" title="计算模型的演变"></a>计算模型的演变</h2><p>黄仁勋：</p>
+<p>我们尝试了很多次，CUDA 当然是革命性的版本。但在此之前，我们有一个称为 CG 的计算模型，C 代表图形，C 位于 GPU 之上。所以我们一直在加速计算方面工作，推广和宣传 CUDA，让 CUDA 无处不在，并将其放在我们每一个 GPU 上。这样，这个计算模型就可以与为其编写的任何应用程序兼容，无论我们的哪一代处理器。这是一个伟大的决定。</p>
+<h1 id="深度学习的突破"><a href="#深度学习的突破" class="headerlink" title="深度学习的突破"></a>深度学习的突破</h1><h2 id="AlexNet-的重要性"><a href="#AlexNet-的重要性" class="headerlink" title="AlexNet 的重要性"></a>AlexNet 的重要性</h2><p>黄仁勋：</p>
+<p>2012 年的一天，我们进行了第一次接触——星际迷航与人工智能的第一次接触。第一次接触是 AlexNet，那是在 2012 年。那是一个非常重要的时刻。我们观察到 AlexNet 是计算机视觉领域的一个令人难以置信的突破，但从本质上讲，深度学习意义深远。这是一种编写软件的新方法，工程师不再提供输入并想象输出结果，而是编写算法。我们现在有了一台计算机，给定输入和示例输出，它就会找出中间的程序是什么。这一观察，以及我们可以用这种技术解决一大堆以前无法解决的问题，是一个伟大的发现。我们改变了公司的一切以追求它。从处理器到系统，再到软件堆栈，所有的算法，NVIDIA 基础研究转向深度学习。顺便说一句，这是一个很棒的研究场所。</p>
+<h2 id="生成式人工智能的崛起"><a href="#生成式人工智能的崛起" class="headerlink" title="生成式人工智能的崛起"></a>生成式人工智能的崛起</h2><p>黄仁勋：</p>
+<p>如您所知，NVIDIA 对 SIGGRAPH 充满热情。今年我们有 20 篇论文处于生成式 AI 和模拟的交叉点。2016 年，我们推出了第一台为深度学习打造的计算机，我们称之为 DGX-1。我在公司外交付了第一台 DGX-1。我为 NVIDIA 构建了它，用于为自动驾驶汽车和机器人等构建模型，以及用于图形的生成式 AI。有人看到了 DGX-1 的示例。Elon 联系我说，他很想为他们正在创办的一家初创公司拥有其中之一。所以我将第一个交付给了当时没人知道的一家名为 OpenAI 的公司。那是 2016 年。</p>
+<h2 id="机器学习的飞跃"><a href="#机器学习的飞跃" class="headerlink" title="机器学习的飞跃"></a>机器学习的飞跃</h2><p>黄仁勋：</p>
+<p>2017 年是彻底改变现代机器学习、现代深度学习的一年。2018 年，就在 SIGGRAPH 上，我们宣布了 RTX，这是世界上第一个实时交互式光线追踪器、光线追踪平台。我们称之为 RTX。这是一个大事件，我们将 GTX（每个人都称我们的图形车为 GTX）的名称更改为 RTX。再次向一位伟大的研究人员致敬。他的名字是 Steven Parker。你们很多人都知道他已经参加 SIGGRAPH 很久了。他今年去世了。他是实时光线追踪背后的核心先驱研究人员之一。我们非常想念他。</p>
+<h1 id="RTX-的重要性"><a href="#RTX-的重要性" class="headerlink" title="RTX 的重要性"></a>RTX 的重要性</h1><p>主持人：去年您在 SIGGRAPH 主题演讲中提到，RTX（Ray Tracing Extreme）是计算机图形与 AI 相遇的重要时刻之一。但实际上，这种情况已经发生了一段时间。那么 2018 年的 RTX 有什么重要意义呢？</p>
+<h2 id="光线追踪的提升"><a href="#光线追踪的提升" class="headerlink" title="光线追踪的提升"></a>光线追踪的提升</h2><p>黄仁勋：</p>
+<p>2018 年的 RTX，我们加速了光线遍历和边界框检测，并且我们可以使用并行处理器来加速光线追踪。但即便如此，我们的光线追踪速度大约是每秒一帧，比如说，每秒 10 帧。可能每秒五帧，这取决于我们谈论的追踪光线数量。我们以 1080 分辨率进行追踪。显然，视频游戏需要的远不止这些。显然，实时图形需要的远不止这些。</p>
+<h2 id="光线追踪的意义"><a href="#光线追踪的意义" class="headerlink" title="光线追踪的意义"></a>光线追踪的意义</h2><p>黄仁勋：这群人肯定知道这意味着什么。但对于那些在线观看、不从事该领域的人来说，这基本上是一种在计算机图形中真正操纵光线的方法，模拟光线如何与环境互动，栩栩如生。在制作动画时，渲染过程通常需要很长时间。</p>
+<h2 id="RTX-的革新"><a href="#RTX-的革新" class="headerlink" title="RTX 的革新"></a>RTX 的革新</h2><p>黄仁勋：过去，Cray超级计算机只能渲染几个像素。现在，我们有了RTX来加速光线追踪，但它是交互式的、实时的，速度还不足以用于视频游戏。因此，我们意识到需要一个大的提升，可能提升20倍左右，甚至50倍左右。</p>
+<h1 id="DLSS-的发明"><a href="#DLSS-的发明" class="headerlink" title="DLSS 的发明"></a>DLSS 的发明</h1><h2 id="深度学习超采样"><a href="#深度学习超采样" class="headerlink" title="深度学习超采样"></a>深度学习超采样</h2><p>黄仁勋：为此，团队发明了DLSS，它基本上是渲染一个像素，同时使用AI</p>
+<p>推断出其他大量像素。我们教了一个AI，根据它所看到的内容，为其他所有部分填充像素。现在，我们能够以4K分辨率和每秒300帧的速度渲染完全光线追踪、完全路径追踪的模拟，这要归功于AI。</p>
+<h1 id="生成式-AI-的未来"><a href="#生成式-AI-的未来" class="headerlink" title="生成式 AI 的未来"></a>生成式 AI 的未来</h1><h2 id="AI-的跨模态理解"><a href="#AI-的跨模态理解" class="headerlink" title="AI 的跨模态理解"></a>AI 的跨模态理解</h2><p>黄仁勋：2018年到来了，2022年，ChatGPT问世了。ChatGPT是OpenAI推出的一项革命性的新功能，是AI和历史上增长最快的服务。自ChatGPT以来，业界和研究人员已经弄清楚了如何使用AI来学习一切，不仅仅是单词，还包括图像、视频、3D、化学物质、蛋白质、物理学、热力学、流体力学和粒子物理学的含义。AI已经理解了所有这些不同模态的含义。</p>
+<h2 id="生成式-AI-的应用"><a href="#生成式-AI-的应用" class="headerlink" title="生成式 AI 的应用"></a>生成式 AI 的应用</h2><p>黄仁勋：从那时起，我们不仅学会了它，现在还可以生成它。这就是为什么你可以从文本生成图像、3D模型、视频，甚至蛋白质和化学物质。生成式AI已经成为可能，这确实是我们所处的革命性时代。几乎每个行业都会受到影响，无论是科学计算、天气预测、图像生成，还是工业数字化生成虚拟场景。机器人和自动驾驶汽车也将通过生成式人工智能进行变革。</p>
+<h2 id="软件开发的新方式"><a href="#软件开发的新方式" class="headerlink" title="软件开发的新方式"></a>软件开发的新方式</h2><p>黄仁勋：我们现在处于一种全新的做事方式中。劳伦，让我快速介绍一下我们从哪里开始。1964年，软件的编程方式是由人类工程师编写软件。现在，我们的机器正在学习如何编写软件，编写人类无法编写的软件，解决我们以前几乎无法想象的问题。因为有了生成式人工智能，我们有了一种开发软件的新方法。</p>
+<h2 id="软件-3-0-的到来"><a href="#软件-3-0-的到来" class="headerlink" title="软件 3.0 的到来"></a>软件 3.0 的到来</h2><p>黄仁勋：你知道Andrej Karpathy吗？他是一位非常出色的研究员。我在斯坦福大学时认识了他，他创造了开发软件的原始方式，软件1.0，而机器学习是软件2.0。我们现在正走向软件3.0时代，这一切都得益于生成式人工智能。在未来，研究人员不再需要为每个新项目从头开始学习机器学习，而是可以从预先训练的基础模型开始。这些模型已经经过大量训练，具备了广泛的知识和能力。</p>
+<h2 id="未来的软件开发模式"><a href="#未来的软件开发模式" class="headerlink" title="未来的软件开发模式"></a>未来的软件开发模式</h2><p>黄仁勋：开发软件的方式也在发生变化，越来越像是组建一支由各种人工智能专家组成的团队。这些专家有的使用工具，有的能够生成特定内容，还有一个通用人工智能，擅长推理和连接整个人工智能网络，解决团队面临的问题。因此，软件3.0已经到来。</p>
+<hr>
+<p>主持人：最近与你交谈时，我感受到你对生成式人工智能工具的未来持乐观态度。你认为这些工具将变得更可控、更准确。我们都知道，目前存在幻觉、低质量输出等问题，用户可能无法得到他们期望的结果。同时，这些工具消耗大量能源，我们也需要讨论这一点。你为什么如此乐观？你认为是什么推动生成式人工智能变得更加有用和可控？</p>
+<h1 id="ChatGPT-和生成式-AI-的突破"><a href="#ChatGPT-和生成式-AI-的突破" class="headerlink" title="ChatGPT 和生成式 AI 的突破"></a>ChatGPT 和生成式 AI 的突破</h1><h2 id="强化学习人类反馈"><a href="#强化学习人类反馈" class="headerlink" title="强化学习人类反馈"></a>强化学习人类反馈</h2><p>黄仁勋：ChatGPT的重大突破在于强化学习人类反馈，即利用人类来产生正确或最佳答案，使人工智能与我们的核心价值观保持一致，或与我们希望它执行的技能保持一致。这可能是他们能够向所有人开放ChatGPT的非凡突破。从那时起，其他突破也随之而来。</p>
+<h2 id="护栏技术"><a href="#护栏技术" class="headerlink" title="护栏技术"></a>护栏技术</h2><p>黄仁勋：首先是护栏技术，它使人工智能将精力或反应集中在特定领域，避免走神或对各种问题发表长篇大论。它只会专注于被训练过的内容、适合执行的任务以及它拥有深厚知识的领域。</p>
+<h2 id="检索增强生成技术"><a href="#检索增强生成技术" class="headerlink" title="检索增强生成技术"></a>检索增强生成技术</h2><p>黄仁勋：第二个突破是检索增强生成技术，它基本上是将数据矢量化或嵌入，以便我们理解这些数据的含义。超越了训练数据集，实际上从其他来源提取数据。例如，它可能是你写过的所有文章和论文。这样，它就变成了一个对你有权威的人工智能，可能是你的聊天机器人。</p>
+<h2 id="3D-增强生成技术"><a href="#3D-增强生成技术" class="headerlink" title="3D 增强生成技术"></a>3D 增强生成技术</h2><p>黄仁勋：因此，我写过或说过的所有内容都可以矢量化，然后创建到语义数据库中。在AI做出响应之前，它会查看你的提示，并从该矢量数据库中搜索适当的内容，然后在生成过程中对其进行扩充。这三种技术的结合确实使我们能够对文本进行这种操作。</p>
+<h1 id="Edify-AI-模型与-Omniverse-的应用"><a href="#Edify-AI-模型与-Omniverse-的应用" class="headerlink" title="Edify AI 模型与 Omniverse 的应用"></a>Edify AI 模型与 Omniverse 的应用</h1><h2 id="生成-2D-图像"><a href="#生成-2D-图像" class="headerlink" title="生成 2D 图像"></a>生成 2D 图像</h2><p>黄仁勋：现在，真正酷的是，我们开始弄清楚如何用视觉效果做到这一点。SIGGRAPH大会确实与图像和生成有很大关系。如果你查看当今的生成AI，你可以给它一个提示，然后它会生成相应的内容。在这个特定情况下，这是NVIDIA创建的Edify AI模型，这是一个2D、文本到2D的基础模型，它是多模式的。我们与 Getty 合作，使用他们的数据库来训练 AI 模型。这是一个从文本到二维图像的过程。</p>
+<h2 id="生成-3D-图像与-Omniverse"><a href="#生成-3D-图像与-Omniverse" class="headerlink" title="生成 3D 图像与 Omniverse"></a>生成 3D 图像与 Omniverse</h2><p>黄仁勋：使用文字来微调图像非常困难，因为文字的维度非常低，内容极其压缩且不精确。因此，我们很难控制生成的图像。为了解决这个问题，我们创建了一种方法，使我们能够控制和调整更多条件。我们的方法是创建另一个模型，例如，一个允许我们将文本转换为三维的模型。最底层的模型叫做 Edify 3D，是我们的基础模型之一。</p>
+<h1 id="生成式-AI-对物理世界的影响"><a href="#生成式-AI-对物理世界的影响" class="headerlink" title="生成式 AI 对物理世界的影响"></a>生成式 AI 对物理世界的影响</h1><h2 id="机器人技术的应用"><a href="#机器人技术的应用" class="headerlink" title="机器人技术的应用"></a>机器人技术的应用</h2><p>黄仁勋：我们将谈谈机器人技术。但有一件事我很想向你展示，这不是我自己做的。好吧。这是一个令人难以置信的视频，是 WPP、Shutterstock 与一些世界知名品牌合作完成的作品。让我们播放视频。</p>
+<h2 id="从生成到现实的应用"><a href="#从生成到现实的应用" class="headerlink" title="从生成到现实的应用"></a>从生成到现实的应用</h2><p>黄仁勋：这难道不令人难以置信吗？事情就是这样的。我们教会了人工智能如何使用OpenUSD。于是，女孩开始与Omniverse对话。Omniverse生成USD，然后使用USD搜索其3D对象目录，利用文字构建场景。生成式人工智能利用这种增强来生成和调节生成过程。因此，你的工作可以得到更好的控制。你甚至可以与他人合作，因为你可以在Omniverse中合作，在3D中合作。在2D中很难合作，所以我们可以在3D中合作，增强生成过程。</p>
+<h1 id="生成式人工智能的未来展望"><a href="#生成式人工智能的未来展望" class="headerlink" title="生成式人工智能的未来展望"></a>生成式人工智能的未来展望</h1><h2 id="人工智能助手的普及"><a href="#人工智能助手的普及" class="headerlink" title="人工智能助手的普及"></a>人工智能助手的普及</h2><p>黄仁勋：未来，我将推动一大批人工智能的发展。每个人都会拥有一个人工智能助手。因此，每家公司、公司内的每个工作岗位都会拥有人工智能助手。正如你所知，我们的软件程序员现在拥有帮助他们编程的人工智能。我们所有的软件工程师都有帮助他们调试软件的人工智能。我们有人工智能帮助我们的芯片设计师设计芯片。没有人工智能，Hopper 和 Blackwell 就不可能实现。</p>
+<h2 id="Omniverse-和-AI-的结合"><a href="#Omniverse-和-AI-的结合" class="headerlink" title="Omniverse 和 AI 的结合"></a>Omniverse 和 AI 的结合</h2><p>黄仁勋：因此，如果没有生成式 AI，我们所做的任何工作都不可能再实现。我们的 IT 部门正在越来越多地帮助员工提高工作效率。我们的供应链团队正在越来越多地优化供应，以尽可能提高效率。我们的数据中心团队也在使用 AI 来管理数据中心，以尽可能节省能源。</p>
+<h2 id="数字代理与客户服务"><a href="#数字代理与客户服务" class="headerlink" title="数字代理与客户服务"></a>数字代理与客户服务</h2><p>黄仁勋：我们本周在此宣布的一件事是数字代理、数字 AI 的概念，它将增强公司中的每一项工作。人们发现的最重要的用例之一就是客户服务。每个团体、每个公司都有客户服务，每个行业也都有客户服务。在今天，客户服务主要由人类完成，但在未来，我猜测仍然会是人类主导，但会有AI的参与。</p>
+<h2 id="AI-驱动的客户服务"><a href="#AI-驱动的客户服务" class="headerlink" title="AI 驱动的客户服务"></a>AI 驱动的客户服务</h2><p>黄仁勋：这样做的好处是，您将能够保留所有客户服务代理的经验，并获取机构知识，然后将其用于分析，从而为客户创建更好的服务。刚才我向您展示了Omniverse增强图像生成。这是一种RAG（检索增强生成AI）。我们正在创建的客户服务，基本上是位于云端的微服务。我认为它今天或明天就可以使用了，您可以来尝试一下。</p>
+<h2 id="开放平台与创新"><a href="#开放平台与创新" class="headerlink" title="开放平台与创新"></a>开放平台与创新</h2><p>黄仁勋：我们将一个数字人前端连接到它，基本上是一个IO（输入输出），一个能够说话、与你眼神交流、以共情的方式进行动画处理的人工智能IO。您可以决定将您的ChatGPT或人工智能连接到数字人，或者将您的数字人连接到我们的检索增强生成客户服务人工智能。无论您喜欢怎么做，我们都是一家平台公司，所以无论您想使用哪个部分，它们都是完全开源的，您可以选择使用您喜欢的部分。</p>
+<h2 id="AI-制作动画的可能性"><a href="#AI-制作动画的可能性" class="headerlink" title="AI 制作动画的可能性"></a>AI 制作动画的可能性</h2><p>黄仁勋：如果您想要我们为渲染美丽的面孔而创建的令人难以置信的数字人渲染技术，这需要使用路径跟踪的次表面散射，那么这一突破真的相当不可思议。这让我们能够实现出色的图形研究。欢迎来到SIGGRAPH 2024。因此，使用AI制作动画成为可能。您可以与AI聊天，它会生成文本，然后将文本转换为声音，再将文本转换为语音，再将语音转换为声音，然后为面部添加动画，最后通过RTX路径跟踪渲染数字人。所有这些都可供开发人员使用，您可以决定要使用哪些部分。</p>
+<hr>
+<h1 id="道德问题与技术发展"><a href="#道德问题与技术发展" class="headerlink" title="道德问题与技术发展"></a>道德问题与技术发展</h1><h2 id="道德问题的讨论"><a href="#道德问题的讨论" class="headerlink" title="道德问题的讨论"></a>道德问题的讨论</h2><p><strong>主持人：</strong> 您如何看待这样的道德问题？您正在向开发人员、图形艺术家发布这项技术，但这些技术正在被推向世界。您认为像这样的聊天机器人，一个非常像人类的视觉聊天机器人，应该明确说明它是一个聊天机器人吗？它是否太像人类以至于人们开始误以为它是人类？他们在情感上容易受到聊天机器人的影响。</p>
+<p><strong>黄仁勋：</strong> 它仍然非常像机器人，我认为这并不是一件可怕的事情。我们将在一段时间内成为机器人。我认为我们已经让这项数字人技术变得非常逼真，但你我都知道它仍然是一个机器人。所以我认为这并不是一个糟糕的方法。</p>
+<p>事实上，在很多不同的应用中，人类的参与更有吸引力。拥有一个人类代表或接近人类的代表，而不是一个文本框，可能更有吸引力。也许有人需要陪伴，或者医疗保健需要为刚回家的门诊病人提供建议，帮助老人。这些都有很多应用场景。教育孩子的导师也是一个很好的例子。</p>
+<p>所有这些不同的应用程序最好有一个更人性化的人，能够与观众建立联系。</p>
+<h2 id="软件与硬件的战略"><a href="#软件与硬件的战略" class="headerlink" title="软件与硬件的战略"></a>软件与硬件的战略</h2><p><strong>主持人：</strong> 这很有趣。我听到您今天经常谈论的是软件开发。他们依赖于你的GPU，但最终这是软件。这是NVIDIA进一步向上发展的方向。与此同时，有些公司在生成AI领域从事软件和云服务，但他们希望进一步向下发展，可能正在开发自己的芯片或TPU，与NVIDIA竞争。这种软件战略对于NVIDIA保持领先地位并实现人们对NVIDIA的增长预期有多重要？</p>
+<p><strong>黄仁勋：</strong> 我们一直是一家软件公司，甚至是第一家。原因在于加速计算不是通用计算。通用计算可以采用任何C程序、C++程序、Python并运行它，几乎每个人的程序都可以编译并有效运行。不幸的是，当您想要加速流体动力学时，您必须了解流体动力学的算法，以便重构它以实现加速。您必须设计一个加速器，设计CUDA GPU，使其了解算法，以便能够很好地加速它。</p>
+<p>这样做的好处是，通过重新设计整个堆栈，我们可以将应用程序加速20、40、50倍，甚至100倍。例如，我们刚刚将NVIDIA GPU放入GCP中，运行Pandas，这是世界领先的数据科学平台。我们的速度比通用计算快了50到100倍。就深度学习而言，在过去10到12年里，我们将深度学习的速度提高了一百万倍。这就是我们现在能够创建这些大型语言模型的原因。速度提高了一百万倍，成本和能源降低了一百万倍，这使我们能够实现生成式人工智能。</p>
+<p>但这是通过设计一种新的处理器、一种新的系统、Tensor Core GPU、NVLink交换结构来实现的，这对于人工智能来说是完全开创性的。当然，系统本身、算法、我们称之为Megatron的分布式计算库（每个人都在使用）、Tensor RT、LLM，这些都是算法。如果你不了解算法和上面的应用程序，就很难弄清楚如何设计整个堆栈。</p>
+<h2 id="软件生态系统的重要性"><a href="#软件生态系统的重要性" class="headerlink" title="软件生态系统的重要性"></a>软件生态系统的重要性</h2><p><strong>主持人：</strong> NVIDIA软件生态系统中对NVIDIA未来最重要的部分是什么？</p>
+<p><strong>黄仁勋：</strong> 每一个领域都需要一个新的库，我们称之为DSL，即领域特定库。在生成式AI中，该DSL称为CUDNN。对于SQL处理数据帧，它被称为CUDF。因此，如果您使用SQL、Pandas，CUDF使我们能够加速这一过程。对于量子模拟，它被称为QQuantum。QFFT，我们有很多Q。计算光刻，这使我们能够帮助行业推进下一代工艺技术QLitho。Q的数量还在不断增加。每次我们引入领域特定库时，它都会将加速计算推向新市场。因此，需要这种协作、完整的库堆栈、架构、上市、开发人员和周围的生态系统来开辟一个新领域。这不仅仅是构建加速器，还必须构建整个堆栈。</p>
+<h2 id="未来的挑战与展望"><a href="#未来的挑战与展望" class="headerlink" title="未来的挑战与展望"></a>未来的挑战与展望</h2><p><strong>主持人：</strong> NVIDIA 依赖于许多事情的顺利进行。你的未来探索和创新也依赖于许多事情的顺利进行。你必须继续推动物理定律，因为你的竞争对手总是紧随其后。我们已经讨论过这个问题，是什么让你夜不能寐。你也在一定程度上依赖地缘政治的稳定。</p>
+<p>昨晚，我因为海拔问题感到不适，喝了点水，但为时已晚。当我今天早上得知这件事时，我醒来时头痛欲裂。海拔问题确实影响了我(观众笑）</p>
+<p>但实际上，你必须继续推动物理定律。你的竞争对手总是紧随其后，无论是在软件方面还是硬件方面。你在一定程度上依赖南海的地缘政治稳定。地缘政治现在发生了很多事情。</p>
+<p>你提醒了我，建立一家公司非常困难。你让我很紧张，我以前还好。我们还有很多事情要做。我正在给你看幻灯片。</p>
+<h2 id="未来的展望"><a href="#未来的展望" class="headerlink" title="未来的展望"></a>未来的展望</h2><p><strong>主持人：</strong> 说实话，你经历了很多顺风。你对事情会继续朝着你的方向发展有多乐观？</p>
+<p><strong>黄仁勋：</strong> 事情从未朝着我们的方向发展。你必须将未来变为现实。</p>
+<p>加速计算，世界需要通用计算。原因是它很容易。你只需要软件，它每年的运行速度就会翻倍。甚至不要考虑它。每五年就快十倍，每十年就快一百倍。有什么不喜欢的？但是，当然，你可以缩小晶体管，但不能缩小原子。最终，CPU架构走到了尽头。因此，通用仪器可以擅长一切，这已经不再明智了，因为技术并没有给我们带来这些飞跃。它可以擅长从深度学习到量子模拟到分子动力学到流体动力学到计算机图形学的这些令人难以置信的事情。因此，我们创建了这个加速计算架构来实现这一点。</p>
+<p>但那场战斗，那是逆风。你明白我的意思吗？因为通用计算是实现这一目标的简单方法。我们已经做了60年，为什么不继续做下去呢？因此，加速计算之所以成为可能，是因为我们提供了如此非凡的加速。在能源越来越稀缺的时代，在我们不再能仅仅依靠CPU曲线的时代，Dennard缩放定律已经真正终结了。因此，我们需要另一种方法，这就是我们在这里的原因。</p>
+<p>但请注意，每次我们想要开拓一个新市场，比如QDF，为了进行数据处理，数据处理可能占世界计算的三分之一，每家公司都进行数据处理，大多数公司的数据都是数据框中的表格格式。为了创建表格格式的加速库非常困难，因为这些表格中的内容可能是浮点数、64位整数，可能是数字和字母以及各种各样的东西，所以我们必须想出一种方法来计算所有这些。几乎每次我们想要发展成某种东西，都必须去学习它。这就是我们研究机器人的原因，也是我们研究自动驾驶汽车的原因。我们需要了解开拓该市场所必需的算法，了解其下的计算层，以便能够提供非凡的结果。</p>
+<p>每次我们开拓一个新市场，无论是医疗保健还是数字生物学，我们都需要重新发明计算的一切。例如，我们在基因测序方面使用了 BioNemo 和 Parabricks，取得了惊人的成果。因此，这并不容易。</p>
+<hr>
+<h1 id="人工智能助手与能源问题"><a href="#人工智能助手与能源问题" class="headerlink" title="人工智能助手与能源问题"></a>人工智能助手与能源问题</h1><h2 id="主持人开场"><a href="#主持人开场" class="headerlink" title="主持人开场"></a>主持人开场</h2><p>主持人：你的工作非常辛苦。但人工智能助手会让事情变得更容易。现在，让我们谈谈能源问题。生成式人工智能非常耗能。根据一些研究，ChatGPT 处理一个查询所消耗的电力几乎是处理单个谷歌搜索的 10 倍。数据中心消耗全球总能源的 1% 到 2%，但有人说可能会高达 3% 到 4%，甚至到本世纪末可能会高达 6%。从 2015 年到 2019 年，数据中心的工作量增加了两倍，而人工智能，特别是生成式人工智能，占据了其中很大一部分。</p>
+<p>是否有足够的能源来满足我们想要构建和实现的目标？</p>
+<h2 id="黄仁勋的回答"><a href="#黄仁勋的回答" class="headerlink" title="黄仁勋的回答"></a>黄仁勋的回答</h2><h3 id="模型制造商和计算负荷增长"><a href="#模型制造商和计算负荷增长" class="headerlink" title="模型制造商和计算负荷增长"></a>模型制造商和计算负荷增长</h3><p>黄仁勋：是的。首先，几年前只有两三个或三四个模型制造商在推动前沿发展。今年，这个数字可能增加了三倍，但仍然是个位数，大约有十个模型制造商在推动模型的发展。模型的规模每年都会扩大一倍，甚至更快。为了训练一个两倍大的模型，需要两倍以上的数据。因此，计算负荷每年可能增长四倍。</p>
+<h3 id="加速计算与能源节省"><a href="#加速计算与能源节省" class="headerlink" title="加速计算与能源节省"></a>加速计算与能源节省</h3><p>我们使用相同的能量加速了应用程序，这是一个以恒定的能量和成本加速应用程序的例子，使其越来越便宜。现在，重要的是，我只强调了 10 家公司。世界上有大量的公司和数据中心，NVIDIA 正在向许多公司出售 GPU。这标志着 CPU 扩展的结束，加速计算、数据处理、文本完成、语音识别等基本人工智能任务在全球数据中心的开始。每个人都在从 CPU 转向加速计算，因为他们想节省能源。加速计算可以帮助节省大量能源，能够以 20 倍、50 倍的效率完成同样的处理。因此，作为一个社会，我们要做的第一件事就是加速我们能用到的每一个应用程序。如果你在进行 Spark 数据处理，那么就使用加速的 Spark 来运行，这样可以将所需的能量减少 20 倍。如果你在进行 SQL 处理，那么就使用加速的 SQL，这样可以将功耗减少 20 倍。因此，如果你在进行天气模拟，就加速它。无论你在进行什么科学模拟，都要加速它。图像处理也要加速。许多应用程序过去都在 CPU 和通用计算机上运行，所有这些在未来都应该加速发展。这是正在发生的第一件事。</p>
+<h3 id="生成式人工智能与能源消耗"><a href="#生成式人工智能与能源消耗" class="headerlink" title="生成式人工智能与能源消耗"></a>生成式人工智能与能源消耗</h3><p>那么，这是否会减少全世界使用的能源量？当然。我们的 GPU 密度和加速计算密度更高，能量密度更高，这是正在发生的第一件事。接下来是生成式人工智能。生成式人工智能可能正在消耗大约世界能源的 1%。但请记住，即使数据中心消耗了全球的 4%，生成式人工智能的目标也不是训练，而是推理。通过推理，我们可以创建新的模型来预测天气、预测新材料，优化供应链，减少交付产品时消耗的能源和浪费的汽油。因此，我们的目标实际上是减少 96% 的能源消耗。</p>
+<h3 id="纵向思考人工智能的社会贡献"><a href="#纵向思考人工智能的社会贡献" class="headerlink" title="纵向思考人工智能的社会贡献"></a>纵向思考人工智能的社会贡献</h3><p>因此，非常重要的是，你必须从纵向的角度来思考人工智能，不仅仅是上学，还要考虑上学后会发生什么。你和我都上过斯坦福大学。斯坦福并不便宜。不过，我认为你学的东西略有不同。是的，当然。这是一所大学校。这对你来说很好，对我们俩来说也很好。所以，目标当然是上学很重要，但真正重要的是毕业后，以及我们能够为社会做出的所有贡献。生成式人工智能将提高生产力，使我们能够发现新科学，使事物更节能。</p>
+<h3 id="基于检索的计算与生成式人工智能"><a href="#基于检索的计算与生成式人工智能" class="headerlink" title="基于检索的计算与生成式人工智能"></a>基于检索的计算与生成式人工智能</h3><p>关于生成式人工智能我接下来要说的是，记住，传统的计算方式称为基于检索的计算。一切都是预先录制好的。所有故事、图像和视频都是预先录制的，并存储在某个数据中心。生成式人工智能减少了能源消耗。需要检索某些内容并将其通过网络传输。别忘了，数据中心并不是唯一消耗能源的地方。世界上的数据中心只占总计算量的 40%。60%的能源消耗在互联网上，主要用于移动电子设备、比特和字节的传输。因此，生成式人工智能将减少互联网上的能源消耗，因为我们不必去检索信息，而是可以当场生成信息。我们的设备上可能已经有了一些内容，我们可以生成响应，这样就不必去其他地方检索它了。</p>
+<h3 id="数据中心选址与能源利用"><a href="#数据中心选址与能源利用" class="headerlink" title="数据中心选址与能源利用"></a>数据中心选址与能源利用</h3><p>此外，这其中的一部分也涉及到移动原子。最后我要告诉你一件事，记住，人工智能不在乎它在哪里上学。今天的数据中心建在社会所在的电网附近，因为那是我们需要它的地方。在未来，你会看到有多余的能源。将这些能源带给社会需要花费很多钱。也许这些能源在沙漠里，也许在拥有大量可持续能源的地方，但这并不是很有吸引力，因为它们已经消耗了大量的水，而这些水很多是不能饮用的。</p>
+<p>因此，我们可以使用这些水，将数据中心设在人口较少、能源较多的地方。我们已经说过，大量的能量来自太阳，世界上有很多能量。我们需要做的是将数据中心迁移到更靠近能源过剩的地方，而不是将所有数据中心都建在人口稠密的地方。人工智能并不关心它在哪里接受训练。我以前从未听过这句话，AI不在乎它在哪里上学，这很有趣。是的，这是真的，我会考虑一下。</p>
+<p>不过，计算碳排放量的一部分是计算能源。不要将能源转移到数据中心，而是在数据中心所在的地方使用能源。然后，当你完成后，你会有一个高度压缩的模型，它本质上是所有使用过的能量的压缩。我们可以采用该模型并将其带回来。</p>
+<p>主持人：接下来，我们可以谈谈下一波。</p>
+<h1 id="加速计算的重要性"><a href="#加速计算的重要性" class="headerlink" title="加速计算的重要性"></a>加速计算的重要性</h1><p>第一波，当然，第一波是加速计算。我知道她是采访者，我们按照她的条件进行，但是，劳伦，我们需要告诉这个小组我们正在做的工作，这真的非常重要。</p>
+<h2 id="开源与人工智能的民主化"><a href="#开源与人工智能的民主化" class="headerlink" title="开源与人工智能的民主化"></a>开源与人工智能的民主化</h2><p>我有很多好问题要问你。我想问你关于开源的问题，我想你会和马克谈论这个话题。</p>
+<p>顺便说一句，开源真的很重要。这太不可思议了。是的，如果没有开源，所有这些行业和公司如何能够参与人工智能？</p>
+<p>黄仁勋：看看所有的公司和不同的行业，他们今天都在使用Llama 2。Llama 3.1刚刚问世，人们对此非常兴奋。我们已经让人工智能民主化，让每个行业都参与到人工智能中来。但我想说的是，第一波是加速人工智能，它使我们能够满足持续的计算需求，而无需所有计算能力随之增长。所以，第一，加速一切。它让我们拥有生成式人工智能。生成式人工智能，第一波，当然是所有先驱者。我们知道，许多先驱者如OpenAI、Anthropic、谷歌和微软等一大批了不起的公司都在致力于这项工作。X公司也在进行这项工作，X.AI公司同样在进行这项工作。这些了不起的公司正在推动这一进程。</p>
+<h1 id="下一波人工智能的应用"><a href="#下一波人工智能的应用" class="headerlink" title="下一波人工智能的应用"></a>下一波人工智能的应用</h1><h2 id="客户服务与协作式人工智能"><a href="#客户服务与协作式人工智能" class="headerlink" title="客户服务与协作式人工智能"></a>客户服务与协作式人工智能</h2><p>我们即将实现的下一波人工智能将应用于客户服务领域，我们希望每个组织都能创建自己的人工智能系统。这样，每个人都会得到增强，拥有一个可以赋予他们权力、帮助他们更好地工作的协作式人工智能。</p>
+<h2 id="物理人工智能的发展"><a href="#物理人工智能的发展" class="headerlink" title="物理人工智能的发展"></a>物理人工智能的发展</h2><p>接下来的下一波人工智能被称为物理人工智能，这确实非常了不起。这就是我们需要三台计算机的原因。一台计算机用于创建，另一台计算机用于模拟AI，两者都使用合成数据生成，以及AI机器人、人形机器人或操控机器人可以学习如何改进其AI的地方。第三台计算机则是实际运行AI的计算机。因此，这是一个三台计算机的问题，也可以称为三体问题。它非常复杂，我们创建了三台计算机来解决这个问题。</p>
+<h1 id="NVIDIA的物理人工智能平台"><a href="#NVIDIA的物理人工智能平台" class="headerlink" title="NVIDIA的物理人工智能平台"></a>NVIDIA的物理人工智能平台</h1><h2 id="视频介绍"><a href="#视频介绍" class="headerlink" title="视频介绍"></a>视频介绍</h2><p>我们制作了一个视频，帮助您理解这一点。在每一台计算机中，无论是使用软件堆栈、顶层算法，还是计算基础设施、机器人的处理器，或者在其上运行的功能安全操作系统，或者在其上运行的人工智能和计算机视觉模型，甚至仅仅是计算机本身的任何部分、任何层次，我们</p>
+<p>都会制作一个简短的视频。让我们来看看。</p>
+<h2 id="视频画外音"><a href="#视频画外音" class="headerlink" title="视频画外音"></a>视频画外音</h2><p>视频画外音：物理人工智能时代已经到来。物理人工智能，即能够理解并与物理世界互动的模型，将体现在机器人身上。许多将是人形机器人。开发这些先进的机器人非常复杂，需要跨各种计算基础设施的大量数据和工作负载协调。</p>
+<p>NVIDIA致力于通过三个计算平台（NVIDIA AI、Omniverse和Jetson Thor）以及支持AI的生成式开发者工具来简化和加速开发者工作流程。为了加速通用人形机器人基础模型Project Root，NVIDIA研究人员捕捉人类演示，看到机器人的手在物理世界的空间叠加。然后，他们使用集成到NVIDIA iZakLab中的计算机模拟框架RoboCasa来生成大量环境和布局。他们使用MimicGenMim增加数据大小，这有助于他们根据少量原始捕获生成大规模合成运动数据集。他们使用结合的真实和合成数据集在NVIDIA DGX Claude上训练Groot模型。接下来，他们在Jetson Thor上执行软件在环分析和硬件在环验证，然后将改进的模型部署到真实机器人上。NVIDIA Osmo Robotics云计算编排服务在整个工作流程中管理跨分布式资源的作业分配和扩展。这些计算平台共同赋能全球开发者，将我们带入物理、人工智能驱动的时代。</p>
+<h2 id="SIGGRAPH-会议的重要性"><a href="#SIGGRAPH-会议的重要性" class="headerlink" title="SIGGRAPH 会议的重要性"></a>SIGGRAPH 会议的重要性</h2><p>在这次会议上，SIGGRAPH 是所有这些技术汇集的地方。无论是计算机图形学、模拟、人工智能还是机器人技术，所有这些都在 SIGGRAPH 汇聚。这就是我认为你应该来 SIGGRAPH 的原因。</p>
+<p>我很高兴，也很激动。环顾四周，世界上 100% 的科技媒体都应该来 SIGGRAPH。我们可以支持这一点。昨晚我去展览楼上看了一些艺术展品，真的很棒，特别是那个字面上的垃圾邮件机器人，不管是谁创建的。</p>
+<h3 id="SIGGRAPH-Spotlight-播客推荐"><a href="#SIGGRAPH-Spotlight-播客推荐" class="headerlink" title="SIGGRAPH Spotlight 播客推荐"></a>SIGGRAPH Spotlight 播客推荐</h3><p>在此之前，我听过 SIGGRAPH Spotlight 播客，如果大家还没有听过，我真的推荐它。特别项目主席正在采访几位图形设计传奇人物，其中包括 David M.。David M. 讨论了一件事：档案。这对这群人来说是一个存在主义问题，但人们正在创造这种真正令人惊叹的数字媒体，所有这些计算机图形。你正在用你的技术加速它。它改变了人们构建一切的方式，面向未来。文件格式、档案、访问所有这些工作都面向未来。</p>
+<hr>
+<h1 id="机器人与艺术的未来"><a href="#机器人与艺术的未来" class="headerlink" title="机器人与艺术的未来"></a>机器人与艺术的未来</h1><p>主持人：机器人将继续存在，我并不担心他们会接管一切。人们正在创作的艺术呢？</p>
+<p>黄仁勋：这是一个存在的问题，也是一个非常好的问题。我们深信不疑的格式之一就是 OpenUSD。OpenUSD 是第一种将几乎所有工具的多模态性整合在一起的格式，允许它们交互、组合在一起、进出这些虚拟世界。因此，理想情况下，随着时间的推移，您可以将几乎任何格式引入其中。</p>
+<p>在这次会议上，我们宣布通用机器人数据格式 URDF 现在与 OpenUSD 兼容，或者可以将其引入 OpenUSD。因此，我们将把一种又一种格式都纳入这种通用语言。使用标准是允许内容和数据共享、允许每个人协作并永久存在的最佳方式之一。例如，HTML。如果没有 HTML，那么来自世界各地的所有这些不同内容都很难被所有人访问。因此，在很多方面，OpenUSD 就是虚拟世界的 HTML。</p>
+<p>我们也是这项计划的早期推动者。有很多出色的公司加入了，还有许多其他公司正在加入。我的期望是世界上每一个设计工具都能够连接到 OpenUSD。一旦连接到这个虚拟世界，您就可以在任何地方使用任何其他工具与任何人联系，就像我们对 HTML 所做的那样。</p>
+<p>主持人：你说这个内容可以永远存在。你要打造一个永远存在的 Jensen AI 吗？</p>
+<p>黄仁勋：当然，有一个 Jensen AI。事实上，我说过的一切，写过的一切以及做过的一切，都可能被吸收到这些生成性工具中。我认为聪明的说法是正确的。</p>
+<p>主持人：因此，Jensen AI 将来会负责召开您的财报电话会议。</p>
+<p>黄仁勋：但愿如此。这是必须要做的第一件事，也是机器人需要做的第一件事。</p>
+<p>主持人：Jensen，非常感谢你。我想我们可能很快就会被赶下舞台了。但您很快就会和马克·扎克伯格一起回来。谢谢大家，我们马上回来。</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2024/07/06/OpenAI-%E8%81%94%E5%90%88%E5%88%9B%E5%A7%8B%E4%BA%BA-Andrej-Karpathy-%E5%9C%A8-2024-%E5%B9%B4%E5%8A%A0%E5%B7%9E%E5%A4%A7%E5%AD%A6%E4%BC%AF%E5%85%8B%E5%88%A9%E5%88%86%E6%A0%A1%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E9%BB%91%E5%AE%A2%E9%A9%AC%E6%8B%89%E6%9D%BE%E9%A2%81%E5%A5%96%E5%85%B8%E7%A4%BC%E4%B8%8A%E7%9A%84%E4%B8%BB%E9%A2%98%E6%BC%94%E8%AE%B2-%E8%AF%91/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2024-08-05 11:20:34
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E6%BC%94%E8%AE%B2/" title="演讲">
+                        <b>#</b> 演讲
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E9%BB%84%E4%BB%81%E5%8B%8B/" title="黄仁勋">
+                        #黄仁勋
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2024/08/05/%E9%9B%B7%E5%86%9B%E5%B9%B4%E5%BA%A6%E6%BC%94%E8%AE%B22024/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BB%E6%97%A8%E8%AE%BF%E8%B0%88"><span class="toc-text">主旨访谈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%9C%BA%E8%87%B4%E8%BE%9E"><span class="toc-text">开场致辞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SIGGRAPH-%E4%B8%8E-NVIDIA-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">SIGGRAPH 与 NVIDIA 的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%86%E5%8F%B2%E5%9B%9E%E9%A1%BE"><span class="toc-text">历史回顾</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B8%8E%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD"><span class="toc-text">计算机图形学与生成式人工智能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A1%8C%E4%B8%9A%E7%9A%84%E9%87%8C%E7%A8%8B%E7%A2%91"><span class="toc-text">计算机行业的里程碑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E7%89%87%E5%86%85%E5%AE%B9"><span class="toc-text">动画片内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NVIDIA-%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="toc-text">NVIDIA 的发展历程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NVIDIA-%E7%9A%84%E6%8A%80%E6%9C%AF%E9%9D%A9%E5%91%BD"><span class="toc-text">NVIDIA 的技术革命</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E9%80%9F%E8%AE%A1%E7%AE%97%E7%9A%84%E7%90%86%E5%BF%B5"><span class="toc-text">加速计算的理念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3D-%E5%9B%BE%E5%BD%A2%E8%A7%86%E9%A2%91%E6%B8%B8%E6%88%8F%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">3D 图形视频游戏的应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CUDA-%E7%9A%84%E9%9D%A9%E5%91%BD"><span class="toc-text">CUDA 的革命</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%BC%94%E5%8F%98"><span class="toc-text">计算模型的演变</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E7%AA%81%E7%A0%B4"><span class="toc-text">深度学习的突破</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AlexNet-%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-text">AlexNet 的重要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E5%B4%9B%E8%B5%B7"><span class="toc-text">生成式人工智能的崛起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E9%A3%9E%E8%B7%83"><span class="toc-text">机器学习的飞跃</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RTX-%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-text">RTX 的重要性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA%E7%9A%84%E6%8F%90%E5%8D%87"><span class="toc-text">光线追踪的提升</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA%E7%9A%84%E6%84%8F%E4%B9%89"><span class="toc-text">光线追踪的意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RTX-%E7%9A%84%E9%9D%A9%E6%96%B0"><span class="toc-text">RTX 的革新</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DLSS-%E7%9A%84%E5%8F%91%E6%98%8E"><span class="toc-text">DLSS 的发明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%B6%85%E9%87%87%E6%A0%B7"><span class="toc-text">深度学习超采样</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F-AI-%E7%9A%84%E6%9C%AA%E6%9D%A5"><span class="toc-text">生成式 AI 的未来</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AI-%E7%9A%84%E8%B7%A8%E6%A8%A1%E6%80%81%E7%90%86%E8%A7%A3"><span class="toc-text">AI 的跨模态理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F-AI-%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">生成式 AI 的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%9A%84%E6%96%B0%E6%96%B9%E5%BC%8F"><span class="toc-text">软件开发的新方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6-3-0-%E7%9A%84%E5%88%B0%E6%9D%A5"><span class="toc-text">软件 3.0 的到来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E6%9D%A5%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F"><span class="toc-text">未来的软件开发模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ChatGPT-%E5%92%8C%E7%94%9F%E6%88%90%E5%BC%8F-AI-%E7%9A%84%E7%AA%81%E7%A0%B4"><span class="toc-text">ChatGPT 和生成式 AI 的突破</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%BA%BA%E7%B1%BB%E5%8F%8D%E9%A6%88"><span class="toc-text">强化学习人类反馈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%A4%E6%A0%8F%E6%8A%80%E6%9C%AF"><span class="toc-text">护栏技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90%E6%8A%80%E6%9C%AF"><span class="toc-text">检索增强生成技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3D-%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90%E6%8A%80%E6%9C%AF"><span class="toc-text">3D 增强生成技术</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Edify-AI-%E6%A8%A1%E5%9E%8B%E4%B8%8E-Omniverse-%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">Edify AI 模型与 Omniverse 的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90-2D-%E5%9B%BE%E5%83%8F"><span class="toc-text">生成 2D 图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90-3D-%E5%9B%BE%E5%83%8F%E4%B8%8E-Omniverse"><span class="toc-text">生成 3D 图像与 Omniverse</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F-AI-%E5%AF%B9%E7%89%A9%E7%90%86%E4%B8%96%E7%95%8C%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">生成式 AI 对物理世界的影响</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8A%80%E6%9C%AF%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">机器人技术的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E7%94%9F%E6%88%90%E5%88%B0%E7%8E%B0%E5%AE%9E%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">从生成到现实的应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B"><span class="toc-text">生成式人工智能的未来展望</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8A%A9%E6%89%8B%E7%9A%84%E6%99%AE%E5%8F%8A"><span class="toc-text">人工智能助手的普及</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Omniverse-%E5%92%8C-AI-%E7%9A%84%E7%BB%93%E5%90%88"><span class="toc-text">Omniverse 和 AI 的结合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E4%BB%A3%E7%90%86%E4%B8%8E%E5%AE%A2%E6%88%B7%E6%9C%8D%E5%8A%A1"><span class="toc-text">数字代理与客户服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AI-%E9%A9%B1%E5%8A%A8%E7%9A%84%E5%AE%A2%E6%88%B7%E6%9C%8D%E5%8A%A1"><span class="toc-text">AI 驱动的客户服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E4%B8%8E%E5%88%9B%E6%96%B0"><span class="toc-text">开放平台与创新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AI-%E5%88%B6%E4%BD%9C%E5%8A%A8%E7%94%BB%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7"><span class="toc-text">AI 制作动画的可能性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%81%93%E5%BE%B7%E9%97%AE%E9%A2%98%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%8F%91%E5%B1%95"><span class="toc-text">道德问题与技术发展</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%93%E5%BE%B7%E9%97%AE%E9%A2%98%E7%9A%84%E8%AE%A8%E8%AE%BA"><span class="toc-text">道德问题的讨论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%A1%AC%E4%BB%B6%E7%9A%84%E6%88%98%E7%95%A5"><span class="toc-text">软件与硬件的战略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-text">软件生态系统的重要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E6%9D%A5%E7%9A%84%E6%8C%91%E6%88%98%E4%B8%8E%E5%B1%95%E6%9C%9B"><span class="toc-text">未来的挑战与展望</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%B1%95%E6%9C%9B"><span class="toc-text">未来的展望</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8A%A9%E6%89%8B%E4%B8%8E%E8%83%BD%E6%BA%90%E9%97%AE%E9%A2%98"><span class="toc-text">人工智能助手与能源问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E6%8C%81%E4%BA%BA%E5%BC%80%E5%9C%BA"><span class="toc-text">主持人开场</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%84%E4%BB%81%E5%8B%8B%E7%9A%84%E5%9B%9E%E7%AD%94"><span class="toc-text">黄仁勋的回答</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%88%B6%E9%80%A0%E5%95%86%E5%92%8C%E8%AE%A1%E7%AE%97%E8%B4%9F%E8%8D%B7%E5%A2%9E%E9%95%BF"><span class="toc-text">模型制造商和计算负荷增长</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E9%80%9F%E8%AE%A1%E7%AE%97%E4%B8%8E%E8%83%BD%E6%BA%90%E8%8A%82%E7%9C%81"><span class="toc-text">加速计算与能源节省</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E8%83%BD%E6%BA%90%E6%B6%88%E8%80%97"><span class="toc-text">生成式人工智能与能源消耗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%B5%E5%90%91%E6%80%9D%E8%80%83%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E7%A4%BE%E4%BC%9A%E8%B4%A1%E7%8C%AE"><span class="toc-text">纵向思考人工智能的社会贡献</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%A3%80%E7%B4%A2%E7%9A%84%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD"><span class="toc-text">基于检索的计算与生成式人工智能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E9%80%89%E5%9D%80%E4%B8%8E%E8%83%BD%E6%BA%90%E5%88%A9%E7%94%A8"><span class="toc-text">数据中心选址与能源利用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A0%E9%80%9F%E8%AE%A1%E7%AE%97%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-text">加速计算的重要性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E4%B8%8E%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E6%B0%91%E4%B8%BB%E5%8C%96"><span class="toc-text">开源与人工智能的民主化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E6%B3%A2%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">下一波人工智能的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%8D%8F%E4%BD%9C%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD"><span class="toc-text">客户服务与协作式人工智能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-text">物理人工智能的发展</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NVIDIA%E7%9A%84%E7%89%A9%E7%90%86%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%B9%B3%E5%8F%B0"><span class="toc-text">NVIDIA的物理人工智能平台</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E4%BB%8B%E7%BB%8D"><span class="toc-text">视频介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E7%94%BB%E5%A4%96%E9%9F%B3"><span class="toc-text">视频画外音</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SIGGRAPH-%E4%BC%9A%E8%AE%AE%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-text">SIGGRAPH 会议的重要性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SIGGRAPH-Spotlight-%E6%92%AD%E5%AE%A2%E6%8E%A8%E8%8D%90"><span class="toc-text">SIGGRAPH Spotlight 播客推荐</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%B8%8E%E8%89%BA%E6%9C%AF%E7%9A%84%E6%9C%AA%E6%9D%A5"><span class="toc-text">机器人与艺术的未来</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+            <a title="email" href="mailto:mailto:blog@282994.xyz">
+              <i class="iconfont icon-envelope"></i>
+            </a>
+            
+        </li>
+        
+        <li>
+          
+              <a title="rss" href="/rss.xml">
+                <i class="iconfont icon-rss"></i>
+              </a>
+              
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a href="https://blog.282994.xyz">Copyright © 2024 Ame</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://www.travellings.cn/go.html">开往</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20239014">萌ICP备20239014</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+
+      </div>
+    </div>
+  
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,d=o();function o(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=o());for(var e,i=0;i<d.length;i++)0<=(e=(e=d[i]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,a,n,o=d[i];e=function(){d=d.filter(function(t){return o!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(o)},(t=o).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,n=t.getAttribute("data-original"),a.onload=function(){t.src=n,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=n},t.src!==n&&(a.src=n)))}()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)}(this);</script></body>
+</html>
