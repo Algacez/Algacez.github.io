@@ -20,12 +20,14 @@ import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-cop
 import { pluginLanguageBadge } from "./src/plugins/expressive-code/language-badge.ts";
 import { AdmonitionComponent } from "./src/plugins/rehype-component-admonition.mjs";
 import { GithubCardComponent } from "./src/plugins/rehype-component-github-card.mjs";
+import { rehypeMermaid } from "./src/plugins/rehype-mermaid.mjs";
 import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
+import { remarkMermaid } from "./src/plugins/remark-mermaid.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 // https://astro.build/config
 export default defineConfig({
-	site: "https://blog.mysqil.com/",
+	site: "https://mizuki.mysqil.com/",
 
 	ignore: [
 		"src/content/posts/.obsidian/**", // 忽略所有 obsidian 目录
@@ -42,7 +44,7 @@ export default defineConfig({
 			animationClass: "transition-swup-", // see https://swup.js.org/options/#animationselector
 			// the default value `transition-` cause transition delay
 			// when the Tailwind class `transition-all` is used
-			containers: ["main"],
+			containers: ["main", "#series"],
 			smoothScrolling: false, // 禁用平滑滚动以提升性能
 			cache: true,
 			preload: false, // 禁用预加载以减少网络请求
@@ -117,10 +119,12 @@ export default defineConfig({
 			remarkDirective,
 			remarkSectionize,
 			parseDirectiveNode,
+			remarkMermaid,
 		],
 		rehypePlugins: [
 			rehypeKatex,
 			rehypeSlug,
+			rehypeMermaid,
 			[
 				rehypeComponents,
 				{
