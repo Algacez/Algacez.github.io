@@ -151,7 +151,7 @@ export const profileConfig: ProfileConfig = {
 	links: [
 		{
 			name: "Email",
-			icon: "fa6-regular:envelope",
+			icon: "fa6-solid:envelope",
 			url: "mailto:blog@282994.xyz",
 		},
 		{
@@ -163,6 +163,11 @@ export const profileConfig: ProfileConfig = {
 			name: "GitHub",
 			icon: "fa6-brands:github",
 			url: "https://github.com/algacez",
+		},
+		{
+			name: "RSS",
+			icon: "fa6-solid:rss",
+			url: "./rss.xml",
 		},
 	],
 	// Umami统计部份，记得在layout插入Umami的脚本
