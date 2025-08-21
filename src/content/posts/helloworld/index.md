@@ -5,7 +5,6 @@ published: 2025-08-21
 tags:
   - Blogging
 category: Theme
-cover: '"./cover.jpg"'
+image: './cover.jpg'
 ---
-Hello World!
-123
+test
