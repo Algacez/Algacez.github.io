@@ -16,8 +16,8 @@ import { getTranslateLanguageFromConfig } from "./utils/language-utils";
 const SITE_LANG = "en"; // Language code, e.g., 'en', 'zh_CN', 'ja', etc.
 
 export const siteConfig: SiteConfig = {
-	title: "Mizuki",
-	subtitle: "One demo website",
+	title: "Rock's log",
+	subtitle: "",
 
 	lang: SITE_LANG,
 
@@ -35,7 +35,7 @@ export const siteConfig: SiteConfig = {
 		ignoreTags: ["script", "style", "code", "pre"], // HTML tags to ignore for translation
 	},
 	banner: {
-		enable: true, // Temporarily disable banner to improve loading speed
+		enable: false, // Temporarily disable banner to improve loading speed
 
 		// Support single image or image array, carousel is automatically enabled when array length > 1
 		src: {
@@ -62,14 +62,14 @@ export const siteConfig: SiteConfig = {
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. Default is 'center'
 
 		carousel: {
-			enable: true, // When true: enable carousel for multiple images. When false: randomly display one image from the array
+			enable: false, // When true: enable carousel for multiple images. When false: randomly display one image from the array
 
-			interval: 1, // Carousel interval time (seconds)
+			interval: 3, // Carousel interval time (seconds)
 		},
 
 		homeText: {
 			enable: true, // Display custom text on homepage
-			title: "Mizuki", // Homepage banner main title
+			title: "Rock's log", // Homepage banner main title
 
 			subtitle: [
 				"One demo website",
@@ -95,7 +95,7 @@ export const siteConfig: SiteConfig = {
 	},
 	toc: {
 		enable: true, // Enable table of contents feature
-		depth: 3, // TOC depth, 1-6, 1 means only show h1 headings, 2 means show h1 and h2 headings, and so on
+		depth: 6, // TOC depth, 1-6, 1 means only show h1 headings, 2 means show h1 and h2 headings, and so on
 	},
 	favicon: [
 		// Leave empty to use default favicon
@@ -111,60 +111,57 @@ export const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
 		LinkPreset.Archive,
+		LinkPreset.Friends,
+		LinkPreset.About,
 		// 支持自定义导航栏链接,并且支持多级菜单,3.1版本新加
 		{
 			name: "Links",
 			url: "/links/",
 			children: [
 				{
-					name: "GitHub",
-					url: "https://github.com/matsuzaka-yuki/Mizuki",
+					name: "OpenAI",
+					url: "https://openai.com/",
 					external: true,
 				},
 				{
-					name: "Bilibili",
-					url: "https://space.bilibili.com/701864046",
+					name: "SpaceX",
+					url: "https://www.spacex.com/",
 					external: true,
 				},
 				{
-					name: "Gitee",
-					url: "https://gitee.com/matsuzakayuki/Mizuki",
+					name: "Huggingface",
+					url: "https://huggingface.co/",
+					external: true,
+				},
+				{
+					name: "泥⚡️",
+					url: "https://www.scse.uestc.edu.cn/index.htm",
 					external: true,
 				},
 			],
-		},
-		{
-			name: "My",
-			url: "/content/",
-			children: [LinkPreset.Anime, LinkPreset.Diary, LinkPreset.Gallery],
-		},
-		{
-			name: "About",
-			url: "/content/",
-			children: [LinkPreset.About, LinkPreset.Friends],
 		},
 	],
 };
 
 export const profileConfig: ProfileConfig = {
 	avatar: "assets/images/avatar.jpg", // Relative to /src directory. If starts with '/', relative to /public directory
-	name: "Mizuki",
-	bio: "This is a description",
+	name: "Rock",
+	bio: "May all the beauty be blessed",
 	links: [
 		{
-			name: "Bilibli",
-			icon: "fa6-brands:bilibili",
-			url: "https://space.bilibili.com/701864046",
+			name: "Email",
+			icon: "fa6-regular:envelope",
+			url: "mailto:blog@282994.xyz",
 		},
 		{
-			name: "Gitee",
-			icon: "mdi:git",
-			url: "https://gitee.com/matsuzakayuki",
+			name: "X",
+			icon: "fa6-brands:x-twitter",
+			url: "https://x.com/wasurede",
 		},
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
-			url: "https://github.com/matsuzaka-yuki",
+			url: "https://github.com/algacez",
 		},
 	],
 };
@@ -201,7 +198,7 @@ export const announcementConfig: AnnouncementConfig = {
 };
 
 export const musicPlayerConfig: MusicPlayerConfig = {
-	enable: true, // Enable music player feature
+	enable: false, // Enable music player feature
 };
 
 /**

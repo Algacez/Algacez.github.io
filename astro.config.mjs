@@ -27,6 +27,10 @@ import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 export default defineConfig({
 	site: "https://blog.mysqil.com/",
 
+	ignore: [
+		"src/content/posts/.obsidian/**", // 忽略所有 obsidian 目录
+	],
+
 	base: "/",
 	trailingSlash: "always",
 	integrations: [
