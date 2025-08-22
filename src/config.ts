@@ -113,6 +113,11 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Archive,
 		LinkPreset.Series, //增加系列
 		LinkPreset.Friends,
+		{
+			name: "My",
+			url: "/content/",
+			children: [LinkPreset.Anime, LinkPreset.Diary, LinkPreset.Gallery],
+		},
 		LinkPreset.About,
 		// 支持自定义导航栏链接,并且支持多级菜单,3.1版本新加
 		{
@@ -167,7 +172,7 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "RSS",
 			icon: "fa6-solid:rss",
-			url: "./rss.xml",
+			url: "/rss.xml",
 		},
 	],
 	// Umami统计部份，记得在layout插入Umami的脚本

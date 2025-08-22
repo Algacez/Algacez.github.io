@@ -27,7 +27,7 @@ import { remarkMermaid } from "./src/plugins/remark-mermaid.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 // https://astro.build/config
 export default defineConfig({
-	site: "https://mizuki.mysqil.com/",
+	site: "https://blog.282994.xyz/",
 
 	ignore: [
 		"src/content/posts/.obsidian/**", // 忽略所有 obsidian 目录
