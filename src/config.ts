@@ -112,11 +112,10 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Home,
 		LinkPreset.Archive,
 		LinkPreset.Series, //增加系列
-		LinkPreset.Friends,
 		{
 			name: "My",
 			url: "/content/",
-			children: [LinkPreset.Anime, LinkPreset.Diary, LinkPreset.Gallery],
+			children: [LinkPreset.Anime, LinkPreset.Diary, LinkPreset.Gallery,LinkPreset.Friends,],
 		},
 		LinkPreset.About,
 		// 支持自定义导航栏链接,并且支持多级菜单,3.1版本新加
@@ -177,9 +176,9 @@ export const profileConfig: ProfileConfig = {
 	],
 	// Umami统计部份，记得在layout插入Umami的head标签
 	umami: {
-		enable: false, // 是否显示umami统计
-		shareId: "", //填入共享URL最后面那一串  比如：https://eu.umami.is/api/share/2dKQ5T0WrUn6AYtr 你就填入2dKQ5T0WrUn6AYtr
-		region: "eu", //Umami有两个区域，按需选择即可  比如：https://eu.umami.is 你就填入eu
+		enable: true, // 是否显示umami统计
+		shareId: "aPAZK7gO9egahg1A", //填入共享URL最后面那一串  比如：https://eu.umami.is/api/share/2dKQ5T0WrUn6AYtr 你就填入2dKQ5T0WrUn6AYtr
+		region: "us", //Umami有两个区域，按需选择即可  比如：https://eu.umami.is 你就填入eu
 	},
 };
 
