@@ -118,7 +118,12 @@ export const navBarConfig: NavBarConfig = {
 		{
 			name: "My",
 			url: "/content/",
-			children: [LinkPreset.Anime, LinkPreset.Diary, LinkPreset.Gallery,LinkPreset.Friends,],
+			children: [
+				LinkPreset.Anime,
+				LinkPreset.Diary,
+				LinkPreset.Gallery,
+				LinkPreset.Friends,
+			],
 		},
 		LinkPreset.About,
 		// 支持自定义导航栏链接,并且支持多级菜单,3.1版本新加
