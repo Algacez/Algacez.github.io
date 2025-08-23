@@ -17,7 +17,7 @@ import { getTranslateLanguageFromConfig } from "./utils/language-utils";
 // 移除i18n导入以避免循环依赖
 
 // 定义站点语言
-const SITE_LANG = "en"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
+const SITE_LANG = "zh_CN"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
 
 export const siteConfig: SiteConfig = {
 	title: "Rock's log",
@@ -119,8 +119,9 @@ export const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
 		LinkPreset.Archive,
+		LinkPreset.About,
 		{
-			name: "My",
+			name: "我的",
 			url: "/content/",
 			children: [
 				LinkPreset.Anime,
@@ -129,10 +130,9 @@ export const navBarConfig: NavBarConfig = {
 				LinkPreset.Friends,
 			],
 		},
-		LinkPreset.About,
 		// 支持自定义导航栏链接,并且支持多级菜单,3.1版本新加
 		{
-			name: "Links",
+			name: "链接",
 			url: "/links/",
 			children: [
 				{
@@ -153,6 +153,11 @@ export const navBarConfig: NavBarConfig = {
 				{
 					name: "泥⚡️",
 					url: "https://www.scse.uestc.edu.cn/index.htm",
+					external: true,
+				},
+				{
+					name: "开往",
+					url: "https://www.travellings.cn/plain.html",
 					external: true,
 				},
 			],

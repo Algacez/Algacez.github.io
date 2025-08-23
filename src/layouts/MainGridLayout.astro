@@ -5,8 +5,8 @@ import Navbar from "@components/Navbar.astro";
 import SideBar from "@components/widget/SideBar.astro";
 import type { MarkdownHeading } from "astro";
 import { Icon } from "astro-icon/components";
-import ImageWrapper from "../components/misc/ImageWrapper.astro";
 import IconifyLoader from "../components/misc/IconifyLoader.astro";
+import ImageWrapper from "../components/misc/ImageWrapper.astro";
 import TypewriterText from "../components/TypewriterText.astro";
 import TOC from "../components/widget/TOC.astro";
 import { sidebarLayoutConfig, siteConfig } from "../config";
@@ -357,6 +357,7 @@ const mainContentClass = `
         {!siteConfig.toc.enable && <div id="toc"></div>}
     </div>
 </div>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="8d7888b4-2c0a-4ee0-9473-c4e9abc784c5"></script>
 </Layout>
 
 <style>
