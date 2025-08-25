@@ -98,7 +98,7 @@ export const siteConfig: SiteConfig = {
 		},
 
 		navbar: {
-			transparentMode: "full", // 导航栏透明模式："semi" 半透明加圆角，"full" 完全透明
+			transparentMode: "semifull", // 导航栏透明模式："semi" 半透明加圆角，"full" 完全透明，"semifull" 动态透明
 		},
 	},
 	toc: {
@@ -143,21 +143,25 @@ export const navBarConfig: NavBarConfig = {
 		{
 			name: "链接",
 			url: "/links/",
+			icon: "material-symbols:link",
 			children: [
 				{
 					name: "OpenAI",
 					url: "https://openai.com/",
 					external: true,
+					icon: "fa6-brands:github",
 				},
 				{
 					name: "SpaceX",
 					url: "https://www.spacex.com/",
 					external: true,
+					icon: "fa6-brands:bilibili",
 				},
 				{
 					name: "Huggingface",
 					url: "https://huggingface.co/",
 					external: true,
+					icon: "mdi:git",
 				},
 				{
 					name: "泥⚡️",
