@@ -93,7 +93,7 @@ export const zh_CN: Translation = {
 	[Key.galleryCreateFirst]: "创建您的第一个相册组",
 
 	// 项目展示页面
-	[Key.projects]: "项目展示",
+	[Key.projects]: "项目",
 	[Key.projectsSubtitle]: "我的开发项目作品集",
 	[Key.projectsAll]: "全部",
 	[Key.projectsWeb]: "网页应用",
@@ -118,13 +118,13 @@ export const zh_CN: Translation = {
 	[Key.projectsSource]: "源代码",
 
 	// 技能展示页面
-	[Key.skills]: "技能展示",
+	[Key.skills]: "技能",
 	[Key.skillsSubtitle]: "我的技术技能和专业知识",
 	[Key.skillsFrontend]: "前端开发",
 	[Key.skillsBackend]: "后端开发",
 	[Key.skillsDatabase]: "数据库",
 	[Key.skillsTools]: "开发工具",
-	[Key.skillsOther]: "其他技能",
+	[Key.skillsOther]: "编程语言",
 	[Key.skillLevel]: "熟练度",
 	[Key.skillLevelBeginner]: "初学者",
 	[Key.skillLevelIntermediate]: "中级",
@@ -169,5 +169,5 @@ export const zh_CN: Translation = {
 	[Key.timelineWorkPositions]: "工作岗位数",
 	[Key.timelineCurrentRole]: "当前状态",
 	[Key.timelineEmployed]: "在职",
-	[Key.timelineAvailable]: "可入职",
+	[Key.timelineAvailable]: "学习",
 };

@@ -119,7 +119,16 @@ export const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
 		LinkPreset.Archive,
-		LinkPreset.About,
+		{
+			name: "关于",
+			url: "/about/",
+			children: [
+				LinkPreset.About,
+				LinkPreset.Projects,
+				LinkPreset.Skills,
+				LinkPreset.Timeline,
+			],
+		},
 		{
 			name: "我的",
 			url: "/content/",
@@ -220,13 +229,13 @@ export const commentConfig: CommentConfig = {
 
 export const announcementConfig: AnnouncementConfig = {
 	title: "公告", // 公告标题
-	content: "欢迎来到我的博客！这是一个示例公告。", // 公告内容
+	content: "欢迎来找我聊天~", // 公告内容
 	closable: true, // 允许用户关闭公告
 	link: {
 		enable: true, // 启用链接
-		text: "了解更多", // 链接文本
-		url: "/about/", // 链接 URL
-		external: false, // 内部链接
+		text: "找到我", // 链接文本
+		url: "mailto:blog@282994.xyz", // 链接 URL
+		external: true, // 内部链接
 	},
 };
 
