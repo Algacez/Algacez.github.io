@@ -122,6 +122,7 @@ export const navBarConfig: NavBarConfig = {
 		{
 			name: "关于",
 			url: "/about/",
+			icon: "material-symbols:info",
 			children: [
 				LinkPreset.About,
 				LinkPreset.Projects,
@@ -132,6 +133,7 @@ export const navBarConfig: NavBarConfig = {
 		{
 			name: "我的",
 			url: "/content/",
+			icon: "material-symbols:person",
 			children: [
 				LinkPreset.Anime,
 				LinkPreset.Diary,
@@ -149,29 +151,28 @@ export const navBarConfig: NavBarConfig = {
 					name: "OpenAI",
 					url: "https://openai.com/",
 					external: true,
-					icon: "fa6-brands:github",
 				},
 				{
 					name: "SpaceX",
 					url: "https://www.spacex.com/",
 					external: true,
-					icon: "fa6-brands:bilibili",
 				},
 				{
 					name: "Huggingface",
 					url: "https://huggingface.co/",
 					external: true,
-					icon: "mdi:git",
 				},
 				{
 					name: "泥⚡️",
 					url: "https://www.scse.uestc.edu.cn/index.htm",
 					external: true,
+					icon: "material-symbols:school",
 				},
 				{
 					name: "开往",
 					url: "https://www.travellings.cn/plain.html",
 					external: true,
+					icon: "material-symbols:train",
 				},
 			],
 		},
