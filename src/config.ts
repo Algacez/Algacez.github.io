@@ -70,6 +70,15 @@ export const siteConfig: SiteConfig = {
 			interval: 1.5, // 轮播间隔时间（秒）
 		},
 
+		// PicFlow API支持(智能图片API)
+		imageApi: {
+			enable: false, // 启用图片API
+			url: "http://domain.com/api_v2.php?format=text&count=4", // API地址，返回每行一个图片链接的文本
+		},
+		// 这里需要使用PicFlow API的Text返回类型,所以我们需要format=text参数
+		// 项目地址:https://github.com/matsuzaka-yuki/PicFlow-API
+		// 请自行搭建API
+
 		homeText: {
 			enable: true, // 在主页显示自定义文本
 			title: "Beautiful Mizuki!", // 主页横幅主标题
@@ -136,7 +145,7 @@ export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	position: "center", // 壁纸位置，等同于 object-position
 	carousel: {
 		enable: true, // 启用轮播
-		interval: 5, // 轮播间隔时间（秒）
+		interval: 1, // 轮播间隔时间（秒）
 	},
 	zIndex: -1, // 层级，确保壁纸在背景层
 	opacity: 0.8, // 壁纸透明度

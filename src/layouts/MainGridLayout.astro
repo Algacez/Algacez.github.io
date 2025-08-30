@@ -5,12 +5,16 @@ import Navbar from "@components/Navbar.astro";
 import SideBar from "@components/widget/SideBar.astro";
 import type { MarkdownHeading } from "astro";
 import { Icon } from "astro-icon/components";
-import ImageWrapper from "../components/misc/ImageWrapper.astro";
 import FullscreenWallpaper from "../components/misc/FullscreenWallpaper.astro";
 import IconifyLoader from "../components/misc/IconifyLoader.astro";
+import ImageWrapper from "../components/misc/ImageWrapper.astro";
 import TypewriterText from "../components/TypewriterText.astro";
 import TOC from "../components/widget/TOC.astro";
-import { sidebarLayoutConfig, siteConfig, fullscreenWallpaperConfig } from "../config";
+import {
+	fullscreenWallpaperConfig,
+	sidebarLayoutConfig,
+	siteConfig,
+} from "../config";
 import {
 	BANNER_HEIGHT,
 	BANNER_HEIGHT_EXTEND,
@@ -39,28 +43,52 @@ const isBannerSrcObject = (
 		typeof src === "object" &&
 		src !== null &&
 		!Array.isArray(src) &&
-		(src.desktop || src.mobile)
+		("desktop" in src || "mobile" in src)
 	);
 };
 
 // 获取banner图片的辅助函数
-const getBannerImages = () => {
-	if (isBannerSrcObject(siteConfig.banner.src)) {
+const getBannerImages = async () => {
+	let bannerSrc = siteConfig.banner.src;
+
+	// 如果启用了图片API，获取API图片
+	if (siteConfig.banner.imageApi?.enable && siteConfig.banner.imageApi?.url) {
+		try {
+			const response = await fetch(siteConfig.banner.imageApi.url);
+			const text = await response.text();
+			const apiImages = text.split("\n").filter((line) => line.trim());
+
+			if (apiImages.length > 0) {
+				bannerSrc = apiImages;
+			}
+		} catch (error) {
+			console.warn("Failed to fetch images from API:", error);
+		}
+	}
+
+	if (
+		typeof bannerSrc === "object" &&
+		bannerSrc !== null &&
+		!Array.isArray(bannerSrc) &&
+		("desktop" in bannerSrc || "mobile" in bannerSrc)
+	) {
+		const srcObj = bannerSrc as {
+			desktop?: string | string[];
+			mobile?: string | string[];
+		};
 		return {
-			desktop:
-				siteConfig.banner.src.desktop || siteConfig.banner.src.mobile || "",
-			mobile:
-				siteConfig.banner.src.mobile || siteConfig.banner.src.desktop || "",
+			desktop: srcObj.desktop || srcObj.mobile || "",
+			mobile: srcObj.mobile || srcObj.desktop || "",
 		};
 	}
 	// 如果是字符串或字符串数组，同时用于桌面端和移动端
 	return {
-		desktop: siteConfig.banner.src,
-		mobile: siteConfig.banner.src,
+		desktop: bannerSrc,
+		mobile: bannerSrc,
 	};
 };
 
-const bannerImages = getBannerImages();
+const bannerImages = await getBannerImages();
 
 const {
 	title,
@@ -132,10 +160,13 @@ const mainContentClass = `
 	.replace(/\s+/g, " ");
 
 // 检查是否应该启用半透明效果
-const shouldEnableTransparency = !siteConfig.banner.enable && fullscreenWallpaperConfig.enable;
+const shouldEnableTransparency =
+	!siteConfig.banner.enable && fullscreenWallpaperConfig.enable;
 
 // 为组件添加半透明效果的CSS类
-const transparentClass = shouldEnableTransparency ? 'wallpaper-transparent' : '';
+const transparentClass = shouldEnableTransparency
+	? "wallpaper-transparent"
+	: "";
 ---
 
 <Layout title={title} banner={banner} description={description} lang={lang} setOGTypeArticle={setOGTypeArticle}>
@@ -192,7 +223,7 @@ const transparentClass = shouldEnableTransparency ? 'wallpaper-transparent' : ''
                                 <ImageWrapper 
                                     alt={`Mobile banner image ${index + 1}`} 
                                     class:list={["block lg:hidden object-cover h-full w-full transition-transform duration-500 ease-out"]}
-                                    src={bannerImages.mobile[index]} 
+                                    src={Array.isArray(bannerImages.mobile) ? bannerImages.mobile[index] : (typeof bannerImages.mobile === 'string' ? bannerImages.mobile : '')} 
                                     position={siteConfig.banner.position}
                                 />
                             )}
@@ -201,7 +232,7 @@ const transparentClass = shouldEnableTransparency ? 'wallpaper-transparent' : ''
                                 <ImageWrapper 
                                     alt={`Desktop banner image ${index + 1}`} 
                                     class:list={["hidden lg:block object-cover h-full w-full transition-transform duration-500 ease-out"]}
-                                    src={bannerImages.desktop[index]} 
+                                    src={Array.isArray(bannerImages.desktop) ? bannerImages.desktop[index] : (typeof bannerImages.desktop === 'string' ? bannerImages.desktop : '')} 
                                     position={siteConfig.banner.position}
                                 />
                             )}
@@ -217,7 +248,7 @@ const transparentClass = shouldEnableTransparency ? 'wallpaper-transparent' : ''
                 <ImageWrapper 
                     alt="Mobile banner image of the blog" 
                     class:list={["block lg:hidden object-cover h-full w-full transition duration-700 opacity-100"]}
-                    src={(Array.isArray(bannerImages.mobile) ? bannerImages.mobile[0] : bannerImages.mobile) || (Array.isArray(bannerImages.desktop) ? bannerImages.desktop[0] : bannerImages.desktop) || ''} 
+                    src={(Array.isArray(bannerImages.mobile) ? bannerImages.mobile[0] : (typeof bannerImages.mobile === 'string' ? bannerImages.mobile : '')) || (Array.isArray(bannerImages.desktop) ? bannerImages.desktop[0] : (typeof bannerImages.desktop === 'string' ? bannerImages.desktop : '')) || ''} 
                     position={siteConfig.banner.position}
                 />
                 <!-- Desktop: use desktop-specific image -->
@@ -225,7 +256,7 @@ const transparentClass = shouldEnableTransparency ? 'wallpaper-transparent' : ''
                     id="banner" 
                     alt="Desktop banner image of the blog" 
                     class:list={["hidden lg:block object-cover h-full transition duration-700 opacity-100"]}
-                    src={(Array.isArray(bannerImages.desktop) ? bannerImages.desktop[0] : bannerImages.desktop) || (Array.isArray(bannerImages.mobile) ? bannerImages.mobile[0] : bannerImages.mobile) || ''} 
+                    src={(Array.isArray(bannerImages.desktop) ? bannerImages.desktop[0] : (typeof bannerImages.desktop === 'string' ? bannerImages.desktop : '')) || (Array.isArray(bannerImages.mobile) ? bannerImages.mobile[0] : (typeof bannerImages.mobile === 'string' ? bannerImages.mobile : '')) || ''} 
                     position={siteConfig.banner.position}
                 />
             </div>
@@ -336,8 +367,8 @@ const transparentClass = shouldEnableTransparency ? 'wallpaper-transparent' : ''
 
             {(mobileShowSidebar || tabletShowSidebar || desktopShowSidebar) && <SideBar class={`${sidebarClass} ${transparentClass}`} headings={headings}></SideBar>}
 
-            <main id="swup-container" class={mainContentClass}>
-                <div id="content-wrapper" class="onload-animation">
+            <main id="swup-container" class={`${mainContentClass} transition-main`}>
+                <div id="content-wrapper" class="onload-animation transition-leaving">
                     <!-- the overflow-hidden here prevent long text break the layout-->
                     <!-- make id different from windows.swup global property -->
                     <slot></slot>

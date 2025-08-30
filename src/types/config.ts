@@ -43,6 +43,10 @@ export type SiteConfig = {
 			enable: boolean; // 是否启用轮播
 			interval: number; // 轮播间隔时间（秒）
 		};
+		imageApi?: {
+			enable: boolean; // 是否启用图片API
+			url: string; // API地址，返回每行一个图片链接的文本
+		};
 		homeText?: {
 			enable: boolean; // 是否在首页显示自定义文字
 			title?: string; // 主标题
