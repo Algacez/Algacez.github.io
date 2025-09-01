@@ -3,6 +3,7 @@ import type {
 	CommentConfig,
 	ExpressiveCodeConfig,
 	FooterConfig,
+	FullscreenWallpaperConfig,
 	LicenseConfig,
 	MusicPlayerConfig,
 	NavBarConfig,
@@ -68,19 +69,28 @@ export const siteConfig: SiteConfig = {
 		carousel: {
 			enable: false, // 为 true 时：为多张图片启用轮播。为 false 时：从数组中随机显示一张图片
 
-			interval: 1, // 轮播间隔时间（秒）
+			interval: 1.5, // 轮播间隔时间（秒）
 		},
+
+		// PicFlow API支持(智能图片API)
+		imageApi: {
+			enable: false, // 启用图片API
+			url: "http://domain.com/api_v2.php?format=text&count=4", // API地址，返回每行一个图片链接的文本
+		},
+		// 这里需要使用PicFlow API的Text返回类型,所以我们需要format=text参数
+		// 项目地址:https://github.com/matsuzaka-yuki/PicFlow-API
+		// 请自行搭建API
 
 		homeText: {
 			enable: true, // Display custom text on homepage
 			title: "Rock's log", // Homepage banner main title
 
 			subtitle: [
-				"One demo website",
-				"Carousel Text1",
-				"Carousel Text2",
-				"Carousel Text3",
-			], // 主页横幅副标题，支持多文本
+				"A Showcase Demo Site",
+				"Carousel Highlight: Innovation",
+				"Carousel Focus: User Experience",
+				"Carousel Spot: Core Advantages",
+			],
 			typewriter: {
 				enable: true, // 启用副标题打字机效果
 
@@ -113,6 +123,35 @@ export const siteConfig: SiteConfig = {
 		//   sizes: '32x32',              // 可选，图标大小
 		// }
 	],
+};
+export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
+	enable: true, // 启用全屏壁纸功能,非Banner模式下生效
+	src: {
+		desktop: [
+			"/assets/desktop-banner/1.webp",
+			"/assets/desktop-banner/2.webp",
+			"/assets/desktop-banner/3.webp",
+			"/assets/desktop-banner/4.webp",
+			"/assets/desktop-banner/5.webp",
+			"/assets/desktop-banner/6.webp",
+		], // 桌面横幅图片
+		mobile: [
+			"/assets/mobile-banner/1.webp",
+			"/assets/mobile-banner/2.webp",
+			"/assets/mobile-banner/3.webp",
+			"/assets/mobile-banner/4.webp",
+			"/assets/mobile-banner/5.webp",
+			"/assets/mobile-banner/6.webp",
+		], // 移动横幅图片
+	}, // 使用本地横幅图片
+	position: "center", // 壁纸位置，等同于 object-position
+	carousel: {
+		enable: true, // 启用轮播
+		interval: 1, // 轮播间隔时间（秒）
+	},
+	zIndex: -1, // 层级，确保壁纸在背景层
+	opacity: 0.8, // 壁纸透明度
+	blur: 1, // 背景模糊程度
 };
 
 export const navBarConfig: NavBarConfig = {
@@ -371,6 +410,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 
 export const sakuraConfig: SakuraConfig = {
 	enable: false, // 默认关闭樱花特效
+	enable: false, // 默认关闭樱花特效
 	sakuraNum: 21, // 樱花数量
 	limitTimes: -1, // 樱花越界限制次数，-1为无限循环
 	size: {
@@ -390,6 +430,7 @@ export const sakuraConfig: SakuraConfig = {
 	},
 	zIndex: 100, // 层级，确保樱花在合适的层级显示
 };
+
 // 导出所有配置的统一接口
 export const widgetConfigs = {
 	profile: profileConfig,
@@ -397,4 +438,5 @@ export const widgetConfigs = {
 	music: musicPlayerConfig,
 	layout: sidebarLayoutConfig,
 	sakura: sakuraConfig,
+	fullscreenWallpaper: fullscreenWallpaperConfig,
 } as const;

@@ -46,12 +46,19 @@ export const en: Translation = {
 	[Key.anime]: "Anime",
 	[Key.diary]: "Moments",
 
-	// 追番统计
+	// 番剧页面
+	[Key.animeTitle]: "My Anime Collection",
+	[Key.animeSubtitle]: "Documenting my anime journey",
+	[Key.animeList]: "Anime List",
 	[Key.animeTotal]: "Total",
 	[Key.animeWatching]: "Watching",
 	[Key.animeCompleted]: "Completed",
+	[Key.animeAvgRating]: "Avg Rating",
 	[Key.animeStatusWatching]: "Watching",
 	[Key.animeStatusCompleted]: "Completed",
+	[Key.animeStatusPlanned]: "Planned",
+	[Key.animeYear]: "Year",
+	[Key.animeStudio]: "Studio",
 
 	// 短文页面
 	[Key.diarySubtitle]: "Share life anytime, anywhere",
@@ -73,26 +80,15 @@ export const en: Translation = {
 	// Music Player
 	[Key.playlist]: "Playlist",
 
-	// Gallery
-	[Key.gallery]: "Gallery",
-	[Key.gallerySubtitle]: "Capture and share beautiful moments",
-	[Key.galleryGroups]: "Gallery Groups",
-	[Key.galleryCreateGroup]: "Create Group",
-	[Key.galleryGroupName]: "Group Name",
-	[Key.galleryGroupDescription]: "Group Description",
-	[Key.galleryGroupCover]: "Cover Image",
-	[Key.galleryUploadImages]: "Upload Images",
-	[Key.galleryImageCount]: "image",
-	[Key.galleryImagesCount]: "images",
-	[Key.galleryViewAll]: "View All",
-	[Key.galleryEdit]: "Edit",
-	[Key.galleryDelete]: "Delete",
-	[Key.gallerySort]: "Sort",
-	[Key.galleryComments]: "Comments",
-	[Key.galleryAddComment]: "Add Comment",
-	[Key.galleryNoGroups]: "No gallery groups yet",
-	[Key.galleryNoImages]: "No images in this group",
-	[Key.galleryCreateFirst]: "Create your first gallery group",
+	// 相册页面
+	[Key.albums]: "Albums",
+	[Key.albumsSubtitle]: "Capturing beautiful moments in life",
+	[Key.albumsEmpty]: "No Albums",
+	[Key.albumsEmptyDesc]:
+		"No albums created yet. Start adding some beautiful memories!",
+	[Key.albumsBackToList]: "Back to Albums",
+	[Key.albumsPhotoCount]: "photo",
+	[Key.albumsPhotosCount]: "photos",
 
 	// Projects page
 	[Key.projects]: "Projects",
@@ -118,6 +114,27 @@ export const en: Translation = {
 	[Key.projectsPlanned]: "Planned",
 	[Key.projectsDemo]: "Demo",
 	[Key.projectsSource]: "Source",
+
+	// RSS page
+	[Key.rss]: "RSS Feed",
+	[Key.rssDescription]: "Subscribe for latest updates",
+	[Key.rssSubtitle]: "Subscribe via RSS to get the latest articles and updates",
+	[Key.rssLink]: "RSS Link",
+	[Key.rssCopyToReader]: "Copy link to your RSS reader",
+	[Key.rssCopyLink]: "Copy Link",
+	[Key.rssLatestPosts]: "Latest Posts",
+	[Key.rssWhatIsRSS]: "What is RSS?",
+	[Key.rssWhatIsRSSDescription]:
+		"RSS (Really Simple Syndication) is a standard format for publishing frequently updated content. With RSS, you can:",
+	[Key.rssBenefit1]:
+		"Get the latest content from websites without manually visiting them",
+	[Key.rssBenefit2]: "Manage subscriptions to multiple websites in one place",
+	[Key.rssBenefit3]: "Never miss important updates and articles",
+	[Key.rssBenefit4]: "Enjoy ad-free, clean reading experience",
+	[Key.rssHowToUse]:
+		"We recommend using Feedly, Inoreader, or other RSS readers to subscribe to this site.",
+	[Key.rssCopied]: "RSS link copied to clipboard!",
+	[Key.rssCopyFailed]: "Copy failed, please copy the link manually",
 
 	// Skills page
 	[Key.skills]: "Skills",

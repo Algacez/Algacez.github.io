@@ -8,6 +8,8 @@ export interface Skill {
 	icon: string; // Iconify icon name
 	category: "frontend" | "backend" | "database" | "tools" | "other";
 	level: "beginner" | "intermediate" | "advanced" | "expert";
+	category: "frontend" | "backend" | "database" | "tools" | "other";
+	level: "beginner" | "intermediate" | "advanced" | "expert";
 	experience: {
 		years: number;
 		months: number;
@@ -71,6 +73,7 @@ export const skillsData: Skill[] = [
 		level: "advanced",
 		experience: { years: 3, months: 0 },
 		color: "#F05032",
+		color: "#F05032",
 	},
 	{
 		id: "vscode",
@@ -79,7 +82,14 @@ export const skillsData: Skill[] = [
 		icon: "logos:visual-studio-code",
 		category: "tools",
 		level: "expert",
+		id: "vscode",
+		name: "VS Code",
+		description: "轻量级但功能强大的代码编辑器，丰富的插件生态。",
+		icon: "logos:visual-studio-code",
+		category: "tools",
+		level: "expert",
 		experience: { years: 3, months: 6 },
+		color: "#007ACC",
 		color: "#007ACC",
 	},
 	{
@@ -102,8 +112,17 @@ export const getSkillStats = () => {
 		intermediate: skillsData.filter((s) => s.level === "intermediate").length,
 		advanced: skillsData.filter((s) => s.level === "advanced").length,
 		expert: skillsData.filter((s) => s.level === "expert").length,
+		beginner: skillsData.filter((s) => s.level === "beginner").length,
+		intermediate: skillsData.filter((s) => s.level === "intermediate").length,
+		advanced: skillsData.filter((s) => s.level === "advanced").length,
+		expert: skillsData.filter((s) => s.level === "expert").length,
 	};
 	const byCategory = {
+		frontend: skillsData.filter((s) => s.category === "frontend").length,
+		backend: skillsData.filter((s) => s.category === "backend").length,
+		database: skillsData.filter((s) => s.category === "database").length,
+		tools: skillsData.filter((s) => s.category === "tools").length,
+		other: skillsData.filter((s) => s.category === "other").length,
 		frontend: skillsData.filter((s) => s.category === "frontend").length,
 		backend: skillsData.filter((s) => s.category === "backend").length,
 		database: skillsData.filter((s) => s.category === "database").length,
@@ -117,13 +136,18 @@ export const getSkillStats = () => {
 // 按分类获取技能
 export const getSkillsByCategory = (category?: string) => {
 	if (!category || category === "all") {
+	if (!category || category === "all") {
 		return skillsData;
 	}
+	return skillsData.filter((s) => s.category === category);
 	return skillsData.filter((s) => s.category === category);
 };
 
 // 获取高级技能
 export const getAdvancedSkills = () => {
+	return skillsData.filter(
+		(s) => s.level === "advanced" || s.level === "expert",
+	);
 	return skillsData.filter(
 		(s) => s.level === "advanced" || s.level === "expert",
 	);
@@ -133,9 +157,12 @@ export const getAdvancedSkills = () => {
 export const getTotalExperience = () => {
 	const totalMonths = skillsData.reduce((total, skill) => {
 		return total + skill.experience.years * 12 + skill.experience.months;
+		return total + skill.experience.years * 12 + skill.experience.months;
 	}, 0);
 	return {
 		years: Math.floor(totalMonths / 12),
 		months: totalMonths % 12,
+		months: totalMonths % 12,
 	};
 };
+

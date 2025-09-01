@@ -43,6 +43,10 @@ export type SiteConfig = {
 			enable: boolean; // 是否启用轮播
 			interval: number; // 轮播间隔时间（秒）
 		};
+		imageApi?: {
+			enable: boolean; // 是否启用图片API
+			url: string; // API地址，返回每行一个图片链接的文本
+		};
 		homeText?: {
 			enable: boolean; // 是否在首页显示自定义文字
 			title?: string; // 主标题
@@ -84,7 +88,7 @@ export enum LinkPreset {
 	Friends = 3,
 	Anime = 4,
 	Diary = 5,
-	Gallery = 6,
+
 	Projects = 7,
 	Skills = 8,
 	Timeline = 9,
@@ -253,4 +257,20 @@ export type SakuraConfig = {
 		rotation: number; // 旋转速度
 	};
 	zIndex: number; // 层级，确保樱花在合适的层级显示
+};
+
+export type FullscreenWallpaperConfig = {
+	enable: boolean; // 是否启用全屏壁纸功能
+	src: {
+		desktop?: string | string[]; // 桌面端壁纸图片
+		mobile?: string | string[]; // 移动端壁纸图片
+	};
+	position?: "top" | "center" | "bottom"; // 壁纸位置，等同于 object-position
+	carousel?: {
+		enable: boolean; // 是否启用轮播
+		interval: number; // 轮播间隔时间（秒）
+	};
+	zIndex?: number; // 层级，确保壁纸在合适的层级显示
+	opacity?: number; // 壁纸透明度，0-1之间
+	blur?: number; // 背景模糊程度，单位px
 };

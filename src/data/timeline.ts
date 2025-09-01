@@ -6,6 +6,7 @@ export interface TimelineItem {
 	title: string;
 	description: string;
 	type: "education" | "work" | "project" | "achievement";
+	type: "education" | "work" | "project" | "achievement";
 	startDate: string;
 	endDate?: string; // 如果为空表示至今
 	location?: string;
@@ -16,6 +17,7 @@ export interface TimelineItem {
 	links?: {
 		name: string;
 		url: string;
+		type: "website" | "certificate" | "project" | "other";
 		type: "website" | "certificate" | "project" | "other";
 	}[];
 	icon?: string; // Iconify icon name
@@ -51,6 +53,11 @@ export const getTimelineStats = () => {
 		project: timelineData.filter((item) => item.type === "project").length,
 		achievement: timelineData.filter((item) => item.type === "achievement")
 			.length,
+		education: timelineData.filter((item) => item.type === "education").length,
+		work: timelineData.filter((item) => item.type === "work").length,
+		project: timelineData.filter((item) => item.type === "project").length,
+		achievement: timelineData.filter((item) => item.type === "achievement")
+			.length,
 	};
 
 	return { total, byType };
@@ -63,8 +70,18 @@ export const getTimelineByType = (type?: string) => {
 			(a, b) =>
 				new Date(b.startDate).getTime() - new Date(a.startDate).getTime(),
 		);
+	if (!type || type === "all") {
+		return timelineData.sort(
+			(a, b) =>
+				new Date(b.startDate).getTime() - new Date(a.startDate).getTime(),
+		);
 	}
 	return timelineData
+		.filter((item) => item.type === type)
+		.sort(
+			(a, b) =>
+				new Date(b.startDate).getTime() - new Date(a.startDate).getTime(),
+		);
 		.filter((item) => item.type === type)
 		.sort(
 			(a, b) =>
@@ -80,18 +97,26 @@ export const getFeaturedTimeline = () => {
 			(a, b) =>
 				new Date(b.startDate).getTime() - new Date(a.startDate).getTime(),
 		);
+		.filter((item) => item.featured)
+		.sort(
+			(a, b) =>
+				new Date(b.startDate).getTime() - new Date(a.startDate).getTime(),
+		);
 };
 
 // 获取当前进行中的项目
 export const getCurrentItems = () => {
+	return timelineData.filter((item) => !item.endDate);
 	return timelineData.filter((item) => !item.endDate);
 };
 
 // 计算总工作经验
 export const getTotalWorkExperience = () => {
 	const workItems = timelineData.filter((item) => item.type === "work");
+	const workItems = timelineData.filter((item) => item.type === "work");
 	let totalMonths = 0;
 
+	workItems.forEach((item) => {
 	workItems.forEach((item) => {
 		const startDate = new Date(item.startDate);
 		const endDate = item.endDate ? new Date(item.endDate) : new Date();
@@ -103,5 +128,7 @@ export const getTotalWorkExperience = () => {
 	return {
 		years: Math.floor(totalMonths / 12),
 		months: totalMonths % 12,
+		months: totalMonths % 12,
 	};
 };
+

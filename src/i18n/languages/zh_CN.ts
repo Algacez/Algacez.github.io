@@ -45,12 +45,19 @@ export const zh_CN: Translation = {
 	[Key.anime]: "追番",
 	[Key.diary]: "日记",
 
-	// 追番统计
+	// 番剧页面
+	[Key.animeTitle]: "我的追番记录",
+	[Key.animeSubtitle]: "记录我的二次元之旅",
+	[Key.animeList]: "追番列表",
 	[Key.animeTotal]: "总数",
 	[Key.animeWatching]: "追番中",
 	[Key.animeCompleted]: "已追完",
+	[Key.animeAvgRating]: "平均评分",
 	[Key.animeStatusWatching]: "追番中",
 	[Key.animeStatusCompleted]: "已追完",
+	[Key.animeStatusPlanned]: "计划中",
+	[Key.animeYear]: "年份",
+	[Key.animeStudio]: "制作",
 
 	// 短文页面
 	[Key.diarySubtitle]: "随时随地，分享生活",
@@ -71,26 +78,14 @@ export const zh_CN: Translation = {
 	// 音乐播放器
 	[Key.playlist]: "播放列表",
 
-	// 相册
-	[Key.gallery]: "相册",
-	[Key.gallerySubtitle]: "记录和分享美好瞬间",
-	[Key.galleryGroups]: "相册组",
-	[Key.galleryCreateGroup]: "创建相册组",
-	[Key.galleryGroupName]: "相册组名称",
-	[Key.galleryGroupDescription]: "相册组描述",
-	[Key.galleryGroupCover]: "封面图片",
-	[Key.galleryUploadImages]: "上传图片",
-	[Key.galleryImageCount]: "张图片",
-	[Key.galleryImagesCount]: "张图片",
-	[Key.galleryViewAll]: "查看全部",
-	[Key.galleryEdit]: "编辑",
-	[Key.galleryDelete]: "删除",
-	[Key.gallerySort]: "排序",
-	[Key.galleryComments]: "评论",
-	[Key.galleryAddComment]: "添加评论",
-	[Key.galleryNoGroups]: "暂无相册组",
-	[Key.galleryNoImages]: "该相册组暂无图片",
-	[Key.galleryCreateFirst]: "创建您的第一个相册组",
+	// 相册页面
+	[Key.albums]: "相册",
+	[Key.albumsSubtitle]: "记录生活中的美好瞬间",
+	[Key.albumsEmpty]: "暂无相册",
+	[Key.albumsEmptyDesc]: "还没有创建任何相册，快去添加一些美好的回忆吧！",
+	[Key.albumsBackToList]: "返回相册",
+	[Key.albumsPhotoCount]: "张照片",
+	[Key.albumsPhotosCount]: "张照片",
 
 	// 项目展示页面
 	[Key.projects]: "项目",
@@ -116,6 +111,24 @@ export const zh_CN: Translation = {
 	[Key.projectsPlanned]: "计划中",
 	[Key.projectsDemo]: "在线演示",
 	[Key.projectsSource]: "源代码",
+
+	// RSS页面
+	[Key.rss]: "RSS 订阅",
+	[Key.rssDescription]: "订阅获取最新更新",
+	[Key.rssSubtitle]: "通过 RSS 订阅，第一时间获取最新文章和动态",
+	[Key.rssLink]: "RSS 链接",
+	[Key.rssCopyToReader]: "复制链接到你的 RSS 阅读器",
+	[Key.rssCopyLink]: "复制链接",
+	[Key.rssLatestPosts]: "最新文章",
+	[Key.rssWhatIsRSS]: "什么是 RSS？",
+	[Key.rssWhatIsRSSDescription]: "RSS（Really Simple Syndication）是一种用于发布经常更新内容的标准格式。通过 RSS，你可以：",
+	[Key.rssBenefit1]: "及时获取网站最新内容，无需手动访问",
+	[Key.rssBenefit2]: "在一个地方管理多个网站的订阅",
+	[Key.rssBenefit3]: "避免错过重要更新和文章",
+	[Key.rssBenefit4]: "享受无广告的纯净阅读体验",
+	[Key.rssHowToUse]: "推荐使用 Feedly、Inoreader 或其他 RSS 阅读器来订阅本站。",
+	[Key.rssCopied]: "RSS 链接已复制到剪贴板！",
+	[Key.rssCopyFailed]: "复制失败，请手动复制链接",
 
 	// 技能展示页面
 	[Key.skills]: "技能",
